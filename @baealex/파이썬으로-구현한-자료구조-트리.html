@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="트리(Tree) 리스트나 스택 또는 큐로 가계도나 조직도를 구현할 수 있을까요? 선형 자료구조로 계층형 구조를 표현하기 어렵습니다. 이처럼 계층형 구조를 가진 문제를 해결하기 위한 자료구조 형태가 트리입니다. 트리의 구조를 일정하게 제한하여 정의하면 트리의 연산이 단순하고 명확해진다. 전체 트리의 차수가 2 이하가 되도록 정의한 것이 이진 트리이다. 이 글에서 구현된 트리의 종류는 …">
+<meta property="og:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬으로 구현한 자료구조 - 트리">
+<meta property="og:description" content="트리(Tree) 리스트나 스택 또는 큐로 가계도나 조직도를 구현할 수 있을까요? 선형 자료구조로 계층형 구조를 표현하기 어렵습니다. 이처럼 계층형 구조를 가진 문제를 해결하기 위한 자료구조 형태가 트리입니다. 트리의 구조를 일정하게 제한하여 정의하면 트리의 연산이 단순하고 명확해진다. 전체 트리의 차수가 2 이하가 되도록 정의한 것이 이진 트리이다. 이 글에서 구현된 트리의 종류는 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/17/23ejv7.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬으로 구현한 자료구조 - 트리">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">
+<meta name="twitter:description" content="트리(Tree) 리스트나 스택 또는 큐로 가계도나 조직도를 구현할 수 있을까요? 선형 자료구조로 계층형 구조를 표현하기 어렵습니다. 이처럼 계층형 구조를 가진 문제를 해결하기 위한 자료구조 형태가 트리입니다. 트리의 구조를 일정하게 제한하여 정의하면 트리의 연산이 단순하고 명확해진다. 전체 트리의 차수가 2 이하가 되도록 정의한 것이 이진 트리이다. 이 글에서 구현된 트리의 종류는 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/17/23ejv7.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>파이썬으로 구현한 자료구조 - 트리 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/baealex/2020/2/17/23ejv7.png" alt="파이썬으로 구현한 자료구조 - 트리">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'파이썬으로 구현한 자료구조' 시리즈</span>파이썬으로 구현한 자료구조 - 트리</h1>
+            <p class="post-date">2019-09-03 09:35<span>(Last Update: 2020-02-17 23:36)<span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(354);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=파이썬으로 구현한 자료구조 - 트리&url=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <h2>트리(Tree)</h2>
+<blockquote>
+<p>리스트나 스택 또는 큐로 가계도나 조직도를 구현할 수 있을까요? 선형 자료구조로 계층형 구조를 표현하기 어렵습니다. 이처럼 계층형 구조를 가진 문제를 해결하기 위한 자료구조 형태가 트리입니다.</p>
+</blockquote>
+<p>트리의 구조를 일정하게 제한하여 정의하면 트리의 연산이 단순하고 명확해진다. 전체 트리의 차수가 2 이하가 되도록 정의한 것이 이진 트리이다. 이 글에서 구현된 트리의 종류는 다음과 같으며 모두 연결 자료구조로 구성되었다. <strong>(+)</strong>히프는 순차 자료구조로 구현 이유는 아래에서.</p>
+<ul>
+<li>이진 트리</li>
+<li>스레드 이진 트리</li>
+<li>이진 탐색 트리</li>
+<li>AVL 트리</li>
+<li><strong>(+)</strong>히프</li>
+</ul>
+<p><strong>이진 트리</strong> : 이진 트리의 순회는 재귀 호출을 사용한다. 따라서 전위, 중위, 후위 순회를 간단하게 구현할 수 있다. 순회란 모든 원소를 빠트리거나 중복하지 않고 처리하는 연산을 의미한다.</p>
+<p><strong>스레드 이진 트리</strong> : 이진 트리의 위 특징 때문에 시스템 혹은 외부 스택을 관리해야하며 하위 레벨로 내려갈수록 재귀 호출의 깊이가 깊어져 비효율적일 수 있다. 스레드 이진 트리는 재귀 호출 없이 순회할 수 있도록 구현된 트리이다.</p>
+<p><strong>이진 탐색 트리</strong> : 트리를 효율적으로 구현하고 사용하기 위해서 일정한 조건으로 정의한 것이다. 탐색용 자료구조로 사용되어 노드의 크기에 따라서 위치를 정의한다.</p>
+<p><strong>AVL 트리</strong> : 이진 탐색 트리는 좌우 균형이 잘 맞으면 탐색 성능이 높다. AVL 트리는 각 노드의 왼쪽 서브 트리의 높이와 오른쪽 서브 트리의 높이를 비교하여 트리의 균형을 조절한다.</p>
+<p><strong>히프</strong> : 노드중에서 키값이 가장 큰 노드나 가장 작은 노드를 찾기 위해 만든 자료구조다.</p>
+<p><br></p>
+<h4>이진 트리</h4>
+<p>이 자료구조에서 노드는 다음과 같이 정의되었다.</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+    def __str__(self):
+        return str(self.data)
+
+class Tree:
+    def __init__(self):
+        self.root = None</code></pre>
+<p>그리고 구현될 순회는 다음과 같다.</p>
+<ul>
+<li>전위 순회</li>
+<li>중위 순회</li>
+<li>후위 순회</li>
+</ul>
+<p><strong>전위 순회</strong></p>
+<p>전위 순회는 <code>DLR</code> 순서로 순회한다.</p>
+<ol>
+<li><code>D</code> : 현재 노드를 출력한다</li>
+<li><code>L</code> : 현재 노드 왼쪽 서브트리로 이동한다</li>
+<li><code>R</code> : 현재 노드 오른쪽 서브트리로 이동한다</li>
+</ol>
+<pre><code class="language-python">def preorderTraversal(self, node):
+    print(node, end='')
+    if not node.left  == None : self.preorderTraversal(node.left)
+    if not node.right == None : self.preorderTraversal(node.right)</code></pre>
+<p>해당 노드를 출력하고 왼쪽으로 이동한다. 왼쪽 노드가 존재하면 계속해서 왼쪽으로 이동하여 출력하고 왼쪽이 끝나는 노드부터 오른쪽 노드를 순회한다.</p>
+<p><strong>중위 순회</strong></p>
+<p>중위 순회는 <code>LDR</code> 순서로 순회한다. 왼쪽 순회가 우선이고 출력이 중앙에 위치한다.</p>
+<pre><code class="language-python">def inorderTraversal(self, node):
+    if not node.left  == None : self.inorderTraversal(node.left)
+    print(node, end='')
+    if not node.right == None : self.inorderTraversal(node.right)</code></pre>
+<p><strong>후위 순회</strong></p>
+<p>후위 순회는 <code>LRD</code>로 순회한다. 출력이 마지막에 위치한다.</p>
+<pre><code class="language-python">def postorderTraversal(self, node):
+    if not node.left  == None : self.postorderTraversal(node.left)
+    if not node.right == None : self.postorderTraversal(node.right)
+    print(node, end='')</code></pre>
+<p><br></p>
+<h5>이진 트리 전체 소스코드</h5>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+    def __str__(self):
+        return str(self.data)
+
+class Tree:
+    def __init__(self):
+        self.root = None
+
+    def preorderTraversal(self, node):
+        print(node, end='')
+        if not node.left  == None : self.preorderTraversal(node.left)
+        if not node.right == None : self.preorderTraversal(node.right)
+
+    def inorderTraversal(self, node):
+        if not node.left  == None : self.inorderTraversal(node.left)
+        print(node, end='')
+        if not node.right == None : self.inorderTraversal(node.right)
+
+    def postorderTraversal(self, node):
+        if not node.left  == None : self.postorderTraversal(node.left)
+        if not node.right == None : self.postorderTraversal(node.right)
+        print(node, end='')
+
+    def makeRoot(self, node, left_node, right_node):
+        if self.root == None:
+            self.root = node
+        node.left = left_node
+        node.right = right_node
+
+if __name__ == "__main__":
+    node = []
+    node.append(Node('-'))
+    node.append(Node('*'))
+    node.append(Node('/'))
+    node.append(Node('A'))
+    node.append(Node('B'))
+    node.append(Node('C'))
+    node.append(Node('D'))
+
+    m_tree = Tree()
+    for i in range(int(len(node)/2)):
+        m_tree.makeRoot(node[i],node[i*2+1],node[i*2+2])
+
+    print(       '전위 순회 : ', end='') ; m_tree.preorderTraversal(m_tree.root)
+    print('\n' + '중위 순회 : ', end='') ; m_tree.inorderTraversal(m_tree.root)
+    print('\n' + '후위 순회 : ', end='') ; m_tree.postorderTraversal(m_tree.root)</code></pre>
+<pre><code>전위 순회 : -*AB/CD
+중위 순회 : A*B-C/D
+후위 순회 : AB*CD/-</code></pre>
+<p>이처럼 이진트리에서 전위, 중위, 후위 순회를 간단하게 구현할 수 있다.</p>
+<p><br></p>
+<h4>스레드 이진 트리</h4>
+<p>위에서도 언급했듯 이진 트리의 순회구현은 간단하지만 성능적인 측면은 좋다고 볼 수 없다. 스레드 이진 트리에서는 서브 트리가 존재하지 않는 노드의 링크를 순회 경로에 따라 선행자 또는 후행자로 지정하여 재귀 호출을 사용하지 않고 순회할 수 있다.</p>
+<p>여기서는 비어있는 노드의 오른쪽 링크를 후행자(다음에 순회할 노드)로 선택하여 <em>중위 순회</em>를 구현할 것이다. <strong>의문점</strong>은 현재 코드에선 후행자를 프로그래머가 직접 지정했지만 프로그램이 스스로 알 수 있도록 하는 방법이다.</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.is_thread_right = None
+
+    def __str__(self):
+        return str(self.data)
+
+class ThreadTree:
+    def __init__(self):
+        self.root = None</code></pre>
+<p>노드의 형태가 조금 변형되었다. 오른쪽 링크가 실제 오른쪽 서브 트리인지 후행자의 링크를 뜻하는 것인지 <code>False</code> 혹은 <code>True</code> 불리언 형태로 저장할 것이다.</p>
+<p><strong>중위 순회</strong></p>
+<p>스레드 이진 트리의 중위 순회는 재귀 호출을 사용하지 않는다. 그럼 어떻게 순회를 진행시킬 수 있을까? 우선은 재귀 호출을 사용한 중위 순회를 떠올려보자 <code>LDR</code> 방식으로 동작한다. 우선 시작은 가장 하단의 왼쪽 트리 노드다.</p>
+<pre><code class="language-python">def inorderTraversal(self, node):
+    while not node.left == None:
+        node = node.left
+    print(node, end='')</code></pre>
+<p>그 이후에는 오른쪽 노드를 쭉 따라가면 스레드의 경우 후행자로 이동하고 루트의 경우에는 오른쪽 서브트리로 이동하게 되어 순회가 가능하지만 오른쪽으로만 제대로 된 중위 순회를 재현할 수 없다. 오른쪽 링크가 후행자 링크인 경우에는 후행자를 출력하고 오른쪽 링크가 서브 트리인 경우 다시 왼쪽 서브 트리의 끝으로 이동하여 순회하도록 한다.</p>
+<pre><code class="language-python">def findThread(self, node):
+    pre_node = node
+    node = node.right
+    if node == None:
+        return node
+    # 오른쪽 링크가 후행자인 경우 후행자 반환
+    if pre_node.is_thread_right:
+        return node
+    # 오른쪽 링크가 서브 트리인 경우 왼쪽 서브 트리의 끝으로 이동
+    while not node.left == None:
+        node = node.left
+    return node</code></pre>
+<p>위 함수를 사용하여 순회를 실시하자.</p>
+<pre><code class="language-python">def inorderTraversal(self, node):
+    while not node.left == None:
+        node = node.left
+    print(node, end='')
+    while True:
+        node = self.findThread(node)
+        print(node, end='')
+        if node.right == None:
+            break</code></pre>
+<p><br></p>
+<h5>스레드 이진 트리 전체 소스코드</h5>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.is_thread_right = None
+
+    def __str__(self):
+        return str(self.data)
+
+class ThreadTree:
+    def __init__(self):
+        self.root = None
+
+    def inorderTraversal(self, node):
+        while not node.left == None:
+            node = node.left
+        print(node, end='')
+        while True:
+            node = self.findThread(node)
+            print(node, end='')
+            if node.right == None:
+                break
+
+    def findThread(self, node):
+        pre_node = node
+        node = node.right
+        if node == None:
+            return node
+        if pre_node.is_thread_right:
+            return node
+        while not node.left == None:
+            node = node.left
+        return node
+
+    def makeRoot(self, node, left_node, right_node, thread):
+        if self.root == None:
+            self.root = node
+        node.left = left_node
+        node.right = right_node
+        node.is_thread_right = thread
+
+if __name__ == "__main__":
+    node = []
+    node.append(Node('-'))
+    node.append(Node('*'))
+    node.append(Node('/'))
+    node.append(Node('A'))
+    node.append(Node('B'))
+    node.append(Node('C'))
+    node.append(Node('D'))
+
+    m_tree = ThreadTree()
+    for i in range(int(len(node)/2)):
+        m_tree.makeRoot(node[i],node[i*2+1],node[i*2+2], False)
+
+    m_tree.makeRoot(node[3], None, None, True)
+    m_tree.makeRoot(node[4], None, None, True)
+    m_tree.makeRoot(node[5], None, None, True)
+
+    node[3].right = node[1]
+    node[4].right = node[0]
+    node[5].right = node[2]
+
+    print('중위 순회 : ', end='') ; m_tree.inorderTraversal(m_tree.root)</code></pre>
+<pre><code>중위 순회 : A*B-C/D</code></pre>
+<p><br></p>
+<h4>이진 탐색 트리</h4>
+<p>트리의 값을 삽입할때 어떻게 링크를 걸어줘야 할지 어려움이 있었다. 균형 트리를 만들기 위해서 가장 가까운 빈 트리를 찾도록 순회해야 하는 걸까? 이진 탐색 트리의 경우에는 다음과 같은 규칙을 가지고 있다.</p>
+<ul>
+<li>모든 원소는 서로 다른 키를 갖는다.</li>
+<li>왼쪽 서브 트리에 있는 원소들은 루트의 키보다 작다.</li>
+<li>오른쪽 서브 트리에 있는 원소들은 루트의 키보다 크다.</li>
+<li>왼쪽 서브 트리와 오른쪽 서브 트리도 이진 탐색 트리이다.</li>
+</ul>
+<p><strong>원소 삽입</strong></p>
+<pre><code class="language-python">def insertElement(self, data):
+    new_node = Node(data)
+    if self.root == None:
+        self.root = new_node
+
+    node = self.root
+    while True:
+        pre_node = node
+        # 새 노드의 데이터가 작으면
+        # 왼쪽으로 이동
+        if node.data &gt; new_node.data:
+            node = node.left
+            # 이동한 노드가 빈 노드면 노드 추가
+            if node == None:
+                node = new_node
+                pre_node.left = node
+        # 새 노드의 데이터가 크면
+        # 오른쪽으로 이동
+        elif node.data &lt; new_node.data:
+            node = node.right
+            if node == None:
+                node = new_node
+                pre_node.right = node
+        else: return # 똑같은 키가 있으면 취소</code></pre>
+<p><strong>원소 탐색</strong></p>
+<pre><code class="language-python">def searchElement(self, data):
+    node = self.root
+    while True:
+        if node.data &gt; data:
+            node = node.left
+        elif node.data &lt; data:
+            node = node.right
+        elif node.data == data:
+            break
+        else:
+            return Node('탐색 결과 없음')
+
+    return node</code></pre>
+<p>삽입과 같으나 같은 값이 있으면 노드를 반환한다.</p>
+<p><br></p>
+<h5>이진 탐색 트리 전체 소스코드</h5>
+<pre><code class="language-python">import random
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.right = None
+        self.left = None
+
+    def __str__(self):
+        return str(self.data)
+
+class SearchTree:
+    def __init__(self):
+        self.root = None
+
+    def insertElement(self, data):
+        new_node = Node(data)
+        if self.root == None:
+            self.root = new_node
+
+        node = self.root
+        while True:
+            pre_node = node
+            if node.data &gt; new_node.data:
+                node = node.left
+                if node == None:
+                    node = new_node
+                    pre_node.left = node
+            elif node.data &lt; new_node.data:
+                node = node.right
+                if node == None:
+                    node = new_node
+                    pre_node.right = node
+            else: return
+
+    def searchElement(self, data):
+        node = self.root
+        while True:
+            if node.data &gt; data:
+                node = node.left
+            elif node.data &lt; data:
+                node = node.right
+            elif node.data == data:
+                break
+            else:
+                return Node('탐색 결과 없음')
+
+        return node
+
+    def preorderTraversal(self, node):
+        print(node, end=' ')
+        if not node.left  == None : self.preorderTraversal(node.left)
+        if not node.right == None : self.preorderTraversal(node.right)
+
+    def inorderTraversal(self, node):
+        if not node.left  == None : self.inorderTraversal(node.left)
+        print(node, end=' ')
+        if not node.right == None : self.inorderTraversal(node.right)
+
+    def postorderTraversal(self, node):
+        if not node.left  == None : self.postorderTraversal(node.left)
+        if not node.right == None : self.postorderTraversal(node.right)
+        print(node, end=' ')
+
+if __name__ == "__main__":
+    m_tree = SearchTree()
+
+    m_tree.insertElement(250)
+    for i in range(20):
+        m_tree.insertElement(random.randint(0,500))
+
+    print(       '전위 순회 : ', end='') ; m_tree.preorderTraversal(m_tree.root)
+    print('\n' + '중위 순회 : ', end='') ; m_tree.inorderTraversal(m_tree.root)
+    print('\n' + '후위 순회 : ', end='') ; m_tree.postorderTraversal(m_tree.root)
+
+    node = m_tree.searchElement(250)
+    print('\n' + '탐색한 노드의 값 :', node)
+    print(       '노드의 왼쪽 서브 트리 :', node.left)
+    print(       '노드의 오른쪽 서브 트리 :', node.right)
+
+    node = m_tree.searchElement(node.left.data)
+    print('\n' + '탐색한 노드의 값 :', node)
+    print(       '노드의 왼쪽 서브 트리 :', node.left)
+    print(       '노드의 오른쪽 서브 트리 :', node.right)</code></pre>
+<pre><code>전위 순회 : 250 90 81 28 60 87 93 91 129 179 401 313 274 278 370 332 439 426 402 414 464 
+중위 순회 : 28 60 81 87 90 91 93 129 179 250 274 278 313 332 370 401 402 414 426 439 464
+후위 순회 : 60 28 87 81 91 179 129 93 90 278 274 332 370 313 414 402 426 464 439 401 250
+탐색한 노드의 값 : 250
+노드의 왼쪽 서브 트리 : 90
+노드의 오른쪽 서브 트리 : 401
+
+탐색한 노드의 값 : 90
+노드의 왼쪽 서브 트리 : 81
+노드의 오른쪽 서브 트리 : 93</code></pre>
+<p>문제는 값을 순서대로 삽입하면 편향 트리(한쪽으로 치우친 트리)로 만들어진다. 위 코드에서 랜덤으로 값을 삽입한 이유다. 위에서도 언급했지만 편향 트리의 탐색은 매우 비효율적이다.</p>
+<p><br></p>
+<h4>AVL 트리</h4>
+<p>이를 해결하기 위한것이 <code>AVL Tree</code>이다. AVL 트리는 각 노드가 BF 값을 가지고 있다. 이 값은 왼쪽 서브 트리(hL)에서 오른쪽 서브 트리(hR)를 뺀 값(BF = hL - hR)을 가진다. BF는 [-1, 0, 1] 중에 한 값을 가지고 있어야 균형 트리로 간주한다. 이진 탐색 트리에서 균형이 깨지는 경우는 4가지 경우가 존재한다. LL, RR, LR, RL이 각각의 경우이며 그림으로 표현하면 아래와 같다.</p>
+<p><br></p>
+<h5>AVL 트리 전체 소스코드</h5>
+<p>추후 추가됨</p>
+<p><br></p>
+<h4>히프</h4>
+<p>히프는 두가지의 조건이 성립해야 한다.</p>
+<ul>
+<li>완전 이진 트리일 것</li>
+<li>부모 노드의 키값과 자식 노드의 키값 사이의 크기 관계 성립</li>
+</ul>
+<p>필자가 누누히 궁금했던건 완전 이진 트리의 노드를 삽입하는 경우 많은 오버헤드가 필요해 보이는데(비어있는 가장 가까운 노드를 찾기위한 연산) 어떻게 적합하게 넣느냐는 것이었다. 근데 연결 리스트가 아닌 순차 리스트를 사용하면 간단하게 문제는 해결된다.</p>
+<p>여기서는 파이썬의 리스트를 활용하였다.</p>
+<p><strong>원소 삽입</strong></p>
+<p>새로 추가되는 원소는 순차 자료구조의 마지막 인덱스에 삽입된다. 그리고 해당 노드에서 자신의 부모노드와 값을 비교하여 상위로 올리는 과정을 반복하면 부모 노드와 자식 노드의 크기 관계를 성립시킬 수 있다. 자식 노드의 인덱스 번호로 부모 노드의 인덱스를 구하는 방식은 자신의 인덱스를 2로 나눈 것에 내림이 부모 노드다.</p>
+<pre><code class="language-python">while True:
+    next_node_num = int(node_num/2)
+    if self.array[next_node_num] &lt; self.array[node_num]:
+        temp = self.array[node_num]
+        self.array[node_num] = self.array[next_node_num]
+        self.array[next_node_num] = temp
+    else:
+        break
+    node_num = int(node_num/2)
+    if node_num == 0:
+        break</code></pre>
+<p>부모 노드로 지속적으로 올라가며 반복하는데 종료되는 조건은 최상위 노드이거나 자식 노드가 더이상 부모 노드보다 크지 않으면 끝낸다.</p>
+<p><strong>원소 삭제</strong></p>
+<p>원소 삭제는 삽입과 반대로 작업을 실시한다 최상위 노드를 삭제하면 최하단 노드를 최상위로 올린뒤 위에서 아래로 값을 교환하면 된다. 자식 노드의 인덱스를 구하는 방법은 자신의 인덱스의 2를 곱한 값에 1 혹은 2를 더한 값이다.</p>
+<pre><code class="language-python">self.array.insert(0, tail_value)
+now_index = 0
+next_index = 0
+while True:
+    now_index = next_index
+    next_index *= 2
+    if next_index + 2 &gt; last_index:
+        break
+    if self.array[next_index + 1] &gt; self.array[next_index + 2]:
+        next_index += 1
+    else:
+        next_index += 2
+    if self.array[now_index] &lt; self.array[next_index]:
+        temp = self.array[now_index]
+        self.array[now_index] = self.array[next_index]
+        self.array[next_index] = temp
+return root_value</code></pre>
+<p>포인트는 하위 두 노드중에 값을 먼저 비교해주고 교환을 했다는 것이다. 무엇이든 먼저 조건이 성립한 노드와 교환하면 되는 줄 알았는데 정렬 구현하다가 이상하다는 걸 발견했다...</p>
+<p><br></p>
+<h5>히프 전체 소스코드</h5>
+<pre><code class="language-python">class Heap:
+    def __init__(self):
+        self.array = []
+
+    def __str__(self):
+        return str(self.array)
+
+    def insertElement(self, data):
+        self.array.append(data)
+        length = len(self.array)
+        if length &gt; 1:
+            node_num = length - 1
+            while True:
+                next_node_num = int(node_num/2)
+                if self.array[next_node_num] &lt; self.array[node_num]:
+                    temp = self.array[node_num]
+                    self.array[node_num] = self.array[next_node_num]
+                    self.array[next_node_num] = temp
+                else:
+                    break
+                node_num = int(node_num/2)
+                if node_num == 0:
+                    break
+
+    def deleteRoot(self):
+        root_value = self.array[0]
+        del self.array[0]
+
+        last_index = len(self.array) - 1
+        if last_index &lt; 0:
+            return root_value
+        tail_value = self.array[last_index]
+        del self.array[last_index]
+
+        self.array.insert(0, tail_value)
+        now_index = 0
+        next_index = 0
+        while True:
+            now_index = next_index
+            next_index *= 2
+            if next_index + 2 &gt; last_index:
+                break
+            if self.array[next_index + 1] &gt; self.array[next_index + 2]:
+                next_index += 1
+            else:
+                next_index += 2
+            if self.array[now_index] &lt; self.array[next_index]:
+                temp = self.array[now_index]
+                self.array[now_index] = self.array[next_index]
+                self.array[next_index] = temp
+        return root_value
+
+if __name__ == '__main__':
+    m_heap = Heap()
+    m_heap.insertElement(2)
+    m_heap.insertElement(4)
+    m_heap.insertElement(5)
+    m_heap.insertElement(8)
+    m_heap.insertElement(2)
+    m_heap.insertElement(3)
+    print('Heap :', m_heap)
+    print('Delete Root :', m_heap.deleteRoot())
+    print('Delete Root :', m_heap.deleteRoot())
+    print('Delete Root :', m_heap.deleteRoot())
+    print('Heap :', m_heap)</code></pre>
+<pre><code>Heap : [8, 5, 4, 2, 2, 3]
+Delete Root : 8
+Delete Root : 5
+Delete Root : 4
+Heap : [3, 2, 2]</code></pre>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="text-decoration-none text-white">'파이썬으로 구현한 자료구조' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90?series=파이썬으로-구현한-자료구조">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>파이썬으로 구현한 자료구조 - 큐
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/11/23EZWK.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">스레드와 스토리에 관하여</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/3/baealex/14_13_33.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4">C++ 튜토리얼 3. 전처리기, Define과 Const의 차이</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1ewGe.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>

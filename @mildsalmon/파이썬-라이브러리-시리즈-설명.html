@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="이 시리즈는 내가 파이썬으로 코딩을 할때 사용한 모듈을 나만의 방식으로 정리해 놓는 공간이다. 나는 이런 경험이 있다. 인터넷을 보고 비슷하게, 따라서 코딩을 했지만 해당 모듈이 어떻게 동작하는지 함수에서는 어떤 매개변수를 쓰는지 궁금했다. 그래서 Document를 찾아봤지만, 자세히 안보고 넘기게 되더라. 보통 영어이고, 문서가 엄청 길기 때문에.. 그래서 그냥 작정하고 달려들기로 했다. …">
+<meta property="og:url" content="https://blex.kr/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬 모듈 시리즈 설명">
+<meta property="og:description" content="이 시리즈는 내가 파이썬으로 코딩을 할때 사용한 모듈을 나만의 방식으로 정리해 놓는 공간이다. 나는 이런 경험이 있다. 인터넷을 보고 비슷하게, 따라서 코딩을 했지만 해당 모듈이 어떻게 동작하는지 함수에서는 어떤 매개변수를 쓰는지 궁금했다. 그래서 Document를 찾아봤지만, 자세히 안보고 넘기게 되더라. 보통 영어이고, 문서가 엄청 길기 때문에.. 그래서 그냥 작정하고 달려들기로 했다. …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬 모듈 시리즈 설명">
+<meta name="twitter:url" content="https://blex.kr/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85">
+<meta name="twitter:description" content="이 시리즈는 내가 파이썬으로 코딩을 할때 사용한 모듈을 나만의 방식으로 정리해 놓는 공간이다. 나는 이런 경험이 있다. 인터넷을 보고 비슷하게, 따라서 코딩을 했지만 해당 모듈이 어떻게 동작하는지 함수에서는 어떤 매개변수를 쓰는지 궁금했다. 그래서 Document를 찾아봤지만, 자세히 안보고 넘기게 되더라. 보통 영어이고, 문서가 엄청 길기 때문에.. 그래서 그냥 작정하고 달려들기로 했다. …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>파이썬 모듈 시리즈 설명 – mildsalmon</title>
+</head>
+<body>
+    
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@mildsalmon">mildsalmon</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(344);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=파이썬 모듈 시리즈 설명&url=https://blex.kr/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'파이썬 모듈' 시리즈</span>파이썬 모듈 시리즈 설명</h1>
+        <p class="post-date">
+            2020-02-14 21:54
+            <span>(Last Update: 2020-02-14 23:37)<span></p>
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/CaDW.jpg)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-three-quarters"></i> 65%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>이 시리즈는 내가 파이썬으로 코딩을 할때 사용한 모듈을 나만의 방식으로 정리해 놓는 공간이다.</p>
+<p>나는 이런 경험이 있다.
+인터넷을 보고 비슷하게, 따라서 코딩을 했지만 해당 모듈이 어떻게 동작하는지 함수에서는 어떤 매개변수를 쓰는지 궁금했다.
+그래서 Document를 찾아봤지만, 자세히 안보고 넘기게 되더라.
+보통 영어이고, 문서가 엄청 길기 때문에..</p>
+<p>그래서 그냥 작정하고 달려들기로 했다.
+그냥 그 문서를 한국어로 번역이 되어 있더라도 뭔가 이상하다 싶은 부분은 내가 한번 해석해보고,
+A부터 Z까지 한번 전부다 코딩해보고 결과 기록해보는게 어떨까.
+미친짓이지.
+영어도 못하니 시간낭비일 수도 있다.</p>
+<p>그럼에도 불구하고 그냥 해볼란다.</p>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@mildsalmon/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88" class="text-decoration-none text-white">'파이썬 모듈' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/beautifulsoup?series=파이썬-모듈">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>beautifulsoup4
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/requests?series=파이썬-모듈">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Requests
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@mildsalmon/topic/%EC%9D%B8%ED%8A%B8%EB%A1%9C">인트로</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EB%AA%A8%EB%93%88">파이썬모듈</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/beautifulsoup"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/12/21UPtd.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/beautifulsoup">beautifulsoup4</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19Uqot.gif);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/telegram"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/17/15Qb1t.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/telegram">Python Telegram Bot</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>

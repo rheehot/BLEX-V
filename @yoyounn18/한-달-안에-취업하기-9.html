@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="오늘 할 일 알고리즘 1문제 SPA 프로젝트 최대한 진행해보기 알고리즘 1문제 오늘의 문제 : https://app.codesignal.com/arcade/intro/level-2/xzKiBHjhoinnpdh6m Github map() 을 활용할 기회일것 같아서 최대한 활용해보려 했는데 map안에서 index를 늘릴 방법을 모르겠어서 포기하고 for문을 돌려버렸다. SPA 프로젝트 최대한 진행해보기 개발노트 마음에 100퍼센트 든다고는 못하겠지만 현재의 내가 낼 수 있는 최고의 산출물인것은 확실할듯 하다. …">
+<meta property="og:url" content="https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한 달 안에 취업하기 #9">
+<meta property="og:description" content="오늘 할 일 알고리즘 1문제 SPA 프로젝트 최대한 진행해보기 알고리즘 1문제 오늘의 문제 : https://app.codesignal.com/arcade/intro/level-2/xzKiBHjhoinnpdh6m Github map() 을 활용할 기회일것 같아서 최대한 활용해보려 했는데 map안에서 index를 늘릴 방법을 모르겠어서 포기하고 for문을 돌려버렸다. SPA 프로젝트 최대한 진행해보기 개발노트 마음에 100퍼센트 든다고는 못하겠지만 현재의 내가 낼 수 있는 최고의 산출물인것은 확실할듯 하다. …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/yoyounn18/2020/2/5/1mouw.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="yoyounn18">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한 달 안에 취업하기 #9">
+<meta name="twitter:url" content="https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9">
+<meta name="twitter:description" content="오늘 할 일 알고리즘 1문제 SPA 프로젝트 최대한 진행해보기 알고리즘 1문제 오늘의 문제 : https://app.codesignal.com/arcade/intro/level-2/xzKiBHjhoinnpdh6m Github map() 을 활용할 기회일것 같아서 최대한 활용해보려 했는데 map안에서 index를 늘릴 방법을 모르겠어서 포기하고 for문을 돌려버렸다. SPA 프로젝트 최대한 진행해보기 개발노트 마음에 100퍼센트 든다고는 못하겠지만 현재의 내가 낼 수 있는 최고의 산출물인것은 확실할듯 하다. …">
+<meta name="twitter:image" content="https://static.blex.kr/title/yoyounn18/2020/2/5/1mouw.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>한 달 안에 취업하기 #9 – yoyounn18</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/yoyounn18/2020/2/5/1mouw.jpg" alt="한 달 안에 취업하기 #9">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'한 달 안에 취업하기' 시리즈</span>한 달 안에 취업하기 #9</h1>
+            <p class="post-date">2020-02-04 09:02<span>(Last Update: 2020-02-05 01:58)<span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@yoyounn18">yoyounn18</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(320);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한 달 안에 취업하기 #9&url=https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@yoyounn18">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/yoyounn18/BL4W.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-three-quarters"></i> 70%</span></h4>
+            
+            <p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('yoyounn18')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <h5>오늘 할 일</h5>
+<ul>
+<li>
+<p>알고리즘 1문제</p>
+</li>
+<li>
+<p>SPA 프로젝트 최대한 진행해보기</p>
+</li>
+</ul>
+<h3>알고리즘 1문제</h3>
+<p>오늘의 문제 : <a href="https://app.codesignal.com/arcade/intro/level-2/xzKiBHjhoinnpdh6m">https://app.codesignal.com/arcade/intro/level-2/xzKiBHjhoinnpdh6m</a></p>
+<p><a href="https://github.com/yoyounn18/1Day1Algorithm/blob/master/codesignal_4">Github</a></p>
+<p><code>map()</code> 을 활용할 기회일것 같아서 최대한 활용해보려 했는데 map안에서 index를 늘릴 방법을 모르겠어서 포기하고 for문을 돌려버렸다.</p>
+<h3>SPA 프로젝트 최대한 진행해보기</h3>
+<p><a href="https://blex.kr/@yoyounn18/spa-project-%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></p>
+<p>마음에 100퍼센트 든다고는 못하겠지만 현재의 내가 낼 수 있는 최고의 산출물인것은 확실할듯 하다. 뭐 첫번째 토이프로젝트이고, 앞으로 Redux Sass를 접목한 더 볼륨있는 프로젝트를 하기 앞서 예방접종을 맞는다는 느낌으로 진행하고 있다.</p>
+<h5>내일 할 일</h5>
+<ul>
+<li>알고리즘 1문제</li>
+<li>SPA 프로젝트 끝내기</li>
+<li>(일찍 끝내고 시간이 남을 경우) 프로그래밍 관련 유튜브 영상 리뷰</li>
+</ul>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@yoyounn18/series/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0" class="text-decoration-none text-white">'한 달 안에 취업하기' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-8?series=한-달-안에-취업하기">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한 달 안에 취업하기 #8
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-10-1?series=한-달-안에-취업하기">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>한 달 안에 취업하기 #10
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80">[11.1]Javascript 공부</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/javascript-prototype%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/7/yoyounn18/12_53_30.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/javascript-prototype%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4">[JavaScript] ProtoType에 대한 이해</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%EB%A5%BC-%EC%B0%BE%EB%8A%94%EB%8B%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/18/yoyounn18/9_49_0.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%EB%A5%BC-%EC%B0%BE%EB%8A%94%EB%8B%A4">[팀 프로젝트] 아이디어를 찾는다.</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>

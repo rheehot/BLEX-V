@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="오늘 할 일 알고리즘 1문제 (programmers level 2로) Node.js 공부 최대한 해보기 기업 리뷰 1곳 프로그래밍 관련 유튜브 영상 1개 리뷰 알고리즘 1문제 GitHub array.some 개념을 사용하여 풀었다. Node.js 공부 최대한 해보기 이건 진짜 변명이 아니라 지금은 Node.js 할 떄가 아닌것 같습니다.. 그 어제 TodoList 프론트를 짜는데 생각대로 척척 짜지지가 …">
+<meta property="og:url" content="https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-3">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한 달 안에 취업하기 #3">
+<meta property="og:description" content="오늘 할 일 알고리즘 1문제 (programmers level 2로) Node.js 공부 최대한 해보기 기업 리뷰 1곳 프로그래밍 관련 유튜브 영상 1개 리뷰 알고리즘 1문제 GitHub array.some 개념을 사용하여 풀었다. Node.js 공부 최대한 해보기 이건 진짜 변명이 아니라 지금은 Node.js 할 떄가 아닌것 같습니다.. 그 어제 TodoList 프론트를 짜는데 생각대로 척척 짜지지가 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/yoyounn18/2020/1/27/5kco9.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="yoyounn18">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한 달 안에 취업하기 #3">
+<meta name="twitter:url" content="https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-3">
+<meta name="twitter:description" content="오늘 할 일 알고리즘 1문제 (programmers level 2로) Node.js 공부 최대한 해보기 기업 리뷰 1곳 프로그래밍 관련 유튜브 영상 1개 리뷰 알고리즘 1문제 GitHub array.some 개념을 사용하여 풀었다. Node.js 공부 최대한 해보기 이건 진짜 변명이 아니라 지금은 Node.js 할 떄가 아닌것 같습니다.. 그 어제 TodoList 프론트를 짜는데 생각대로 척척 짜지지가 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/yoyounn18/2020/1/27/5kco9.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>한 달 안에 취업하기 #3 – yoyounn18</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/yoyounn18/2020/1/27/5kco9.png" alt="한 달 안에 취업하기 #3">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'한 달 안에 취업하기' 시리즈</span>한 달 안에 취업하기 #3</h1>
+            <p class="post-date">2020-01-27 05:25<span>(Last Update: 2020-01-27 05:27)<span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@yoyounn18">yoyounn18</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(311);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-3" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한 달 안에 취업하기 #3&url=https://blex.kr/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-3" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@yoyounn18">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/yoyounn18/BL4W.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-three-quarters"></i> 70%</span></h4>
+            
+            <p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('yoyounn18')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <h5>오늘 할 일</h5>
+<ul>
+<li>알고리즘 1문제 (programmers level 2로)</li>
+<li>Node.js 공부 최대한 해보기</li>
+<li>기업 리뷰 1곳</li>
+<li>프로그래밍 관련 유튜브 영상 1개 리뷰</li>
+</ul>
+<h3>알고리즘 1문제</h3>
+<p><a href="https://github.com/yoyounn18/1Day1Algorithm/blob/master/%ED%94%84%EB%A6%B0%ED%84%B0">GitHub</a></p>
+<p><code>array.some</code> 개념을 사용하여 풀었다. </p>
+<h3>Node.js 공부 최대한 해보기</h3>
+<p>이건 진짜 변명이 아니라 지금은 Node.js 할 떄가 아닌것 같습니다.. 그 어제 TodoList 프론트를 짜는데 생각대로 척척 짜지지가 않더라구요. 일단 지금은 React에 집중해야 할 때인것 같습니다. 노선을 바꿔서 Node.js 대신 Javascript 메소드 통암기 + React SPA 개발로 전환합니다. 요즘 자바스크립트로 알고리즘 문제를 풀고있는데 이 메소드의 중요성을 실감하고있습니다. 처음에는 사용 할 때마다 구글에 검색을 해서 가져다 쓰기를 반복하면서 언젠가는 외워지겠지를 생각했지만 이 프로젝트의 방향과는 맞지않는 안일한 생각인 것 같아서 결국 암기를 선택했습니다. SPA는 최대한 디자인에 신경을 써서 팬 페이지 아니면 웹사이트 클론코딩을 해볼것 같습니다. 사태가 심각합니다. React 비중 확 늘리겠습니다.</p>
+<h3>기업 리뷰 1곳</h3>
+<p>오늘의 기업 : <strong>십단콤보주식회사</strong></p>
+<p><a href="http://www.jobkorea.co.kr/Recruit/Co_Read/C/coron1902">잡코리아 기업정보</a></p>
+<p><a href="https://rentalroo.net/">기업 홈페이지</a></p>
+<p>여행기구를 렌탈해주는 업체인듯하다. 일단 굉장히 마음에 들었던 부분은 대표님 마인드가 좋다는 것이었다. 서로의 부족함을 인정하고 같이 성장해나가자! 를 외치시는 대표님은 굉장히 파이팅 넘쳐보이신다. 회사 규모는 5명 시작한지는 1년된 스타트업이다. 이 부분에 대한 장단점은 저번 포스팅에 써두었으니 다른 이야기를 좀 해보겠다. 현실적으로 필자가 React와 같은 자바스크립트 라이브러리를 다루는 곳을 취직을 하기 위해선 필연적으로 매우 작은 규모의 회사를 가야 한다. React 기반의 SI 업체가 있다면 좋겠지만 많지도 않고 있다 해도 들어가기 어려울것이기 때문에. 그렇다면 이런 회사를 들어가서 경력을 쌓고 이직을 통해 커리어를 키워나가야 한다는 것인데, 10년넘게 스프링 웹개발을 하고계신 필자의 매형께서 '혼자 일을 하는 곳은 피해라' 라고 조언을 하셨다. 근데 이런 규모의 회사는 혼자 일을 할 수 밖에 없지 않을까? 라는 생각이 든다. 그러면서 '사수'라는 개념이 자연스럽게 뒤따라왔는데, 처음에는 사수의 유무를 크게 생각하지 않았다. 근데 만약에 사수가 없는 상황을 가정하고 생각해본다면, 일의 진행이 어떻게 될 지 좀 뻔해진다는 생각이 들었다. 무슨 말이냐면 만일 나 혼자 Front-End를 이끌어 간다면, 지금 이 시리즈를 운용하면서 하는 토이프로젝트처럼 내 스스로의 기한이나 성능의 판단은 존재하겠지만 빡빡한 데드라인, 협업 구조, 현업 사람들의 기준에 맞는 기술 수준 등이 없는, 한 마디로 저러한 기준 속에서 성장하지 못한 채 잘못된 방향으로 성장할까봐 걱정이 많이 된다. 일단 이러한 생각을 재쳐두고 취직이 우선일까? 한 번 경험해보면 눈이 달라질까? 급여라는 책임감을 지고있으면 개인 토이프로젝트와는 다른느낌으로 진행할 수 있을까? 정말 고민이 크다. 이 회사 역시 React만을 요구하는 것이 아닌 Node.js 까지 원하는 듯 하다. 내 최종 목표와는 같지만 현재의 구직의 방향과는 맞지 않는다. 하지만 이번엔 지원해보려한다. 가능하다면 면접까지 가서 내가 궁금한 것들(위에서 말한)을 질문해보고싶다. 합격 불합격은 그 다음 이야기이고 그 회사를 갈지 말지는 더 다음의 이야기일 것 같다.</p>
+<h3>프로그래밍 관련 유튜브 영상 1개 리뷰</h3>
+<p>오늘의 영상 : <a href="https://www.youtube.com/watch?v=6FnkGKYK6iQ">Nomad Coder의 JQuery에 대한 이야기</a></p>
+<p>오늘도 노마드코더의 영상을 가져왔다. 여러 사람의 생각을 듣는 것 역시 중요하다는 것을 잘 알지만, 노마드코더 채널의 영상들 제목, 썸네일 등을 보고 도저히 지나갈 수가 없었다. 당분간은 노마드코더의 영상을 다룰것이지만 댓글로 영상을 추천해주신다면 적극 고려해 볼 생각이 있으니 추천해주시면 ㄳ</p>
+<p>필자는 이 영상을 두 번 봤다. 웹 개발자로 진로를 잡은 7월경에 한 번, 그리고 오늘 한 번. 7월경에 처음봤을때는 그냥 유머 영상처럼 시청했던것 같다. 그 때 당시엔 이 영상 말대로 JQuery는 지는해 이고 뜨는 해인 Vanilla JS로 시작해야 한다. 라는 막연한 생각만을 가지고 있었고 그대로 실천했다. 그렇게 자바스크립트 기반으로 웹 공부를 계속 하다가, Spring 기반의 웹 프로젝트의 Front-End 역할로 참여하게 되었는데 진행중인 프로젝트에 참여하다보니 기술스택을 내 마음대로 설정할 수가 없어서 이미 쓰여지고 있던 JQuery를 쓰게되었다. 근데 써보니 그동안 Vanilla JS로 왜 하고있었지? 라는 생각이 들 정도로 너무 쉽고 무엇보다 예제가 정말 많았다. 그래서 문제없이 프로젝트를 JQuery와 함께 마쳤던 기억이 있다. 대학교때 친했던 후배중에 Low Level 프로그래밍을 신봉했던 후배가 있었다. 그 후배에게 귀에 딱지가 앉을 정도로 Low Level의 중요성에 대해서 들어왔던지라 프로그래밍 적으로 Low Level이 어떤 의미를 갖는지 어느정도는 안다. 그래서 노마드코더의 JQuery에 대한 생각에도 동의했었던 것이고. 의도는 알겠다. 자바스크립트가 정말 많은 사람들이 사용하고있고, 그에 기반한 라이브러리가 정말 많이 나오고 있다. 아마 노마드코더는 그 것들을 고려해서 Vanilla JS로 시작하라는 말이었겠지만 그때 당시 무지했던 내게 그 말은 'JQuery 구리니까 그냥 걸러'로 받아들여졌고, 불과 얼마 전 까지만해도 그렇게 생각했었다. 뭐 두번째로 본 지금 순간에도 어느정도는 동의한다. 하지만 현재 나의 상황과 좁디 좁은 한국의 웹 개발 시장등을 고려했을때 JQuery는 알면 무조건 좋은 기술이라고 생각한다. 이 느낌보다도 오늘의 교훈은 '버릴 기술은 없다'이다. 다시 한 번 말하지만 노마드코더가 JQuery를 버리라고 하지는 않았다. 그저 상황을 전혀 고려하지 않고, 매체의 정보를 여과없이 받아들였던 2019년 7월의 나에게 전하는 말이다.</p>
+<h3>오늘의 반성</h3>
+<p>하필 왜 마음먹고 시작한 한 달 안에 취업하기 프로젝트의 시작부터 설날이 걸린것인지 원망스럽다. 라는 안일한 생각을 가진 내가 원망스럽다. 겉보기엔 '얘 오늘 뭐했어?" 라는 생각이 드실 수도 있지만, 오늘 하루종일 프론트 붙잡고 씨름했어요 ㅠㅠ 더 열심히 해야겠지만, 고1 이후로 이렇게 공부목적으로 의자에 오래 앉아있던적이 없는데 확실히 이 프로젝트를 시작하길 잘 했다는 생각이 든다. '진짜 해내고 싶다' 라는 생각이 정말 강하게 든다. 물론 안일했어요 오늘 좀 잠도 많이자고 낮잠도 자고 그랬긴 한데.. 열심히 해보겠습니다. 꼭</p>
+<h5>내일 할 일</h5>
+<ul>
+<li>알고리즘 1문제</li>
+<li>Javascript Array 메소드 공부</li>
+<li>SPA 프로젝트 주제 선정</li>
+<li>프로젝트 최대한 진행해보기</li>
+<li>기업 리뷰 1곳</li>
+<li>프로그래밍 관련 유튜브 영상 1개 리뷰</li>
+</ul>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@yoyounn18/series/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0" class="text-decoration-none text-white">'한 달 안에 취업하기' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-2?series=한-달-안에-취업하기">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한 달 안에 취업하기 #2
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-4?series=한-달-안에-취업하기">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>한 달 안에 취업하기 #4
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@yoyounn18/topic/javascript">javascript</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EA%B0%9C%EB%B0%9C%EC%9E%90">개발자</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94">노마드코더</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EC%8B%A0%EC%9E%85">신입</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EC%B7%A8%EC%97%85">취업</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4">프로그래머스</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8">프로젝트</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C">프론트엔드</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-12"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/2/8/20MRmt.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-12">한 달 안에 취업하기 # 12</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/1/28/22aNT4.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-4">한 달 안에 취업하기 #4</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-6"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/1/31/2gQkI.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-6">한 달 안에 취업하기 #6</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>

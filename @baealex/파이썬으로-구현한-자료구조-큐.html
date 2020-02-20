@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="큐(Queue) 은행에서는 먼저 기다린 손님을 우선으로 일을 처리해 줍니다. 이처럼 삽입 순서와 삭제 순서가 일치하도록 하는 자료구조를 큐라고 합니다. 앞서 익혔던 스택의 경우에는 늦게 들어온게 가장 먼저 나가는 방식인 LIFO 였으나 큐의 경우에는 스택과 다르게 선입선출, FIFO(First In First Out) 방식을 사용한다. 우리의 법치국가 사회에서 가장 많이 볼 수 있는 …">
+<meta property="og:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬으로 구현한 자료구조 - 큐">
+<meta property="og:description" content="큐(Queue) 은행에서는 먼저 기다린 손님을 우선으로 일을 처리해 줍니다. 이처럼 삽입 순서와 삭제 순서가 일치하도록 하는 자료구조를 큐라고 합니다. 앞서 익혔던 스택의 경우에는 늦게 들어온게 가장 먼저 나가는 방식인 LIFO 였으나 큐의 경우에는 스택과 다르게 선입선출, FIFO(First In First Out) 방식을 사용한다. 우리의 법치국가 사회에서 가장 많이 볼 수 있는 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/17/23H2Ag.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬으로 구현한 자료구조 - 큐">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90">
+<meta name="twitter:description" content="큐(Queue) 은행에서는 먼저 기다린 손님을 우선으로 일을 처리해 줍니다. 이처럼 삽입 순서와 삭제 순서가 일치하도록 하는 자료구조를 큐라고 합니다. 앞서 익혔던 스택의 경우에는 늦게 들어온게 가장 먼저 나가는 방식인 LIFO 였으나 큐의 경우에는 스택과 다르게 선입선출, FIFO(First In First Out) 방식을 사용한다. 우리의 법치국가 사회에서 가장 많이 볼 수 있는 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/17/23H2Ag.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>파이썬으로 구현한 자료구조 - 큐 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/baealex/2020/2/17/23H2Ag.jpg" alt="파이썬으로 구현한 자료구조 - 큐">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'파이썬으로 구현한 자료구조' 시리즈</span>파이썬으로 구현한 자료구조 - 큐</h1>
+            <p class="post-date">2019-09-03 09:34<span>(Last Update: 2020-02-17 23:35)<span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(353);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=파이썬으로 구현한 자료구조 - 큐&url=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <h2>큐(Queue)</h2>
+<blockquote>
+<p>은행에서는 먼저 기다린 손님을 우선으로 일을 처리해 줍니다. 이처럼 삽입 순서와 삭제 순서가 일치하도록 하는 자료구조를 큐라고 합니다.</p>
+</blockquote>
+<p>앞서 익혔던 스택의 경우에는 늦게 들어온게 가장 먼저 나가는 방식인 LIFO 였으나 큐의 경우에는 스택과 다르게 선입선출, FIFO(First In First Out) 방식을 사용한다. 우리의 법치국가 사회에서 가장 많이 볼 수 있는 자료구조다. 큐의 구현 방식은 아래와 같다.</p>
+<ul>
+<li>순차 큐</li>
+<li>원형 큐</li>
+<li>연결 큐</li>
+</ul>
+<p><strong>순차 큐</strong> : 순차 큐는 배열(순차 자료구조)로 구현하는 것이 일반적이다. 큐의 경우에는 들어오는 방향인 <code>rear</code>와 나가는 방향인 <code>front</code>가 존재하는데 순차 큐는 <code>rear</code>와 <code>front</code>가 인덱스 번호로 저장된다. 요소가 추가되거나 삭제될 때 <code>rear</code>와 <code>front</code>의 값을 변경하며 저장한다.</p>
+<p><strong>원형 큐</strong> : 만일 순차 큐에서 <code>rear</code>가 마지막 인덱스에 위치하면 어떻게 되는걸까? 안타깝게도 순차 큐의 생명은 끝난다. 만일 <code>front</code>가 있는 위치가 아니라면 <code>rear</code>를 다시 앞으로 보낼 수 있지 않을까? 그게 원형 큐다. 원형 큐는 순차 큐와 마찬가지로 순차 자료구조를 활용하여 만들기 때문에 물리적으로 연결된 구조가 아니지만 논리적으로 연결되어 있다고 가정하고 구현한다.</p>
+<p><strong>연결 큐</strong> : 위 두가지 큐 구조의 단점은 순차 자료구조인 관계로 역시 크기를 변경하기 어렵다는데 있다. 연결 큐는 연결 리스트를 활용하여 구현하는 큐로 크기에 제한없이 사용할 수 있다는 장점이 있다.</p>
+<p>이 글에서는 연결 큐와 데크만 구현한다.</p>
+<p><br></p>
+<h4>연결 큐</h4>
+<p>연결 큐에서 구현해야 할 메서드는 아래와 같다.</p>
+<ul>
+<li>연결 큐의 공백 상태 검사</li>
+<li>연결 큐의 원소 삽입</li>
+<li>연결 큐의 원소 삭제</li>
+<li><del>연결 큐의 원소 검색</del></li>
+</ul>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.link = None
+
+    def __str__(self):
+        return str(self.data)
+
+class Queue:
+    def __init__(self, data):
+        new_node = Node(data)
+        self.front = new_node
+        self.rear = new_node
+        self.front.link = self.rear</code></pre>
+<p>큐는 아까 언급했듯 값이 들어오는 <code>rear</code>와 빠져나가는 <code>front</code>가 존재한다. 단순 연결 리스트로 구현하며 <code>front</code>에서 <code>rear</code>로 링크를 연결하였다.</p>
+<p><strong>연결 큐의 공백 상태 검사</strong></p>
+<pre><code class="language-python">def isEmpty(self):
+    if self.front == self.rear:
+        return True
+    else:
+        return False</code></pre>
+<p>둘다 <code>None</code>인 상태를 검사하는게 가장 이상적인 형태겠지만 <code>if</code>문을 조금이라도 줄이기 위해서 하나인 상태에서는 삭제를 불가하게 하기위해 <code>front</code>가 <code>rear</code>인 경우에는 비어있다고 반환한다.</p>
+<p><strong>연결 큐의 원소 삽입</strong></p>
+<pre><code class="language-python">def enQueue(self, data):
+    new_node = Node(data)
+    self.rear.link = new_node
+    self.rear = new_node</code></pre>
+<p>큐의 삽입은 <code>enQueue</code>라고 부른다. 삽입이 되었을 경우 <code>rear</code>의 링크는 새로운 노드에 붙이고 <code>rear</code>는 새로운 노드로 변경하였다.</p>
+<p><strong>연결 큐의 원소 삭제</strong></p>
+<pre><code class="language-python">def deQueue(self):
+    if not self.isEmpty():
+        node = self.front
+        value = node.data
+        self.front = self.front.link
+        del node
+        return value</code></pre>
+<p>프론트의 값을 추출하고 프론트를 다음으로 옮기며 기존 프론트는 삭제하였다. 다만 위에서 언급했듯 <code>front</code>가 <code>rear</code>인 경우 값을 추출할 수 없으므로 삭제없이 값을 출력하는 <code>peek</code> 메서드를 추가했다.</p>
+<pre><code class="language-python">def peek(self):
+    return self.front.data</code></pre>
+<p><br></p>
+<h5>연결 큐 전체 소스코드</h5>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.link = None
+
+    def __str__(self):
+        return str(self.data)
+
+class Queue:
+    def __init__(self, data):
+        new_node = Node(data)
+        self.front = new_node
+        self.rear = new_node
+        self.front.link = self.rear
+
+    def __str__(self):
+        print_queue = '&lt;= [ '
+        node = self.front
+        while True:
+            print_queue += str(node)
+            if(node == self.rear):
+                break
+            try:
+                node = node.link
+            except:
+                break
+            print_queue += ', '
+        print_queue += ' ] &lt;='
+        return print_queue
+
+    def isEmpty(self):
+        if self.front == self.rear:
+            return True
+        else:
+            return False
+
+    def enQueue(self, data):
+        new_node = Node(data)
+        self.rear.link = new_node
+        self.rear = new_node
+
+    def deQueue(self):
+        if not self.isEmpty():
+            node = self.front
+            value = node.data
+            self.front = self.front.link
+            del node
+            return value
+
+    def peek(self):
+        return self.front.data
+
+
+if __name__=="__main__":
+    m_queue = Queue(5)
+    print(m_queue)
+    m_queue.enQueue(7)
+    print(m_queue)
+    m_queue.enQueue(9)
+    print(m_queue)
+    print('deQueue :', m_queue.deQueue())
+    print('deQueue :', m_queue.deQueue())
+    print('deQueue :', m_queue.deQueue())
+    print('   peek :', m_queue.peek())
+    for i in range(10):
+        m_queue.enQueue(i)
+    print(m_queue)
+    print('deQueue :', m_queue.deQueue())</code></pre>
+<pre><code>&lt;= [ 5 ] &lt;=
+&lt;= [ 5, 7 ] &lt;=
+&lt;= [ 5, 7, 9 ] &lt;=
+deQueue : 5
+deQueue : 7
+deQueue : None
+   peek : 9
+&lt;= [ 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ] &lt;=
+deQueue : 9</code></pre>
+<p><br></p>
+<h4>데크(Deque)</h4>
+<p>데큐? 디큐? 데크? 디크? 덱? 무엇이 올바른 발음인지 모르지만 디큐의 경우에는 큐에서 요소를 삭제하는 <code>deQueue</code>와 곂치므로 아니지 않을까... 여하지간 데크와 큐의 차이점은 큐는 <code>rear</code>로 들어와서 <code>front</code>로 나가는 방식을 가졌으나 데크는 <code>rear</code>로 들어오거나 나갈 수 있고, <code>front</code>에서도 들어오거나 나갈 수 있다.</p>
+<pre><code>deQueueFromFront &lt;=&gt; enQueueFromFront [ Deque ] enQueueFromRear &lt;=&gt; deQueueFromRear</code></pre>
+<p>위와 같은 형태로 구성되었다. 따라서 큐의 경우에는 한방향으로 들어오고 나가므로 단순 연결 리스트를 사용했으나 데크의 경우는 이중 연결 리스트를 사용하여 구현하는 것이 이상적이다.</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.llink = None
+        self.rlink = None
+
+    def __str__(self):
+        return str(self.data)
+
+class Deque:
+    def __init__(self):
+        self.front = None
+        self.rear = None</code></pre>
+<p>위처럼 <code>Deque</code>의 구조 자체는 <code>Queue</code>와 동일하지만 노드의 형태가 다르다. 데크의 구현되어야 할 메서드는 아래와 같다.</p>
+<ul>
+<li>데크의 공백 상태 검사</li>
+<li>데크의 앞단에서 원소 삽입</li>
+<li>데크의 뒷단에서 원소 삽입</li>
+<li>데크의 앞단에서 원소 삭제</li>
+<li>데크의 뒷단에서 원소 삭제</li>
+<li><del>연결 큐의 원소 검색</del></li>
+</ul>
+<p><strong>데크의 공백 상태 검사</strong></p>
+<pre><code class="language-python">def isEmpty(self):
+    if self.front == self.rear:
+        return True
+    else:
+        return False</code></pre>
+<p>공백 상태 검사는 큐와 동일하게 하였다. 같은 곳을 가리키면 비어있는 상태로 간주한다.</p>
+<p><strong>데크의 원소 삽입</strong></p>
+<pre><code class="language-python">def insertFront(self, data):
+    new_node = Node(data)       # 새노드 생성
+    self.front.llink = new_node # 기존 프론트의 왼쪽 링크를 새노드로 변경
+    new_node.rlink = self.front # 새노드의 오른쪽 링크를 기존 프론트로 변경
+    self.front = new_node       # 프론트를 새노드로 변경
+
+def insertRear(self, data):
+    new_node = Node(data)       # 새노드 생성
+    self.rear.rlink = new_node  # 기존 레어의 오른쪽 링크를 새노드로 변경
+    new_node.llink = self.rear  # 새노드의 왼쪽 링크를 기존 레어로 변경
+    self.rear = new_node        # 레어를 새노드로 변경</code></pre>
+<p><strong>데크의 원소 삭제</strong></p>
+<pre><code class="language-python">def deleteFront(self):
+    if self.isEmpty():
+        return
+    node = self.front
+    value = node.data
+    self.front = self.front.rlink # 기존 프론트를 프론트의 오른쪽으로 변경
+    del node                      # 기존 프론트 삭제
+    return value
+
+def deleteRear(self):
+    if self.isEmpty():
+        return
+    node = self.rear
+    value = node.data
+    self.rear = self.rear.llink   # 기존 레어를 레어의 왼쪽으로 변경
+    del node                      # 기존 레어 삭제
+    return value</code></pre>
+<p><br></p>
+<h5>데크 전체 소스코드</h5>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.llink = None
+        self.rlink = None
+
+    def __str__(self):
+        return str(self.data)
+
+class Deque:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def __str__(self):
+        node = self.front
+        print_deque = ' &lt;=&gt; [ '
+        while True:
+            print_deque += str(node)
+            if node == self.rear:
+                break
+            try: node = node.rlink
+            except: break
+            print_deque += ', '
+        print_deque += ' ] &lt;=&gt;'
+        return print_deque
+
+    def insertFront(self, data):
+        new_node = Node(data)
+        if self.front == None and self.rear == None:
+            self.front = new_node
+            self.front.rlink = self.rear
+            self.rear = new_node
+            self.rear.llink = self.front
+        else:
+            self.front.llink = new_node
+            new_node.rlink = self.front
+            self.front = new_node
+
+    def insertRear(self, data):
+        new_node = Node(data)
+        if self.rear == None and self.front == None:
+            self.rear = new_node
+            self.rear.llink = self.front
+            self.front = new_node
+            self.front.rlink = self.rear
+        else:
+            self.rear.rlink = new_node
+            new_node.llink = self.rear
+            self.rear = new_node
+
+    def deleteFront(self):
+        if self.isEmpty():
+            return
+        node = self.front
+        value = node.data
+        self.front = self.front.rlink
+        del node
+        return value
+
+    def deleteRear(self):
+        if self.isEmpty():
+            return
+        node = self.rear
+        value = node.data
+        self.rear = self.rear.llink
+        del node
+        return value
+
+
+    def peekFront(self):
+        return self.front.data
+
+    def peekRear(self):
+        return self.front.data
+
+    def isEmpty(self):
+        if self.front == self.rear:
+            return True
+        else:
+            return False
+
+if __name__ == "__main__":
+    m_deque = Deque()
+    m_deque.insertFront(5)
+    m_deque.insertFront(4)
+    m_deque.insertFront(3)
+    print(m_deque)
+    m_deque.insertRear(10)
+    m_deque.insertRear(9)
+    m_deque.insertRear(10000)
+    print(m_deque)
+    print('Delete Front :', m_deque.deleteFront())
+    for i in range(5):
+        print('Delete Rear :', m_deque.deleteRear())
+    print('Peek Rear   :', m_deque.peekRear())
+    print(m_deque)</code></pre>
+<pre><code> &lt;=&gt; [ 3, 4, 5 ] &lt;=&gt;
+ &lt;=&gt; [ 3, 4, 5, 10, 9, 10000 ] &lt;=&gt;
+Delete Front : 3
+Delete Rear : 10000
+Delete Rear : 9
+Delete Rear : 10
+Delete Rear : 5
+Delete Rear : None
+Peek Rear   : 4
+ &lt;=&gt; [ 4 ] &lt;=&gt;</code></pre>
+<p>결과를 살펴보면 재미난 사실을 알 수 있다. 데이터의 삽입을 <code>5 &gt; 4 &gt; 3</code>으로 진행하여 <code>5</code>가 가장 먼저 나가야 할 요소인데 레어쪽으로 <code>10 &gt; 9 &gt; 10000</code>이 들어오면서 사이에 가둬지고 말았다. 레어쪽으로 들어왔던 <code>10</code>도 마찬가지다. <code>fornt</code>만 잘 살펴보면 나중에 들어온 <code>3</code>이 가장 먼저 나갔다는 사실을 알 수 있다.</p>
+<p>큐에선 <code>rear</code>에 들어와서 <code>front</code>로 나왔지만 데크에선 양쪽에서 삽입삭제가 가능하므로 <code>insertRear</code>, <code>deleteRear</code>만 사용하는 경우 스택처럼 사용될 수 있다. <code>front</code>에서만 삽입삭제 하는 경우도 똑같다. <code>insertRear</code>와 <code>deleteFront</code> 또는 그 반대로 사용하는 경우 기존 큐와 똑같은 작업이 가능하다.</p>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="text-decoration-none text-white">'파이썬으로 구현한 자료구조' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D?series=파이썬으로-구현한-자료구조">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>파이썬으로 구현한 자료구조 - 스택
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC?series=파이썬으로-구현한-자료구조">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>파이썬으로 구현한 자료구조 - 트리
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/vim-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/20/baealex/20_36_27.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/vim-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95">리눅스 VIM 설치 및 설정</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1ewGe.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1KwyV.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80">서비스 이용약관</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>

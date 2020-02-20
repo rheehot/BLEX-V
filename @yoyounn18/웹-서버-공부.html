@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="1. Web server의 종류 1-1 static web server static(정적) web server의 특징은 서버가 호스팅 된 파일을 &quot;있는 그대로&quot; 브라우저로 보내므로 이를 정적 이라고함. 1-2 dynamic web server dynamic web server은 static web server와 extra software로 구성되어있습니다. ex) 응용프로그램 서버, 데이터베이스 우리가 이것을 동적이라고 표현하는 이유는 응용프로그램 서버가 호스팅된 파일을 받을때마다 …">
+<meta property="og:url" content="https://blex.kr/@yoyounn18/%EC%9B%B9-%EC%84%9C%EB%B2%84-%EA%B3%B5%EB%B6%80">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="웹 서버 공부">
+<meta property="og:description" content="1. Web server의 종류 1-1 static web server static(정적) web server의 특징은 서버가 호스팅 된 파일을 &quot;있는 그대로&quot; 브라우저로 보내므로 이를 정적 이라고함. 1-2 dynamic web server dynamic web server은 static web server와 extra software로 구성되어있습니다. ex) 응용프로그램 서버, 데이터베이스 우리가 이것을 동적이라고 표현하는 이유는 응용프로그램 서버가 호스팅된 파일을 받을때마다 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/2019/10/5/yoyounn18/1_29_47.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="yoyounn18">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="웹 서버 공부">
+<meta name="twitter:url" content="https://blex.kr/@yoyounn18/%EC%9B%B9-%EC%84%9C%EB%B2%84-%EA%B3%B5%EB%B6%80">
+<meta name="twitter:description" content="1. Web server의 종류 1-1 static web server static(정적) web server의 특징은 서버가 호스팅 된 파일을 &quot;있는 그대로&quot; 브라우저로 보내므로 이를 정적 이라고함. 1-2 dynamic web server dynamic web server은 static web server와 extra software로 구성되어있습니다. ex) 응용프로그램 서버, 데이터베이스 우리가 이것을 동적이라고 표현하는 이유는 응용프로그램 서버가 호스팅된 파일을 받을때마다 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/2019/10/5/yoyounn18/1_29_47.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>웹 서버 공부 – yoyounn18</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/2019/10/5/yoyounn18/1_29_47.jpg" alt="웹 서버 공부">
+        <div class="post-image-mask">
+            <h1 class="post-headline">웹 서버 공부</h1>
+            <p class="post-date">2019-10-05 01:29<span>(Last Update: 2019-10-05 01:36)<span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@yoyounn18">yoyounn18</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(26);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@yoyounn18/%EC%9B%B9-%EC%84%9C%EB%B2%84-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=웹 서버 공부&url=https://blex.kr/@yoyounn18/%EC%9B%B9-%EC%84%9C%EB%B2%84-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@yoyounn18">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/yoyounn18/BL4W.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-three-quarters"></i> 70%</span></h4>
+            
+            <p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('yoyounn18')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>1. Web server의 종류</h1>
+<h2>1-1 static web server</h2>
+<p>static(정적) web server의 특징은 서버가 호스팅 된 파일을 "있는 그대로" 브라우저로 보내므로 이를 정적 이라고함.</p>
+<h2>1-2 dynamic web server</h2>
+<p>dynamic web server은 static web server와 extra software로 구성되어있습니다. ex) 응용프로그램 서버, 데이터베이스
+우리가 이것을 동적이라고 표현하는 이유는 응용프로그램 서버가 호스팅된 파일을 받을때마다 HTML서버를 업데이트하기 때문입니다. </p>
+<h1>2. Web server의 동작</h1>
+<p>web page를 가져오려면 브라우져는 web server에 요청하여 자체 스토리지에 저장된 데이터 중 요청받은 데이터를 검색합니다.
+파일을 찾으면 서버는 파일을 읽고 필요에 따라 처리를 한 다음 브라우저로 보냅니다. 이 과정을 좀 더 세분화 해보겠습니다.</p>
+<h2>2-1 Hosting File</h2>
+<p>웹 서버는 먼저 웹 사이트의 파일, 즉 이미지, CSS 스타일 시트, JavaScript 파일, 글꼴 및 비디오를 포함한 모든 HTML 문서 및 관련 자산을 저장해야합니다. 물론 기술적으로 우리는 모든 파일을 컴퓨터에 호스팅이 가능하지만 전용 웹 서버에 모든 파일을 저장하는 것이 훨씬 편리합니다. 그 이유를 정리해보면,</p>
+<ol>
+<li>항상 가동되고있다.</li>
+<li>인터넷에 항상 연결되어있다.</li>
+<li>항상 동일한 ip주소를 가진다.</li>
+<li>제 3자에 의해 유지, 관리된다.</li>
+</ol>
+<p>이러한 특징 중 가장 중요한 것은 4번 제 3자에 의해 유지, 관리되는 부분이다. 저 제 3자가 굉장히 중요한 요소가 될 것입니다.
+저 제 3자는 다양한 서버제공 회사들 중 자신의 필요에 맞게 잘 선택하여야 합니다.</p>
+<h2>2-2 HTTP</h2>
+<p>web server는 HTTP를 지원합니다. HTTP는 두 컴퓨터간에 하이퍼텍스트를 전송하는 방법을 지정합니다.
+Protocol은 두 컴퓨터간의 통신 규약입니다. HTTP는 텍스트형식의 저장 protocol입니다.</p>
+<p>HTTP의 3가지 규칙</p>
+<ol>
+<li>클라이언트 만 HTTP 요청을 만들 수 있으며 서버로만 보낼 수 있습니다. 서버는 클라이언트의 HTTP 요청에만 응답 할 수 있습니다.</li>
+<li>HTTP를 통해 파일을 요청할 때 클라이언트는 파일의 URL을 제공해야합니다.</li>
+<li>web server는 적어도 모든 오류 메시지에 응답해야합니다.</li>
+</ol>
+<p>웹 서버에서 HTTP 서버는 들어오는 요청을 처리하고 응답하는 일을 담당합니다.
+요청을 받으면 HTTP 서버는 요청 된 URL이 기존 파일과 일치하는지 먼저 확인합니다.
+그렇다면 웹 서버는 파일 내용을 다시 브라우저로 보냅니다. 그렇지 않은 경우 응용 프로그램 서버는 필요한 파일을 빌드합니다.
+어느 프로세스도 가능하지 않으면 웹 서버는 가장 일반적으로 404 Not Found라는 오류 메시지를 브라우저에 반환합니다. (그 오류는 너무나 흔하며 많은 웹 디자이너들이 404 오류 페이지를 디자인하는데 상당한 시간을 투자합니다.)</p>
+<h2>2-3 정리</h2>
+<p>대충 말하면 서버는 정적 또는 동적 컨텐트를 제공 할 수 있습니다. "정적"은 "제공된 그대로"를 의미합니다. 정적 웹 사이트를 설정하는 것이 가장 쉽기 때문에 첫 번째 사이트를 정적 사이트로 만들 것을 권장합니다 
+"동적"은 서버가 콘텐츠를 처리하거나 심지어 데이터베이스에서 즉시 생성하는 것을 의미합니다. 이 솔루션은 더 많은 유연성을 제공하지만 기술 스택을 처리하기가 더 어려워지므로 웹 사이트 구축이 훨씬 복잡해집니다</p>
+<h2>2-4 centOS로 첫 서버 구축 시작</h2>
+<p>centOS 리눅스로 서버구축을 해 볼 예정인데 그 전에 간단하게 웹 서버의 개념을 다시한번 정리해보았다. 이론상으로는 어느정도 알겠는데 역시 직접 다뤄보면서 익힐 수 있도록 하여서 면접 및 실무에 대비해야 해야 할 것이다.</p>
+        </article>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@yoyounn18/topic/%EB%B0%B1%EC%97%94%EB%93%9C">백엔드</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EC%84%9C%EB%B2%84">서버</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EC%9B%B9%EC%84%9C%EB%B2%84">웹서버</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/2/5/1mouw.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9">한 달 안에 취업하기 #9</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-7"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/2/1/7mGls.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-7">한 달 안에 취업하기 #7</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/javascript-prototype%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/7/yoyounn18/12_53_30.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/javascript-prototype%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4">[JavaScript] ProtoType에 대한 이해</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>

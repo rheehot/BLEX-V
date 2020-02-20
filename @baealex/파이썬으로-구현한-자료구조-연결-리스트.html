@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="이번에 코딩 테스트를 하면서 지금 내게 부족하다고 판단된건 자료구조의 대한 무지라고 생각된다. 어떤 문제를 보면 어떤 자료구조를 이용할지 떠오르지만 막상 적용하는데 어려움이 있다보니 결국 for문 부터 적게된다. 이번에 파이썬을 활용해서 연결리스트, 스택, 큐, 트리, 그래프와 같은 기본적인 자료구조를 구현해 볼 생각이다. 이번건 절대로 작심삼일로 끝나지 않을 것이다! 연결 리스트 연속된 …">
+<meta property="og:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬으로 구현한 자료구조 - 연결 리스트">
+<meta property="og:description" content="이번에 코딩 테스트를 하면서 지금 내게 부족하다고 판단된건 자료구조의 대한 무지라고 생각된다. 어떤 문제를 보면 어떤 자료구조를 이용할지 떠오르지만 막상 적용하는데 어려움이 있다보니 결국 for문 부터 적게된다. 이번에 파이썬을 활용해서 연결리스트, 스택, 큐, 트리, 그래프와 같은 기본적인 자료구조를 구현해 볼 생각이다. 이번건 절대로 작심삼일로 끝나지 않을 것이다! 연결 리스트 연속된 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/17/13GQvW.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬으로 구현한 자료구조 - 연결 리스트">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8">
+<meta name="twitter:description" content="이번에 코딩 테스트를 하면서 지금 내게 부족하다고 판단된건 자료구조의 대한 무지라고 생각된다. 어떤 문제를 보면 어떤 자료구조를 이용할지 떠오르지만 막상 적용하는데 어려움이 있다보니 결국 for문 부터 적게된다. 이번에 파이썬을 활용해서 연결리스트, 스택, 큐, 트리, 그래프와 같은 기본적인 자료구조를 구현해 볼 생각이다. 이번건 절대로 작심삼일로 끝나지 않을 것이다! 연결 리스트 연속된 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/17/13GQvW.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>파이썬으로 구현한 자료구조 - 연결 리스트 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/baealex/2020/2/17/13GQvW.jpg" alt="파이썬으로 구현한 자료구조 - 연결 리스트">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'파이썬으로 구현한 자료구조' 시리즈</span>파이썬으로 구현한 자료구조 - 연결 리스트</h1>
+            <p class="post-date">2019-09-02 09:34<span>(Last Update: 2020-02-17 13:00)<span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(351);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=파이썬으로 구현한 자료구조 - 연결 리스트&url=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>이번에 코딩 테스트를 하면서 지금 내게 부족하다고 판단된건 자료구조의 대한 무지라고 생각된다. 어떤 문제를 보면 어떤 자료구조를 이용할지 떠오르지만 막상 적용하는데 어려움이 있다보니 결국 <code>for</code>문 부터 적게된다. 이번에 파이썬을 활용해서 연결리스트, 스택, 큐, 트리, 그래프와 같은 기본적인 자료구조를 구현해 볼 생각이다. 이번건 절대로 작심삼일로 끝나지 않을 것이다!</p>
+<p><br></p>
+<h2>연결 리스트</h2>
+<blockquote>
+<p>연속된 물리적 위치가 아니라 하이퍼 문서처럼 링크를 이용해 다음 순서의 자료를 구현하는 방식을 연결 자료구조라고 합니다.</p>
+</blockquote>
+<p>우리가 배열이라고 하는 기본적인 자료구조(선형 리스트)는 메모리를 연속적으로 할당받는다. 따라서 중간에 값을 삭제하는 경우 값들의 자리교체가 필요해지므로 많은 오버헤드가 발생한다. 연결리스트는 분산된 메모리속에서 링크를 통해 다음 값을 알아내므로 중간 값이 삭제되는 경우 링크만 바꿔주면 된다는 장점이 있다. 물론 파이썬에선 배열이 연결 리스트로 구현되어 예외다.</p>
+<ul>
+<li>단순 연결 리스트</li>
+<li>원형 연결 리스트</li>
+<li>이중 연결 리스트</li>
+</ul>
+<p>연결 리스트는 위 3가지 형태로 작성된다. 연결 리스트를 알기전에 노드라는 것에 대해서 언급해야 하는데, 노드는 값 + 링크의 형태를 갖추고 있는 구조를 말한다. 링크는 포인터로 구현되어 다른 노드를 참조하는 값이다.</p>
+<p><strong>단순 연결 리스트</strong> : 단순 연결 리스트는 헤더 노드가 존재하며 헤더 노드는 다음 노드를 그리고 다음 노드는 그 다음 노드를 가리킨다. 한 방향으로 연결되어 단순 연결 리스트라고 부른다.</p>
+<p><strong>원형 연결 리스트</strong> : 원형 연결 리스트는 헤더 노드와 테일 노드가 존재하며 단순 연결 리스트와 구조상 동일하지만 테일 노드가 헤더 노드를 가리키고 있다는 것이 차이점이다.</p>
+<p><strong>이중 연결 리스트</strong> : 이중 연결 리스트는 헤더 노드만 존재하며 각 노드는 다음 노드를 가리키는 링크를 가지는 동시에 이전 노드를 가리키는 링크를 가지고 있다. </p>
+<p><br></p>
+<h5>파이썬에서 포인터...?</h5>
+<p>필자가 어려움을 겪었던 건 링크에 대한 구현이었다. <code>C</code>에서는 포인터를 사용해서 다음 리스트를 가리키면 되지만 파이썬에선 어찌 가리킬 수 있을지 엄두가 나지 않았다. 하지만 이내 파이썬은 정말 혁신적인 언어라는 것을 알 수 있었다. 구현하는 내내 재밌었다. 이 기세라면 그래프까지 가능할지도</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None</code></pre>
+<p>파이썬에서 노드는 위와같이 구현하였다. 위 구조에서 현재 노드에서 다음 노드를 어떻게 참조 시킬 수 있을까?</p>
+<pre><code class="language-python">head = Node(5)
+next_node = Node(12)
+head.next = next_node</code></pre>
+<p>위와같이 구현하여 참조시킬 수 있다. 자료형이 없는게 불편하다고 생각했는데 정말 좋은 언어였다 :) 이제 위와같이 노드를 생성하고 관리하는 클래스를 구현하여 사용할 것이다.</p>
+<p><br></p>
+<h4>단순 연결 리스트</h4>
+<p>단순 연결 리스트에서 구현될 항목은 아래와 같다.</p>
+<ul>
+<li>첫 번째 노드 삽입</li>
+<li>중간 노드 삽입</li>
+<li>마지막 노드 삽입</li>
+<li>노드 삭제</li>
+<li><del>노드 탐색</del></li>
+</ul>
+<p>우선 각 항목을 구현하기전에 단순 연결 리스트의 클래스를 생성하였다.</p>
+<pre><code class="language-python">class SingleLinkedList:
+    def __init__(self, data):
+        new_node = Node(data)
+        self.head = new_node
+        self.list_size = 1</code></pre>
+<p>단순 연결 리스트의 경우 <code>head</code>가 필요하므로 생성자에서 만들어 주었고 사이즈를 호출하는 메서드는 구현은 간단하지만 길이를 계산하는 것 보다 O(n), 길이를 가지고 있는 편이 좋을 것 같아서 O(1) 추가하였다.</p>
+<p>아래부터 구현될 모든 메서드는 클래스 내부에서 구현되었다.</p>
+<p><strong>첫 번째 노드 삽입</strong></p>
+<pre><code class="language-python">def insertFirst(self, data):
+    new_node = Node(data)      # 새로운 노드 생성
+    temp_node = self.head      # 기존 헤드를 잠시 보관
+    self.head = new_node       # 헤드를 새로운 노드로 변경
+    self.head.next = temp_node # 새로 생성된 헤드의 링크를
+                               # 기존 헤드의 링크로 변경
+    self.list_size += 1</code></pre>
+<p>헤더가 교체되는 작업이다.</p>
+<p><strong>노드 선택</strong></p>
+<p>다른 메서드의 작업을 좀 더 편리하게 하기 위해서 익덱스 번호로 노드를 선택할 수 있게 하였다.</p>
+<pre><code class="language-python">def selectNode(self, num):
+    if self.list_size &lt; num:
+        return # 오버플로우
+    node = self.head
+    count = 0
+    while count &lt; num:
+        node = node.next
+        count += 1
+    return node</code></pre>
+<p>위와같이 파이썬에선 <code>node = node.next</code>처럼 간단하게 노드를 전환하고 연결된 링크로 이동할 수 있다.</p>
+<p><strong>중간 노드 삽입</strong></p>
+<pre><code class="language-python">def insertMiddle(self, num, data):
+    if self.head.next == None:
+        # 헤더가 만들어진 직후에 메서드를 사용하는 경우
+        insertLast(data)
+        return
+    node = self.selectNode(num)
+    new_node = Node(data)
+    temp_next = node.next
+    node.next = new_node
+    new_node.next = temp_next
+    self.list_size += 1</code></pre>
+<p><strong>마지막 노드 삽입</strong></p>
+<pre><code class="language-python">def insertLast(self, data):
+    node = self.head
+    while True:
+        if node.next == None: # 다음 링크가 없으면
+            break
+        node = node.next
+
+    new_node = Node(data)
+    node.next = new_node      # 마지막 노드로 링크
+    self.list_size += 1</code></pre>
+<p><strong>노드 삭제</strong></p>
+<pre><code class="language-python">def deleteNode(self, num):
+    if self.list_size &lt; 1:
+        return # 언더플로우
+    elif self.list_size &lt; num:
+        return # 오버플로우
+
+    if num == 0:
+        self.deleteHead()
+        return
+    node = self.selectNode(num - 1) # 이전 노드의 링크를 다다음 노드와 연결하기 위해
+                                    # 이전 노드를 선택하였다
+    node.next = node.next.next
+    del_node = node.next
+    del del_node</code></pre>
+<p><strong>헤드 노드 삭제</strong></p>
+<pre><code class="language-python">def deleteHead(self):
+    node = self.head
+    self.head = node.next
+    del node</code></pre>
+<p><br></p>
+<h5>단순 연결 리스트의 전체 소스코드</h5>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def __str__(self):
+        return str(self.data)
+
+class SingleLinkedList:
+    def __init__(self, data):
+        new_node = Node(data)
+        self.head = new_node
+        self.list_size = 1
+
+    def __str__(self):
+        print_list = '[ '
+        node = self.head
+        while True:
+            print_list += str(node)
+            if node.next == None:
+                break
+            node = node.next
+            print_list += ', '
+        print_list += ' ]'
+        return print_list
+
+    def insertFirst(self, data):
+        new_node = Node(data)
+        temp_node = self.head
+        self.head = new_node
+        self.head.next = temp_node
+        self.list_size += 1
+
+    def insertMiddle(self, num, data):
+        if self.head.next == None:
+            insertLast(data)
+            return
+        node = self.selectNode(num)
+        new_node = Node(data)
+        temp_next = node.next
+        node.next = new_node
+        new_node.next = temp_next
+        self.list_size += 1
+
+    def insertLast(self, data):
+        node = self.head
+        while True:
+            if node.next == None:
+                break
+            node = node.next
+
+        new_node = Node(data)
+        node.next = new_node
+        self.list_size += 1
+
+    def selectNode(self, num):
+        if self.list_size &lt; num:
+            print("Overflow")
+            return
+        node = self.head
+        count = 0
+        while count &lt; num:
+            node = node.next
+            count += 1
+        return node
+
+    def deleteNode(self, num):
+        if self.list_size &lt; 1:
+            return # Underflow
+        elif self.list_size &lt; num:
+            return # Overflow
+
+        if num == 0:
+            self.deleteHead()
+            return
+        node = self.selectNode(num - 1)
+        node.next = node.next.next
+        del_node = node.next
+        del del_node
+
+    def deleteHead(self):
+        node = self.head
+        self.head = node.next
+        del node
+
+    def size(self):
+        return str(self.list_size)
+
+if __name__ == "__main__":
+    m_list = SingleLinkedList(1)
+    m_list.insertLast(5)
+    m_list.insertLast(6)
+    print('LinkedList :', m_list)
+    print('LinkedList Size() :', m_list.size())
+    print('LinkedList SelectNode(1) :', m_list.selectNode(1))
+
+    m_list.insertMiddle(1, 15)
+    print('LinkedList Insert Middle(1, 15) :', m_list)
+
+    m_list.insertFirst(100)
+    print('LinkedList Insert First(100) : ', m_list)
+    print('LinkedList SelectNode(0) :', m_list.selectNode(0))
+
+    m_list.deleteNode(0)
+    print('LinkedList Delete Node(0) : ', m_list)
+    m_list.deleteNode(1)
+    print('LinkedList Delete Node(1) : ', m_list)</code></pre>
+<pre><code>LinkedList : [ 1, 5, 6 ]
+LinkedList Size() : 3
+LinkedList SelectNode(1) : 5
+LinkedList Insert Middle(1, 15) : [ 1, 5, 15, 6 ]
+LinkedList Insert First(100) :  [ 100, 1, 5, 15, 6 ]
+LinkedList SelectNode(0) : 100
+LinkedList Delete Node(0) :  [ 1, 5, 15, 6 ]
+LinkedList Delete Node(1) :  [ 1, 15, 6 ]</code></pre>
+<p><br></p>
+<h4>원형 연결 리스트</h4>
+<p><em>"원형 연결 리스트를 구현해서 얻는 이점이 뭘까?"</em> 원형 연결 리스트를 구현하여 했던 생각이다. 단순히 머리와 꼬리를 연결하는게 어떤 이점이 있을까? 필자가 느꼈던 가장 큰 장점은 마지막 노드에 삽입할 경우였다. 단순 연결 리스트의 경우 마지막에 삽입할때 어떤 루틴이었는지 되돌아보면</p>
+<ul>
+<li>헤드 -&gt; 노드 -&gt; ... -&gt; 노드 -&gt; <code>None</code></li>
+</ul>
+<p><code>None</code>이 나올때까지 노드를 탐색하고 마지막에 넣을 수 있게된다. 원형 연결 리스트는 그럴 필요없이 꼬리와 머리 사이에 넣으면 되기에 성능상 큰 이점이 있다.</p>
+<ul>
+<li>노드 -&gt; 테일 -&gt; <code>new_node</code> -&gt; 헤드 -&gt; 노드 -&gt;</li>
+</ul>
+<p>아래는 극단적인 결과값이다. 1부터 10000까지 마지막 노드에 삽입했을때 걸린 시간이다.</p>
+<p><img src="https://static.blex.kr/image/2020/2/17/W2TiCOryCSxHxuybSzYI.png" alt="" /></p>
+<p>▲ 단순 연결 리스트 사용시</p>
+<p><img src="https://static.blex.kr/image/2020/2/17/gHO2FPlziNPjZbS2ep0C.png" alt="" /></p>
+<p>▲ 원형 연결 리스트 사용시</p>
+<p><br></p>
+<h5>원형 연결 리스트 전체 소스코드</h5>
+<pre><code class="language-python">class CircleLinkedList:
+    def __init__(self, data):
+        new_node = Node(data)
+        self.head = new_node
+        self.tail = None
+        self.list_size = 1
+
+    def __str__(self):
+        print_list = '[ '
+        node = self.head
+        while True:
+            print_list += str(node)
+            if node == self.tail:
+            # 단순 연결 리스트와 달리
+            # 노드가 테일 노드면 끝난다
+                break
+            node = node.next
+            print_list += ', '
+        print_list += ' ]'
+        return print_list
+
+    def insertFirst(self, data):
+        new_node = Node(data)
+        if self.tail == None:
+            self.tail = self.head
+        temp_node = self.head
+        self.head = new_node
+        self.head.next = temp_node
+        self.tail.next = new_node
+        self.list_size += 1
+
+    def insertMiddle(self, num, data):
+        node = self.selectNode(num)
+        new_node = Node(data)
+        temp_next = node.next
+        node.next = new_node
+        new_node.next = temp_next
+        self.list_size += 1
+
+    def insertLast(self, data):
+        new_node = Node(data)
+        if self.tail == None:
+            self.tail = new_node
+            self.head.next = self.tail
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+        self.tail.next = self.head
+        self.list_size += 1
+
+    def selectNode(self, num):
+        if self.list_size &lt; num:
+            print("Overflow")
+            return
+        node = self.head
+        count = 0
+        while count &lt; num:
+            node = node.next
+            count += 1
+        return node
+
+    def deleteNode(self, num):
+        if self.list_size &lt; 1:
+            return # Underflow
+        elif self.list_size &lt; num:
+            return # Overflow
+
+        if num == 0:
+            self.deleteHead()
+            return
+        node = self.selectNode(num - 1)
+        node.next = node.next.next
+        del_node = node.next
+        del del_node
+
+    def deleteHead(self):
+        node = self.head
+        self.head = node.next
+        del node
+
+    def size(self):
+        return str(self.list_size)</code></pre>
+<p>단순 연결 리스트와 비교해 앞단에 삽입할 때와 뒷단에 삽입할 때를 제외하곤 전체적으로 비슷하다. (단순 연결 리스트 코드를 기반으로 수정해서 그런가... 왠지 놓친 부분이 있을 것 같은 예감이다.)</p>
+<p><br></p>
+<h4>이중 연결 리스트</h4>
+<p>이중 연결 리스트의 경우에 느껴졌던 장점은 탐색이었다. 중간에 있는 값 혹은 뒤쪽에 가까운 값을 찾아내고 싶을때 단일이든 원형이든 헤드부터 순차적으로 찾아나간다. 하지만 이중 연결 리스트는 똑같이 헤드에서 시작하지만 뒤쪽으로 이동할 수 있다.</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+    def __str__(self):
+        return str(self.data)</code></pre>
+<p>따라서 노드의 변경이 약간 필요하다. 이중 연결 리스트를 구현하면서 주의해야 겠다고 생각한건 단일 연결 리스트의 경우 한쪽으로 연결만 해주면 됐지만 이중은 가는쪽을 고쳤으면 오는쪽도 반드시 고치라는 것이다. 당연한건데 많이 놓쳤던 부분이다.</p>
+<p><br></p>
+<h5>이중 연결 리스트 전체 소스코드</h5>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+    def __str__(self):
+        return str(self.data)
+
+class DualLinkedList:
+    def __init__(self, data):
+        new_node = Node(data)
+        self.head = new_node
+        self.list_size = 1
+
+    def __str__(self):
+        print_list = '[ '
+        node = self.head
+        while True:
+            print_list += str(node)
+            if node.next == self.head:
+                break
+            node = node.next
+            print_list += ', '
+        print_list += ' ]'
+        return print_list
+
+    def insertFirst(self, data):
+        new_node = Node(data)
+        if not self.head.prev == None:
+            new_node.prev = self.head.prev
+            self.head.prev.next = new_node
+        if not self.head.next == None:
+            new_node.next = self.head.next
+        self.head.prev = new_node
+        self.head = new_node
+
+    def insertMiddleAfter(self, num, data):
+        node = self.selectNode(num)
+        new_node = Node(data)
+        new_node.prev = node
+        new_node.next = node.next
+        node.next.prev = new_node
+        node.next = new_node
+        self.list_size += 1
+
+    def insertMiddleBefore(self, num, data):
+        node = self.selectNode(num)
+        new_node = Node(data)
+        new_node.prev = node.prev
+        new_node.next = node
+        node.prev.next = new_node
+        node.prev = new_node
+        self.list_size += 1
+
+    def insertLast(self, data):
+        new_node = Node(data)
+        if self.head.next == None:
+            self.head.next = new_node
+            new_node.prev = self.head
+
+        if not self.head.prev == None:
+            self.head.prev.next = new_node
+            new_node.prev = self.head.prev
+        self.head.prev = new_node
+        new_node.next = self.head
+        self.list_size += 1
+
+    def selectNode(self, num):
+        if self.list_size &lt; 1:
+            return # Underflow
+        elif self.list_size &lt;= num:
+            return # Overflow
+        count = 0
+        node = self.head
+        if int(self.list_size/2) &gt; num:
+            while count &lt; num:
+                node = node.next
+                count += 1
+        else:
+            repeat = self.list_size - num
+            while count &lt; repeat:
+                node = node.prev
+                count += 1
+        return node
+
+    def deleteNode(self, num):
+        if self.list_size &lt; 1:
+            return # Underflow
+        elif self.list_size &lt;= num:
+            return # Overflow
+
+        if num == 0:
+            self.deleteHead()
+            return
+        node = self.selectNode(num)
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        del node
+
+    def deleteHead(self):
+        node = self.head
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        self.head = node.next
+        del node
+
+    def size(self):
+        return str(self.list_size)</code></pre>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="text-decoration-none text-white">'파이썬으로 구현한 자료구조' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D?series=파이썬으로-구현한-자료구조">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>파이썬으로 구현한 자료구조 - 스택
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/23ejv7.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">파이썬으로 구현한 자료구조 - 트리</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88">무한 스크롤 이슈</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/3/baealex/14_5_32.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EC%9A%94">서비스 개요</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>

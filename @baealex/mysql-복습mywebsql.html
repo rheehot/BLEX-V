@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="MyWebSQL MyWebSQL 은 PHP기반으로 제작된 웹 데이터베이스 관리 서비스이다. 생각보다 유용하고 잘 만들어져 SQL 복습하는 기념으로 테이블 생성 및 관리하는 방법을 기록할 생각이다. CREATE CREATE TABLE table_name ( column1 datatype, column2 datatype, column3 datatype, ... ); CREATE TABLE 테이블이름 ( 열의이름 변수형 ); 사용될 수 있는 변수형 문자형 CHAR(size) MEDIUMTEXT …">
+<meta property="og:url" content="https://blex.kr/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="MySQL 복습(MyWebSQL)">
+<meta property="og:description" content="MyWebSQL MyWebSQL 은 PHP기반으로 제작된 웹 데이터베이스 관리 서비스이다. 생각보다 유용하고 잘 만들어져 SQL 복습하는 기념으로 테이블 생성 및 관리하는 방법을 기록할 생각이다. CREATE CREATE TABLE table_name ( column1 datatype, column2 datatype, column3 datatype, ... ); CREATE TABLE 테이블이름 ( 열의이름 변수형 ); 사용될 수 있는 변수형 문자형 CHAR(size) MEDIUMTEXT …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/2019/10/21/baealex/10_8_34.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL 복습(MyWebSQL)">
+<meta name="twitter:url" content="https://blex.kr/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql">
+<meta name="twitter:description" content="MyWebSQL MyWebSQL 은 PHP기반으로 제작된 웹 데이터베이스 관리 서비스이다. 생각보다 유용하고 잘 만들어져 SQL 복습하는 기념으로 테이블 생성 및 관리하는 방법을 기록할 생각이다. CREATE CREATE TABLE table_name ( column1 datatype, column2 datatype, column3 datatype, ... ); CREATE TABLE 테이블이름 ( 열의이름 변수형 ); 사용될 수 있는 변수형 문자형 CHAR(size) MEDIUMTEXT …">
+<meta name="twitter:image" content="https://static.blex.kr/title/2019/10/21/baealex/10_8_34.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>MySQL 복습(MyWebSQL) – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/2019/10/21/baealex/10_8_34.png" alt="MySQL 복습(MyWebSQL)">
+        <div class="post-image-mask">
+            <h1 class="post-headline">MySQL 복습(MyWebSQL)</h1>
+            <p class="post-date">2019-10-21 09:52<span>(Last Update: 2019-12-08 18:38)<span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(76);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=MySQL 복습(MyWebSQL)&url=https://blex.kr/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        </p>
+    </div>
+</div>
+        <article class="article noto">
+            <h4>MyWebSQL</h4>
+<p>MyWebSQL 은 PHP기반으로 제작된 웹 데이터베이스 관리 서비스이다. 생각보다 유용하고 잘 만들어져 SQL 복습하는 기념으로 테이블 생성 및 관리하는 방법을 기록할 생각이다.</p>
+<p><br></p>
+<h4>CREATE</h4>
+<p><img src="https://static.blex.kr/image/2019/10/21/0_crm5pOflGvdWCck.png" alt="" /></p>
+<pre><code class="language-sql">CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    ...
+);</code></pre>
+<pre><code class="language-sql">CREATE TABLE 테이블이름 (
+    열의이름 변수형
+);</code></pre>
+<p><br></p>
+<p><strong>사용될 수 있는 변수형</strong></p>
+<ul>
+<li>문자형</li>
+</ul>
+<pre><code>CHAR(size)
+MEDIUMTEXT
+LONGTEXT</code></pre>
+<p>MEDIUMTEXT의 경우는 1600만 글자, LONGTEXT는 42억 글자까지 기록할 수 있다. 텍스트 서버를 운용하는 경우 이용하면 유용할 듯 하다. 자세한 내용은 <a href="https://www.w3schools.com/sql/sql_datatypes.asp">https://www.w3schools.com/sql/sql_datatypes.asp</a></p>
+<ul>
+<li>정수형</li>
+</ul>
+<pre><code>TINYINT
+SMALLINT
+MEDIUMINT
+INT</code></pre>
+<p>TINYINT의 범위는 +-120안밖이므로 큰 숫자가 아닌경우 활용하면 좋다. </p>
+<ul>
+<li>날자/시간</li>
+</ul>
+<pre><code>DATE()
+DATETIME()
+TIME()</code></pre>
+<p>유저의 마지막 접속일, 가입일 같은거 기록해 놓으면 좋을 듯 하다.</p>
+<p><br></p>
+<p><strong>데이터베이스 생성</strong></p>
+<p><img src="https://static.blex.kr/image/2019/10/21/1_WpZNJCJu9Al2shx.png" alt="" /></p>
+<p><img src="https://static.blex.kr/image/2019/10/21/2_6hVdSDQac5h4LGq.png" alt="" /></p>
+<p>상단의 데이터 베이스 탭에서 '새로 만들기'를 실시한 후 데이터 베이스 이름을 결정하고 '만듭니다' 버튼을 누르면 된다.</p>
+<p><br></p>
+<p><strong>테이블 생성</strong></p>
+<p>여기서는 먼저 유저의 번호와 유저의 이름, 유저의 비밀번호, 유저의 메일을 저장하는 USERINFO라는 테이블을 생성해 보도록 할 것이다.</p>
+<pre><code class="language-sql">CREATE TABLE USERINFO (
+    UserNum int,
+    UserName char(20),
+    UserPW char(20),
+    UserMail char(30)
+);</code></pre>
+<p><img src="https://static.blex.kr/image/2019/10/21/3_3XsRALm76j2hmr8.png" alt="" /></p>
+<p>명령어 실행 후 위와같이 테이블이 생성된 것을 확인할 수 있다. 이번엔 테이블에 기본키도 넣고 자동 증가값도 설정해서 테이블을 생성해 보았다.</p>
+<pre><code class="language-sql">CREATE TABLE USERINFO (
+    UserNum int NOT NULL AUTO_INCREMENT,
+    UserName char(20) NOT NULL,
+    UserPW char(20) NOT NULL,
+    UserMail char(30),
+    PRIMARY KEY(UserNum)
+);</code></pre>
+<ul>
+<li><code>NOT NULL</code>은 빈 값이 들어가면 안된다는 의미,</li>
+<li><code>AUTO_INCREMENT</code>는 알아서 증가하는 값이라는 의미,</li>
+<li><code>PRIMARY KEY</code>는 각각을 구분할 수 있는 기본적인 키이다.</li>
+<li><code>UserNum</code>은 생성된 순서대로 발급될 예정이므로 기본키이며 빈값이 들어가면 안되며, 알아서 증가한다.</li>
+</ul>
+<p><img src="https://static.blex.kr/image/2019/10/21/4_7fWXz4sxPhf9xuZ.png" alt="" /></p>
+<p>생성된 테이블에 위와같이 <code>UserNum</code> 속성에 열쇠모양이 붙은 것을 확인할 수 있다.</p>
+<p><br></p>
+<h4>INSERT</h4>
+<p><img src="https://static.blex.kr/image/2019/10/21/5_dBlaQLhGDHcpfHS.png" alt="" /></p>
+<p>INSERT문을 사용하는 방법은 기초적으로 열을 지정해서 넣는 방법과 열을 미지정해서 넣는 방법이있다.</p>
+<ul>
+<li>열지정</li>
+</ul>
+<pre><code class="language-sql">INSERT INTO table_name(column2,column3,column4...)
+VALUES (value1,value2,value3...)</code></pre>
+<p>열지정을 하는 경우에는 지정하지 않는 열에 <code>AUTO_INCREMENT</code>와 같은 속성이 붙어 있는 경우에 주로 사용하게 되었다.</p>
+<ul>
+<li>열 미지정</li>
+</ul>
+<pre><code class="language-sql">INSERT INTO table_name
+VALUES (value1,value2,value3...)</code></pre>
+<p>열을 미지정 하는 경우에는 열의 이름을 입력할 필요가 없어서 매우 단순해 보인다.</p>
+<p><br></p>
+<p><strong>실습</strong></p>
+<p>두가지 방법으로 직접 레코드를 삽입해 보도록 하겠다. 사용되는 테이블은 이전 글에서 생성했던 것으로 이용할 예정이다.</p>
+<pre><code class="language-sql">NSERT INTO USERINFO
+VALUES (1000,"baere","1234","b******@naver.com")</code></pre>
+<p>먼저 baere라는 아이디를 가진 유저를 삽입하고 최초의 유저인 만큼 열을 미지정 하고 모든 값을 삽입했다.</p>
+<p><img src="https://static.blex.kr/image/2019/10/21/6_4iqcNJk91C9ttFo.png" alt="" /></p>
+<p>유저의 정보가 정상적으로 들어갔다.</p>
+<pre><code class="language-sql">INSERT INTO USERINFO(UserName,UserPW,UserMail)
+VALUES ("baere2","1234","b******@naver.com")</code></pre>
+<p><code>UserNum</code>의 경우에는 <code>AUTO_INCREMENT</code> 옵션이 적용되어 있기 때문에 값을 넣지 않아도 알아서 증가한다. 되려 중복될 문제를 야기하지 않아서 열을 지정해서 넣는 방법을 사용하는게 좋을 것 같다.</p>
+<p><img src="https://static.blex.kr/image/2019/10/21/7_que3MzbFvQwBbm0.png" alt="" /></p>
+<p>위와 같이 UserNum에 1001이 들어간 baere2가 생성되었다.</p>
+<p><br></p>
+<h4>DELETE</h4>
+<p><img src="https://static.blex.kr/title/2019/10/21/baealex/10_8_34.png" alt="" /></p>
+<p>DELETE 구문은 하나의 레코드만 삭제하는 구문이다. 기본적인 형태는 아래와 같다.</p>
+<pre><code class="language-sql">DELETE
+FROM table_name
+WHERE column1=value1</code></pre>
+<p>FROM에서 테이블을 선택하고 삭제할 레코드의 특징을 WHERE에서 설정해서 없애는 것이다. 만약 이름이 "baere"인 유저의 레코드를 지워본다고 하면 아래와 같이 SQL을 작성할 수 있다.</p>
+<pre><code class="language-sql">DELETE
+FROM USERINFO
+WHERE UserName="baere"</code></pre>
+<p><img src="https://static.blex.kr/image/2019/10/21/8_9mvIk8ut2UX763y.png" alt="" /></p>
+<p>위 처럼 정상적으로 'baere'라는 이름을 가진 유저가 삭제되었다.</p>
+<p><br></p>
+<h4>TRUNCATE</h4>
+<p>TURNCATE는 DROP과 DELETE의 사이의 기능을 수행한다. DELETE가 하나의 레코드를 삭제한다면, DROP은 하나의 테이블을 삭제하고 TURNCATE는 테이블 사이의 모든 레코드는 지우지만 테이블을 지우지는 않는다. 기초적인 사용법은 아래와 같다.</p>
+<pre><code class="language-sql">TRUNCATE TABLE tabel_name;</code></pre>
+<p>아까 작성한 예시 테이블에 TRUNCATE를 사용한다면 위처럼 사용한다.</p>
+<pre><code class="language-sql">TRUNCATE TABLE USERINFO;</code></pre>
+<p><img src="https://static.blex.kr/image/2019/10/21/9_GNaSAn0SxPkhhx8.png" alt="" /></p>
+<p>위 처럼 테이블의 모든 레코드는 삭제되었으나 테이블은 삭제되지 않은것을 확인할 수 있다.</p>
+<p><br></p>
+<h4>DROP</h4>
+<p>이번엔 테이블을 삭제하는 명령어인 DROP이다. 더 설명할 것도 없이 그냥 테이블이 삭제된다. 기본적인 사용방법은 아래와 같다.</p>
+<pre><code>DROP TABLE tabel_name;</code></pre>
+<p><img src="https://static.blex.kr/image/2019/10/21/10_fT9hcjWOLFA2hOe.png" alt="" /></p>
+<p>예시 테이블을 삭제한다고 가정하면 위와같이 작성된다. 좌측에 보면 Tables에서 USERINFO가 완전히 사라진 것을 확인할 수 있다.</p>
+        </article>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/sql">sql</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/13GQvW.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8">파이썬으로 구현한 자료구조 - 연결 리스트</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1XmX5.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">중간 댓글 알고리즘</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-%EC%9D%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%A9%EB%8B%88%EB%8B%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/23DFap.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-%EC%9D%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%A9%EB%8B%88%EB%8B%A4">당신에게 이 블로그를 추천합니다.</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+    <footer class="page-footer font-small bg-theme">
+    </div>
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>
