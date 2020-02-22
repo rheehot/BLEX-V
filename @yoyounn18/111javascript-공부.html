@@ -1,179 +1,23 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="IIFE js에서 자주사용되는 코딩패턴 중 하나이다. JS에서의 함수 function foo() { alert(&quot;Hello World&quot;); } foo(); IIFE를 적용하지 않은 코드 foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 foo();를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다. var msg = &quot;Hello World&quot;; var foo = function () { alert(msg); …">
-<meta property="og:url" content="https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="[11.1]Javascript 공부">
-<meta property="og:description" content="IIFE js에서 자주사용되는 코딩패턴 중 하나이다. JS에서의 함수 function foo() { alert(&quot;Hello World&quot;); } foo(); IIFE를 적용하지 않은 코드 foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 foo();를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다. var msg = &quot;Hello World&quot;; var foo = function () { alert(msg); …">
-<meta property="og:site_name" content="BLEX">
-
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="yoyounn18">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[11.1]Javascript 공부">
-<meta name="twitter:url" content="https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80">
-<meta name="twitter:description" content="IIFE js에서 자주사용되는 코딩패턴 중 하나이다. JS에서의 함수 function foo() { alert(&quot;Hello World&quot;); } foo(); IIFE를 적용하지 않은 코드 foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 foo();를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다. var msg = &quot;Hello World&quot;; var foo = function () { alert(msg); …">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
-    <title>[11.1]Javascript 공부 – yoyounn18</title>
-</head>
-<body>
-    
-
-
-    
-    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
-                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-            
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link" href="/@yoyounn18">yoyounn18</a>
-    </li>
-</ul>
-
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(125);">
-            <i class="far fa-heart"></i> <span id="like-count">0</span>
-        </a>
-    </li>
-    
-    <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
-            <i class="far fa-comment"></i> 0
-        </a>
-    </li>
-    
-    <li class="nav-item">
-        <div class="dropdown">
-            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
-                <i class="fas fa-share-alt"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
-                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=[11.1]Javascript 공부&url=https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
-            </div>
-        </div>
-    </li>
-</ul>
-
-            
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-<div class="row">
-    <div class="ml-auto col-lg-8">
-        
-        <h1 class="post-headline">[11.1]Javascript 공부</h1>
-        <p class="post-date">
-            2019-11-01 10:41
-            <span>(Last Update: 2019-11-01 16:57)<span></p>
-        
-        
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
-    <a href="/@yoyounn18">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/yoyounn18/BL4W.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 60%</span></h4>
-            
-            <p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-blogger-gray">
-                </li>
-                <li onclick="userFollow('yoyounn18')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        </p>
-    </div>
-</div>
-        <article class="article noto">
-            <h3>IIFE</h3>
-<p>js에서 자주사용되는 코딩패턴 중 하나이다.</p>
-<h3>JS에서의 함수</h3>
-<pre><code class="language-javascript">    function foo() {
+    gtag('config', 'UA-113864080-4');</script><meta name="description" content="IIFE js에서 자주사용되는 코딩패턴 중 하나이다. JS에서의 함수 function foo() { alert(&quot;Hello World&quot;); } foo(); IIFE를 적용하지 않은 코드 foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 foo();를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다. var msg = &quot;Hello World&quot;; var foo = function () { alert(msg); …"><meta property="og:url" content="https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80"><meta property="og:type" content="blog"><meta property="og:title" content="[11.1]Javascript 공부"><meta property="og:description" content="IIFE js에서 자주사용되는 코딩패턴 중 하나이다. JS에서의 함수 function foo() { alert(&quot;Hello World&quot;); } foo(); IIFE를 적용하지 않은 코드 foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 foo();를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다. var msg = &quot;Hello World&quot;; var foo = function () { alert(msg); …"><meta property="og:site_name" content="BLEX"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="yoyounn18"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="[11.1]Javascript 공부"><meta name="twitter:url" content="https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80"><meta name="twitter:description" content="IIFE js에서 자주사용되는 코딩패턴 중 하나이다. JS에서의 함수 function foo() { alert(&quot;Hello World&quot;); } foo(); IIFE를 적용하지 않은 코드 foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 foo();를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다. var msg = &quot;Hello World&quot;; var foo = function () { alert(msg); …"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>[11.1]Javascript 공부 – yoyounn18</title></head><body><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@yoyounn18">yoyounn18</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(125);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=[11.1]Javascript 공부&url=https://blex.kr/@yoyounn18/111javascript-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><h1 class="post-headline">[11.1]Javascript 공부</h1><p class="post-date">2019-11-01 10:41 <span>(Last Update: 2019-11-01 16:57)<span></span></span></p><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@yoyounn18"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/yoyounn18/BL4W.png)"></div></a><div class="author-info"><h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 55%</span></h4><p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-blogger-gray"></li><li onclick="userFollow('yoyounn18')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><h3>IIFE</h3><p>js에서 자주사용되는 코딩패턴 중 하나이다.</p><h3>JS에서의 함수</h3><pre><code class="language-javascript">    function foo() {
         alert("Hello World");
     }
 
-    foo();</code></pre>
-<p>IIFE를 적용하지 않은 코드</p>
-<p>foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 <code>foo();</code>를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다.</p>
-<pre><code class="language-javascript">    var msg = "Hello World";
+    foo();</code></pre><p>IIFE를 적용하지 않은 코드</p><p>foo 라는 함수를 1-3째 줄에 선언하고 5번째 줄에서 <code>foo();</code>를 통해 호출해내는 일반 개발자들이라면 자연스럽게 떠올릴 만한함수의 선언과 호출 과정이다.</p><pre><code class="language-javascript">    var msg = "Hello World";
     var foo = function () {
         alert(msg);
     };
 
-    foo();</code></pre>
-<p>js의 특징 중 하나인 함수 표현식이다. <code>foo</code>라는 변수에 함수타입의 값을 할당하였다. 이러한 것을 <code>함수 표현식</code> 이라고 한다. </p>
-<p>자바스크립트에서의 함수는 다른 값들(변수 등)과 비슷하게 쓰일 수 있다. <code>변수</code>에 할당도 가능하고 <code>매개변수</code>로도 활용이 가능하고 <code>return</code>값으로도 활용가능하다. 그만큼 이 함수를 잘 사용해야 자바스크립트에서의 효율적인 코딩이 가능한 것이다.</p>
-<p>위에서 선언한 함수표현식의 <code>function</code> 구문 뒤에 이름이 붙여져 있지않다. <code>foo</code>같은. 그런 것을 익명함수라고 한다. 반대로 이름이 주어져 있는 경우는 <code>Named function</code>이라고 하며 차이는 <code>재귀적 호출</code>이 가능한가 아닌가가 대표적이다.</p>
-<p>예)</p>
-<pre><code class="language-javascript">    var foo = function poo () {
+    foo();</code></pre><p>js의 특징 중 하나인 함수 표현식이다. <code>foo</code>라는 변수에 함수타입의 값을 할당하였다. 이러한 것을 <code>함수 표현식</code> 이라고 한다.</p><p>자바스크립트에서의 함수는 다른 값들(변수 등)과 비슷하게 쓰일 수 있다. <code>변수</code>에 할당도 가능하고 <code>매개변수</code>로도 활용이 가능하고 <code>return</code>값으로도 활용가능하다. 그만큼 이 함수를 잘 사용해야 자바스크립트에서의 효율적인 코딩이 가능한 것이다.</p><p>위에서 선언한 함수표현식의 <code>function</code> 구문 뒤에 이름이 붙여져 있지않다. <code>foo</code>같은. 그런 것을 익명함수라고 한다. 반대로 이름이 주어져 있는 경우는 <code>Named function</code>이라고 하며 차이는 <code>재귀적 호출</code>이 가능한가 아닌가가 대표적이다.</p><p>예)</p><pre><code class="language-javascript">    var foo = function poo () {
         poo();
-    }</code></pre>
-<p><code>Named function</code>일 경우 저런식으로 함수 내에서 재귀적 호출이 가능하다는 것이다. 저 함수 스코프 밖에서 <code>poo();</code> 는 호출되지 않는다.</p>
-<h3>IIFE</h3>
-<pre><code class="language-javascript">    !function () {
+    }</code></pre><p><code>Named function</code>일 경우 저런식으로 함수 내에서 재귀적 호출이 가능하다는 것이다. 저 함수 스코프 밖에서 <code>poo();</code> 는 호출되지 않는다.</p><h3>IIFE</h3><pre><code class="language-javascript">    !function () {
         alert("Hello");
-    } ();</code></pre>
-<p>이 함수의 특징</p>
-<p>첫번째 줄의 <code>!</code>이다. 자바스크립트에서는 <code>function</code>이라는 구문을 만나면 <code>함수가 선언</code>될 것이라고 예측한다. 그러한 일이 일어나지 않게 하기위해서(IIFE 방식을 사용하기 위해서) 그 앞에 <code>!</code>을 붙여준다. 이렇게 해주면 자바스크립트는 이 function을 선언문으로 인식하지않고 표현식으로 다루게 된다. (이 밖에도 <code>void</code> <code>+</code> <code>-</code>등도 앞에 붙여 줄 시 표현식으로 인식하게 되어 선언하자마자 바로 사용할 수 있는 환경을 조성 할 수 있다.)</p>
-<pre><code class="language-javascript">    (function () {
+    } ();</code></pre><p>이 함수의 특징</p><p>첫번째 줄의 <code>!</code>이다. 자바스크립트에서는 <code>function</code>이라는 구문을 만나면 <code>함수가 선언</code>될 것이라고 예측한다. 그러한 일이 일어나지 않게 하기위해서(IIFE 방식을 사용하기 위해서) 그 앞에 <code>!</code>을 붙여준다. 이렇게 해주면 자바스크립트는 이 function을 선언문으로 인식하지않고 표현식으로 다루게 된다. (이 밖에도 <code>void</code> <code>+</code> <code>-</code>등도 앞에 붙여 줄 시 표현식으로 인식하게 되어 선언하자마자 바로 사용할 수 있는 환경을 조성 할 수 있다.)</p><pre><code class="language-javascript">    (function () {
         alert("Blex");
-    });</code></pre>
-<p>이 방식이 보편적인 IIFE문체이다. 필자가 참고한 글의 저자는 첫번째 방식을 선호한다고 하지만 필자는 두번째 방식을 더 선호하고 실제로 구글에서 예제를 찾아볼 때 두번째 방식을 자주 접해서 두번쨰 방식이 더 익숙하다고 생각한다.</p>
-<p>정리하자면 이 IIFE문체는 <code>딱 한번만 쓸 function을 효율적으로 활용하는 디자인 패턴</code>이라고 보면 될 것 같다. 예를 들면 자바스크립트로 게임을 만들 때 <code>game()</code> function이라던가 하는 경우 말이다. (필자가 최근 snake 게임을 만들떄 사용했음.)</p>
-<h3>IIFE의 활용</h3>
-<p>IIFE의 특징중 하나가 IIFE 내부에 정의된 변수들은 바깥에선 볼 수 없다는 것이다.</p>
-<pre><code class="language-javascript">    (function () {
+    });</code></pre><p>이 방식이 보편적인 IIFE문체이다. 필자가 참고한 글의 저자는 첫번째 방식을 선호한다고 하지만 필자는 두번째 방식을 더 선호하고 실제로 구글에서 예제를 찾아볼 때 두번째 방식을 자주 접해서 두번쨰 방식이 더 익숙하다고 생각한다.</p><p>정리하자면 이 IIFE문체는 <code>딱 한번만 쓸 function을 효율적으로 활용하는 디자인 패턴</code>이라고 보면 될 것 같다. 예를 들면 자바스크립트로 게임을 만들 때 <code>game()</code> function이라던가 하는 경우 말이다. (필자가 최근 snake 게임을 만들떄 사용했음.)</p><h3>IIFE의 활용</h3><p>IIFE의 특징중 하나가 IIFE 내부에 정의된 변수들은 바깥에선 볼 수 없다는 것이다.</p><pre><code class="language-javascript">    (function () {
         var foo;
         var poo;
 
@@ -183,26 +27,15 @@
             foo = 5;
             poo = 10;
         }
-    }());</code></pre>
-<p>이 함수의 구성에 대해 살펴보면 <code>foo</code> <code>poo</code>라는 두 가지의 변수가 선언되어있고 이 변수를 <code>init ()</code> 이라는 내부함수에서 접근하여 값을 할당한다. 요약하자면 내부의 <code>init()</code>이라는 함수 외에는 이 변수에 영향을 줄 수 있는 요인이 없다는 것이고 <code>foo</code>와 <code>poo</code>는 오염되지 않는다고 볼 수 있다. 이러한 IIFE 패턴의 private한 특성을 이용하여 코드가 길어지고 각종 전역 변수, 함수들이 난무할때 꼭 오염되지 않아야 할 변수들을 지켜낼 수 있다.</p>
-<h4>값을 return 하는 IIFE</h4>
-<pre><code class="language-javascript">    var foo = (function () {
+    }());</code></pre><p>이 함수의 구성에 대해 살펴보면 <code>foo</code> <code>poo</code>라는 두 가지의 변수가 선언되어있고 이 변수를 <code>init ()</code> 이라는 내부함수에서 접근하여 값을 할당한다. 요약하자면 내부의 <code>init()</code>이라는 함수 외에는 이 변수에 영향을 줄 수 있는 요인이 없다는 것이고 <code>foo</code>와 <code>poo</code>는 오염되지 않는다고 볼 수 있다. 이러한 IIFE 패턴의 private한 특성을 이용하여 코드가 길어지고 각종 전역 변수, 함수들이 난무할때 꼭 오염되지 않아야 할 변수들을 지켜낼 수 있다.</p><h4>값을 return 하는 IIFE</h4><pre><code class="language-javascript">    var foo = (function () {
         return "HI";
     }());
 
-    console.log(foo);</code></pre>
-<p>이런식으로 <code>변수</code>에 <code>return</code>을 담은 <code>IIFE문체</code>를 할당하면 값을 <code>return</code>하는 것이 가능하다.</p>
-<h4>Parameter가 있는 IIFE</h4>
-<pre><code class="language-javascript">    (finction foo(foo1, foo2) {
+    console.log(foo);</code></pre><p>이런식으로 <code>변수</code>에 <code>return</code>을 담은 <code>IIFE문체</code>를 할당하면 값을 <code>return</code>하는 것이 가능하다.</p><h4>Parameter가 있는 IIFE</h4><pre><code class="language-javascript">    (finction foo(foo1, foo2) {
         for(var i = 1; i &lt;= times; i ++) {
             console.log(foo1);
         }
-    }("Hello!", 5));</code></pre>
-<h3>마무리</h3>
-<p>IIFE는 여태까지도 많이 써 왔고 앞으로도 많이 쓸 디자인 패턴이다. IIFE 그 자체에만 집중 할 것이 아닌  return, parameter를 활용한 좀 더 깊은 IIFE의 활용으로 코드를 좀 더 가독성있고 효율적으로 짤 수 있어야 할 것이다.</p>
-<h3>javascript의 이벤트 루프</h3>
-<p>자바스크립트가 싱글스레드 이면서 비동기인 이유는 브라우저에 있다. 브라우저의 api를 통해 접근하는 행위가 비동기 행위라고 볼 수 있다.</p>
-<pre><code class="language-javascript">    function main () {
+    }("Hello!", 5));</code></pre><h3>마무리</h3><p>IIFE는 여태까지도 많이 써 왔고 앞으로도 많이 쓸 디자인 패턴이다. IIFE 그 자체에만 집중 할 것이 아닌 return, parameter를 활용한 좀 더 깊은 IIFE의 활용으로 코드를 좀 더 가독성있고 효율적으로 짤 수 있어야 할 것이다.</p><h3>javascript의 이벤트 루프</h3><p>자바스크립트가 싱글스레드 이면서 비동기인 이유는 브라우저에 있다. 브라우저의 api를 통해 접근하는 행위가 비동기 행위라고 볼 수 있다.</p><pre><code class="language-javascript">    function main () {
         console.log('A');
         setTimeout(
         function display() {console.log('B);}
@@ -210,136 +43,14 @@
         console.log('C');
     }
 
-    main();</code></pre>
-<pre><code>    동작결과
+    main();</code></pre><pre><code>    동작결과
     A
     C
-    B</code></pre>
-<p>이 함수의 동작과정을 살펴보자</p>
-<ol>
-<li>
-<p>메인함수에 대한 호출 <code>main()</code>이  stack에 <code>push()</code>된다. 그리고 <code>console.log('A');</code>가 stack에 쌓였다가 곧바로 <code>pop()</code>되어 A가 출력된다.</p>
-</li>
-<li>
-<p><code>display()</code>를 가진 <code>setTimeout()</code>가 콜스택으로 <code>push()</code>되고  실행된다. 이 때 <code>setTimeout()</code>은 딜레이를 사용하기위해 브라우저의 API를 사용한다. 그 후 <code>pop()</code>된다.</p>
-</li>
-<li>
-<p>브라우저에서 delay에 대한 타이머가 돌아갈때 <code>console.log('C');</code>가 <code>push()</code>된다. </p>
-</li>
-<li>
-<p><code>main()</code>함수의 마지막 statement인 <code>console.log('C')</code>가 <code>push()</code>된 후 C를 출력한다 그리고 모든 것을 실행시킨 <code>main()</code>이 <code>pop()</code>된다.</p>
-</li>
-<li>
-<p>콜스택이 모두 비워진 후에야 <code>display()</code>가 콜스택에 <code>push()</code>되고 실행된다. 그리고 알파벳 B가 콘솔에 출력된다. 이것이 자바스크립트의 기본적인 이벤트에 대한 루프이다.</p>
-</li>
-</ol>
-<p>그래서 <code>setTimeout()</code>에서의 <code>delay</code>파라미터는 함수가 실행된 후 딜레이를 계산하는것이 아니라 특정 지점(위에서는 main함수가 pop되서 콜스택이 모두 비워진 시점)부터 대기시간을 계산한다고 생각 할 수 있겠습니다.</p>
-<h4>js의 스케줄 관리</h4>
-<ul>
-<li>setTimeout은 일정 시간 간격 이후에 함수가 한 번 실행된다.</li>
-<li>setInterval은 일정 시간 간격으로 함수가 주기적으로 실행된다.</li>
-</ul>
-<p><strong>setTimeout</strong></p>
-<pre><code class="language-javascript">    let timerId = setTimeout(func | code, [delay], [arg1], [arg2])</code></pre>
-<p><code>func|code</code> 실행을 위한 함수나 문자열</p>
-<p><code>delay</code> 실행ㅎ아기 전의 딜레이 ms단위로 되어있음</p>
-<p><code>arg1, arg2</code> function에 대한 인자.</p>
-<p><strong>1초 후에 hello를 출력하는 코드</strong></p>
-<pre><code class="language-javascript">    function foo () {
+    B</code></pre><p>이 함수의 동작과정을 살펴보자</p><ol><li><p>메인함수에 대한 호출 <code>main()</code>이 stack에 <code>push()</code>된다. 그리고 <code>console.log('A');</code>가 stack에 쌓였다가 곧바로 <code>pop()</code>되어 A가 출력된다.</p></li><li><p><code>display()</code>를 가진 <code>setTimeout()</code>가 콜스택으로 <code>push()</code>되고 실행된다. 이 때 <code>setTimeout()</code>은 딜레이를 사용하기위해 브라우저의 API를 사용한다. 그 후 <code>pop()</code>된다.</p></li><li><p>브라우저에서 delay에 대한 타이머가 돌아갈때 <code>console.log('C');</code>가 <code>push()</code>된다.</p></li><li><p><code>main()</code>함수의 마지막 statement인 <code>console.log('C')</code>가 <code>push()</code>된 후 C를 출력한다 그리고 모든 것을 실행시킨 <code>main()</code>이 <code>pop()</code>된다.</p></li><li><p>콜스택이 모두 비워진 후에야 <code>display()</code>가 콜스택에 <code>push()</code>되고 실행된다. 그리고 알파벳 B가 콘솔에 출력된다. 이것이 자바스크립트의 기본적인 이벤트에 대한 루프이다.</p></li></ol><p>그래서 <code>setTimeout()</code>에서의 <code>delay</code>파라미터는 함수가 실행된 후 딜레이를 계산하는것이 아니라 특정 지점(위에서는 main함수가 pop되서 콜스택이 모두 비워진 시점)부터 대기시간을 계산한다고 생각 할 수 있겠습니다.</p><h4>js의 스케줄 관리</h4><ul><li>setTimeout은 일정 시간 간격 이후에 함수가 한 번 실행된다.</li><li>setInterval은 일정 시간 간격으로 함수가 주기적으로 실행된다.</li></ul><p><strong>setTimeout</strong></p><pre><code class="language-javascript">    let timerId = setTimeout(func | code, [delay], [arg1], [arg2])</code></pre><p><code>func|code</code> 실행을 위한 함수나 문자열</p><p><code>delay</code> 실행ㅎ아기 전의 딜레이 ms단위로 되어있음</p><p><code>arg1, arg2</code> function에 대한 인자.</p><p><strong>1초 후에 hello를 출력하는 코드</strong></p><pre><code class="language-javascript">    function foo () {
         console.log("Hello");
     }
 
-    setTimeout(foo, 1000);</code></pre>
-<p><code>func|code</code>라고 기입하여 함수와 문자열이 가능하다고는 써놓았지만 문자열보다는 함수를 권장한다.</p>
-<p>함수를 인자로 넘긴다고해서 ()를 뒤에 붙이는 실수는 범하지 마시길 <code>함수의 이름만</code> 넘겨주면 되는것이다.</p>
-<p><strong>setInterval</strong></p>
-<pre><code class="language-javascript">    let timerId = setInterval(func | code, [delay], [arg1], [arg2])</code></pre>
-<p>기본적으로 <code>setTimeout()</code>이랑 사용법은 비슷하다. 타임아웃이 일회성이었다면 인터벌은 주어진 delay()의 시간마다 그 행위를 반복하는 것이다.</p>
-        </article>
-        
-        
-        
-        <ul class="tag-list">
-            
-            <li><a href="/@yoyounn18/topic/javascript">javascript</a></li>
-            
-            <li><a href="/@yoyounn18/topic/til">til</a></li>
-            
-            <li><a href="/@yoyounn18/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li>
-            
-        </ul>
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-
-<div id="comment" class="mt-5">
-    
-        
-        <div id="comment-empty" class="comment-list">
-            <p>작성된 댓글이 없습니다!</p>
-        </div>
-        
-    
-</div>
-
-
-    
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
-    <div class="container pt-4 pb-2">
-        <div class="header-title">
-            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
-        </div>
-        <div class="row">
-        
-            <div class="col-md-4">
-                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-6"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/1/31/2gQkI.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-6">한 달 안에 취업하기 #6</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@yoyounn18/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%A7%81%EA%B5%B0-%EC%9B%B9%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%A9%B4%EC%A0%91%EC%A7%88%EB%AC%B8-%EB%AA%A8%EC%9D%8C-%EB%8B%B5%EB%B3%80-%EB%8B%AC%EC%95%84%EB%B3%B4%EA%B8%B0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/11/yoyounn18/10_50_29.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%A7%81%EA%B5%B0-%EC%9B%B9%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%A9%B4%EC%A0%91%EC%A7%88%EB%AC%B8-%EB%AA%A8%EC%9D%8C-%EB%8B%B5%EB%B3%80-%EB%8B%AC%EC%95%84%EB%B3%B4%EA%B8%B0">프론트엔드 직군 웹개발자 면접질문 모음 답변 달아보기</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/2/3/11FdAc.PNG);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-8">한 달 안에 취업하기 #8</a></h5>
-            </div>
-        
-        </div>
-    </div>
-</div>
-
-        </div>
-    </div>
-    
-    <footer class="page-footer font-small bg-theme">
-    </div>
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script>
-    <div id="notify-content"></div>
-    
-<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script>
-
-<script>
-$(document).ready(function() {
+    setTimeout(foo, 1000);</code></pre><p><code>func|code</code>라고 기입하여 함수와 문자열이 가능하다고는 써놓았지만 문자열보다는 함수를 권장한다.</p><p>함수를 인자로 넘긴다고해서 ()를 뒤에 붙이는 실수는 범하지 마시길 <code>함수의 이름만</code> 넘겨주면 되는것이다.</p><p><strong>setInterval</strong></p><pre><code class="language-javascript">    let timerId = setInterval(func | code, [delay], [arg1], [arg2])</code></pre><p>기본적으로 <code>setTimeout()</code>이랑 사용법은 비슷하다. 타임아웃이 일회성이었다면 인터벌은 주어진 delay()의 시간마다 그 행위를 반복하는 것이다.</p></article><ul class="tag-list"><li><a href="/@yoyounn18/topic/javascript">javascript</a></li><li><a href="/@yoyounn18/topic/til">til</a></li><li><a href="/@yoyounn18/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@yoyounn18/spa-project-%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/1/30/21E0Ak.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/spa-project-%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">[SPA Project] 개발노트</a></h5></div><div class="col-md-4"><a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-1"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/1/25/6caJI.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-1">한 달 안에 취업하기 #1</a></h5></div><div class="col-md-4"><a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-13"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/2/9/20NQt8.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-13">한 달 안에 취업하기 #13</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script>$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -348,9 +59,4 @@ $(document).ready(function() {
       }
     }
   });
-});
-</script>
-
-    
-</body>
-</html>
+});</script></body></html>
