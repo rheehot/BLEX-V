@@ -1,8 +1,121 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#fff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#fff">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …"><meta property="og:url" content="https://blex.kr/thread/node"><meta property="og:type" content="blog"><meta property="og:title" content="Node.js"><meta property="og:description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="BLEX"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Node.js"><meta name="twitter:url" content="https://blex.kr/thread/node"><meta name="twitter:description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …"><meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>Node.js – BLEX</title></head><body><nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt=""> </a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a></li><li class="nav-item"><a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a></li></ul></div></div></nav><div class="container"><div class="content"><style>.container .col-md-10 {padding: 0;}</style><div class="col-md-10 mx-auto"><div class="thread-card"><img src="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg" alt="Node.js"><div class="p-4"><h1 class="post-headline">Node.js</h1><p class="post-date">1주, 2일전 새로운 스토리가 추가됨</p><ul class="tag-list"></ul></div></div><div class="thread-card p-4">로그인 후 이용하세요.</div><article id="story" class="noto"><div id="story-101"><div class="thread-card p-4"><p class="serif"><strong>async await</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-13 16:30(Last Update: 2020-02-13 20:44)</small><ul class="none-list"></ul><div class="article"><pre><code class="language-js">var express = require('express');
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …">
+<meta property="og:url" content="https://blex.kr/thread/node">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Node.js">
+<meta property="og:description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="BLEX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js">
+<meta name="twitter:url" content="https://blex.kr/thread/node">
+<meta name="twitter:description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>Node.js –  BLEX</title>
+</head>
+<body>
+    
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+            
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<style>.container .col-md-10 {padding: 0;}</style>
+<div class="col-md-10 mx-auto">
+  <div class="thread-card">
+    
+    <img src="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg" alt="Node.js">
+    
+    <div class="p-4">
+      <h1 class="post-headline">Node.js</h1>
+      <p class="post-date">1주, 3일전 새로운 스토리가 추가됨</p>
+      
+      
+      <ul class="tag-list">
+          
+      </ul>
+      
+    </div>
+  </div>
+  
+    
+    <div class="thread-card p-4">로그인 후 이용하세요.</div>
+    
+  
+  <article id="story" class="noto">
+    
+    <div id="story-101">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>async await</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-13 16:30(Last Update: 2020-02-13 20:44)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <pre><code class="language-js">var express = require('express');
 var app     = express();
 var http    = require('http').Server(app);
 
@@ -20,7 +133,40 @@ app.get('/', async (req, res) =&gt; {
 
 http.listen(3000, () =&gt; {
     console.log('SERVER RUN IN PORT 3000');
-});</code></pre><p>await를 사용할 수 있는 메서드는 Promise로 반환되는 객체여야 한다. readFile 같은 경우는 그렇지 않으므로 위 코드에서는 promisify를 이용하여 변환하여 async await을 사용하고 있다. Node 11 이상에서는 promisify를 사용할 필요가 없다.</p><pre><code class="language-js">const fs = require('fs').promises;</code></pre><p>위와같이 사용하여 그대로 fs.readFile에 async await을 적용하면 된다.</p><pre><code>{"text":"hello world!"}</code></pre><p>비동기 통신 별거 없구먼 😒</p></div></div></div></article></div></div></div><footer class="page-footer font-small"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/thread.js?version=1.0.36"></script><script>$(document).ready(function () {
+});</code></pre>
+<p>await를 사용할 수 있는 메서드는 Promise로 반환되는 객체여야 한다. readFile 같은 경우는 그렇지 않으므로 위 코드에서는 promisify를 이용하여 변환하여 async await을 사용하고 있다. Node 11 이상에서는 promisify를 사용할 필요가 없다.</p>
+<pre><code class="language-js">const fs = require('fs').promises;</code></pre>
+<p>위와같이 사용하여 그대로 fs.readFile에 async await을 적용하면 된다.</p>
+<pre><code>{"text":"hello world!"}</code></pre>
+<p>비동기 통신 별거 없구먼 😒</p>
+    </div>
+</div>
+    </div>
+    
+  </article>
+</div>
+
+        </div>
+    </div>
+    
+<footer class="page-footer font-small">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/thread.js?version=1.0.38"></script>
+<script>
+  $(document).ready(function () {
     var csrftoken = getCookie('csrftoken');
     $.ajaxSetup({
       beforeSend: function (xhr, settings) {
@@ -29,4 +175,9 @@ http.listen(3000, () =&gt; {
         }
       }
     });
-  });</script></body></html>
+  });
+</script>
+
+    
+</body>
+</html>

@@ -1,8 +1,164 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …"><meta property="og:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9"><meta property="og:type" content="blog"><meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (2) - 코딩"><meta property="og:description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="mildsalmon"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (2) - 코딩"><meta name="twitter:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9"><meta name="twitter:description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …"><meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>한라대학교 공지 알림 봇 제작기 (2) - 코딩 – mildsalmon</title></head><body><style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style><div><picture class="post-title-image"><img src="https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png" alt="한라대학교 공지 알림 봇 제작기 (2) - 코딩"><div class="post-image-mask"><h1 class="post-headline"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (2) - 코딩</h1><p class="post-date">2020-02-12 16:20<span>(Last Update: 2020-02-20 15:24)<span></span></span></p></div></picture></div><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@mildsalmon">mildsalmon</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(340);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (2) - 코딩&url=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@mildsalmon"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/CaDW.jpg)"></div></a><div class="author-info"><h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 50%</span></h4><p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-blogger-gray"></li><li onclick="userFollow('mildsalmon')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><h2>A. 개괄적 도식화</h2><p><img src="https://static.blex.kr/image/2020/2/12/vedouYk3FTg9x2lRH7Cy.png" alt="개괄적 도식화" title="개괄적 도식화"></p><p>개괄적으로 도식화를 하면 저런 모습이다.</p><blockquote><p>나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다</p></blockquote><p>위 목적을 해결하기 위해서는</p><blockquote><p>학교 공지사항이 최신화 되면</p><p>알람오기를 원한다 (나에게)</p></blockquote><p>위 두가지 사항을 만족시켜야 한다. 그러므로 나는 <strong>학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분</strong>과 <strong>알람을 보내주는 부분</strong>을 만들것이다.</p><p>때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 활용하여 코딩을 하고, 그 코드는 지속적으로 학교 공지사항이 최신화 되는지 확인해줘야한다.</p><p>서버를 사용하는 이유는 나는 사정상 pc를 항상 켜둘 수 없는 상황이다. 학교 공지사항이 최신화 되는지 어플(텔레그램, 카카오톡)에서 언제나 확인하기 위해서는 pc가 꺼지지 않고 지속적으로 코드를 실행시켜야 하기 때문이다.</p><h2>B. 코딩 (수정전)</h2><pre><code class="language-python">import requests
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …">
+<meta property="og:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (2) - 코딩">
+<meta property="og:description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (2) - 코딩">
+<meta name="twitter:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">
+<meta name="twitter:description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>한라대학교 공지 알림 봇 제작기 (2) - 코딩 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png" alt="한라대학교 공지 알림 봇 제작기 (2) - 코딩">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (2) - 코딩</h1>
+            <p class="post-date">2020-02-12 16:20<span>(Last Update: 2020-02-20 15:24)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@mildsalmon">mildsalmon</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(340);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (2) - 코딩&url=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/CaDW.jpg)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 45%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h2>A. 개괄적 도식화</h2>
+<p><img src="https://static.blex.kr/image/2020/2/12/vedouYk3FTg9x2lRH7Cy.png" alt="개괄적 도식화" title="개괄적 도식화"></p>
+<p>개괄적으로 도식화를 하면 저런 모습이다.</p>
+<blockquote>
+<p>나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다</p>
+</blockquote>
+<p>위 목적을 해결하기 위해서는</p>
+<blockquote>
+<p>학교 공지사항이 최신화 되면</p>
+<p>알람오기를 원한다 (나에게)</p>
+</blockquote>
+<p>위 두가지 사항을 만족시켜야 한다.
+그러므로 나는 <strong>학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분</strong>과 <strong>알람을 보내주는 부분</strong>을 만들것이다.</p>
+<p>때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 활용하여 코딩을 하고, 그 코드는 지속적으로 학교 공지사항이 최신화 되는지 확인해줘야한다.</p>
+<p>서버를 사용하는 이유는 나는 사정상 pc를 항상 켜둘 수 없는 상황이다. 학교 공지사항이 최신화 되는지 어플(텔레그램, 카카오톡)에서 언제나 확인하기 위해서는 pc가 꺼지지 않고 지속적으로 코드를 실행시켜야 하기 때문이다.</p>
+<h2>B. 코딩 (수정전)</h2>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 import os
 import telegram
@@ -44,7 +200,34 @@ while True:
             with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
                 f_write.write(latest)
                 f_write.close()
-        f_read.close()</code></pre><p>전체 코드는 이렇게 된다.<br>위 코드는 내가 입대하기 전 작성한 코드이다.<br>입대하고 텔레그램 계정 자체를 삭제하다보니 봇 토큰과 chat_id가 날라가서 해당 부분만 수정했다.</p><blockquote><p>sleep을 추가하여 학교 서버에 주는 부하를 줄여주는 것이 좋다._BLEX 님</p></blockquote><h3>a. 모듈</h3><h4>1. requests</h4><p><a href="https://blex.kr/@mildsalmon/requests">Requests Document 정리본</a></p><p>세션부분은 미완성이다. Requests는 웹에 요청을 하면 서버에서 응답을 하는 형식이다. Requests를 통해 알 수 있는 정보는 웹 서버의 응답 코드, header, encoding, text, json 등이 있다.<br>주제가 웹 크롤링이다 보니까 꼭 사용해야 하는 모듈이다.</p><h4>2. beautifulsoup4</h4><p><a href="https://blex.kr/@mildsalmon/beautifulsoup">BeautifulSoup4 Document 정리본</a></p><p>BeautifulSoup는 문서를 (분해, 분석, 검색)하는 역할을 한다. requests에서 웹를 읽어온다면 이 웹에서 나에게 필요한 정보를 뽑아내는 작업을 해야한다.</p><p>직접 손으로 골라내도 상관은 없지만, 지금 이 코드의 자동화를 위해, 좀 더 간편하게 작성하기 위해 등등의 이유로 널리 배포되어 있는 BeautifulSoup 모듈를 사용하게 되었다.</p><h4>3. python-telegram-bot</h4><p><a href="https://blex.kr/@mildsalmon/telegram">python-telegram-bot 정리본</a></p><p>이건 텔레그램 봇을 컨트롤하기 위해서 필요한 부분이다.</p><h4>4. os</h4><p><a href="https://blex.kr/@mildsalmon/os">os 정리본</a></p><p>OS 모듈은 환경 변수나 디렉토리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈이다.</p><h2>C. 코딩 (수정후)</h2><pre><code class="language-python">import requests
+        f_read.close()</code></pre>
+<p>전체 코드는 이렇게 된다.<br>
+위 코드는 내가 입대하기 전 작성한 코드이다.<br>
+입대하고 텔레그램 계정 자체를 삭제하다보니 봇 토큰과 chat_id가 날라가서 해당 부분만 수정했다.</p>
+<blockquote>
+<p>sleep을 추가하여 학교 서버에 주는 부하를 줄여주는 것이 좋다._BLEX 님</p>
+</blockquote>
+<h3>a. 모듈</h3>
+<h4>1. requests</h4>
+<p><a href="https://blex.kr/@mildsalmon/requests">Requests Document 정리본</a></p>
+<p>세션부분은 미완성이다.
+Requests는 웹에 요청을 하면 서버에서 응답을 하는 형식이다.
+Requests를 통해 알 수 있는 정보는 웹 서버의 응답 코드, header, encoding, text, json 등이 있다.<br>
+주제가 웹 크롤링이다 보니까 꼭 사용해야 하는 모듈이다.</p>
+<h4>2. beautifulsoup4</h4>
+<p><a href="https://blex.kr/@mildsalmon/beautifulsoup">BeautifulSoup4 Document 정리본</a></p>
+<p>BeautifulSoup는 문서를 (분해, 분석, 검색)하는 역할을 한다.
+requests에서 웹를 읽어온다면 이 웹에서 나에게 필요한 정보를 뽑아내는 작업을 해야한다.</p>
+<p>직접 손으로 골라내도 상관은 없지만,
+지금 이 코드의 자동화를 위해, 좀 더 간편하게 작성하기 위해 등등의 이유로 널리 배포되어 있는 BeautifulSoup 모듈를 사용하게 되었다.</p>
+<h4>3. python-telegram-bot</h4>
+<p><a href="https://blex.kr/@mildsalmon/telegram">python-telegram-bot 정리본</a></p>
+<p>이건 텔레그램 봇을 컨트롤하기 위해서 필요한 부분이다.</p>
+<h4>4. os</h4>
+<p><a href="https://blex.kr/@mildsalmon/os">os 정리본</a></p>
+<p>OS 모듈은 환경 변수나 디렉토리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈이다.</p>
+<h2>C. 코딩 (수정후)</h2>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 import os
 import telegram
@@ -99,7 +282,144 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:    # DB 구현�
             with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
                 f_write.write(post.text)
                 # f_write.close()
-    # f_read.close()</code></pre><p>수정 이유를 간단히 설명하면 웹 페이지를 requests했을때 자주 발생하는 HTML 응답코드(클라이언트 에러, 서버 에러)에 대한 처리를 추가. (예외 처리로 변경 예정) 사용자가 수정해야 하는 부분(my_token, my_chat_id)을 맨 위로 올려서 편리하게 수정 할 수 있도록 함. 이 halla_notice_alarm.py는 서버에 올라간다면 1시간 마다 실행될 예정. 즉 주기적 패턴을 가지고 실행하는 것이 while문을 써서 계속 서버에서 작동하게 하는 것보다 서버 측 부하를 줄여준다고 생각해서 while문을 빼고 서버(리눅스)에서 cron을 통해 작업 예약 설정을 할것임.</p><p>코드 분석은 다음 포스트부터 다루겠습니다.</p><h2>참고자료</h2><blockquote><p>나만의 웹 크롤러 만들기, "<a href="https://beomi.github.io/gb-crawling/">https://beomi.github.io/gb-crawling/</a>", [Beomi's tech blog]</p><p>python으로 telegram bot 활용하기 - 1 기본 설정편, "<a href="https://blog.psangwoo.com/coding/2016/12/08/python-telegram-bot-1.html">https://blog.psangwoo.com/coding/2016/12/08/python-telegram-bot-1.html</a>", [Bill-Park]</p><p>[Python] BeautifulSoup4 라이브러리와 기초 (멜론차트 크롤링), "<a href="https://rednooby.tistory.com/98">https://rednooby.tistory.com/98</a>" [개발자의 취미생활]</p><p>Telegram bot 개발, "<a href="https://idlecomputer.tistory.com/122">https://idlecomputer.tistory.com/122</a>", [백곳]</p><p>beautifulsoup4, "<a href="https://blex.kr/@mildsalmon/beautifulsoup">https://blex.kr/@mildsalmon/beautifulsoup</a>", [mildsalmon]</p><p>Requests, "<a href="https://blex.kr/@mildsalmon/requests">https://blex.kr/@mildsalmon/requests</a>", [mildsalmon]</p><p>python Telegram Bot, "<a href="https://blex.kr/@mildsalmon/telegram">https://blex.kr/@mildsalmon/telegram</a>", [mildsalmon]</p><p>OS, "<a href="https://blex.kr/@mildsalmon/os">https://blex.kr/@mildsalmon/os</a>", [mildsalmon]</p><p>notice_alarm, "<a href="https://github.com/mildsalmon/notice_alarm">https://github.com/mildsalmon/notice_alarm</a>", [mildsalmon]</p></blockquote></article><div class="my-4 text-center"><h5 class="serif bg-dark p-4"><a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none text-white">'한라대학교 공지 알림 봇 제작기' 시리즈</a></h5><div class="row justify-content-between"><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94?series=한라대학교-공지-알림-봇-제작기"><i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></div></div><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D?series=한라대학교-공지-알림-봇-제작기"><i class="fas fa-arrow-circle-right vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (3) - 코드분석</a></div></div></div></div><ul class="tag-list"><li><a href="/@mildsalmon/topic/coding">coding</a></li><li><a href="/@mildsalmon/topic/python">python</a></li><li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li><li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li><li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8">텔레그램</a></li><li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li><li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@mildsalmon/beautifulsoup"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/12/21UPtd.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/beautifulsoup">beautifulsoup4 document</a></h5></div><div class="col-md-4"><a href="/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85">파이썬 모듈 시리즈 설명</a></h5></div><div class="col-md-4"><a href="/@mildsalmon/os"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/17/18cGQe.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/os">OS document</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script><script>$(document).ready(function() {
+    # f_read.close()</code></pre>
+<p>수정 이유를 간단히 설명하면 웹 페이지를 requests했을때 자주 발생하는 HTML 응답코드(클라이언트 에러, 서버 에러)에 대한 처리를 추가. (예외 처리로 변경 예정)
+사용자가 수정해야 하는 부분(my_token, my_chat_id)을 맨 위로 올려서 편리하게 수정 할 수 있도록 함.
+이 halla_notice_alarm.py는 서버에 올라간다면 1시간 마다 실행될 예정. 즉 주기적 패턴을 가지고 실행하는 것이 while문을 써서 계속 서버에서 작동하게 하는 것보다 서버 측 부하를 줄여준다고 생각해서 while문을 빼고 서버(리눅스)에서
+cron을 통해 작업 예약 설정을 할것임.</p>
+<p>코드 분석은 다음 포스트부터 다루겠습니다.</p>
+<h2>참고자료</h2>
+<blockquote>
+<p>나만의 웹 크롤러 만들기, "<a href="https://beomi.github.io/gb-crawling/">https://beomi.github.io/gb-crawling/</a>", [Beomi's tech blog]</p>
+<p>python으로 telegram bot 활용하기 - 1 기본 설정편, "<a href="https://blog.psangwoo.com/coding/2016/12/08/python-telegram-bot-1.html">https://blog.psangwoo.com/coding/2016/12/08/python-telegram-bot-1.html</a>", [Bill-Park]</p>
+<p>[Python] BeautifulSoup4 라이브러리와 기초 (멜론차트 크롤링), "<a href="https://rednooby.tistory.com/98">https://rednooby.tistory.com/98</a>" [개발자의 취미생활]</p>
+<p>Telegram bot 개발, "<a href="https://idlecomputer.tistory.com/122">https://idlecomputer.tistory.com/122</a>", [백곳]</p>
+<p>beautifulsoup4, "<a href="https://blex.kr/@mildsalmon/beautifulsoup">https://blex.kr/@mildsalmon/beautifulsoup</a>", [mildsalmon]</p>
+<p>Requests, "<a href="https://blex.kr/@mildsalmon/requests">https://blex.kr/@mildsalmon/requests</a>", [mildsalmon]</p>
+<p>python Telegram Bot, "<a href="https://blex.kr/@mildsalmon/telegram">https://blex.kr/@mildsalmon/telegram</a>", [mildsalmon]</p>
+<p>OS, "<a href="https://blex.kr/@mildsalmon/os">https://blex.kr/@mildsalmon/os</a>", [mildsalmon]</p>
+<p>notice_alarm, "<a href="https://github.com/mildsalmon/notice_alarm">https://github.com/mildsalmon/notice_alarm</a>", [mildsalmon]</p>
+</blockquote>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none text-white">'한라대학교 공지 알림 봇 제작기' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94?series=한라대학교-공지-알림-봇-제작기">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D?series=한라대학교-공지-알림-봇-제작기">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (3) - 코드분석
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@mildsalmon/topic/coding">coding</a></li>
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8">텔레그램</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="zy2kK104zOZ5t7dpYP0VYUdHh23717kSKBBncsiUi1PT32tbhsWKwdWAH3aYWr1k">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/requests"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/15/12WiKy.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/requests">Requests document</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/telegram"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/17/15Qb1t.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/telegram">Python Telegram Bot document</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19Uqot.gif);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -108,4 +428,9 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:    # DB 구현�
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

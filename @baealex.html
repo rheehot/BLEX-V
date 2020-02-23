@@ -1,8 +1,361 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#fff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#fff">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="BLOG EXPRESS ME baealex(배진오)"><meta property="og:site_name" content="BLEX"><meta property="og:title" content="baealex (배진오)"><meta property="og:description" content="BLOG EXPRESS ME baealex(배진오)"><meta property="og:image" content="https://static.blex.kr/avatar/u/baealex/yAAi.png"><meta property="og:url" content="https://blex.kr/@baealex"><meta property="og:type" content="blog"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="baealex (배진오)"><meta name="twitter:url" content="https://blex.kr/@baealex"><meta name="twitter:description" content="BLOG EXPRESS ME baealex(배진오)"><meta property="twitter:image" content="https://static.blex.kr/avatar/u/baealex/yAAi.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>baealex (배진오)</title></head><body><nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt=""> </a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a></li><li class="nav-item"><a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a></li></ul></div></div></nav><div class="container"><div class="content"><div class="col-md-12 padding-remove"><div class="user-profile"><picture><img class="user-avatar" src="https://static.blex.kr/avatar/u/baealex/yAAi.png" alt="baealex"></picture><h4 class="serif username">배진오</h4><h5 class="serif">@baealex</h5><a class="vivid-purple" href="https://im.baejino.com">https://im.baejino.com</a><ul class="author-state"><li><img src="https://img.shields.io/badge/-master-purple"></li><li onclick="userFollow('baealex')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social"></li></ul><p class="user-profile-desc mt-5">소비적인 일보단 생산적인 일을 추구하며,<br>좋아하는 일을 잘하고 싶어합니다 😀<br><a class="vivid-purple" href="/login">Sign in to view email</a></p><ul class="social-link"><li><a class="vivid-purple" href="https://github.com/baealex"><i class="fab fa-github-square"></i></a></li><li><a class="vivid-purple" href="https://youtube.com/channel/UCuupY_WlY6cPKEnpNNSVRpA"><i class="fab fa-youtube-square"></i></a></li></ul></div></div></div></div><div class="profile-tab back-image" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"><div class="mask"><ul class="serif"><li><a href="/@baealex">포스트</a></li><li><a href="/@baealex/profile/series">시리즈</a></li><li><a href="/@baealex/profile/activity">활동</a></li><li><a href="/@baealex/profile/about">소개</a></li></ul></div></div><div id="user-posts" class="container"><div class="row"><div class="profile-tags col-lg-3"><ul class="mt-4 noto"><h5 class="serif">카테고리</h5><li><a class="active" href="/@baealex">전체<span class="ns">(47)</span></a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94">자바<span class="ns">(15)</span></a></li><li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스<span class="ns">(14)</span></a></li><li><a href="/@baealex/topic/%EC%86%94%EB%A3%A8%EC%85%98">솔루션<span class="ns">(12)</span></a></li><li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지<span class="ns">(11)</span></a></li><li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬<span class="ns">(4)</span></a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조<span class="ns">(4)</span></a></li><li><a href="/@baealex/topic/%EC%B7%A8%EC%97%85">취업<span class="ns">(4)</span></a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트<span class="ns">(3)</span></a></li><li><a href="/@baealex/topic/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD">공지사항<span class="ns">(3)</span></a></li><li><a href="/@baealex/topic/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">튜토리얼<span class="ns">(3)</span></a></li><li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기<span class="ns">(2)</span></a></li><li><a href="/@baealex/topic/%EB%A6%AC%EC%95%A1%ED%8A%B8">리액트<span class="ns">(2)</span></a></li><li><a href="/@baealex/topic/mysql">mysql<span class="ns">(2)</span></a></li><li><a href="/@baealex/topic/%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C%EC%84%9C">자기소개서<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EC%8A%A4%EC%B1%97">스챗<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EC%8A%A4%ED%94%84%EB%A7%81">스프링<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EB%B8%94%EB%A1%9C%EA%B7%B8">블로그<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EC%9D%BC%EB%A0%89%ED%8A%B8%EB%A1%A0">일렉트론<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터베이스<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EC%9A%B4%EC%98%81">운영<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EB%A6%AC%EB%88%85%EC%8A%A4">리눅스<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91">기술면접<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%ED%9A%8C%EA%B3%A0">회고<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EC%B6%94%EC%B2%9C">추천<span class="ns">(1)</span></a></li><li><a href="/@baealex/topic/%EA%B3%B5%EB%B6%80">공부<span class="ns">(1)</span></a></li></ul></div><div class="col-lg-8 mt-4"><div id="wrapper"><div class="profile-post"><a href="/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8"><picture><img src="https://static.blex.kr/title/baealex/2020/2/12/2085Q8.png" alt="업데이트 내역" loading="lazy"></picture></a><h4 class="card-title serif font-weight-bold mt-3"><a class="deep-dark" href="/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">업데이트 내역</a></h4><p class="noto"><a class="shallow-dark" href="/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">스레드 숨겨진 스레드가 보여지던 버그 수정 사이트맵 스레드와 유저 페이지를 비롯해 사이트맵이 확장됩니다!</a></p><ul class="tag-list"><li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li><li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li></ul></div><div class="profile-post"><a href="/thread/electron"><picture><img src="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React" loading="lazy"></picture></a><h4 class="card-title serif font-weight-bold mt-3"><a class="deep-dark" href="/thread/electron">Electron + React</a></h4><p class="noto"><a class="shallow-dark" href="/thread/electron">class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …</a></p><ul class="tag-list"><li><a href="/@baealex/topic/%EB%A6%AC%EC%95%A1%ED%8A%B8">리액트</a></li><li><a href="/@baealex/topic/%EC%9D%BC%EB%A0%89%ED%8A%B8%EB%A1%A0">일렉트론</a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li></ul></div><div class="profile-post"><h4 class="card-title serif font-weight-bold mt-3"><a class="deep-dark" href="/thread/%EA%B1%B4%EC%9D%98%EC%82%AC%ED%95%AD">건의사항</a></h4><p class="noto"><a class="shallow-dark" href="/thread/%EA%B1%B4%EC%9D%98%EC%82%AC%ED%95%AD">작성 예시라던가 개발자 입장에서의 개발 의도 같은 것 말이죠.</a></p><ul class="tag-list"><li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li><li><a href="/@baealex/topic/%EC%9A%B4%EC%98%81">운영</a></li></ul></div><div class="profile-post"><a href="/thread/node"><picture><img src="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg" alt="Node.js" loading="lazy"></picture></a><h4 class="card-title serif font-weight-bold mt-3"><a class="deep-dark" href="/thread/node">Node.js</a></h4><p class="noto"><a class="shallow-dark" href="/thread/node">var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …</a></p></div><div class="profile-post"><a href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC"><picture><img src="https://static.blex.kr/title/baealex/2020/2/11/23EZWK.jpg" alt="스레드와 스토리에 관하여" loading="lazy"></picture></a><h4 class="card-title serif font-weight-bold mt-3"><a class="deep-dark" href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">스레드와 스토리에 관하여</a></h4><p class="noto"><a class="shallow-dark" href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">스레드 글은 하나로 끝나는 경우도 많지만 대게는 여러 시리즈를 통해서 완성됩니다. 장편 글의 시리즈라면 현재의 포스트 방식으로 작성하는 것이 좋겠지만 단편 글(TIL, 개발노트 등)인 경우 사용자를 짧은 시간내에 다른 페이지로 이동시키는 등 불편함이 존재합니다. 이를 개선하기 위해서 스레드라는 외국에서 흔히 사용되는 게시판 양식을 가져왔습니다. 포스트 : 정적으로 채워놓은 글 스레드 …</a></p><ul class="tag-list"><li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li><li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li></ul></div><div class="profile-post"><a href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8"><picture><img src="https://static.blex.kr/title/baealex/2020/2/17/23NBxM.jpg" alt="첫 출근을 준비하는 자세" loading="lazy"></picture></a><h4 class="card-title serif font-weight-bold mt-3"><a class="deep-dark" href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8">첫 출근을 준비하는 자세</a></h4><p class="noto"><a class="shallow-dark" href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8">내일은 드디어 &#39;첫&#39; 출근이다. 오묘한 현재 내겐 기대감과 긴장감이 공존하고있다. 기대하는 이유는 드디어 내가 꿈꾸던 &#39;개발자&#39;라는 직업이 내 이름 옆에 붙기 때문이다. 내가 그토록 꿈꾸고 고대하던 개발자의 삶. 긴장되는 이유는 그 삶이 정말 내가 원하던 삶인지에 대한 걱정이다. 블렉스를 개발하고 있노라면 너무나 행복하고 재미난다. 내가 만들고 싶은 걸 내가 원하는 …</a></p><ul class="tag-list"><li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기</a></li><li><a href="/@baealex/topic/%EC%B7%A8%EC%97%85">취업</a></li></ul></div></div></div></div></div><footer class="page-footer font-small"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript">$(document).ready(function() {
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="BLOG EXPRESS ME baealex(배진오)">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:title" content="baealex (배진오)">
+<meta property="og:description" content="BLOG EXPRESS ME baealex(배진오)">
+<meta property="og:image" content="https://static.blex.kr/avatar/u/baealex/yAAi.png">
+<meta property="og:url" content="https://blex.kr/@baealex">
+<meta property="og:type" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="baealex (배진오)">
+<meta name="twitter:url" content="https://blex.kr/@baealex">
+<meta name="twitter:description" content="BLOG EXPRESS ME baealex(배진오)">
+<meta property="twitter:image" content="https://static.blex.kr/avatar/u/baealex/yAAi.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>baealex (배진오)</title>
+</head>
+<body>
+    
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+            
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="col-md-12 padding-remove">
+    <div class="user-profile">
+        
+        <picture>
+            <img class="user-avatar" src="https://static.blex.kr/avatar/u/baealex/yAAi.png" alt="baealex">
+        </picture>
+        
+        <h4 class="serif username">배진오</h4>
+        <h5 class="serif">@baealex</h5>
+        <a class="vivid-purple" href="https://im.baejino.com">https://im.baejino.com</a>
+        <ul class="author-state">
+            <li>
+                <img src="https://img.shields.io/badge/-master-purple">
+            </li>
+            <li onclick="userFollow('baealex')">
+                <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+            </li>
+        </ul>
+        <p class="user-profile-desc mt-5">
+            
+                소비적인 일보단 생산적인 일을 추구하며,<br>좋아하는 일을 잘하고 싶어합니다 😀<br>
+            
+            
+            <a class="vivid-purple" href="/login">Sign in to view email</a>
+            
+        </p>
+        <ul class="social-link">
+            <li><a class="vivid-purple" href="https://github.com/baealex"><i class="fab fa-github-square"></i></a></li>
+            
+            <li><a class="vivid-purple" href="https://youtube.com/channel/UCuupY_WlY6cPKEnpNNSVRpA"><i class="fab fa-youtube-square"></i></a></li>
+            
+            
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="profile-tab back-image" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)">
+
+    <div class="mask">
+        <ul class="serif">
+            <li><a href="/@baealex">포스트</a></li>
+            <li><a href="/@baealex/profile/series">시리즈</a></li>
+            <li><a href="/@baealex/profile/activity">활동</a></li>
+            <li><a href="/@baealex/profile/about">소개</a></li>
+        </ul>
+    </div>
+</div>
+
+
+    <div id="user-posts" class="container">
+    <div class="row">
+        <div class="profile-tags col-lg-3">
+            
+            <ul class="mt-4 noto">
+                <h5 class="serif">카테고리</h5>
+                <li><a class="active" href="/@baealex">전체<span class="ns">(47)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍<span class="ns">(23)</span></a></li>
+                
+                <li><a href="/@baealex/topic/java">java<span class="ns">(15)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스<span class="ns">(14)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%86%94%EB%A3%A8%EC%85%98">솔루션<span class="ns">(13)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지<span class="ns">(11)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조<span class="ns">(4)</span></a></li>
+                
+                <li><a href="/@baealex/topic/python">python<span class="ns">(4)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%B7%A8%EC%97%85">취업<span class="ns">(4)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">튜토리얼<span class="ns">(3)</span></a></li>
+                
+                <li><a href="/@baealex/topic/javascript">javascript<span class="ns">(3)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD">공지사항<span class="ns">(3)</span></a></li>
+                
+                <li><a href="/@baealex/topic/react">react<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@baealex/topic/mysql">mysql<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@baealex/topic/electron">electron<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%9A%B4%EC%98%81">운영<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91">기술면접<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%8A%A4%EC%B1%97">스챗<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%ED%9A%8C%EA%B3%A0">회고<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EA%B3%B5%EB%B6%80">공부<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/spring">spring<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%B6%94%EC%B2%9C">추천<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C%EC%84%9C">자기소개서<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터베이스<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EB%B8%94%EB%A1%9C%EA%B7%B8">블로그<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EB%A6%AC%EB%88%85%EC%8A%A4">리눅스<span class="ns">(1)</span></a></li>
+                
+            </ul>
+            
+        </div>
+        <div class="col-lg-8 mt-4">
+        
+        <div id="wrapper">
+        
+            <div class="profile-post">
+                
+                <a href="/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">
+                    <picture>
+                        <img src="https://static.blex.kr/title/baealex/2020/2/12/2085Q8.png" alt="업데이트 내역" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">업데이트 내역</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">스레드 숨겨진 스레드가 보여지던 버그 수정 사이트맵 스레드와 유저 페이지를 비롯해 사이트맵이 확장됩니다!</a></p>
+                
+                
+                <ul class="tag-list">
+                    
+                    <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li>
+                    
+                    <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+                    
+                </ul>
+                
+            </div>
+        
+            <div class="profile-post">
+                
+                <a href="/thread/electron">
+                    <picture>
+                        <img src="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/thread/electron">Electron + React</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/thread/electron">class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …</a></p>
+                
+                
+                <ul class="tag-list">
+                    
+                    <li><a href="/@baealex/topic/electron">electron</a></li>
+                    
+                    <li><a href="/@baealex/topic/javascript">javascript</a></li>
+                    
+                    <li><a href="/@baealex/topic/react">react</a></li>
+                    
+                </ul>
+                
+            </div>
+        
+            <div class="profile-post">
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/thread/%EA%B1%B4%EC%9D%98%EC%82%AC%ED%95%AD">건의사항</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/thread/%EA%B1%B4%EC%9D%98%EC%82%AC%ED%95%AD">작성 예시라던가 개발자 입장에서의 개발 의도 같은 것 말이죠.</a></p>
+                
+                
+                <ul class="tag-list">
+                    
+                    <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+                    
+                    <li><a href="/@baealex/topic/%EC%9A%B4%EC%98%81">운영</a></li>
+                    
+                </ul>
+                
+            </div>
+        
+            <div class="profile-post">
+                
+                <a href="/thread/node">
+                    <picture>
+                        <img src="https://static.blex.kr/title/baealex/2020/2/13/21gvYY.jpg" alt="Node.js" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/thread/node">Node.js</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/thread/node">var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …</a></p>
+                
+                
+            </div>
+        
+            <div class="profile-post">
+                
+                <a href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">
+                    <picture>
+                        <img src="https://static.blex.kr/title/baealex/2020/2/11/23EZWK.jpg" alt="스레드와 스토리에 관하여" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">스레드와 스토리에 관하여</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">스레드 글은 하나로 끝나는 경우도 많지만 대게는 여러 시리즈를 통해서 완성됩니다. 장편 글의 시리즈라면 현재의 포스트 방식으로 작성하는 것이 좋겠지만 단편 글(TIL, 개발노트 등)인 경우 사용자를 짧은 시간내에 다른 페이지로 이동시키는 등 불편함이 존재합니다. 이를 개선하기 위해서 스레드라는 외국에서 흔히 사용되는 게시판 양식을 가져왔습니다. 포스트 : 정적으로 채워놓은 글 스레드 …</a></p>
+                
+                
+                <ul class="tag-list">
+                    
+                    <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li>
+                    
+                    <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+                    
+                </ul>
+                
+            </div>
+        
+            <div class="profile-post">
+                
+                <a href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8">
+                    <picture>
+                        <img src="https://static.blex.kr/title/baealex/2020/2/17/23NBxM.jpg" alt="첫 출근을 준비하는 자세" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8">첫 출근을 준비하는 자세</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8">내일은 드디어 &#39;첫&#39; 출근이다. 오묘한 현재 내겐 기대감과 긴장감이 공존하고있다. 기대하는 이유는 드디어 내가 꿈꾸던 &#39;개발자&#39;라는 직업이 내 이름 옆에 붙기 때문이다. 내가 그토록 꿈꾸고 고대하던 개발자의 삶. 긴장되는 이유는 그 삶이 정말 내가 원하던 삶인지에 대한 걱정이다. 블렉스를 개발하고 있노라면 너무나 행복하고 재미난다. 내가 만들고 싶은 걸 내가 원하는 …</a></p>
+                
+                
+                <ul class="tag-list">
+                    
+                    <li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기</a></li>
+                    
+                    <li><a href="/@baealex/topic/%EC%B7%A8%EC%97%85">취업</a></li>
+                    
+                </ul>
+                
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+        </div>
+    
+    
+    <footer class="page-footer font-small">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript">
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -11,7 +364,20 @@
       }
     }
   });
-});</script><script src="https://static.blex.kr/assets/library/InfiniteScroll.js?version=1.0.36"></script><script type="text/javascript">var postWrapperId = 'wrapper';
+});
+</script>
+<script src="https://static.blex.kr/assets/library/InfiniteScroll.js?version=1.0.38"></script>
+<script type="text/javascript">
+
+var postWrapperId = 'wrapper';
 var paginatePath = '/@baealex?page=';
 var lastPage = 9;
-new InfiniteScroll(paginatePath, postWrapperId, lastPage);</script><script src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script></body></html>
+new InfiniteScroll(paginatePath, postWrapperId, lastPage);
+
+
+</script>
+<script src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+    
+</body>
+</html>

@@ -1,20 +1,196 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 11장 1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 …"><meta property="og:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0"><meta property="og:type" content="blog"><meta property="og:title" content="명품 자바 에센셜 연습문제 11장(이론)"><meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 11장 1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 …"><meta property="og:site_name" content="BLEX"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="baealex"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="명품 자바 에센셜 연습문제 11장(이론)"><meta name="twitter:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0"><meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 11장 1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 …"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>명품 자바 에센셜 연습문제 11장(이론) – baealex</title></head><body><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@baealex">baealex</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(377);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 11장(이론)&url=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 11장(이론)</h1><p class="post-date">2018-11-23 13:21</p><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@baealex"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><div class="author-info"><h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4><p class="author-description">소비적인 일보단 생산적인 일을 추구하며, 좋아하는 일을 잘하고 싶어합니다 😀</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-master-purple"></li><li onclick="userFollow('baealex')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><p><br></p><div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;"><p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다.<br></p></div><p><br></p><p><br></p><h3 class="title">연습문제 11장</h3><p>1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 메소드인지 말하라.<br>① printComponent(Graphics g)<br>② paintContent(Graphics g)<br><span style="color: rgb(255, 0, 0);">③ paintComponent(Graphics g)</span><br>④ repaint()<br><span style="color: rgb(47, 157, 39);">JComponent의 추상 메소드</span></p><p><br></p><p>2. 스윙 패키지에서 지원되며 빈 캔버스와 같이 아무 모양이 없는 컨테이너로서 개발자가 그래픽을 통해 다양한 사용자 인터페이스를 그리고자 할 때 사용하는 클래스는?<br><span style="color: rgb(255, 0, 0);">① JPanel</span><br>② JFrame<br>③ JDialog<br>④ JCanvas</p><p><br></p><p>3. Graphics 클래스의 기능이 아닌 것은?<br>① 이미지 축소하여 그리기<br>② 폐다각형 그리기<br>③ 클리핑<br><span style="color: rgb(255, 0, 0);">④ 애니메이션</span></p><p><br></p><p>4. 다음 설명 중 틀린 것은?<br>① JComponent를 상속받아 개발자는 자신만의 새로운 컴포넌트를 제작할 수 있다.<br>② Graphics는 java.awt 패키지에 속한 클래스이다.<br><span style="color: rgb(255, 0, 0);">③ Graphics로 선을 그릴 때 선의 두께를 마음대로 조절할 수 있다.</span><br>④ Graphics로 다각형을 칠할 때 외곽선과 내부의 색을 다르게 줄 수 없다.</p><p><br></p><p>5. 아래와 같은 MyPanel 패널 클래스가 있을 때, 다음 각 요청에 따라 그림을 그리는 코드를 작성하라.</p><pre><code class="language-java">class MyPanel extends JPanel {
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 11장 1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 …">
+<meta property="og:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="명품 자바 에센셜 연습문제 11장(이론)">
+<meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 11장 1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="명품 자바 에센셜 연습문제 11장(이론)">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 11장 1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>명품 자바 에센셜 연습문제 11장(이론) – baealex</title>
+</head>
+<body>
+    
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(377);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 11장(이론)&url=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 11장(이론)</h1>
+        <p class="post-date">
+            2018-11-23 13:21</p>
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><br></p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;">
+    <p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길
+        바랍니다.<br></p>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 class="title">연습문제 11장</h3>
+<p>1. 모든 스윙 컴포넌트가 오버라이딩하여 가지고 잇는 것으로 자신의 모양을 그리는 메소드는 무엇인가? 그리고 원레 이 메소드는 어떤 클래스에 있는 메소드인지 말하라.<br>①
+    printComponent(Graphics g)<br>② paintContent(Graphics g)<br><span style="color: rgb(255, 0, 0);">③
+        paintComponent(Graphics g)</span><br>④ repaint()<br><span style="color: rgb(47, 157, 39);">JComponent의 추상
+        메소드</span></p>
+<p><br></p>
+<p>2. 스윙 패키지에서 지원되며 빈 캔버스와 같이 아무 모양이 없는 컨테이너로서 개발자가 그래픽을 통해 다양한 사용자 인터페이스를 그리고자 할 때 사용하는 클래스는?<br><span style="color: rgb(255, 0, 0);">①
+        JPanel</span><br>② JFrame<br>③ JDialog<br>④ JCanvas</p>
+<p><br></p>
+<p>3. Graphics 클래스의 기능이 아닌 것은?<br>① 이미지 축소하여 그리기<br>② 폐다각형 그리기<br>③ 클리핑<br><span style="color: rgb(255, 0, 0);">④
+        애니메이션</span></p>
+<p><br></p>
+<p>4. 다음 설명 중 틀린 것은?<br>① JComponent를 상속받아 개발자는 자신만의 새로운 컴포넌트를 제작할 수 있다.<br>② Graphics는 java.awt 패키지에 속한 클래스이다.<br><span style="color: rgb(255, 0, 0);">③ Graphics로 선을 그릴 때 선의 두께를 마음대로 조절할 수 있다.</span><br>④ Graphics로 다각형을 칠할 때 외곽선과
+    내부의 색을 다르게 줄 수 없다.</p>
+<p><br></p>
+<p>5. 아래와 같은 MyPanel 패널 클래스가 있을 때, 다음 각 요청에 따라 그림을 그리는 코드를 작성하라.</p>
+<pre><code class="language-java">class MyPanel extends JPanel {
     Image img = new ImageIcon("test.jpg").getImage();
     public void paintComponent(Graphics g) {
         super.paintcomponent(g);
         ____________________
     }
-}</code></pre><p>(1) 이미지를 원본 크기로 (10, 20) 위치에 그리는 코드를 작성하라.<br><span style="color: rgb(47, 157, 39);">g.drawImage(img, 10, 20, this);</span></p><p>(2) 패널 안에 상, 하, 좌, 우 10픽셀씩 여백을 두고 그 안에 이미지가 모두 보이도록 그리는 코드를 작성하라.<br><span style="color: rgb(47, 157, 39);">g.drawImage(img, 10, 10, getWidth()-20, getHeight()-20,&nbsp;</span><span style="color: rgb(47, 157, 39);">this</span><span style="color: rgb(47, 157, 39);">);</span></p><p><br></p><p>6. 아래와 같은 MyPanel 패널 클래스가 있을 대, 다음 각 요청에 따라 그림을 그리는 코드를 한 줄 혹은 두 줄로 작성하라.</p><pre><code class="language-java">class Mypanel extends JPanel {
+}</code></pre>
+<p>(1) 이미지를 원본 크기로 (10, 20) 위치에 그리는 코드를 작성하라.<br><span style="color: rgb(47, 157, 39);">g.drawImage(img, 10, 20,
+        this);</span></p>
+<p>(2) 패널 안에 상, 하, 좌, 우 10픽셀씩 여백을 두고 그 안에 이미지가 모두 보이도록 그리는 코드를 작성하라.<br><span style="color: rgb(47, 157, 39);">g.drawImage(img,
+        10, 10, getWidth()-20, getHeight()-20,&nbsp;</span><span style="color: rgb(47, 157, 39);">this</span><span style="color: rgb(47, 157, 39);">);</span></p>
+<p><br></p>
+<p>6. 아래와 같은 MyPanel 패널 클래스가 있을 대, 다음 각 요청에 따라 그림을 그리는 코드를 한 줄 혹은 두 줄로 작성하라.</p>
+<pre><code class="language-java">class Mypanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         ____________________
         ____________________
     }
-}</code></pre><p>(1) 패널의 (100, 100)에 30픽셀의 Times New Roman체로 "We win!!"을 출력하라.<br><span style="color: rgb(47, 157, 39);">g.setFont(new Font("Times New Roman", Font.PLAIN, 30));</span><br><span style="color: rgb(47, 157, 39);">g.drawString("We Win!!", 100, 100);</span></p><p>(2) 패널에 꽉 차는 파란색의 타원을 그려라. 패널 크기와 함께 타원의 크기도 변한다.<br><span style="color: rgb(47, 157, 39);">g.setColor(Color.BLUE);</span><br><span style="color: rgb(47, 157, 39);">g.drawOval(0, 0, getWidth(),</span><span style="color: rgb(47, 157, 39);">&nbsp;getHeight(</span><span style="color: rgb(47, 157, 39);">));</span></p><p><br></p><p>7. 자바로 GUI를 구성할 때 JButton, JRadioButton 등 컴포넌트를 이용하거나 또는 그래픽을 이용할 수 있다. 그래픽을 이용하는 장점은 무엇인가?<br><span style="color: rgb(47, 157, 39);">개발자가 원하는&nbsp;독창적이고 창의적인&nbsp;GUI를 구현할 수 있다.</span></p><p><br></p><p>8. 컴포넌트의 paintComponent()를 응용프로그램에서 직접 호출하면 안 된다. 컴포넌트의 paintComponet()가 실행되도록 응용프로그램에서 간접적으로 할 수 있는 방법은?<br><span style="color: rgb(47, 157, 39);">repaint()를 호출한다.</span></p><p><br></p><p>9. 다음 코드를 참고하여 super.paintComponent(g)의 기능과 호출 이유를 설명하라.</p><pre><code class="language-java">import java.awt.*;
+}</code></pre>
+<p>(1) 패널의 (100, 100)에 30픽셀의 Times New Roman체로 "We win!!"을 출력하라.<br><span style="color: rgb(47, 157, 39);">g.setFont(new
+        Font("Times New Roman", Font.PLAIN, 30));</span><br><span style="color: rgb(47, 157, 39);">g.drawString("We
+        Win!!", 100, 100);</span></p>
+<p>(2) 패널에 꽉 차는 파란색의 타원을 그려라. 패널 크기와 함께 타원의 크기도 변한다.<br><span style="color: rgb(47, 157, 39);">g.setColor(Color.BLUE);</span><br><span style="color: rgb(47, 157, 39);">g.drawOval(0, 0, getWidth(),</span><span style="color: rgb(47, 157, 39);">&nbsp;getHeight(</span><span style="color: rgb(47, 157, 39);">));</span></p>
+<p><br></p>
+<p>7. 자바로 GUI를 구성할 때 JButton, JRadioButton 등 컴포넌트를 이용하거나 또는 그래픽을 이용할 수 있다. 그래픽을 이용하는 장점은 무엇인가?<br><span style="color: rgb(47, 157, 39);">개발자가
+        원하는&nbsp;독창적이고 창의적인&nbsp;GUI를 구현할 수 있다.</span></p>
+<p><br></p>
+<p>8. 컴포넌트의 paintComponent()를 응용프로그램에서 직접 호출하면 안 된다. 컴포넌트의 paintComponet()가 실행되도록 응용프로그램에서 간접적으로 할 수 있는 방법은?<br><span style="color: rgb(47, 157, 39);">repaint()를 호출한다.</span></p>
+<p><br></p>
+<p>9. 다음 코드를 참고하여 super.paintComponent(g)의 기능과 호출 이유를 설명하라.</p>
+<pre><code class="language-java">import java.awt.*;
 import javax.swing.*;
 public class paintComp extends JFrame {
     public paintComp() {
@@ -31,7 +207,120 @@ public class paintComp extends JFrame {
         }
     }
     public static void main(String[] args) { new paintComp(); }
-}</code></pre><p><span style="color: rgb(47, 157, 39);">기존의 모든 내용을 지우고 </span><span style="color: rgb(47, 157, 39);">컨포넌트를 상속받아 프로그래머가 원하는 컨포넌트를 그린다.</span></p><p><br></p></article><div class="my-4 text-center"><h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none text-white">'명품 자바 에센셜 풀이' 시리즈</a></h5><div class="row justify-content-between"><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-10%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이"><i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 10장(이론)</a></div></div><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-12%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이"><i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 12장(이론)</a></div></div></div></div><ul class="tag-list"><li><a href="/@baealex/topic/%EC%86%94%EB%A3%A8%EC%85%98">솔루션</a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94">자바</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-6%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-6%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 6장(이론)</a></h5></div><div class="col-md-4"><a href="/@baealex/%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%B6%94%EC%B2%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/4/15r0WC.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%B6%94%EC%B2%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">포스트 추천 알고리즘</a></h5></div><div class="col-md-4"><a href="/@baealex/vim-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/20/baealex/20_36_27.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/vim-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95">리눅스 VIM 설치 및 설정</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script>$(document).ready(function() {
+}</code></pre>
+<p><span style="color: rgb(47, 157, 39);">기존의 모든 내용을 지우고 </span><span style="color: rgb(47, 157, 39);">컨포넌트를 상속받아
+        프로그래머가 원하는 컨포넌트를 그린다.</span></p>
+<p><br></p>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none text-white">'명품 자바 에센셜 풀이' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-10%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 10장(이론)
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-12%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 12장(이론)
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/java">java</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%86%94%EB%A3%A8%EC%85%98">솔루션</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="2LmMjaJKnKJBQoqIk7pBxe8BrCc7Rc7Anrt7pi0s0554jpBKaYDWtSxHb5eIxQWg">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/3/baealex/14_5_32.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EC%9A%94">서비스 개요</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%8A%A4%ED%94%84%EB%A7%81"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2019/11/12/10_H22n.webp);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%8A%A4%ED%94%84%EB%A7%81">자바 스프링 환경설정</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/231VUy.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D">파이썬으로 구현한 자료구조 - 스택</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -40,4 +329,9 @@ public class paintComp extends JFrame {
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

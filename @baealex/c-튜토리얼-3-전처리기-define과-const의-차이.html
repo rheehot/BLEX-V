@@ -1,13 +1,162 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="전처리기 C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다. #include #include &amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &quot;Hello, World!&quot; &amp;lt;&amp;lt; endl; return 0; } …"><meta property="og:url" content="https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4"><meta property="og:type" content="blog"><meta property="og:title" content="C++ 튜토리얼 3. 전처리기, Define과 Const의 차이"><meta property="og:description" content="전처리기 C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다. #include #include &amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &quot;Hello, World!&quot; &amp;lt;&amp;lt; endl; return 0; } …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/2019/10/3/baealex/14_13_33.jpg"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="baealex"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="C++ 튜토리얼 3. 전처리기, Define과 Const의 차이"><meta name="twitter:url" content="https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4"><meta name="twitter:description" content="전처리기 C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다. #include #include &amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &quot;Hello, World!&quot; &amp;lt;&amp;lt; endl; return 0; } …"><meta name="twitter:image" content="https://static.blex.kr/title/2019/10/3/baealex/14_13_33.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>C++ 튜토리얼 3. 전처리기, Define과 Const의 차이 – baealex</title></head><body><style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style><div><picture class="post-title-image"><img src="https://static.blex.kr/title/2019/10/3/baealex/14_13_33.jpg" alt="C++ 튜토리얼 3. 전처리기, Define과 Const의 차이"><div class="post-image-mask"><h1 class="post-headline"><span class="post-series">'C++ 튜토리얼' 시리즈</span>C++ 튜토리얼 3. 전처리기, Define과 Const의 차이</h1><p class="post-date">2019-10-03 14:07<span>(Last Update: 2019-10-03 14:49)<span></span></span></p></div></picture></div><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@baealex">baealex</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(6);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=C++ 튜토리얼 3. 전처리기, Define과 Const의 차이&url=https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@baealex"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><div class="author-info"><h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4><p class="author-description">소비적인 일보단 생산적인 일을 추구하며, 좋아하는 일을 잘하고 싶어합니다 😀</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-master-purple"></li><li onclick="userFollow('baealex')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><h3>전처리기</h3><p>C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다.</p><p><br></p><h3>#include</h3><pre><code class="language-cpp">#include &lt;iostream&gt;
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="전처리기 C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다. #include #include &amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &quot;Hello, World!&quot; &amp;lt;&amp;lt; endl; return 0; } …">
+<meta property="og:url" content="https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="C++ 튜토리얼 3. 전처리기, Define과 Const의 차이">
+<meta property="og:description" content="전처리기 C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다. #include #include &amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &quot;Hello, World!&quot; &amp;lt;&amp;lt; endl; return 0; } …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/2019/10/3/baealex/14_13_33.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ 튜토리얼 3. 전처리기, Define과 Const의 차이">
+<meta name="twitter:url" content="https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4">
+<meta name="twitter:description" content="전처리기 C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다. #include #include &amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &quot;Hello, World!&quot; &amp;lt;&amp;lt; endl; return 0; } …">
+<meta name="twitter:image" content="https://static.blex.kr/title/2019/10/3/baealex/14_13_33.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>C++ 튜토리얼 3. 전처리기, Define과 Const의 차이 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/2019/10/3/baealex/14_13_33.jpg" alt="C++ 튜토리얼 3. 전처리기, Define과 Const의 차이">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'C++ 튜토리얼' 시리즈</span>C++ 튜토리얼 3. 전처리기, Define과 Const의 차이</h1>
+            <p class="post-date">2019-10-03 14:07<span>(Last Update: 2019-10-03 14:49)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(6);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=C++ 튜토리얼 3. 전처리기, Define과 Const의 차이&url=https://blex.kr/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B8%B0-define%EA%B3%BC-const%EC%9D%98-%EC%B0%A8%EC%9D%B4" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h3>전처리기</h3>
+<p>C++에서 #이 붙은 요소는 전처리기(preprocessor)라고 불리웁니다. 컴파일을 하기전에 미리 처리해야하는 내용입니다. 우리가 지금까지 코드를 작성하며 사용했던 전처리기는 #include 뿐이지만 #define과 #if, #ifdef, #ifndef, #else, #elif, #endif등 다양한 전처리기가 존재합니다. 각각의 요소에 대해서 알아보도록 하겠습니다.</p>
+<p><br></p>
+<h3>#include</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
 
 int main(void) {
     std::cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
     return 0;
-}</code></pre><p><code>#include</code>는 외부에 있는 파일을 포함시켜 하나의 파일처럼 컴파일을 할 수 있습니다. 우리는 분명히 <code>std::cout</code>이라는 함수를 만든적이 없었지만 사용할 수 있습니다. 이는 우리가 포함시킨 <code>iostream</code>에 해당 함수가 들어있기 때문입니다. #include를 이용하여 이런 기본적인 헤더 파일을 불러올 수 있고 사용자가 만든 헤더파일과 소스코드를 묶어줄수도 있습니다.</p><p><br></p><h3>#if</h3><pre><code class="language-c">#ifdef _WIN32
+}</code></pre>
+<p><code>#include</code>는 외부에 있는 파일을 포함시켜 하나의 파일처럼 컴파일을 할 수 있습니다. 우리는 분명히 <code>std::cout</code>이라는 함수를 만든적이 없었지만 사용할 수 있습니다. 이는 우리가 포함시킨 <code>iostream</code>에 해당 함수가 들어있기 때문입니다. #include를 이용하여 이런 기본적인 헤더 파일을 불러올 수 있고 사용자가 만든 헤더파일과 소스코드를 묶어줄수도 있습니다.</p>
+<p><br></p>
+<h3>#if</h3>
+<pre><code class="language-c">#ifdef _WIN32
 #include &lt;windows.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;tchar.h&gt;
@@ -18,7 +167,12 @@ int main(void) {
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-#endif</code></pre><p><code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#else</code>, <code>#elif</code>, <code>#endif</code>는 굉장히 다양한 방면으로 사용됩니다. 가령 헤더파일이 중복되어 불러와지지 않도록 할 수 있으며 운영체제를 구분하여 부분적으로 소스코드를 제거하거나 추가할 수 있습니다. 우리가 사용했던 <code>if</code>문과 동일한 기능을 수행하지만 위 나열된 전처리기의 경우는 대부분 시스템적인 측면에서 작동하는데 큰 의미가 있습니다.</p><p><br></p><h3>#define</h3><p><code>#define</code>로 선언된 문자가 있다면 해당 문자는 컴파일시 지정한 문자로 변경됩니다. 한가지 예를 들어보겠습니다.</p><pre><code class="language-cpp">#include &lt;iostream&gt;
+#endif</code></pre>
+<p><code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#else</code>, <code>#elif</code>, <code>#endif</code>는 굉장히 다양한 방면으로 사용됩니다. 가령 헤더파일이 중복되어 불러와지지 않도록 할 수 있으며 운영체제를 구분하여 부분적으로 소스코드를 제거하거나 추가할 수 있습니다. 우리가 사용했던 <code>if</code>문과 동일한 기능을 수행하지만 위 나열된 전처리기의 경우는 대부분 시스템적인 측면에서 작동하는데 큰 의미가 있습니다.</p>
+<p><br></p>
+<h3>#define</h3>
+<p><code>#define</code>로 선언된 문자가 있다면 해당 문자는 컴파일시 지정한 문자로 변경됩니다. 한가지 예를 들어보겠습니다.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
 #define MY_NAME "BaeJino"
 #define YEAR 2019
 #define MONTH "Apr"
@@ -30,8 +184,11 @@ int main(void){
     cout &lt;&lt; "Hello, My name is " &lt;&lt; MY_NAME &lt;&lt; endl;
     cout &lt;&lt; "Today is " &lt;&lt; DAY &lt;&lt; " " &lt;&lt; MONTH &lt;&lt; " " &lt;&lt; YEAR &lt;&lt; endl;
     return 0;
-}</code></pre><pre><code>Hello, My name is BaeJino
-Today is 2 Apr 2019</code></pre><p>재미있게도 우리는 변수를 단 하나도 생성하지 않았지만 변수를 생성한 것 처럼 출력하고 있습니다. 이는 메모리를 할당받는 것이 아니라 바꿔치기 한다고 생각하시면 좋습니다. 한마디로 위 코드는 애초에 다음과 같이 만들어 진 것입니다.</p><pre><code class="language-cpp">#include &lt;iostream&gt;
+}</code></pre>
+<pre><code>Hello, My name is BaeJino
+Today is 2 Apr 2019</code></pre>
+<p>재미있게도 우리는 변수를 단 하나도 생성하지 않았지만 변수를 생성한 것 처럼 출력하고 있습니다. 이는 메모리를 할당받는 것이 아니라 바꿔치기 한다고 생각하시면 좋습니다. 한마디로 위 코드는 애초에 다음과 같이 만들어 진 것입니다.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
 
 using namespace std;
 
@@ -39,7 +196,15 @@ int main(void){
     cout &lt;&lt; "Hello, My name is " &lt;&lt; "BaeJino" &lt;&lt; endl;
     cout &lt;&lt; "Today is " &lt;&lt; 4 &lt;&lt; " " &lt;&lt; "Apr" &lt;&lt; " " &lt;&lt; 2019 &lt;&lt; endl;
     return 0;
-}</code></pre><p><code>#define</code>을 이용하면 다음과 같이 재미난 <a href="https://baejino.com/programing/c/Korean-Coding">한글 코딩</a>을 구현할 수도 있습니다.</p><p><code>#define</code>으로 선언된 것은 변형시키거나 다른 값을 넣을 수 없습니다. 마치 상수(const)처럼요. <span class="red">그럼 이상하네요. #define이 있는데 왜 const를 사용하는 것일까요?</span> 저는 프로그래밍 언어를 배울때 이 부분이 항상 궁금했습니다. #define과 const는 다음과 같은 차이가 있습니다.</p><p><br></p><h3>Const와 Define의 차이</h3><ul><li>const는 메모리를 할당 받는다</li></ul><pre><code class="language-cpp">#include &lt;iostream&gt;
+}</code></pre>
+<p><code>#define</code>을 이용하면 다음과 같이 재미난 <a href="https://baejino.com/programing/c/Korean-Coding">한글 코딩</a>을 구현할 수도 있습니다.</p>
+<p><code>#define</code>으로 선언된 것은 변형시키거나 다른 값을 넣을 수 없습니다. 마치 상수(const)처럼요. <span class="red">그럼 이상하네요. #define이 있는데 왜 const를 사용하는 것일까요?</span> 저는 프로그래밍 언어를 배울때 이 부분이 항상 궁금했습니다. #define과 const는 다음과 같은 차이가 있습니다.</p>
+<p><br></p>
+<h3>Const와 Define의 차이</h3>
+<ul>
+<li>const는 메모리를 할당 받는다</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
 
 #define TEST_VARIABLE_DEFINE 2+5
 const int TEST_VARIABLE_CONST = 2+5;
@@ -50,14 +215,28 @@ int main(void) {
     cout &lt;&lt; TEST_VARIABLE_DEFINE * 6 &lt;&lt; endl;
     cout &lt;&lt; TEST_VARIABLE_CONST  * 6 &lt;&lt; endl;
     return 0;
-}</code></pre><p>두 값의 결과는 어떨까요? 같을까요? 결론부터 말하면 다릅니다.</p><pre><code>32 (2 + 5 * 6)
-35 ((2 + 5) * 6)</code></pre><p>define은 값이 바꿔치기 된 것이라고 말했습니다. const는 메모리를 할당받은 변수죠. 변수에 대입한 값이 이미 계산이 완료된 상태로 들어있는 상태라는 의미입니다. 그래서 메모리를 극도로 조절해야 하는 환경에서는 define을 선호한다고 합니다.</p><p><br></p><ul><li>const는 변수다</li></ul><pre><code class="language-cpp">#define YEAR 2019
+}</code></pre>
+<p>두 값의 결과는 어떨까요? 같을까요? 결론부터 말하면 다릅니다.</p>
+<pre><code>32 (2 + 5 * 6)
+35 ((2 + 5) * 6)</code></pre>
+<p>define은 값이 바꿔치기 된 것이라고 말했습니다. const는 메모리를 할당받은 변수죠. 변수에 대입한 값이 이미 계산이 완료된 상태로 들어있는 상태라는 의미입니다. 그래서 메모리를 극도로 조절해야 하는 환경에서는 define을 선호한다고 합니다.</p>
+<p><br></p>
+<ul>
+<li>const는 변수다</li>
+</ul>
+<pre><code class="language-cpp">#define YEAR 2019
 #define MONTH "Apr"
 #define DAY 2
 
 const int kYear = 2019;
 const char[5] kMonth = "Apr";
-const int kDay = 2;</code></pre><p>define은 단순히 치환되는 값이므로 변수형을 지정할 필요가 없습니다. const는 변수이므로 반드시 변수형을 지정해 주어야 합니다. 따라서 const를 사용했을때 프로그래머가 발생하는 오류를 더 쉽게 감지할 수 있습니다.</p><p><br></p><ul><li>const는 한번 초기화할 수 있다</li></ul><pre><code class="language-cpp">#include &lt;iostream&gt;
+const int kDay = 2;</code></pre>
+<p>define은 단순히 치환되는 값이므로 변수형을 지정할 필요가 없습니다. const는 변수이므로 반드시 변수형을 지정해 주어야 합니다. 따라서 const를 사용했을때 프로그래머가 발생하는 오류를 더 쉽게 감지할 수 있습니다.</p>
+<p><br></p>
+<ul>
+<li>const는 한번 초기화할 수 있다</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
 
 class People {
     const int age = 0;
@@ -74,7 +253,112 @@ int main(void){
     People me(100);
     cout &lt;&lt; me.print_age() &lt;&lt; endl;
     return 0;
-}</code></pre><p>const와 define의 차이점에서 가장 큰 부분이라 생각합니다. const는 변경할 수 없는 상수라고 했지만 클래스의 생성자를 호출하는 과정에서 발생하는 멤버 이니셜라이져에서 한번 초기화할 수 있습니다.</p></article><div class="my-4 text-center"><h5 class="serif bg-dark p-4"><a href="/@baealex/series/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC" class="text-decoration-none text-white">'C++ 튜토리얼' 시리즈</a></h5><div class="row justify-content-between"><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-2-%ED%95%A8%EC%88%98%EC%99%80-%EB%B0%B0%EC%97%B4-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%84%A4%EC%9E%84%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4?series=c-튜토리얼"><i class="fas fa-arrow-circle-left vivid-purple"></i><br>C++ 튜토리얼 2. 함수와 배열 그리고 네임스페이스</a></div></div><div class="col-md-6"></div></div></div><ul class="tag-list"><li><a href="/@baealex/topic/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">튜토리얼</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@baealex/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-%EC%9D%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%A9%EB%8B%88%EB%8B%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/23DFap.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-%EC%9D%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%A9%EB%8B%88%EB%8B%A4">당신에게 이 블로그를 추천합니다.</a></h5></div><div class="col-md-4"><a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1KwyV.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80">서비스 이용약관</a></h5></div><div class="col-md-4"><a href="/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/21/baealex/10_8_34.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql">MySQL 복습(MyWebSQL)</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script><script>$(document).ready(function() {
+}</code></pre>
+<p>const와 define의 차이점에서 가장 큰 부분이라 생각합니다. const는 변경할 수 없는 상수라고 했지만 클래스의 생성자를 호출하는 과정에서 발생하는 멤버 이니셜라이져에서 한번 초기화할 수 있습니다.</p>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC" class="text-decoration-none text-white">'C++ 튜토리얼' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-2-%ED%95%A8%EC%88%98%EC%99%80-%EB%B0%B0%EC%97%B4-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%84%A4%EC%9E%84%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4?series=c-튜토리얼">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>C++ 튜토리얼 2. 함수와 배열 그리고 네임스페이스
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">튜토리얼</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="tKFlALztm8B5ZLoSAaaede7dBi3mzgUaL02UYPFPNRG0TVCyebyASap1qHCiucnP">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C%EC%84%9C-%EC%A4%80%EB%B9%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/18/0Usxa.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C%EC%84%9C-%EC%A4%80%EB%B9%84">개발자 취준생의 자기소개서 준비</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-1-%EA%B8%B0%EC%B4%88-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4-%EC%96%B4%EB%96%A4%EA%B1%B0%EB%B6%80%ED%84%B0-%EB%B0%B0%EC%9A%B0%EC%A7%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/3/baealex/14_10_49.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-1-%EA%B8%B0%EC%B4%88-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4-%EC%96%B4%EB%96%A4%EA%B1%B0%EB%B6%80%ED%84%B0-%EB%B0%B0%EC%9A%B0%EC%A7%80">C++ 튜토리얼 1. 기초 :: 프로그래밍 언어 어떤거부터 배우지?</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/3/baealex/14_5_32.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EC%9A%94">서비스 개요</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -83,4 +367,9 @@ int main(void){
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

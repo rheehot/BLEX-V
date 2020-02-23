@@ -1,8 +1,157 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="Intro 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # &amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt; # …"><meta property="og:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D"><meta property="og:type" content="blog"><meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (3) - 코드분석"><meta property="og:description" content="Intro 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # &amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt; # …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/2/19/19aAEz.jpg"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="mildsalmon"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (3) - 코드분석"><meta name="twitter:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D"><meta name="twitter:description" content="Intro 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # &amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt; # …"><meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/2/19/19aAEz.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>한라대학교 공지 알림 봇 제작기 (3) - 코드분석 – mildsalmon</title></head><body><style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style><div><picture class="post-title-image"><img src="https://static.blex.kr/title/mildsalmon/2020/2/19/19aAEz.jpg" alt="한라대학교 공지 알림 봇 제작기 (3) - 코드분석"><div class="post-image-mask"><h1 class="post-headline"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (3) - 코드분석</h1><p class="post-date">2020-02-19 19:26<span>(Last Update: 2020-02-20 14:16)<span></span></span></p></div></picture></div><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@mildsalmon">mildsalmon</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(361);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (3) - 코드분석&url=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@mildsalmon"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/CaDW.jpg)"></div></a><div class="author-info"><h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 50%</span></h4><p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-blogger-gray"></li><li onclick="userFollow('mildsalmon')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><h1>Intro</h1><p>웹페이지를 크롤링하기 위핵서는</p><ol><li>크롤링할 웹의 주소</li><li>웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석</li></ol><p>이 두가지가 필요하다.</p><h1>Requests</h1><p>우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자.</p><pre><code class="language-python"># -*- coding: utf-8 -*-
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="Intro 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # &amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt; # …">
+<meta property="og:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (3) - 코드분석">
+<meta property="og:description" content="Intro 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # &amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt; # …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/2/19/19aAEz.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (3) - 코드분석">
+<meta name="twitter:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">
+<meta name="twitter:description" content="Intro 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # &amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt; # …">
+<meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/2/19/19aAEz.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>한라대학교 공지 알림 봇 제작기 (3) - 코드분석 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/mildsalmon/2020/2/19/19aAEz.jpg" alt="한라대학교 공지 알림 봇 제작기 (3) - 코드분석">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (3) - 코드분석</h1>
+            <p class="post-date">2020-02-19 19:26<span>(Last Update: 2020-02-20 14:16)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@mildsalmon">mildsalmon</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(361);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (3) - 코드분석&url=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/CaDW.jpg)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 45%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>Intro</h1>
+<p>웹페이지를 크롤링하기 위핵서는</p>
+<ol>
+<li>크롤링할 웹의 주소</li>
+<li>웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석</li>
+</ol>
+<p>이 두가지가 필요하다.</p>
+<h1>Requests</h1>
+<p>우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자.</p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
 
 import requests
 
@@ -10,7 +159,8 @@ req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=234
 
 html = req.text
 
-print(html)</code></pre><pre><code># &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+print(html)</code></pre>
+<pre><code># &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
 # &lt;html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"&gt;
 # &lt;head&gt;    
 # &lt;meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" /&gt;
@@ -18,7 +168,16 @@ print(html)</code></pre><pre><code># &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 
 #     &lt;title&gt;일반공지&lt;/title&gt;
 #     &lt;link href="/mbs/kr/css/import.css" rel="stylesheet" type="text/css" /&gt;
 # ....
-# ....</code></pre><p>여기에서 크롤링할 주소는 한라대학교 일반공지 게시판이다.<br>위 코드를 실행하면 웹의 HTML이 넘어오는 것을 볼 수 있다.<br><code>.get</code>은 URL이 가진 정보를 검색하기 위해 서버측에 요청하는 형태이다.<br>그래서 위에 결과처럼 웹의 HTML이 넘어온다.<br><code>.text</code> 외에도 많은 기능들이 있는데 그건 <a href="https://blex.kr/@mildsalmon/requests">requests 정리본</a>을 참고하도록 하자.</p><h1>BeautifulSoup</h1><p>이제 이 HTML에서 내가 원하는 데이터를 뽑아내야한다.</p><p>BeautifulSoup4를 사용해서 데이터를 정제해보자.</p><pre><code class="language-python">import requests
+# ....</code></pre>
+<p>여기에서 크롤링할 주소는 한라대학교 일반공지 게시판이다. <br>
+위 코드를 실행하면 웹의 HTML이 넘어오는 것을 볼 수 있다. <br>
+<code>.get</code>은 URL이 가진 정보를 검색하기 위해 서버측에 요청하는 형태이다.<br>
+그래서 위에 결과처럼 웹의 HTML이 넘어온다.<br>
+<code>.text</code> 외에도 많은 기능들이 있는데 그건 <a href="https://blex.kr/@mildsalmon/requests">requests 정리본</a>을 참고하도록 하자.</p>
+<h1>BeautifulSoup</h1>
+<p>이제 이 HTML에서 내가 원하는 데이터를 뽑아내야한다.</p>
+<p>BeautifulSoup4를 사용해서 데이터를 정제해보자.</p>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 
 req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
@@ -29,7 +188,8 @@ posts = soup.select("table &gt; tbody &gt; tr &gt; td &gt; a")
 
 for post in posts:
     print(post.text)
-    print(post.get('href'))</code></pre><pre><code># 2020학년도 예비 신입생 캠프 취소 안내
+    print(post.get('href'))</code></pre>
+<pre><code># 2020학년도 예비 신입생 캠프 취소 안내
 # view.jsp?spage=1&amp;boardId=23401&amp;boardSeq=7685414&amp;id=kr_060101000000&amp;column=&amp;search=
 #  [총무과] 2020학년도 1학기 등록금 납부 안내  
 # view.jsp?spage=1&amp;boardId=23401&amp;boardSeq=7681627&amp;id=kr_060101000000&amp;column=&amp;search=
@@ -47,7 +207,23 @@ for post in posts:
 # view.jsp?spage=1&amp;boardId=23401&amp;boardSeq=7725256&amp;mcategoryId=&amp;id=kr_060101000000&amp;column=&amp;search=
 # 20년 공군 학사사관 후보생 모집(제145기)
 # view.jsp?spage=1&amp;boardId=23401&amp;boardSeq=7720838&amp;mcategoryId=&amp;id=kr_060101000000&amp;column=&amp;search=
-# ...</code></pre><p>위 코드를 사용하면 우리가 원하는 게시글의 제목들과 주소들을 얻을 수 있다.<br>7번째 줄의 soup에는 'html.parser' 외에도 'xml.parser'도 사용할 수 있다.<br>parser의 종류에 따라 결과값이 달라질 수 있으니 잘 생각해보고 따라하도록하자.<br>BeautifulSoup는 CSS 선택자 표준을 지원한다.<br>때문에 href, body와 같은 태그를 검색하기 쉽다.<br>그리고 soup변수에 html 문서를 입력하면 유니코드로 변환된다.<br></p><p><img src="https://static.blex.kr/image/2020/2/20/yxG2PB8851zj9wh37wte.png" alt="개발자도구로 원하는 데이터 위치 찾기" title="개발자도구로 원하는 데이터 위치 찾기"></p><p>캡쳐화면을 보면 빨간색 네모칸을 순서대로 내려가면 우리가 원하는 데이터가 나온다.</p><p><img src="https://static.blex.kr/image/2020/2/20/7SrCklU9ndVMKim6Gao3.png" alt="CSS selector 확인" title="CSS selector 확인"></p><p>그리고 위와 같이 css selector를 확인하면</p><p><code>#board &gt; form:nth-child(3) &gt; table &gt; tbody &gt; tr:nth-child(3) &gt; td:nth-child(2) &gt; a</code> 로 나온다.</p><h3>CSS select 간단히</h3><p>이 selector를 좀 더 간단하게 만들어야 한다.<br>왜냐하면 CSS selector가 너무 자세하면 페이지 의존성이 높아져서 페이지가 조금만 수정되어도 코드를 수정해야하고,<br>지금 저 상태로 <code>.selector</code>을 실행하면 제대로 실행되지도 않는다.<br></p><pre><code class="language-python">import requests
+# ...</code></pre>
+<p>위 코드를 사용하면 우리가 원하는 게시글의 제목들과 주소들을 얻을 수 있다.<br>
+7번째 줄의 soup에는 'html.parser' 외에도 'xml.parser'도 사용할 수 있다.<br>
+parser의 종류에 따라 결과값이 달라질 수 있으니 잘 생각해보고 따라하도록하자.<br>
+BeautifulSoup는 CSS 선택자 표준을 지원한다.<br>
+때문에 href, body와 같은 태그를 검색하기 쉽다.<br>
+그리고 soup변수에 html 문서를 입력하면 유니코드로 변환된다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/2/20/yxG2PB8851zj9wh37wte.png" alt="개발자도구로 원하는 데이터 위치 찾기" title="개발자도구로 원하는 데이터 위치 찾기"></p>
+<p>캡쳐화면을 보면 빨간색 네모칸을 순서대로 내려가면 우리가 원하는 데이터가 나온다.</p>
+<p><img src="https://static.blex.kr/image/2020/2/20/7SrCklU9ndVMKim6Gao3.png" alt="CSS selector 확인" title="CSS selector 확인"></p>
+<p>그리고 위와 같이 css selector를 확인하면</p>
+<p><code>#board &gt; form:nth-child(3) &gt; table &gt; tbody &gt; tr:nth-child(3) &gt; td:nth-child(2) &gt; a</code> 로 나온다.</p>
+<h3>CSS select 간단히</h3>
+<p>이 selector를 좀 더 간단하게 만들어야 한다.<br>
+왜냐하면 CSS selector가 너무 자세하면 페이지 의존성이 높아져서 페이지가 조금만 수정되어도 코드를 수정해야하고,<br>
+지금 저 상태로 <code>.selector</code>을 실행하면 제대로 실행되지도 않는다.<br></p>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 
 req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
@@ -60,7 +236,10 @@ print(posts)
 
 for post in posts:
     print(post.text)
-    print(post.get('href'))</code></pre><pre><code># []</code></pre><p>이건 제대로 실행되지 않는 모습이고</p><pre><code class="language-python">import requests
+    print(post.get('href'))</code></pre>
+<pre><code># []</code></pre>
+<p>이건 제대로 실행되지 않는 모습이고</p>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 
 req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
@@ -73,9 +252,13 @@ print(posts)
 
 for post in posts:
     print(post.text)
-    print(post.get('href'))</code></pre><pre><code># [&lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734255&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;'올바른 마스크 선택 및 사용법'&lt;/a&gt;]
+    print(post.get('href'))</code></pre>
+<pre><code># [&lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734255&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;'올바른 마스크 선택 및 사용법'&lt;/a&gt;]
 # '올바른 마스크 선택 및 사용법'
-# view.jsp?spage=1&amp;boardId=23401&amp;boardSeq=7734255&amp;mcategoryId=&amp;id=kr_060101000000&amp;column=&amp;search=</code></pre><p>이것도 우리가 원하는 데이터를 받아오는 것은 아니다.<br>tr과 td 뒤에 :nth-child(3), :nth-child(2)가 붙어있어서 특정 위치를 정확하게 표시하게 된다.<br></p><pre><code class="language-python">import requests
+# view.jsp?spage=1&amp;boardId=23401&amp;boardSeq=7734255&amp;mcategoryId=&amp;id=kr_060101000000&amp;column=&amp;search=</code></pre>
+<p>이것도 우리가 원하는 데이터를 받아오는 것은 아니다.<br>
+tr과 td 뒤에 :nth-child(3), :nth-child(2)가 붙어있어서 특정 위치를 정확하게 표시하게 된다.<br></p>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 
 req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
@@ -88,7 +271,38 @@ print(posts)
 
 for post in posts:
     print(post.text)
-    print(post.get('href'))</code></pre><p>그래서 특정 위치를 가리키는 것을 지우면,<br>우리가 원하는 데이터가 나오게 된다.<br></p><p>그러면 좀 더 CSS Selector를 간단히 표시하려면 어떻게 해야할까?<br>바로 HTML을 뜯어서 최대한 공통점이 없는 부분을 뽑으면 된다.<br></p><p><img src="https://static.blex.kr/image/2020/2/20/crUenz6dnE2Xk55mtBL7.png" alt="tbody" title="tbody"></p><p>tbody을 검색해보니 tbody은 이 페이지에서 딱 하나 뿐이다.<br>table을 지워주자<br></p><pre><code class="language-python">posts = soup.select("tbody &gt; tr &gt; td &gt; a")</code></pre><p>코드를 실행시켜보면 잘 작동한다.</p><p><img src="https://static.blex.kr/image/2020/2/20/efnp8rdVHEsKcNoltFvu.png" alt="tr" title="tr"></p><p>tr은 17개가 있어야한다. tr은 게시글 한줄을 의미하니 기본 게시글 15, 공지 2. 그런데 맨 위 번호, 제목, 작성자, 작성일 부분에도 tr이 있다.<br>따라서 tbody를 지워주지 않는 것이 맞을지도 모르지만, 일단 지우자<br>왜냐하면 번호, 제목 부분은 tr 하위에 td가 아닌 th가 있기 때문이다.<br></p><pre><code class="language-python">posts = soup.select("tr &gt; td &gt; a")</code></pre><p>마찬가지로 잘 작동한다.</p><p><img src="https://static.blex.kr/image/2020/2/20/4zcmFPdoAJ9UpLi8HHRx.png" alt="td" title="td"></p><p>td는 좀 많다 102개,<br>하지만 게시글 한 줄에 td가 6개씩 들어가는 모양이다.<br>17줄 * 6 = 102<br>td가 tr 밖에 있는 것이 아니니 tr을 지워주자<br></p><pre><code class="language-python">posts = soup.select("td &gt; a")</code></pre><p><img src="https://static.blex.kr/image/2020/2/20/fX2HOk2fSzomrs3AVPgP.png" alt="a" title="a"></p><p>하지만 a는 348개가 나왔다.<br>td는 지우지말고 CSS selector를 간략화 하는 작업을 마치자.<br></p><p>이제 마지막 작업 하나만 마치면 정말로 내가 원하는 <code>최신 게시글</code> 데이터를 받을 수 있다.<br></p><h3>공지 지우기</h3><p>최신글과 공지글을 분리하는 작업을 해야한다.<br>td &gt; a 는 15개의 게시글만 가져오는 것이 아니라, 2개의 공지글도 같이 가져온다.<br>따라서 2개의 공지글을 제거해주는 작업을 해야한다.<br></p><pre><code class="language-python">import requests
+    print(post.get('href'))</code></pre>
+<p>그래서 특정 위치를 가리키는 것을 지우면,<br>
+우리가 원하는 데이터가 나오게 된다.<br></p>
+<p>그러면 좀 더 CSS Selector를 간단히 표시하려면 어떻게 해야할까?<br>
+바로 HTML을 뜯어서 최대한 공통점이 없는 부분을 뽑으면 된다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/2/20/crUenz6dnE2Xk55mtBL7.png" alt="tbody" title="tbody"></p>
+<p>tbody을 검색해보니 tbody은 이 페이지에서 딱 하나 뿐이다.<br>
+table을 지워주자<br></p>
+<pre><code class="language-python">posts = soup.select("tbody &gt; tr &gt; td &gt; a")</code></pre>
+<p>코드를 실행시켜보면 잘 작동한다.</p>
+<p><img src="https://static.blex.kr/image/2020/2/20/efnp8rdVHEsKcNoltFvu.png" alt="tr" title="tr"></p>
+<p>tr은 17개가 있어야한다. tr은 게시글 한줄을 의미하니 기본 게시글 15, 공지 2.
+그런데 맨 위 번호, 제목, 작성자, 작성일 부분에도 tr이 있다.<br>
+따라서 tbody를 지워주지 않는 것이 맞을지도 모르지만, 일단 지우자<br>
+왜냐하면 번호, 제목 부분은 tr 하위에 td가 아닌 th가 있기 때문이다.<br></p>
+<pre><code class="language-python">posts = soup.select("tr &gt; td &gt; a")</code></pre>
+<p>마찬가지로 잘 작동한다.</p>
+<p><img src="https://static.blex.kr/image/2020/2/20/4zcmFPdoAJ9UpLi8HHRx.png" alt="td" title="td"></p>
+<p>td는 좀 많다 102개,<br>
+하지만 게시글 한 줄에 td가 6개씩 들어가는 모양이다.<br>
+17줄 * 6 = 102<br>
+td가 tr 밖에 있는 것이 아니니 tr을 지워주자<br></p>
+<pre><code class="language-python">posts = soup.select("td &gt; a")</code></pre>
+<p><img src="https://static.blex.kr/image/2020/2/20/fX2HOk2fSzomrs3AVPgP.png" alt="a" title="a"></p>
+<p>하지만 a는 348개가 나왔다.<br>
+td는 지우지말고 CSS selector를 간략화 하는 작업을 마치자.<br></p>
+<p>이제 마지막 작업 하나만 마치면 정말로 내가 원하는 <code>최신 게시글</code> 데이터를 받을 수 있다.<br></p>
+<h3>공지 지우기</h3>
+<p>최신글과 공지글을 분리하는 작업을 해야한다.<br>
+td &gt; a 는 15개의 게시글만 가져오는 것이 아니라, 2개의 공지글도 같이 가져온다.<br>
+따라서 2개의 공지글을 제거해주는 작업을 해야한다.<br></p>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 
 req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
@@ -121,10 +335,23 @@ for post in posts:
 for i in range(count_notice_num):           # 공지로 위로 올라간 게시글 제외한 최신 게시글 분류
     del posts[0]
 
-print(posts)</code></pre><pre><code># [&lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734255&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;'올바른 마스크 선택 및 사용법'&lt;/a&gt;, &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734059&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;2020년 울산인재평생교육진흥원 상반기 장학생 선발 안내&lt;/a&gt;, &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7733808&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;2020학년도 신입생 공지시항 안내(학번, 통학버스, 학생...&lt;/a&gt;, &lt;a href="view.jsp?
+print(posts)</code></pre>
+<pre><code># [&lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734255&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;'올바른 마스크 선택 및 사용법'&lt;/a&gt;, &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734059&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;2020년 울산인재평생교육진흥원 상반기 장학생 선발 안내&lt;/a&gt;, &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7733808&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;2020학년도 신입생 공지시항 안내(학번, 통학버스, 학생...&lt;/a&gt;, &lt;a href="view.jsp?
 ....]
 # [&lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734255&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;'올바른 마스크 선택 및 사용법'&lt;/a&gt;, &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7734059&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;2020년 울산인재평생교육진흥원 상반기 장학생 선발 안내&lt;/a&gt;, &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7733808&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;2020학년도 신입생 공지시항 안내(학번, 통학버스, 학생...&lt;/a&gt;, &lt;a href="view.jsp?
-....]</code></pre><p>방법 1은 이 글을 작성하다가 떠오른 아이디어로 작성한거고,<br>방법 2는 원래 사용하던 코드이다.<br></p><p>시간복잡도를 계산하지는 않았지만.<br>반복문이 하나 사라지면서 방법 1이 더 빠를 것이다.<br>코드도 더 짧아졌다.<br><code>이래서 코드 리뷰를 하는구나.</code></p><p>그리고 체크해줘야하는 부분이 하나 더 있다.<br>requests로 홈페이지에 접속할때 발생할 수 있는 응답 코드별 처리를 해줘야한다. 위치는 <code>requests.get</code> 이 실행된 다음줄에 <code>.status_code</code>를 사용해서 에러코드를 잡고 프로그램을 종료해야한다.<br>에러코드가 떳다면, request가 가지고 있는 html이 정상적이지 않을 것이다.<br>따라서 프로그램을 동작시키는 것보다 종료시키는 것이 안전한 선택이다.<br></p><pre><code class="language-python">import requests
+....]</code></pre>
+<p>방법 1은 이 글을 작성하다가 떠오른 아이디어로 작성한거고,<br>
+방법 2는 원래 사용하던 코드이다.<br></p>
+<p>시간복잡도를 계산하지는 않았지만.<br>
+반복문이 하나 사라지면서 방법 1이 더 빠를 것이다.<br>
+코드도 더 짧아졌다.<br>
+<code>이래서 코드 리뷰를 하는구나.</code></p>
+<p>그리고 체크해줘야하는 부분이 하나 더 있다.<br>
+requests로 홈페이지에 접속할때 발생할 수 있는 응답 코드별 처리를 해줘야한다.
+위치는 <code>requests.get</code> 이 실행된 다음줄에 <code>.status_code</code>를 사용해서 에러코드를 잡고 프로그램을 종료해야한다.<br>
+에러코드가 떳다면, request가 가지고 있는 html이 정상적이지 않을 것이다.<br>
+따라서 프로그램을 동작시키는 것보다 종료시키는 것이 안전한 선택이다.<br></p>
+<pre><code class="language-python">import requests
 from bs4 import BeautifulSoup
 import sys
 
@@ -148,7 +375,128 @@ posts = soup.select("td &gt; a")
 num = soup.find_all(title='공지')
 
 for i in range(len(num)):           # 공지로 위로 올라간 게시글 제외한 최신 게시글 분류
-    del posts[0]</code></pre><p>일단 자주 발생하는 에러 위주로 리스트에 넣었다.</p><h1>다음시간에</h1><p>다음 챕터에서는 telegram-bot 연동과 open을 이용해서 최신 게시글인지 확인하는 부분을 설명할것이다.</p><h1>참고문헌</h1><blockquote><p>beautifulsoup4, "<a href="https://blex.kr/@mildsalmon/beautifulsoup">https://blex.kr/@mildsalmon/beautifulsoup</a>", [mildsalmon]</p><p>Requests, "<a href="https://blex.kr/@mildsalmon/requests">https://blex.kr/@mildsalmon/requests</a>", [mildsalmon]</p><p>notice_alarm, "<a href="https://github.com/mildsalmon/notice_alarm">https://github.com/mildsalmon/notice_alarm</a>", [mildsalmon]</p></blockquote></article><div class="my-4 text-center"><h5 class="serif bg-dark p-4"><a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none text-white">'한라대학교 공지 알림 봇 제작기' 시리즈</a></h5><div class="row justify-content-between"><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9?series=한라대학교-공지-알림-봇-제작기"><i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (2) - 코딩</a></div></div><div class="col-md-6"></div></div></div><ul class="tag-list"><li><a href="/@mildsalmon/topic/python">python</a></li><li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li><li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li><li><a href="/@mildsalmon/topic/%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">코드분석</a></li><li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li><li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@mildsalmon/beautifulsoup"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/12/21UPtd.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/beautifulsoup">beautifulsoup4 document</a></h5></div><div class="col-md-4"><a href="/@mildsalmon/requests"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/15/12WiKy.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/requests">Requests document</a></h5></div><div class="col-md-4"><a href="/@mildsalmon/os"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/17/18cGQe.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/os">OS document</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script><script>$(document).ready(function() {
+    del posts[0]</code></pre>
+<p>일단 자주 발생하는 에러 위주로 리스트에 넣었다.</p>
+<h1>다음시간에</h1>
+<p>다음 챕터에서는 telegram-bot 연동과 open을 이용해서 최신 게시글인지 확인하는 부분을 설명할것이다.</p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>beautifulsoup4, "<a href="https://blex.kr/@mildsalmon/beautifulsoup">https://blex.kr/@mildsalmon/beautifulsoup</a>", [mildsalmon]</p>
+<p>Requests, "<a href="https://blex.kr/@mildsalmon/requests">https://blex.kr/@mildsalmon/requests</a>", [mildsalmon]</p>
+<p>notice_alarm, "<a href="https://github.com/mildsalmon/notice_alarm">https://github.com/mildsalmon/notice_alarm</a>", [mildsalmon]</p>
+</blockquote>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none text-white">'한라대학교 공지 알림 봇 제작기' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9?series=한라대학교-공지-알림-봇-제작기">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (2) - 코딩
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">코드분석</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="8i4sfEIm4CqN4fmv1Zp5jtpgRD8z4Y5x9DQDiZW2Gn9jhuqOEJlCBwO6CzLJgCAj">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/requests"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/15/12WiKy.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/requests">Requests document</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/beautifulsoup"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/12/21UPtd.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/beautifulsoup">beautifulsoup4 document</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/telegram"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/17/15Qb1t.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/telegram">Python Telegram Bot document</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -157,4 +505,9 @@ for i in range(len(num)):           # 공지로 위로 올라간 게시글 제�
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

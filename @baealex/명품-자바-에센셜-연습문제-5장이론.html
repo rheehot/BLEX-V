@@ -1,8 +1,151 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 5장 1. 다음 코드에 대해 물음에 답하라. class A { private int a,b; public void set(int a, int b) { this.a …"><meta property="og:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0"><meta property="og:type" content="blog"><meta property="og:title" content="명품 자바 에센셜 연습문제 5장(이론)"><meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 5장 1. 다음 코드에 대해 물음에 답하라. class A { private int a,b; public void set(int a, int b) { this.a …"><meta property="og:site_name" content="BLEX"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="baealex"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="명품 자바 에센셜 연습문제 5장(이론)"><meta name="twitter:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0"><meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 5장 1. 다음 코드에 대해 물음에 답하라. class A { private int a,b; public void set(int a, int b) { this.a …"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>명품 자바 에센셜 연습문제 5장(이론) – baealex</title></head><body><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@baealex">baealex</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(371);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 5장(이론)&url=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 5장(이론)</h1><p class="post-date">2018-07-29 13:19</p><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@baealex"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><div class="author-info"><h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4><p class="author-description">소비적인 일보단 생산적인 일을 추구하며, 좋아하는 일을 잘하고 싶어합니다 😀</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-master-purple"></li><li onclick="userFollow('baealex')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><p><br></p><div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;"><p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다.<br></p></div><p><br></p><p><br></p><h3 class="title">연습문제 5장</h3><p>1. 다음 코드에 대해 물음에 답하라.</p><pre><code class="language-java">class A {
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 5장 1. 다음 코드에 대해 물음에 답하라. class A { private int a,b; public void set(int a, int b) { this.a …">
+<meta property="og:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="명품 자바 에센셜 연습문제 5장(이론)">
+<meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 5장 1. 다음 코드에 대해 물음에 답하라. class A { private int a,b; public void set(int a, int b) { this.a …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="명품 자바 에센셜 연습문제 5장(이론)">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 5장 1. 다음 코드에 대해 물음에 답하라. class A { private int a,b; public void set(int a, int b) { this.a …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>명품 자바 에센셜 연습문제 5장(이론) – baealex</title>
+</head>
+<body>
+    
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(371);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 5장(이론)&url=https://blex.kr/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 5장(이론)</h1>
+        <p class="post-date">
+            2018-07-29 13:19</p>
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><br></p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;">
+    <p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만
+        봐주시길 바랍니다.<br></p>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 class="title">연습문제 5장</h3>
+<p>1. 다음 코드에 대해 물음에 답하라.</p>
+<pre><code class="language-java">class A {
     private int a,b;
     public void set(int a, int b) {
         this.a = a;
@@ -14,7 +157,22 @@ class B extends A {
 }
 class C extends B {
     public int e,f;
-}</code></pre><p>(1) A objA = new A(); 에 의해 생성되는 객체 objA의 멤버들은 모두 나열하라.<br><font color="#ff0000">a, b, set()<br></font>(2) B&nbsp;objB&nbsp;= new B(); 에 의해 생성되는 객체 objB의 멤버들은 모두 나열하라.<br><font color="#ff0000">a, b, set(), c, d<br></font>(3) C objC&nbsp;= new C(); 에 의해 생성되는 객체 objC의 멤버들은 모두 나열하라.<br><span style="color: rgb(255, 0, 0);">a, b, set(), c, d, e, f</span></p><p><br></p><p>2. 상속에 관한 접근 지정자에 대한 설명이다. 틀린 것은?<br>① 슈퍼 클래스의 private 멤버는 서브 클래스에서 바로 접근할 수 없다.<br><span style="color: rgb(255, 0, 0);">② 슈퍼 클래스의 protected 멤버는 같은 패키지에 있는 서브 클래스에서만 접근할 수 있다.</span><br>③ 슈퍼 클래스의 public 멤버는 다른 모든 클래스에서 접근할 수 있다.<br>④ 슈퍼 클래스의 디폴트 멤버는 같은 패키지에 있는 다른 모든 클래스에서 접근 가능하다.<br><span style="color: rgb(34, 116, 28);">다른 패키지의 서브 클래스에서도 접근이 가능하다.</span></p><p><br></p><p>3. 메소드 오버라이딩에 대한 설명으로 틀린 것은?<br>① 상속 관계에서 발생한다.<br>② 슈퍼 클래스의 메소드를 서브 클래스에서 재작성하는 것이다.<br>③ 서브 클래스에서 슈퍼 클래스의 메소드 이름, 매게 변수의 개수와 타입, 리턴 타입을 동일하게 선언해야 한다.<br><span style="color: rgb(255, 0, 0);">④ 정적 바인딩이 발생한다.</span><br><span style="color: rgb(34, 116, 28);">동적 바인딩</span></p><p><br></p><p>4. 접근 지정에 관한 무제이다. 컴파일 오류가 발생하는 곳은 어디인가?</p><pre><code class="language-java">class A {
+}</code></pre>
+<p>(1) A objA = new A(); 에 의해 생성되는 객체 objA의 멤버들은 모두 나열하라.<br>
+    <font color="#ff0000">a, b, set()<br></font>(2) B&nbsp;objB&nbsp;= new B(); 에 의해 생성되는 객체 objB의 멤버들은 모두 나열하라.<br>
+    <font color="#ff0000">a, b, set(), c, d<br></font>(3) C objC&nbsp;= new C(); 에 의해 생성되는 객체 objC의 멤버들은 모두 나열하라.<br><span style="color: rgb(255, 0, 0);">a, b, set(), c, d, e, f</span>
+</p>
+<p><br></p>
+<p>2. 상속에 관한 접근 지정자에 대한 설명이다. 틀린 것은?<br>① 슈퍼 클래스의 private 멤버는 서브 클래스에서 바로 접근할 수 없다.<br><span style="color: rgb(255, 0, 0);">②
+        슈퍼 클래스의 protected 멤버는 같은 패키지에 있는 서브 클래스에서만 접근할 수 있다.</span><br>③ 슈퍼 클래스의 public 멤버는 다른 모든 클래스에서 접근할 수 있다.<br>④
+    슈퍼 클래스의 디폴트 멤버는 같은 패키지에 있는 다른 모든 클래스에서 접근 가능하다.<br><span style="color: rgb(34, 116, 28);">다른 패키지의 서브 클래스에서도 접근이
+        가능하다.</span></p>
+<p><br></p>
+<p>3. 메소드 오버라이딩에 대한 설명으로 틀린 것은?<br>① 상속 관계에서 발생한다.<br>② 슈퍼 클래스의 메소드를 서브 클래스에서 재작성하는 것이다.<br>③ 서브 클래스에서 슈퍼 클래스의 메소드
+    이름, 매게 변수의 개수와 타입, 리턴 타입을 동일하게 선언해야 한다.<br><span style="color: rgb(255, 0, 0);">④ 정적 바인딩이 발생한다.</span><br><span style="color: rgb(34, 116, 28);">동적 바인딩</span></p>
+<p><br></p>
+<p>4. 접근 지정에 관한 무제이다. 컴파일 오류가 발생하는 곳은 어디인가?</p>
+<pre><code class="language-java">class A {
     private int x, y;
     protected void setX(int x) { this.x = x; }  // 1
 }
@@ -25,7 +183,11 @@ class B extends A {
         y = b; // 3
         w = c;  // 4
     }
-}</code></pre><p><span style="color: rgb(34, 116, 28);">③ 슈퍼 클래스에서 private로 선언된 멤버라 위와같이 접근할 수 없다.</span></p><p><br></p><p>5. 생성자에 관한 문제이다. 다음 빈칸에 적절한 한 줄의 코드를 삽입하라.</p><pre><code class="language-java">class LCD {
+}</code></pre>
+<p><span style="color: rgb(34, 116, 28);">③ 슈퍼 클래스에서 private로 선언된 멤버라 위와같이 접근할 수 없다.</span></p>
+<p><br></p>
+<p>5. 생성자에 관한 문제이다. 다음 빈칸에 적절한 한 줄의 코드를 삽입하라.</p>
+<pre><code class="language-java">class LCD {
     private int size;
     public LCD(int n) { size = n; }
 }
@@ -35,13 +197,26 @@ class ColorLCD extends LCD {
         _______________________
         this.colorSize = colorSize;
     }
-}</code></pre><p><span style="color: rgb(34, 116, 28);">super(size);</span></p><p><br></p><p>6. 생성자에 관한 문제이다. 다음 코드에 대해 물음에 답하라.</p><pre><code class="language-java">class A {
+}</code></pre>
+<p><span style="color: rgb(34, 116, 28);">super(size);</span></p>
+<p><br></p>
+<p>6. 생성자에 관한 문제이다. 다음 코드에 대해 물음에 답하라.</p>
+<pre><code class="language-java">class A {
     public A(int x) { System.out.print("A" + x); }
 }
 class B extends A {
     public B() { System.out.print("B"); }
     public B(int x) { System.out.print("B" + x); }
-}</code></pre><p>(1) 이 코드에서 컴파일 오류가 발생하는 곳은 어디인가? 컴파일 오류의 원인은 무엇인가?<br><span style="color: rgb(255, 0, 0);">위 코드 기준 7행이 에러 : 같은 유형의 생성자가 슈퍼 클래스에 존재하지 않음</span></p><p>(2) B b = new B();를 실행한 결과가 다음과 같도록 생성자 B()를 수정하라.<br><b>A20B</b><br><span style="color: rgb(255, 0, 0);">public B() { super(20); System.out.print("B</span><span style="color: rgb(255, 0, 0);">"); }</span></p><p>(3)B b = new B(30);을 실행한 결과가 다음과 같도록 생성자 B(int x)를 수정하라.<br><b>A50B30</b><br><span style="color: rgb(255, 0, 0);">public B(int x) { super(50); System.out.print("B</span><span style="color: rgb(255, 0, 0);">" + x); }</span></p><p><br></p><p>7. 업캐스팅에 관한 문제이다. 다음 코드에는 클래스 A, B와 객체 생성 코드가 있다.</p><pre><code class="language-java">public class A {
+}</code></pre>
+<p>(1) 이 코드에서 컴파일 오류가 발생하는 곳은 어디인가? 컴파일 오류의 원인은 무엇인가?<br><span style="color: rgb(255, 0, 0);">위 코드 기준 7행이 에러 : 같은
+        유형의 생성자가 슈퍼 클래스에 존재하지 않음</span></p>
+<p>(2) B b = new B();를 실행한 결과가 다음과 같도록 생성자 B()를 수정하라.<br><b>A20B</b><br><span style="color: rgb(255, 0, 0);">public
+        B() { super(20); System.out.print("B</span><span style="color: rgb(255, 0, 0);">"); }</span></p>
+<p>(3)B b = new B(30);을 실행한 결과가 다음과 같도록 생성자 B(int x)를 수정하라.<br><b>A50B30</b><br><span style="color: rgb(255, 0, 0);">public
+        B(int x) { super(50); System.out.print("B</span><span style="color: rgb(255, 0, 0);">" + x); }</span></p>
+<p><br></p>
+<p>7. 업캐스팅에 관한 문제이다. 다음 코드에는 클래스 A, B와 객체 생성 코드가 있다.</p>
+<pre><code class="language-java">public class A {
     public int x;
 }
 public class B extens A {
@@ -49,7 +224,12 @@ public class B extens A {
 }
 ...
 A a = new A();
-B b = new B();</code></pre><p>(1) 업캐스팅을 골라라.<br>① a = new A(); <span style="color: rgb(255, 0, 0);">② a = b;</span> ③ b = a; ④ b = new B();<br><span style="color: rgb(34, 116, 28);">업캐스팅 : 서브 클래스 레퍼런스를 슈퍼 클래스에 대입</span></p><p>(2) 다음 코드는 컴파일 오류는 없지만 실행중에 오류가 발생한다. 그 이유는 무엇인가?<br>b = (B) new A(); // 실행 오류 발생<br>b.y = 100;</p><p><br></p><p>8. instanceof에 관한 문제이다. 다음 클래스가 있을 때 물음에 답하라.</p><pre><code class="language-java">class A {
+B b = new B();</code></pre>
+<p>(1) 업캐스팅을 골라라.<br>① a = new A(); <span style="color: rgb(255, 0, 0);">② a = b;</span> ③ b = a; ④ b = new B();<br><span style="color: rgb(34, 116, 28);">업캐스팅 : 서브 클래스 레퍼런스를 슈퍼 클래스에 대입</span></p>
+<p>(2) 다음 코드는 컴파일 오류는 없지만 실행중에 오류가 발생한다. 그 이유는 무엇인가?<br>b = (B) new A(); // 실행 오류 발생<br>b.y = 100;</p>
+<p><br></p>
+<p>8. instanceof에 관한 문제이다. 다음 클래스가 있을 때 물음에 답하라.</p>
+<pre><code class="language-java">class A {
     int i;
 }
 class B extends A {
@@ -60,10 +240,19 @@ class C extends B {
 }
 class D extends B {
     int k;
-}</code></pre><p>(1) 다음 코드를 실행한 결과는?</p><pre><code class="language-java">A c = new C();
+}</code></pre>
+<p>(1) 다음 코드를 실행한 결과는?</p>
+<pre><code class="language-java">A c = new C();
 System.out.println(c instanceof D);
-System.out.println(c instanceof A);</code></pre><p><span style="color: rgb(255, 0, 0);">false</span><br><span style="color: rgb(255, 0, 0);">true</span></p><p>(2) 다음 코드를 실행한 결과는?</p><pre><code class="language-java">System.out.println(new D() instanceof C);
-System.out.println(new D() instanceof A);</code></pre><p><span style="color: rgb(255, 0, 0);">false</span><br><span style="color: rgb(255, 0, 0);">true</span></p><p><br></p><p>9. 동적 바인딩에 관한 문제다. 다음 질문에 따라 빈칸에 적절한 코드를 삽입하라.</p><pre><code class="language-java">class Shape {
+System.out.println(c instanceof A);</code></pre>
+<p><span style="color: rgb(255, 0, 0);">false</span><br><span style="color: rgb(255, 0, 0);">true</span></p>
+<p>(2) 다음 코드를 실행한 결과는?</p>
+<pre><code class="language-java">System.out.println(new D() instanceof C);
+System.out.println(new D() instanceof A);</code></pre>
+<p><span style="color: rgb(255, 0, 0);">false</span><br><span style="color: rgb(255, 0, 0);">true</span></p>
+<p><br></p>
+<p>9. 동적 바인딩에 관한 문제다. 다음 질문에 따라 빈칸에 적절한 코드를 삽입하라.</p>
+<pre><code class="language-java">class Shape {
     public void draw() { System.out.println("Shape"); }
 }
 class Circle extends Shape {
@@ -71,7 +260,29 @@ class Circle extends Shape {
         _________________
     }
     public void draw() { System.out.println("Circle"); }
-}</code></pre><p>(1) paint()가 호출되면 "Circle"이 출력된다.<br><span style="color: rgb(255, 0, 0);">draw();</span><br>(2) paint()가 호출되면 "Shape"가 출력된다.<br><span style="color: rgb(255, 0, 0);">super.draw();</span></p><p><br></p><p>10. 다음에서 추상 클래스 선언이 잘못된 것은?<br></p><div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;"><p><span style="color: rgb(255, 0, 0);">① abstract class A {</span><br><span style="color: rgb(255, 0, 0);">&nbsp; &nbsp; void f();</span><br><span style="color: rgb(255, 0, 0);">}</span></p></div><div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;"><p>② abstract class A {<br>&nbsp; &nbsp; void f() { }<br>}</p></div><div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;"><p>③ abstract class A {<br>&nbsp; &nbsp; abstract void f();<br>}</p></div><div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;"><p>④ abstract class W {<br>&nbsp; &nbsp; abstract void f();<br>}<br>abstract class A extends W {<br>&nbsp; &nbsp; void f() { }<br>}</p></div><p><span style="color: rgb(34, 116, 28);">abstract void f();로 생성되어야 한다.</span></p><p><br></p><p>11. 동적 바인딩에 대해 다음에 답하라.</p><pre><code class="language-java">abstract class Shape {
+}</code></pre>
+<p>(1) paint()가 호출되면 "Circle"이 출력된다.<br><span style="color: rgb(255, 0, 0);">draw();</span><br>(2) paint()가 호출되면
+    "Shape"가 출력된다.<br><span style="color: rgb(255, 0, 0);">super.draw();</span></p>
+<p><br></p>
+<p>10. 다음에서 추상 클래스 선언이 잘못된 것은?<br></p>
+<div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;">
+    <p><span style="color: rgb(255, 0, 0);">① abstract class A {</span><br><span style="color: rgb(255, 0, 0);">&nbsp;
+            &nbsp; void f();</span><br><span style="color: rgb(255, 0, 0);">}</span></p>
+</div>
+<div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;">
+    <p>② abstract class A {<br>&nbsp; &nbsp; void f() { }<br>}</p>
+</div>
+<div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;">
+    <p>③ abstract class A {<br>&nbsp; &nbsp; abstract void f();<br>}</p>
+</div>
+<div class="txc-textbox" style="margin:10px; border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;">
+    <p>④ abstract class W {<br>&nbsp; &nbsp; abstract void f();<br>}<br>abstract class A extends W {<br>&nbsp;
+        &nbsp; void f() { }<br>}</p>
+</div>
+<p><span style="color: rgb(34, 116, 28);">abstract void f();로 생성되어야 한다.</span></p>
+<p><br></p>
+<p>11. 동적 바인딩에 대해 다음에 답하라.</p>
+<pre><code class="language-java">abstract class Shape {
     public void paint() { draw(); }
     abstract public void draw();
 }
@@ -79,7 +290,12 @@ abstract class Circle extends Shape {
     private int radius;
     public Circle(int radius) { this.radius = radius; }
     double getArea() { return 3.14*radius*radius; }
-}</code></pre><p>(1) 다음 중 오류가 발생하는 것을 모두 골라라.<br>① Shape s;<br>② Circle c;<br><span style="color: rgb(255, 0, 0);">③ Shape s = new Shape();</span><br><span style="color: rgb(255, 0, 0);">④ Circle c = new Circle(10</span><span style="color: rgb(255, 0, 0);">);</span><br><span style="color: rgb(34, 116, 28);">추상 클래스 이므로 객체 생성이 되지 않는다.</span></p><p><br></p><p>(2) 다음 코드의 실행 결과가&nbsp;“반지름=10”이 출력되도록 Circle 클래스를 수정하라.</p><pre><code class="language-java">class Circle extends Shape {
+}</code></pre>
+<p>(1) 다음 중 오류가 발생하는 것을 모두 골라라.<br>① Shape s;<br>② Circle c;<br><span style="color: rgb(255, 0, 0);">③ Shape s =
+        new Shape();</span><br><span style="color: rgb(255, 0, 0);">④ Circle c = new Circle(10</span><span style="color: rgb(255, 0, 0);">);</span><br><span style="color: rgb(34, 116, 28);">추상 클래스 이므로 객체 생성이 되지 않는다.</span></p>
+<p><br></p>
+<p>(2) 다음 코드의 실행 결과가&nbsp;“반지름=10”이 출력되도록 Circle 클래스를 수정하라.</p>
+<pre><code class="language-java">class Circle extends Shape {
     private int radius;
     public Circle(int radius) {
         this.radius = radius;
@@ -90,7 +306,121 @@ abstract class Circle extends Shape {
     public void draw() {
         System.out.println("반지름="+radius);
     }
-}</code></pre><p><br></p><p>12. 다음 중 인터페이스의 특징이 아닌 것은?<br>① 인터페이스의 객체를 생성할 수 없다.<br>② 여러 인터페이스를 상속받는 다중 상속을 지원한다.<br><span style="color: rgb(255, 0, 0);">③ 인터페이스는 추상 메소드, 상수, 필드로 구성된다.</span><br>④ 인터페이스는 implements 키워드를 이용하여 구현한다.</p><p><br></p></article><div class="my-4 text-center"><h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none text-white">'명품 자바 에센셜 풀이' 시리즈</a></h5><div class="row justify-content-between"><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-4%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이"><i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 4장(이론)</a></div></div><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-6%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이"><i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 6장(이론)</a></div></div></div></div><ul class="tag-list"><li><a href="/@baealex/topic/%EC%86%94%EB%A3%A8%EC%85%98">솔루션</a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94">자바</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-9%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-9%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 9장(이론)</a></h5></div><div class="col-md-4"><a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-4%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-4%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 4장(이론)</a></h5></div><div class="col-md-4"><a href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/18/0ddHo.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84">취준생이 생각하는 개발자 기술면접 준비</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script>$(document).ready(function() {
+}</code></pre>
+<p><br></p>
+<p>12. 다음 중 인터페이스의 특징이 아닌 것은?<br>① 인터페이스의 객체를 생성할 수 없다.<br>② 여러 인터페이스를 상속받는 다중 상속을 지원한다.<br><span style="color: rgb(255, 0, 0);">③
+        인터페이스는 추상 메소드, 상수, 필드로 구성된다.</span><br>④ 인터페이스는 implements 키워드를 이용하여 구현한다.</p>
+<p><br></p>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none text-white">'명품 자바 에센셜 풀이' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-4%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 4장(이론)
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-6%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 6장(이론)
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/java">java</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%86%94%EB%A3%A8%EC%85%98">솔루션</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="RRxJiTFTTds89M1lzSNEQgY0pXN5LmZdjxA5wMPb4INkWUWpfW1JAPU4NsXhXek3">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%83%90%EC%A7%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/4/15q71f.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%83%90%EC%A7%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">문자열 차이점 탐지 알고리즘</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-9%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-9%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 9장(이론)</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 8장(이론)</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -99,4 +429,9 @@ abstract class Circle extends Shape {
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

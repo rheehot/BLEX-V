@@ -1,8 +1,246 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다. 스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다. 누군가의 표정은 여전히 &#39;?&#39;를 자아냈고 그 표정을 보면서 나는 &#39;내 대답이 너무 협소했나?&#39;는 생각에 구체적인 대답을 떠올렸다. 브라우저는 HTML만 이해할 수 …"><meta property="og:url" content="https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5"><meta property="og:type" content="blog"><meta property="og:title" content="자바스크립트가 무엇이냐는 질문에 대한 내 대답"><meta property="og:description" content="오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다. 스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다. 누군가의 표정은 여전히 &#39;?&#39;를 자아냈고 그 표정을 보면서 나는 &#39;내 대답이 너무 협소했나?&#39;는 생각에 구체적인 대답을 떠올렸다. 브라우저는 HTML만 이해할 수 …"><meta property="og:site_name" content="BLEX"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="baealex"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="자바스크립트가 무엇이냐는 질문에 대한 내 대답"><meta name="twitter:url" content="https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5"><meta name="twitter:description" content="오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다. 스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다. 누군가의 표정은 여전히 &#39;?&#39;를 자아냈고 그 표정을 보면서 나는 &#39;내 대답이 너무 협소했나?&#39;는 생각에 구체적인 대답을 떠올렸다. 브라우저는 HTML만 이해할 수 …"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>자바스크립트가 무엇이냐는 질문에 대한 내 대답 – baealex</title></head><body><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@baealex">baealex</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(91);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=자바스크립트가 무엇이냐는 질문에 대한 내 대답&url=https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><h1 class="post-headline">자바스크립트가 무엇이냐는 질문에 대한 내 대답</h1><p class="post-date">2019-10-23 19:48 <span>(Last Update: 2020-01-28 03:14)<span></span></span></p><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@baealex"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><div class="author-info"><h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4><p class="author-description">소비적인 일보단 생산적인 일을 추구하며, 좋아하는 일을 잘하고 싶어합니다 😀</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-master-purple"></li><li onclick="userFollow('baealex')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><p>오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다.</p><blockquote><p>스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다.</p></blockquote><p>누군가의 표정은 여전히 '?'를 자아냈고 그 표정을 보면서 나는 '내 대답이 너무 협소했나?'는 생각에 구체적인 대답을 떠올렸다.</p><blockquote><p>브라우저는 HTML만 이해할 수 있다. 만약 클라이언트가 대부분 웹서버는 경로상에 배치된 파일을 클라이언트의 요청에 맞게 전송한다. 클라이언트가 서버에게 URI를 요청했을때 그 파일이 jsp라면 파일과 데이터 베이스를 가진 서버에서는 자바를 통해서 해당 파일을 처리하여 온전한 HTML로 바꾸고 클라이언트에게 전송한다. 클라이언트가 HTML을 전달 받으면 브라우저에선 DOM을 통해서 HTML을 계층적으로 표현하는데 이 HTML을 컨트롤하는게 자바스크립트다.</p></blockquote><p>웹개발을 잘 모르겠다는 사람에게 나는 <code>URI</code>, <code>DOM</code>, <code>HTTP</code>라는 표현을 하는게 맞는 건가? 라는 생각이 들었다. 정말 이렇게 답했다면 그냥 싸우자는 멘트가 아니었을까? 아마 면접이었다면 좋은 답이었겠지만 누군가에게 알려주는 것 치고는 굉장히 불친절하다는 생각이 들었다. 만약 한발 더 나아가 <code>HTTP</code>가 무엇이냐 <code>DOM</code>이 무엇이냐고 묻는다면 자바스크립트보다 더 거대한 질문을 받게 되는 셈이다.</p><p><br></p><h6>그렇다면 이렇게 설명해볼까?</h6><blockquote><p>JavaScript는 처음에 LiveScript라 불렸으며 Netscape사에서 개발되었다. 가장 일반적인 사용은 HTML 문서에 내포되는 클라이언트 사이드 스크립트며 동적 HTML 문서를 생성한다.</p></blockquote><p>과연 '자바스크립트가 무엇인가?, 어느때 활용하는가?'에 대한 질문에 위와같이 답하는게 맞는 걸까? 이건 마치 "선생님 더하기가 뭐에요? 잘 모르겠네요."라고 물었더니 선생님이 친절히 "응. 더하기 라는 건 최초로 수학 기호를 사용한 사람으로는 3세기에 살았던 고대 그리스의 수학자 디오판토스를 꼽아. 그는 문장으로 쓰던 방벙식을 미지수와 나눗셈, 빼기 기호를 이용해 수식으로 나타냈단다."라고 답하는 격이다.</p><p>난 언젠가 프로그래밍의 교육자로써 올라서고 싶은 마음이 있다. 하지만 이런 식으로 누군가를 가르키는 선생이란게 될 수 있을까? 생선의 자질이 있을까? 내가 처음 웹을 공부할 땐 뭘 보고 이해했지? 난 그저 직접 하나하나 해보면서 '아! 이런게 자바 스크립트구나!'라는 걸 알아간 것 같다. 왜 그 경험으로 아직도 난 자바스크립트에 대한 쉬운 정의를 내리지 못한걸까?</p><p>다시 나를 떠올려보자. 내가 가장 싫어하는 선생님은 '자~ 이건 이거고 저건 저거예요.'라고 알려주는 타입이다. 내가 무언가에 열정적으로 몰입하려면 그게 어디에 활용되는지 알고 내가 그 무언가를 적극적으로 활용하고 싶어진 순간이다. 다시 돌아와서 그럼 자바스크립트는 어디에 활용되는가!!!</p><p><br></p><h6>그래서 자바스크립트란 무엇인가?</h6><p>만약 당신이 <a href="https://app.baejino.com/s/%EA%B3%84%EC%82%B0%EA%B8%B0">웹사이트에서 계산기를 만든다</a>고 생각해보자. 그리고 계산기의 모양을 떠올려보자. 버튼은 네모났고 0~9까지의 버튼이 있으며 사칙연산 버튼이 있다. 그럼 HTML은 <code>button</code>이라는 태그를 통해서 버튼을 만들 수 있게 한다. CSS에선 그 버튼을 좀 더 까맣고 크게 만들 수 있으며 원하는 곳에 배치시킬 수 있다. 그리고 버튼을 눌렀을 때 숫자가 입력되게 하는 건 자바스크립트로 구현할 수 있다.</p></article><ul class="tag-list"><li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기</a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/21/baealex/10_8_34.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/mysql-%EB%B3%B5%EC%8A%B5mywebsql">MySQL 복습(MyWebSQL)</a></h5></div><div class="col-md-4"><a href="/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/1/3iNVF.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88">팀블로그 고안</a></h5></div><div class="col-md-4"><a href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A4%80%EB%B9%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/0bQj6.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A4%80%EB%B9%84">취준생이 생각하는 개발자 포트폴리오 준비</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script>$(document).ready(function() {
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다. 스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다. 누군가의 표정은 여전히 &#39;?&#39;를 자아냈고 그 표정을 보면서 나는 &#39;내 대답이 너무 협소했나?&#39;는 생각에 구체적인 대답을 떠올렸다. 브라우저는 HTML만 이해할 수 …">
+<meta property="og:url" content="https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="자바스크립트가 무엇이냐는 질문에 대한 내 대답">
+<meta property="og:description" content="오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다. 스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다. 누군가의 표정은 여전히 &#39;?&#39;를 자아냈고 그 표정을 보면서 나는 &#39;내 대답이 너무 협소했나?&#39;는 생각에 구체적인 대답을 떠올렸다. 브라우저는 HTML만 이해할 수 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트가 무엇이냐는 질문에 대한 내 대답">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5">
+<meta name="twitter:description" content="오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다. 스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다. 누군가의 표정은 여전히 &#39;?&#39;를 자아냈고 그 표정을 보면서 나는 &#39;내 대답이 너무 협소했나?&#39;는 생각에 구체적인 대답을 떠올렸다. 브라우저는 HTML만 이해할 수 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>자바스크립트가 무엇이냐는 질문에 대한 내 대답 – baealex</title>
+</head>
+<body>
+    
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(91);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=자바스크립트가 무엇이냐는 질문에 대한 내 대답&url=https://blex.kr/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        <h1 class="post-headline">자바스크립트가 무엇이냐는 질문에 대한 내 대답</h1>
+        <p class="post-date">
+            2019-10-23 19:48
+            <span>(Last Update: 2020-01-28 03:14)<span></span></span></p>
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>오늘 누군가 내게 자바스크립트가 정확하게 무엇이냐고 질문하였다. 웹개발을 잘 몰라서 구분이 어렵다는 것이었다. 내 머릿속에 들었던 자바스크립트의 정의는 아래와 같았다.</p>
+<blockquote>
+<p>스크립트는 서버 사이드와 클라이언트 사이드가 있는데 자바스크립트는 클라이언트 사이드다.</p>
+</blockquote>
+<p>누군가의 표정은 여전히 '?'를 자아냈고 그 표정을 보면서 나는 '내 대답이 너무 협소했나?'는 생각에 구체적인 대답을 떠올렸다.</p>
+<blockquote>
+<p>브라우저는 HTML만 이해할 수 있다. 만약 클라이언트가 대부분 웹서버는 경로상에 배치된 파일을 클라이언트의 요청에 맞게 전송한다. 클라이언트가 서버에게 URI를 요청했을때 그 파일이 jsp라면 파일과 데이터 베이스를 가진 서버에서는 자바를 통해서 해당 파일을 처리하여 온전한 HTML로 바꾸고 클라이언트에게 전송한다. 클라이언트가 HTML을 전달 받으면 브라우저에선 DOM을 통해서 HTML을 계층적으로 표현하는데 이 HTML을 컨트롤하는게 자바스크립트다.</p>
+</blockquote>
+<p>웹개발을 잘 모르겠다는 사람에게 나는 <code>URI</code>, <code>DOM</code>, <code>HTTP</code>라는 표현을 하는게 맞는 건가? 라는 생각이 들었다. 정말 이렇게 답했다면 그냥 싸우자는 멘트가 아니었을까? 아마 면접이었다면 좋은 답이었겠지만 누군가에게 알려주는 것 치고는 굉장히 불친절하다는 생각이 들었다. 만약 한발 더 나아가 <code>HTTP</code>가 무엇이냐 <code>DOM</code>이 무엇이냐고 묻는다면 자바스크립트보다 더 거대한 질문을 받게 되는 셈이다.</p>
+<p><br></p>
+<h6>그렇다면 이렇게 설명해볼까?</h6>
+<blockquote>
+<p>JavaScript는 처음에 LiveScript라 불렸으며 Netscape사에서 개발되었다. 가장 일반적인 사용은 HTML 문서에 내포되는 클라이언트 사이드 스크립트며 동적 HTML 문서를 생성한다.</p>
+</blockquote>
+<p>과연 '자바스크립트가 무엇인가?, 어느때 활용하는가?'에 대한 질문에 위와같이 답하는게 맞는 걸까? 이건 마치 "선생님 더하기가 뭐에요? 잘 모르겠네요."라고 물었더니 선생님이 친절히 "응. 더하기 라는 건 최초로 수학 기호를 사용한 사람으로는 3세기에 살았던 고대 그리스의 수학자 디오판토스를 꼽아. 그는 문장으로 쓰던 방벙식을 미지수와 나눗셈, 빼기 기호를 이용해 수식으로 나타냈단다."라고 답하는 격이다.</p>
+<p>난 언젠가 프로그래밍의 교육자로써 올라서고 싶은 마음이 있다. 하지만 이런 식으로 누군가를 가르키는 선생이란게 될 수 있을까? 생선의 자질이 있을까? 내가 처음 웹을 공부할 땐 뭘 보고 이해했지? 난 그저 직접 하나하나 해보면서 '아! 이런게 자바 스크립트구나!'라는 걸 알아간 것 같다. 왜 그 경험으로 아직도 난 자바스크립트에 대한 쉬운 정의를 내리지 못한걸까?</p>
+<p>다시 나를 떠올려보자. 내가 가장 싫어하는 선생님은 '자~ 이건 이거고 저건 저거예요.'라고 알려주는 타입이다. 내가 무언가에 열정적으로 몰입하려면 그게 어디에 활용되는지 알고 내가 그 무언가를 적극적으로 활용하고 싶어진 순간이다. 다시 돌아와서 그럼 자바스크립트는 어디에 활용되는가!!!</p>
+<p><br></p>
+<h6>그래서 자바스크립트란 무엇인가?</h6>
+<p>만약 당신이 <a href="https://app.baejino.com/s/%EA%B3%84%EC%82%B0%EA%B8%B0">웹사이트에서 계산기를 만든다</a>고 생각해보자. 그리고 계산기의 모양을 떠올려보자. 버튼은 네모났고 0~9까지의 버튼이 있으며 사칙연산 버튼이 있다. 그럼 HTML은 <code>button</code>이라는 태그를 통해서 버튼을 만들 수 있게 한다. CSS에선 그 버튼을 좀 더 까맣고 크게 만들 수 있으며 원하는 곳에 배치시킬 수 있다. 그리고 버튼을 눌렀을 때 숫자가 입력되게 하는 건 자바스크립트로 구현할 수 있다.</p>
+        </article>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/javascript">javascript</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="T529H20Fn2Mol8T47B4kvmt7PnoEU9XSJtJntWouzlWegOd0HPlqumtf4qlbE0os">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-9%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-9%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 9장(이론)</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 13장(이론)</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1KwyV.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80">서비스 이용약관</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -11,4 +249,9 @@
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

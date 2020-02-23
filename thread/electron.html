@@ -1,8 +1,125 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#fff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#fff">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …"><meta property="og:url" content="https://blex.kr/thread/electron"><meta property="og:type" content="blog"><meta property="og:title" content="Electron + React"><meta property="og:description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="baealex"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Electron + React"><meta name="twitter:url" content="https://blex.kr/thread/electron"><meta name="twitter:description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …"><meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>Electron + React – baealex</title></head><body><nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt=""> </a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a></li><li class="nav-item"><a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a></li></ul></div></div></nav><div class="container"><div class="content"><style>.container .col-md-10 {padding: 0;}</style><div class="col-md-10 mx-auto"><div class="thread-card"><img src="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React"><div class="p-4"><h1 class="post-headline">Electron + React</h1><p class="post-date">4일, 10시간전 새로운 스토리가 추가됨</p><ul class="tag-list"><li><a href="/@baealex/topic/%EB%A6%AC%EC%95%A1%ED%8A%B8">리액트</a></li><li><a href="/@baealex/topic/%EC%9D%BC%EB%A0%89%ED%8A%B8%EB%A1%A0">일렉트론</a></li><li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li></ul></div></div><div class="thread-card p-4">참여할 수 없는 스레드입니다.</div><article id="story" class="noto"><div id="story-118"><div class="thread-card p-4"><p class="serif"><strong>React + Electron : Component에서 ipcRenderer.on</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-18 13:51(Last Update: 2020-02-18 15:31)</small><ul class="none-list"></ul><div class="article"><pre><code class="language-js">class App extends Component {
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …">
+<meta property="og:url" content="https://blex.kr/thread/electron">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Electron + React">
+<meta property="og:description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Electron + React">
+<meta name="twitter:url" content="https://blex.kr/thread/electron">
+<meta name="twitter:description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>Electron + React –  baealex</title>
+</head>
+<body>
+    
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+            
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<style>.container .col-md-10 {padding: 0;}</style>
+<div class="col-md-10 mx-auto">
+  <div class="thread-card">
+    
+    <img src="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React">
+    
+    <div class="p-4">
+      <h1 class="post-headline">Electron + React</h1>
+      <p class="post-date">5일, 10시간전 새로운 스토리가 추가됨</p>
+      
+      
+      <ul class="tag-list">
+          
+          <li><a href="/@baealex/topic/electron">electron</a></li>
+          
+          <li><a href="/@baealex/topic/javascript">javascript</a></li>
+          
+          <li><a href="/@baealex/topic/react">react</a></li>
+          
+      </ul>
+      
+    </div>
+  </div>
+  
+  <div class="thread-card p-4">참여할 수 없는 스레드입니다.</div>
+  
+  <article id="story" class="noto">
+    
+    <div id="story-118">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>React + Electron : Component에서 ipcRenderer.on</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-18 13:51(Last Update: 2020-02-18 15:31)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <pre><code class="language-js">class App extends Component {
     componentDidMount = () =&gt; {
         ipcRenderer.send('call-init');
 
@@ -13,7 +130,9 @@
             this.id = arg.length;
         });
     }
-}</code></pre><p>componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다!</p><pre><code class="language-js">ipcMain.on('data-save', (event, arg) =&gt; {
+}</code></pre>
+<p>componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다!</p>
+<pre><code class="language-js">ipcMain.on('data-save', (event, arg) =&gt; {
   fs.writeFile('save.data', JSON.stringify(arg), 'utf8', function(error) {
     console.log('error');
   });
@@ -23,7 +142,32 @@ ipcMain.on('call-init', (event, arg) =&gt; {
   fs.readFile('save.data', function(error, data) {
     event.sender.send('data-init', JSON.parse(data));
   })
-})</code></pre><p>이건 걍 내가 추가하는 부분이지만 JSON과 TEXT를 전환하려면 위와같이 JSON의 함수를 호출해서 사용해야 한다.</p><ul><li>JSON =&gt; TEXT : JSON.stringify(<em>var</em>)</li><li>TEXT =&gt; JSON : JSON.parse(<em>var</em>)</li></ul></div></div></div><div id="story-117"><div class="thread-card p-4"><p class="serif"><strong>React : 데이터 추가하기</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-18 10:12(Last Update: 2020-02-18 13:53)</small><ul class="none-list"></ul><div class="article"><pre><code class="language-js">class App extends Component {
+})</code></pre>
+<p>이건 걍 내가 추가하는 부분이지만 JSON과 TEXT를 전환하려면 위와같이 JSON의 함수를 호출해서 사용해야 한다. </p>
+<ul>
+<li>JSON =&gt; TEXT : JSON.stringify(<em>var</em>)</li>
+<li>TEXT =&gt; JSON : JSON.parse(<em>var</em>)</li>
+</ul>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-117">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>React : 데이터 추가하기</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-18 10:12(Last Update: 2020-02-18 13:53)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <pre><code class="language-js">class App extends Component {
     id = 2
     state = {
         information: [
@@ -60,7 +204,27 @@ ipcMain.on('call-init', (event, arg) =&gt; {
             &lt;/div&gt;
         )
     }
-}</code></pre></div></div></div><div id="story-116"><div class="thread-card p-4"><p class="serif"><strong>React : 상위 컴포넌트에서 하위 컴포넌트의 값을 전달 받으려면?</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-18 10:12</small><ul class="none-list"></ul><div class="article"><pre><code class="language-js">class App extends Component {
+}</code></pre>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-116">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>React : 상위 컴포넌트에서 하위 컴포넌트의 값을 전달 받으려면?</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-18 10:12</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <pre><code class="language-js">class App extends Component {
     handleCreate = (data) =&gt; {
         console.log(data)
     }
@@ -73,7 +237,9 @@ ipcMain.on('call-init', (event, arg) =&gt; {
             &lt;/div&gt;
         )
     }
-}</code></pre><p>위처럼 메서드 하나를 하위 컴포넌트의 props로 넘겨주고 하위 컴포넌트에서 해당 함수로 다음과 같이 값을 전달하면 된다.</p><pre><code class="language-js">class PhoneForm extends Component {
+}</code></pre>
+<p>위처럼 메서드 하나를 하위 컴포넌트의 props로 넘겨주고 하위 컴포넌트에서 해당 함수로 다음과 같이 값을 전달하면 된다.</p>
+<pre><code class="language-js">class PhoneForm extends Component {
     state = {
         name: '',
         phone: '',
@@ -111,7 +277,27 @@ ipcMain.on('call-init', (event, arg) =&gt; {
             &lt;/form&gt;
         )
     }
-}</code></pre></div></div></div><div id="story-114"><div class="thread-card p-4"><p class="serif"><strong>React + Electron : ipcRenderer import</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-17 15:47(Last Update: 2020-02-18 10:13)</small><ul class="none-list"></ul><div class="article"><pre><code class="language-js">const { ipcRenderer } = window.require("electron");
+}</code></pre>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-114">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>React + Electron : ipcRenderer import</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-17 15:47(Last Update: 2020-02-18 10:13)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <pre><code class="language-js">const { ipcRenderer } = window.require("electron");
 
 class App extends Component {
     ...
@@ -125,34 +311,201 @@ class App extends Component {
         )
         ...
     }
-}</code></pre><p>Electron에서는 아래에서 작성한 스토리와 마찬가지로 이벤트를 처리해주면 된다!</p></div></div></div><div id="story-98"><div class="thread-card p-4"><p class="serif"><strong>React + Electron : Example</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-12 15:55(Last Update: 2020-02-18 10:13)</small><ul class="none-list"></ul><div class="article"><p>이러한 환경을 구성한 대부분의 프로젝트가 <code>yarn</code>을 사용하고 있다. 최대한 <code>npm</code>으로 돌아가는 걸 찾아보고 싶었는데 없어서 그냥 다운받았다.</p><p><a href="https://yarnpkg.com/lang/en/">https://yarnpkg.com/lang/en/</a></p><pre><code class="language-js">git clone https://github.com/kitze/react-electron-example
+}</code></pre>
+<p>Electron에서는 아래에서 작성한 스토리와 마찬가지로 이벤트를 처리해주면 된다!</p>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-98">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>React + Electron : Example</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-12 15:55(Last Update: 2020-02-18 10:13)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <p>이러한 환경을 구성한 대부분의 프로젝트가 <code>yarn</code>을 사용하고 있다. 최대한 <code>npm</code>으로 돌아가는 걸 찾아보고 싶었는데 없어서 그냥 다운받았다.</p>
+<p><a href="https://yarnpkg.com/lang/en/">https://yarnpkg.com/lang/en/</a></p>
+<pre><code class="language-js">git clone https://github.com/kitze/react-electron-example
 cd react-electron-example
 yarn
-yarn start</code></pre><p>하면 다음과 같은 창을 만날 수 있다!</p><p><img src="https://static.blex.kr/image/2020/2/12/enc0DVL1x04pxoRsdDPz.png" alt=""></p><p>어떤 원리로 돌아가는가 보았더니</p><pre><code class="language-js">mainWindow.loadURL(
+yarn start</code></pre>
+<p>하면 다음과 같은 창을 만날 수 있다!</p>
+<p><img src="https://static.blex.kr/image/2020/2/12/enc0DVL1x04pxoRsdDPz.png" alt=""></p>
+<p>어떤 원리로 돌아가는가 보았더니</p>
+<pre><code class="language-js">mainWindow.loadURL(
     isDev
         ? "http://localhost:3000"
         : `file://${path.join(__dirname, "../build/index.html")}`
-);</code></pre><p>개발중에는 <code>React</code>와 마찬가지로 3000번 포트에 올려서 <code>Electron</code>도 그 화면을 보여주고 빌드시에는 <code>React</code>를 빌드하고 빌드된 화면으로 실행하는 듯</p></div></div></div><div id="story-97"><div class="thread-card p-4"><p class="serif"><strong>Electron : 이벤트</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-12 09:29(Last Update: 2020-02-18 10:13)</small><ul class="none-list"></ul><div class="article"><p>커스텀 이벤트를 만들어 보기 위해서 <code>index.html</code>에 다음과 같은 버튼을 추가하고 웹사이트를 만들때 처럼 직접 <code>onclick</code>을 넣었더니 오류가 발생했다.</p><pre><code class="language-html">&lt;button onclick="btnClick()"&gt;click here&lt;/button&gt;</code></pre><p>무조건 다음과 같이 해야하나 보다.</p><pre><code class="language-html">&lt;button id="mainButton"&gt;click here&lt;/button&gt;</code></pre><pre><code class="language-js">var mainButton = document.getElementById('mainButton')
+);</code></pre>
+<p>개발중에는 <code>React</code>와 마찬가지로 3000번 포트에 올려서 <code>Electron</code>도 그 화면을 보여주고 빌드시에는 <code>React</code>를 빌드하고 빌드된 화면으로 실행하는 듯</p>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-97">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>Electron : 이벤트</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-12 09:29(Last Update: 2020-02-18 10:13)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <p>커스텀 이벤트를 만들어 보기 위해서 <code>index.html</code>에 다음과 같은 버튼을 추가하고 웹사이트를 만들때 처럼 직접 <code>onclick</code>을 넣었더니 오류가 발생했다.</p>
+<pre><code class="language-html">&lt;button onclick="btnClick()"&gt;click here&lt;/button&gt;</code></pre>
+<p>무조건 다음과 같이 해야하나 보다.</p>
+<pre><code class="language-html">&lt;button id="mainButton"&gt;click here&lt;/button&gt;</code></pre>
+<pre><code class="language-js">var mainButton = document.getElementById('mainButton')
 mainButton.addEventListener('click', function() {
     alert('btn click!')
-});</code></pre></div></div></div><div id="story-96"><div class="thread-card p-4"><p class="serif"><strong>Electron : 통신</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-12 09:15(Last Update: 2020-02-18 10:13)</small><ul class="none-list"></ul><div class="article"><p>통신은 Main의 <code>ipcMain</code>과 Render의 <code>ipcRenderer</code>를 통해서 진행된다. 기존 튜토리얼에선 별다른 설정없이 Render에서 다음 라이브러리를 호출하는 것 같으나 상위 버전에선 불가능하여 찾아보니 <code>BrowserWindow</code>를 생성할 때 다음과 같은 <code>Preferences</code>를 생성해야 한다.</p><pre><code class="language-js">webPreferences: {
+});</code></pre>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-96">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>Electron : 통신</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-12 09:15(Last Update: 2020-02-18 10:13)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <p>통신은 Main의 <code>ipcMain</code>과 Render의 <code>ipcRenderer</code>를 통해서 진행된다. 기존 튜토리얼에선 별다른 설정없이 Render에서 다음 라이브러리를 호출하는 것 같으나 상위 버전에선 불가능하여 찾아보니 <code>BrowserWindow</code>를 생성할 때 다음과 같은 <code>Preferences</code>를 생성해야 한다.</p>
+<pre><code class="language-js">webPreferences: {
     nodeIntegration: true
-}</code></pre><p>이후 Main에서</p><pre><code class="language-js">const { ipcMain } = require('electron')
+}</code></pre>
+<p>이후 Main에서</p>
+<pre><code class="language-js">const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) =&gt; {
   console.log(arg);
   event.sender.send('asynchronous-reply', 'pong')
-})</code></pre><p>Render에서</p><pre><code class="language-js">const { ipcRenderer } = require('electron')
+})</code></pre>
+<p>Render에서</p>
+<pre><code class="language-js">const { ipcRenderer } = require('electron')
 
 ipcRenderer.send('asynchronous-message', 'ping')
 ipcRenderer.on('asynchronous-reply', (event, arg) =&gt; {
     console.log(arg)
-})</code></pre><p>위와같이 통신을 진행한다.</p></div></div></div><div id="story-95"><div class="thread-card p-4"><p class="serif"><strong>Electron : 파일의 구성</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-12 09:12(Last Update: 2020-02-20 10:05)</small><ul class="none-list"></ul><div class="article"><ul><li><code>main.js</code><ul><li>메인 프로세스</li><li>데스크톱 앱의 백엔드 역할을 수행</li><li>앱 자체의 총괄적인 부분(Node.js와 거의 동일)</li><li>업데이트 제어</li><li>OS GUI API 제어(윈도우, 트레이, 메뉴, 컨텍스트 팝업)</li></ul></li><li><code>renderer.js</code><ul><li>렌더러 프로세스</li><li>데스크톱 앱의 프론트엔드 역할을 수행</li><li>브라우저 화면, HTML/CSS/JS를 처리</li></ul></li></ul></div></div></div><div id="story-92"><div class="thread-card p-4"><p class="serif"><strong>Electron : 효과 넣기</strong></p><a href="/@baealex"><div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a><br><small>2020-02-12 09:09(Last Update: 2020-02-18 10:13)</small><ul class="none-list"></ul><div class="article"><h6>notification 전송</h6><p><code>renderer.js</code>에 다음과 같은 내용 추가</p><pre><code class="language-js">let myNotification = new Notification('Title', {
+})</code></pre>
+<p>위와같이 통신을 진행한다.</p>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-95">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>Electron : 파일의 구성</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-12 09:12(Last Update: 2020-02-20 10:05)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <ul>
+<li><code>main.js</code><ul>
+<li>메인 프로세스</li>
+<li>데스크톱 앱의 백엔드 역할을 수행</li>
+<li>앱 자체의 총괄적인 부분(Node.js와 거의 동일)</li>
+<li>업데이트 제어</li>
+<li>OS GUI API 제어(윈도우, 트레이, 메뉴, 컨텍스트 팝업)</li>
+</ul>
+</li>
+<li><code>renderer.js</code><ul>
+<li>렌더러 프로세스</li>
+<li>데스크톱 앱의 프론트엔드 역할을 수행</li>
+<li>브라우저 화면, HTML/CSS/JS를 처리</li>
+</ul>
+</li>
+</ul>
+    </div>
+</div>
+    </div>
+    
+    <div id="story-92">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>Electron : 효과 넣기</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-02-12 09:09(Last Update: 2020-02-18 10:13)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <h6>notification 전송</h6>
+<p><code>renderer.js</code>에 다음과 같은 내용 추가</p>
+<pre><code class="language-js">let myNotification = new Notification('Title', {
     body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
 myNotification.onclick = () =&gt; {
     console.info('Notification clicked')
-}</code></pre><p><br></p><h6>prograss</h6><p><code>BrowserWindow</code>가 선언된 부분에서</p><pre><code class="language-js">mainWindow.setProgressBar(0.5)</code></pre></div></div></div></article></div></div></div><footer class="page-footer font-small"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/thread.js?version=1.0.36"></script><script>$(document).ready(function () {
+}</code></pre>
+<p><br></p>
+<h6>prograss</h6>
+<p><code>BrowserWindow</code>가 선언된 부분에서</p>
+<pre><code class="language-js">mainWindow.setProgressBar(0.5)</code></pre>
+    </div>
+</div>
+    </div>
+    
+  </article>
+</div>
+
+        </div>
+    </div>
+    
+<footer class="page-footer font-small">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/thread.js?version=1.0.38"></script>
+<script>
+  $(document).ready(function () {
     var csrftoken = getCookie('csrftoken');
     $.ajaxSetup({
       beforeSend: function (xhr, settings) {
@@ -161,4 +514,9 @@ myNotification.onclick = () =&gt; {
         }
       }
     });
-  });</script></body></html>
+  });
+</script>
+
+    
+</body>
+</html>

@@ -1,8 +1,152 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="하노이의 탑 풀어보았다. 소스코드 function Hanoi(plate, departure, dropBy, destination) { if (plate === 1) { document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate}을 ${departure}에서 ${destination}로 이동` } else if (plate &amp;gt; 1) { Hanoi(plate - 1, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;); document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate - 1}을 ${departure}에서 ${destination}로 이동` Hanoi(plate - 1, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;); } } …"><meta property="og:url" content="https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0"><meta property="og:type" content="blog"><meta property="og:title" content="[알고리즘] 하노이의 탑 Javascript로 풀어보기"><meta property="og:description" content="하노이의 탑 풀어보았다. 소스코드 function Hanoi(plate, departure, dropBy, destination) { if (plate === 1) { document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate}을 ${departure}에서 ${destination}로 이동` } else if (plate &amp;gt; 1) { Hanoi(plate - 1, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;); document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate - 1}을 ${departure}에서 ${destination}로 이동` Hanoi(plate - 1, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;); } } …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/2019/10/31/yoyounn18/12_12_59.jpg"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="yoyounn18"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="[알고리즘] 하노이의 탑 Javascript로 풀어보기"><meta name="twitter:url" content="https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0"><meta name="twitter:description" content="하노이의 탑 풀어보았다. 소스코드 function Hanoi(plate, departure, dropBy, destination) { if (plate === 1) { document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate}을 ${departure}에서 ${destination}로 이동` } else if (plate &amp;gt; 1) { Hanoi(plate - 1, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;); document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate - 1}을 ${departure}에서 ${destination}로 이동` Hanoi(plate - 1, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;); } } …"><meta name="twitter:image" content="https://static.blex.kr/title/2019/10/31/yoyounn18/12_12_59.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>[알고리즘] 하노이의 탑 Javascript로 풀어보기 – yoyounn18</title></head><body><style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style><div><picture class="post-title-image"><img src="https://static.blex.kr/title/2019/10/31/yoyounn18/12_12_59.jpg" alt="[알고리즘] 하노이의 탑 Javascript로 풀어보기"><div class="post-image-mask"><h1 class="post-headline">[알고리즘] 하노이의 탑 Javascript로 풀어보기</h1><p class="post-date">2019-10-31 12:12</p></div></picture></div><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@yoyounn18">yoyounn18</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(117);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=[알고리즘] 하노이의 탑 Javascript로 풀어보기&url=https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@yoyounn18"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/yoyounn18/BL4W.png)"></div></a><div class="author-info"><h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 55%</span></h4><p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-blogger-gray"></li><li onclick="userFollow('yoyounn18')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><h3>하노이의 탑</h3><p>풀어보았다.</p><h3>소스코드</h3><javasciprt><pre><code class="language-javascript">    function Hanoi(plate, departure, dropBy, destination) {
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="하노이의 탑 풀어보았다. 소스코드 function Hanoi(plate, departure, dropBy, destination) { if (plate === 1) { document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate}을 ${departure}에서 ${destination}로 이동` } else if (plate &amp;gt; 1) { Hanoi(plate - 1, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;); document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate - 1}을 ${departure}에서 ${destination}로 이동` Hanoi(plate - 1, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;); } } …">
+<meta property="og:url" content="https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[알고리즘] 하노이의 탑 Javascript로 풀어보기">
+<meta property="og:description" content="하노이의 탑 풀어보았다. 소스코드 function Hanoi(plate, departure, dropBy, destination) { if (plate === 1) { document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate}을 ${departure}에서 ${destination}로 이동` } else if (plate &amp;gt; 1) { Hanoi(plate - 1, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;); document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate - 1}을 ${departure}에서 ${destination}로 이동` Hanoi(plate - 1, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;); } } …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/2019/10/31/yoyounn18/12_12_59.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="yoyounn18">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[알고리즘] 하노이의 탑 Javascript로 풀어보기">
+<meta name="twitter:url" content="https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0">
+<meta name="twitter:description" content="하노이의 탑 풀어보았다. 소스코드 function Hanoi(plate, departure, dropBy, destination) { if (plate === 1) { document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate}을 ${departure}에서 ${destination}로 이동` } else if (plate &amp;gt; 1) { Hanoi(plate - 1, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;); document.getElementById(&#39;responseDiv&#39;).innerHTML = `${plate - 1}을 ${departure}에서 ${destination}로 이동` Hanoi(plate - 1, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;); } } …">
+<meta name="twitter:image" content="https://static.blex.kr/title/2019/10/31/yoyounn18/12_12_59.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>[알고리즘] 하노이의 탑 Javascript로 풀어보기 – yoyounn18</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/2019/10/31/yoyounn18/12_12_59.jpg" alt="[알고리즘] 하노이의 탑 Javascript로 풀어보기">
+        <div class="post-image-mask">
+            <h1 class="post-headline">[알고리즘] 하노이의 탑 Javascript로 풀어보기</h1>
+            <p class="post-date">2019-10-31 12:12</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@yoyounn18">yoyounn18</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(117);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=[알고리즘] 하노이의 탑 Javascript로 풀어보기&url=https://blex.kr/@yoyounn18/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98-%ED%83%91-javascript%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@yoyounn18">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/yoyounn18/BL4W.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-half"></i> 50%</span></h4>
+            
+            <p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('yoyounn18')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h3>하노이의 탑</h3>
+<p>풀어보았다.</p>
+<h3>소스코드</h3>
+<javasciprt>
+<pre><code class="language-javascript">    function Hanoi(plate, departure, dropBy, destination) {
     if (plate === 1) {
         document.getElementById('responseDiv').innerHTML = `${plate}을 ${departure}에서 ${destination}로 이동`
     } else if (plate &gt; 1) {
@@ -13,7 +157,9 @@
 }
 
 Hanoi(3, 'A', 'B', 'C');
-</code></pre><html><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+</code></pre>
+<html>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 
 &lt;html lang="ko"&gt;
   &lt;head&gt;
@@ -24,7 +170,95 @@ Hanoi(3, 'A', 'B', 'C');
     &lt;div id="responseDiv"&gt;11&lt;/div&gt;
     &lt;script type="text/javascript" src="index.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
-&lt;/html&gt;</code></pre></html></javasciprt></article><ul class="tag-list"><li><a href="/@yoyounn18/topic/javascript">javascript</a></li><li><a href="/@yoyounn18/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li><li><a href="/@yoyounn18/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@yoyounn18/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%A7%81%EA%B5%B0-%EC%9B%B9%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%A9%B4%EC%A0%91%EC%A7%88%EB%AC%B8-%EB%AA%A8%EC%9D%8C-%EB%8B%B5%EB%B3%80-%EB%8B%AC%EC%95%84%EB%B3%B4%EA%B8%B0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/11/yoyounn18/10_50_29.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%A7%81%EA%B5%B0-%EC%9B%B9%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%A9%B4%EC%A0%91%EC%A7%88%EB%AC%B8-%EB%AA%A8%EC%9D%8C-%EB%8B%B5%EB%B3%80-%EB%8B%AC%EC%95%84%EB%B3%B4%EA%B8%B0">프론트엔드 직군 웹개발자 면접질문 모음 답변 달아보기</a></h5></div><div class="col-md-4"><a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/2/5/1mouw.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-9">한 달 안에 취업하기 #9</a></h5></div><div class="col-md-4"><a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-1"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/1/25/6caJI.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-1">한 달 안에 취업하기 #1</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script><script>$(document).ready(function() {
+&lt;/html&gt;</code></pre>
+        </html></javasciprt></article>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@yoyounn18/topic/javascript">javascript</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li>
+            
+            <li><a href="/@yoyounn18/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="cYMemsiA98kK1QS2cnzvjUtZ0OVHfTTOLvWpfNBfvT0MG1ZSuLZS3zYe5E9CIL57">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%EC%9B%B9-%EC%84%9C%EB%B2%84-%EA%B3%B5%EB%B6%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/5/yoyounn18/1_29_47.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%EC%9B%B9-%EC%84%9C%EB%B2%84-%EA%B3%B5%EB%B6%80">웹 서버 공부</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/javascript-keycode-%EC%A0%95%EB%A6%AC"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/javascript-keycode-%EC%A0%95%EB%A6%AC">JavaScript ES201n 공부</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-2"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/yoyounn18/2020/1/25/7zTxc.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-2">한 달 안에 취업하기 #2</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -33,4 +267,9 @@ Hanoi(3, 'A', 'B', 'C');
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

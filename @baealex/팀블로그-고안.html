@@ -1,11 +1,298 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 …"><meta property="og:url" content="https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88"><meta property="og:type" content="blog"><meta property="og:title" content="팀블로그 고안"><meta property="og:description" content="사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/baealex/2020/1/1/3iNVF.jpg"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="baealex"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="팀블로그 고안"><meta name="twitter:url" content="https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88"><meta name="twitter:description" content="사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 …"><meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/1/1/3iNVF.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>팀블로그 고안 – baealex</title></head><body><style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style><div><picture class="post-title-image"><img src="https://static.blex.kr/title/baealex/2020/1/1/3iNVF.jpg" alt="팀블로그 고안"><div class="post-image-mask"><h1 class="post-headline"><span class="post-series">'블렉스 이야기' 시리즈</span>팀블로그 고안</h1><p class="post-date">2019-12-31 09:49<span>(Last Update: 2020-01-07 17:33)<span></span></span></p></div></picture></div><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@baealex">baealex</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(271);"><i class="far fa-heart"></i> <span id="like-count">1</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=팀블로그 고안&url=https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@baealex"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><div class="author-info"><h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4><p class="author-description">소비적인 일보단 생산적인 일을 추구하며, 좋아하는 일을 잘하고 싶어합니다 😀</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-master-purple"></li><li onclick="userFollow('baealex')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><p>사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 운영하였다.</p><p><br></p><h6>데이터 모델</h6><p>팀 블로그를 사용하려면 어떤 데이터들이 필요할까? 우리 팀을 기준으로 생각하자.</p><ul><li>이름 : Comma, Dev.</li><li>로고 : PNG Image</li><li>가입된 날자 : 2019-12-31</li><li>소유자 : baealex</li><li>회원(편집자, 작성자) : DeCrazy, Imakara38</li><li>글 : 소개(팀 공식 글), 활동(baealex), 활동(baealex), 프로젝트(팀 공식 글), 활동(DeCrazy)</li><li>소개 : About page</li><li>짧은 소개 : Bio</li><li>홈페이지 링크 : <a href="https://commadev.org">https://commadev.org</a></li></ul><p>티스토리를 살펴보면 회원도 소유자와 편집자와 작성자로 나뉘어져 있는데 여기서도 같은 방식을 사용해야 겠다.</p><ul><li>소유자 : 글을 삭제할 권한이 있음. 사용자를 초대하거나 추방할 수 있으며 다른 사용자에게 소유 권한을 넘겨줄 수 있음. 만일 결제 시스템까지 이어진다면 결제 대상이 됨(하위 포함)</li><li>에디터 : 글을 편집할 권한이 있음. 팀 공식 글을 작성할 수 있음(하위 포함)</li><li>작성자 : 글을 작성할 권한이 있음</li></ul><p>팀 글의 경우에는 기존의 글 모델을 그대로 활용하기엔 어려움이 보인다. 다만 섞으려면 약간의 귀찮음이 존재할 것 같다. 또한 댓글의 경우도 완전히 새로 만들어야 되고 말이다... 결국 기존의 글 모델을 사용하는게 좋을 듯 싶은데... 어떻게 확장시킬지 약간은 고민을 해봐야겠다.</p><ul><li>팀 : 외래키(글 작성시 사용자가 속한 팀을 선택할 수 있다. 혹은 팀 페이지에서 글을 작성하도록 할 예정이다.)</li><li>공지 : 팀에 속하지 않은 글이면서 공지인 글은 BLEX의 공지가 된다. 팀에 속한 글이면서 공지인 글은 팀의 공지가 된다. 다만 이와같이 설정한 결우 일반 사용자가 BLEX의 공지를 설정할 수 있게 될지도 모르겠다. 뷰에서 처리를 해줘야 할 듯. 아니면 팀 글 작성을 별도로 생성해야겠다.</li></ul><p>미디엄을 보면 팀 카테고리도 존재하는데... 굳이 팀을 위해서 카테고리를 추가하는 건 불필요해 보인다. 사용자 페이지와 마찬가지로 태그로 카테고리를 생성하되 팀스러운 느낌을 주기위해 별도의 레이아웃을 사용해야 할 것 같다.</p><p><br></p><h6>URL</h6><p>사용자의 경우에는 <code>@</code>라는 키워드를 사용하고 있는데 팀은 좀 다른 키워드를 사용해야 할 것으로 보인다. 현재는 <code>@</code>와 같이 URL에서 사용할 수 있는 키워드 중에 <code>:</code>을 염두해 두고있다.</p><pre><code>/:team
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 …">
+<meta property="og:url" content="https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="팀블로그 고안">
+<meta property="og:description" content="사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/1/1/3iNVF.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="팀블로그 고안">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88">
+<meta name="twitter:description" content="사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/1/1/3iNVF.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>팀블로그 고안 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/baealex/2020/1/1/3iNVF.jpg" alt="팀블로그 고안">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'블렉스 이야기' 시리즈</span>팀블로그 고안</h1>
+            <p class="post-date">2019-12-31 09:49<span>(Last Update: 2020-01-07 17:33)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(271);">
+            <i class="far fa-heart"></i> <span id="like-count">1</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=팀블로그 고안&url=https://blex.kr/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>사실 이 블로그 서비스의 제 1 타겟을 개발자로 생각하고 있었는데 개발자의 경우는 팀 단위로 움직이는 경향이 많으므로 확실히 좋은 의견이라고 생각했다. 또한 동호회나 전문가 모임이 참여할 수 있는 길도 열린다. 다만 나는 팀 블로그를 운영한 경험이 없었다. 그냥 팀의 블로그를 내가 운영하거나 이곳에서 팀 블로그를 운영했는데 간단히 계정을 새로 만들어 운영하였다.</p>
+<p><br></p>
+<h6>데이터 모델</h6>
+<p>팀 블로그를 사용하려면 어떤 데이터들이 필요할까? 우리 팀을 기준으로 생각하자.</p>
+<ul>
+<li>이름 : Comma, Dev.</li>
+<li>로고 : PNG Image</li>
+<li>가입된 날자 : 2019-12-31</li>
+<li>소유자 : baealex</li>
+<li>회원(편집자, 작성자) : DeCrazy, Imakara38</li>
+<li>글 : 소개(팀 공식 글), 활동(baealex), 활동(baealex), 프로젝트(팀 공식 글), 활동(DeCrazy)</li>
+<li>소개 : About page</li>
+<li>짧은 소개 : Bio</li>
+<li>홈페이지 링크 : <a href="https://commadev.org">https://commadev.org</a></li>
+</ul>
+<p>티스토리를 살펴보면 회원도 소유자와 편집자와 작성자로 나뉘어져 있는데 여기서도 같은 방식을 사용해야 겠다.</p>
+<ul>
+<li>소유자 : 글을 삭제할 권한이 있음. 사용자를 초대하거나 추방할 수 있으며 다른 사용자에게 소유 권한을 넘겨줄 수 있음. 만일 결제 시스템까지 이어진다면 결제 대상이 됨(하위 포함)</li>
+<li>에디터 : 글을 편집할 권한이 있음. 팀 공식 글을 작성할 수 있음(하위 포함)</li>
+<li>작성자 : 글을 작성할 권한이 있음</li>
+</ul>
+<p>팀 글의 경우에는 기존의 글 모델을 그대로 활용하기엔 어려움이 보인다. 다만 섞으려면 약간의 귀찮음이 존재할 것 같다. 또한 댓글의 경우도 완전히 새로 만들어야 되고 말이다... 결국 기존의 글 모델을 사용하는게 좋을 듯 싶은데... 어떻게 확장시킬지 약간은 고민을 해봐야겠다.</p>
+<ul>
+<li>팀 : 외래키(글 작성시 사용자가 속한 팀을 선택할 수 있다. 혹은 팀 페이지에서 글을 작성하도록 할 예정이다.)</li>
+<li>공지 : 팀에 속하지 않은 글이면서 공지인 글은 BLEX의 공지가 된다. 팀에 속한 글이면서 공지인 글은 팀의 공지가 된다. 다만 이와같이 설정한 결우 일반 사용자가 BLEX의 공지를 설정할 수 있게 될지도 모르겠다. 뷰에서 처리를 해줘야 할 듯. 아니면 팀 글 작성을 별도로 생성해야겠다.</li>
+</ul>
+<p>미디엄을 보면 팀 카테고리도 존재하는데... 굳이 팀을 위해서 카테고리를 추가하는 건 불필요해 보인다. 사용자 페이지와 마찬가지로 태그로 카테고리를 생성하되 팀스러운 느낌을 주기위해 별도의 레이아웃을 사용해야 할 것 같다.</p>
+<p><br></p>
+<h6>URL</h6>
+<p>사용자의 경우에는 <code>@</code>라는 키워드를 사용하고 있는데 팀은 좀 다른 키워드를 사용해야 할 것으로 보인다. 현재는 <code>@</code>와 같이 URL에서 사용할 수 있는 키워드 중에 <code>:</code>을 염두해 두고있다.</p>
+<pre><code>/:team
 /:team/about
 /:team/post-name
-/:team/@author/post-name</code></pre><ul><li><code>/:team</code> : 로고와 짧은 소개와 작성한 글을 표시하는 페이지, 팀에 속한 멤버라면 글을 쓸 수 있는 버튼을 표시하도록 하자.</li><li><code>/:team/about</code> : 마크다운 양식으로 작성된 소개가 보여지며 멤버의 목록이 출력된다.</li><li><code>/:team/post-name</code> : 팀의 공식 글로 팀만 표시된다.</li><li><code>/:team/@author/post-name</code> : 팀의 개인 글로 팀과 작성자가 표시된다.</li></ul></article><div class="my-4 text-center"><h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none text-white">'블렉스 이야기' 시리즈</a></h5><div class="row justify-content-between"><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88?series=블렉스-이야기"><i class="fas fa-arrow-circle-left vivid-purple"></i><br>무한 스크롤 이슈</a></div></div><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98?series=블렉스-이야기"><i class="fas fa-arrow-circle-right vivid-purple"></i><br>중간 댓글 알고리즘</a></div></div></div></div><ul class="tag-list"><li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li><li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@baealex/%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%B6%94%EC%B2%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/4/15r0WC.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%B6%94%EC%B2%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">포스트 추천 알고리즘</a></h5></div><div class="col-md-4"><a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/22/13saaI.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 1장(이론)</a></h5></div><div class="col-md-4"><a href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/23NBxM.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8">첫 출근을 준비하는 자세</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script><script>$(document).ready(function() {
+/:team/@author/post-name</code></pre>
+<ul>
+<li><code>/:team</code> : 로고와 짧은 소개와 작성한 글을 표시하는 페이지, 팀에 속한 멤버라면 글을 쓸 수 있는 버튼을 표시하도록 하자.</li>
+<li><code>/:team/about</code> : 마크다운 양식으로 작성된 소개가 보여지며 멤버의 목록이 출력된다.</li>
+<li><code>/:team/post-name</code> : 팀의 공식 글로 팀만 표시된다.</li>
+<li><code>/:team/@author/post-name</code> : 팀의 개인 글로 팀과 작성자가 표시된다.</li>
+</ul>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none text-white">'블렉스 이야기' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88?series=블렉스-이야기">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>무한 스크롤 이슈
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98?series=블렉스-이야기">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>중간 댓글 알고리즘
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li>
+            
+            <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="EBcpJaUoWgYJzZWPE7X1RCHy8fd7xa4Q1d24ejoCyn7P6nytuGjcUbdeRnG9zhbO">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1KwyV.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80">서비스 이용약관</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/22/13saaI.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 1장(이론)</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%83%90%EB%8A%94-%EC%A7%88%EB%AC%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4-%EB%8C%80%EB%8B%B5">자바스크립트가 무엇이냐는 질문에 대한 내 대답</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -14,4 +301,9 @@
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

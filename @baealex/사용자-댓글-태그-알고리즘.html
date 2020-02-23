@@ -1,8 +1,287 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다. 왜? 사용자 태그를? 필자가 egloos에서 얻은 교훈으로 블로그 서비스의 &#39;친목&#39;을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 …"><meta property="og:url" content="https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><meta property="og:type" content="blog"><meta property="og:title" content="사용자 댓글 태그 알고리즘"><meta property="og:description" content="사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다. 왜? 사용자 태그를? 필자가 egloos에서 얻은 교훈으로 블로그 서비스의 &#39;친목&#39;을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/baealex/2020/1/1/3mZXf.webp"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="baealex"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="사용자 댓글 태그 알고리즘"><meta name="twitter:url" content="https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><meta name="twitter:description" content="사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다. 왜? 사용자 태그를? 필자가 egloos에서 얻은 교훈으로 블로그 서비스의 &#39;친목&#39;을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 …"><meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/1/1/3mZXf.webp"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>사용자 댓글 태그 알고리즘 – baealex</title></head><body><style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style><div><picture class="post-title-image"><img src="https://static.blex.kr/title/baealex/2020/1/1/3mZXf.webp" alt="사용자 댓글 태그 알고리즘"><div class="post-image-mask"><h1 class="post-headline"><span class="post-series">'블렉스 이야기' 시리즈</span>사용자 댓글 태그 알고리즘</h1><p class="post-date">2019-12-30 17:40<span>(Last Update: 2020-01-01 03:25)<span></span></span></p></div></picture></div><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@baealex">baealex</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(267);"><i class="far fa-heart"></i> <span id="like-count">1</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=사용자 댓글 태그 알고리즘&url=https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@baealex"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div></a><div class="author-info"><h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4><p class="author-description">소비적인 일보단 생산적인 일을 추구하며, 좋아하는 일을 잘하고 싶어합니다 😀</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-master-purple"></li><li onclick="userFollow('baealex')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><p>사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다.</p><p><br></p><h6>왜? 사용자 태그를?</h6><p>필자가 <code>egloos</code>에서 얻은 교훈으로 블로그 서비스의 '친목'을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 댓글을 통해서 유저들의 의견을 쉽게 파악할 수 있지만 자신이 참여하기에 어려움이 생길것이라 생각했다.</p><p><br></p><h6>사용자를 태그하여 얻는 단점</h6><p>가장 큰 단점은 사용자들이 댓글을 보면서 사용자들의 의견과 의견에 대한 의견을 한눈에 파악하기 어렵다. 또한 자신이 태그됐을때 지속적으로 많은 댓글이 달리고 있는 글이라면 어느 지점에서 태그됐는지 파악하기 어렵다.</p><p><br></p><h6>그래서 알고리즘</h6><ul><li>댓글 텍스트 에어리어를 선택하면 현재 글에 댓글을 작성한 사용자 목록을 AJAX를 통해서 호출한다. (O)<ul><li>현재는 그냥 포스트에 로딩하면 호출되도록 하였다.</li></ul></li><li>댓글 텍스트 에어리어에서 @를 입력하면 사용자를 가져올 준비한다. (O)<ul><li>자바스크립트의 키코드를 사용하여 구현했는데 모바일에선 사용이 불가하여 버튼으로 대체하였다.</li></ul></li><li>문자를 입력하면 알맞은 사용자를 매칭한다. (H)<ul><li>텍스트 에어리어 내부에서 수행하기 위해서 키코드를 사용하려 했으나 한글을 탐색하기 어렵고 위와같이 모바일 사용자가 배제된다.</li><li>현재는 프롬프트를 통해서 사용자의 이름을 입력하고 작성한 사용자가 목록에 있는 경우 전송할 목록에 추가하고 아니면 없다고 알려준다.</li><li>프롬프트는 너무 초라하니까 모달 같은 거로 바꾸고 인풋창의 내용을 비교하면서 사용자를 찾아주도록 하자.</li><li>팝오버라는 레이아웃이 있는데 사용자 위에 마우스를 올리면 태그할지 프로필을 볼지 선택할 수 있는 것도 좋을 듯.</li></ul></li><li>여하지간 작성자가 찾으려는 사용자를 드롭다운으로 출력하여 빠르게 찾을 수 있도록 해주자. (X)</li><li>댓글을 달자. (O)</li><li>사용자에게 알림을 보내자. (O)</li></ul></article><div class="my-4 text-center"><h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none text-white">'블렉스 이야기' 시리즈</a></h5><div class="row justify-content-between"><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%83%90%EC%A7%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98?series=블렉스-이야기"><i class="fas fa-arrow-circle-left vivid-purple"></i><br>문자열 차이점 탐지 알고리즘</a></div></div><div class="col-md-6"><div class="col-md-12 bg-light rounded p-3 mt-3"><a class="text-decoration-none deep-dark" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%99%80-%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%99%80-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B4%80%EA%B3%84?series=블렉스-이야기"><i class="fas fa-arrow-circle-right vivid-purple"></i><br>사용자와 시리즈와 포스트의 관계</a></div></div></div></div><ul class="tag-list"><li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li><li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 3장(이론)</a></h5></div><div class="col-md-4"><a href="/@baealex/java-jsp-mysql-%EC%97%B0%EB%8F%99"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/java-jsp-mysql-%EC%97%B0%EB%8F%99">JAVA JSP + MySQL 연동</a></h5></div><div class="col-md-4"><a href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/1/10/1XmX5.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">중간 댓글 알고리즘</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script><script>$(document).ready(function() {
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다. 왜? 사용자 태그를? 필자가 egloos에서 얻은 교훈으로 블로그 서비스의 &#39;친목&#39;을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 …">
+<meta property="og:url" content="https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="사용자 댓글 태그 알고리즘">
+<meta property="og:description" content="사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다. 왜? 사용자 태그를? 필자가 egloos에서 얻은 교훈으로 블로그 서비스의 &#39;친목&#39;을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/1/1/3mZXf.webp">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="사용자 댓글 태그 알고리즘">
+<meta name="twitter:url" content="https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
+<meta name="twitter:description" content="사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다. 왜? 사용자 태그를? 필자가 egloos에서 얻은 교훈으로 블로그 서비스의 &#39;친목&#39;을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/1/1/3mZXf.webp">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>사용자 댓글 태그 알고리즘 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/baealex/2020/1/1/3mZXf.webp" alt="사용자 댓글 태그 알고리즘">
+        <div class="post-image-mask">
+            <h1 class="post-headline"><span class="post-series">'블렉스 이야기' 시리즈</span>사용자 댓글 태그 알고리즘</h1>
+            <p class="post-date">2019-12-30 17:40<span>(Last Update: 2020-01-01 03:25)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(267);">
+            <i class="far fa-heart"></i> <span id="like-count">1</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=사용자 댓글 태그 알고리즘&url=https://blex.kr/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>사용자들이 댓글을 통해서 의사소통을 하는 방법으론 댓글에 답글을 달던지 사용자간에 태그를 하는 방법이 있다 적어도 내가 아는 선에서 말이다. 답글을 다는 것이 일반적인 소통 방법이지만 여기서는 사용자 태그를 이용하였다.</p>
+<p><br></p>
+<h6>왜? 사용자 태그를?</h6>
+<p>필자가 <code>egloos</code>에서 얻은 교훈으로 블로그 서비스의 '친목'을 최소화 시키기 위함이다. 댓글을 달리고 답글이 달리기 시작하면 외부에서 접근한 유저는 댓글을 통해서 유저들의 의견을 쉽게 파악할 수 있지만 자신이 참여하기에 어려움이 생길것이라 생각했다.</p>
+<p><br></p>
+<h6>사용자를 태그하여 얻는 단점</h6>
+<p>가장 큰 단점은 사용자들이 댓글을 보면서 사용자들의 의견과 의견에 대한 의견을 한눈에 파악하기 어렵다. 또한 자신이 태그됐을때 지속적으로 많은 댓글이 달리고 있는 글이라면 어느 지점에서 태그됐는지 파악하기 어렵다.</p>
+<p><br></p>
+<h6>그래서 알고리즘</h6>
+<ul>
+<li>댓글 텍스트 에어리어를 선택하면 현재 글에 댓글을 작성한 사용자 목록을 AJAX를 통해서 호출한다. (O)<ul>
+<li>현재는 그냥 포스트에 로딩하면 호출되도록 하였다.</li>
+</ul>
+</li>
+<li>댓글 텍스트 에어리어에서 @를 입력하면 사용자를 가져올 준비한다. (O)<ul>
+<li>자바스크립트의 키코드를 사용하여 구현했는데 모바일에선 사용이 불가하여 버튼으로 대체하였다.</li>
+</ul>
+</li>
+<li>문자를 입력하면 알맞은 사용자를 매칭한다. (H)<ul>
+<li>텍스트 에어리어 내부에서 수행하기 위해서 키코드를 사용하려 했으나 한글을 탐색하기 어렵고 위와같이 모바일 사용자가 배제된다.</li>
+<li>현재는 프롬프트를 통해서 사용자의 이름을 입력하고 작성한 사용자가 목록에 있는 경우 전송할 목록에 추가하고 아니면 없다고 알려준다.</li>
+<li>프롬프트는 너무 초라하니까 모달 같은 거로 바꾸고 인풋창의 내용을 비교하면서 사용자를 찾아주도록 하자.</li>
+<li>팝오버라는 레이아웃이 있는데 사용자 위에 마우스를 올리면 태그할지 프로필을 볼지 선택할 수 있는 것도 좋을 듯.</li>
+</ul>
+</li>
+<li>여하지간 작성자가 찾으려는 사용자를 드롭다운으로 출력하여 빠르게 찾을 수 있도록 해주자. (X)</li>
+<li>댓글을 달자. (O)</li>
+<li>사용자에게 알림을 보내자. (O)</li>
+</ul>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-dark p-4"><a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none text-white">'블렉스 이야기' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%83%90%EC%A7%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98?series=블렉스-이야기">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>문자열 차이점 탐지 알고리즘
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%99%80-%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%99%80-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B4%80%EA%B3%84?series=블렉스-이야기">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>사용자와 시리즈와 포스트의 관계
+                </a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li>
+            
+            <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="CQuSFpKLZYiFP9Pu83vEcbl5NVtQz6EE0FUauB1vqd33X6bPaRz8eVD3F547kDrP">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 11장(이론)</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A4%80%EB%B9%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/0bQj6.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A4%80%EB%B9%84">개발자 취준생의 포트폴리오 준비</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%8A%A4%ED%94%84%EB%A7%81"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2019/11/12/10_H22n.webp);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%8A%A4%ED%94%84%EB%A7%81">자바 스프링 환경설정</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -11,4 +290,9 @@
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>

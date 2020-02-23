@@ -1,15 +1,248 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script><script>window.dataLayer = window.dataLayer || [];
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-113864080-4');</script><meta name="description" content="파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다. 필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다. &amp;gt;&amp;gt;&amp;gt; Lists = [[0] * 2] * 5 &amp;gt;&amp;gt;&amp;gt; Lists 출력은 본인 생각대로 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]] 이 나왔다. 그 후 …"><meta property="og:url" content="https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8"><meta property="og:type" content="blog"><meta property="og:title" content="[3분꿀팁]Python 다차원 리스트"><meta property="og:description" content="파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다. 필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다. &amp;gt;&amp;gt;&amp;gt; Lists = [[0] * 2] * 5 &amp;gt;&amp;gt;&amp;gt; Lists 출력은 본인 생각대로 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]] 이 나왔다. 그 후 …"><meta property="og:site_name" content="BLEX"><meta property="og:image" content="https://static.blex.kr/title/2019/10/25/DeCrazy/12_18_42.png"><meta property="og:locale" content="ko_KR"><meta property="article:author" content="DeCrazy"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="[3분꿀팁]Python 다차원 리스트"><meta name="twitter:url" content="https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8"><meta name="twitter:description" content="파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다. 필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다. &amp;gt;&amp;gt;&amp;gt; Lists = [[0] * 2] * 5 &amp;gt;&amp;gt;&amp;gt; Lists 출력은 본인 생각대로 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]] 이 나왔다. 그 후 …"><meta name="twitter:image" content="https://static.blex.kr/title/2019/10/25/DeCrazy/12_18_42.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css"><link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css"><link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.36"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR"><link rel="icon" href="https://static.blex.kr/assets/images/logo.png"><title>[3분꿀팁]Python 다차원 리스트 – DeCrazy</title></head><body><style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style><div><picture class="post-title-image"><img src="https://static.blex.kr/title/2019/10/25/DeCrazy/12_18_42.png" alt="[3분꿀팁]Python 다차원 리스트"><div class="post-image-mask"><h1 class="post-headline">[3분꿀팁]Python 다차원 리스트</h1><p class="post-date">2019-10-25 12:18</p></div></picture></div><nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top"><div class="container"><a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr"><img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt=""></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/@DeCrazy">DeCrazy</a></li></ul><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"><ul class="navbar-nav"><li class="nav-item"><a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(100);"><i class="far fa-heart"></i> <span id="like-count">0</span></a></li><li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')"><i class="far fa-comment"></i> 0</a></li><li class="nav-item"><div class="dropdown"><a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-share-alt"></i></a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a> <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=[3분꿀팁]Python 다차원 리스트&url=https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a></div></div></li></ul></div></div></nav><div class="container"><div class="content"><div class="row"><div class="ml-auto col-lg-8"><div class="row post-top-meta" onmousedown="distoryLatelyPosition()"><a href="/@DeCrazy"><div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/DeCrazy/J5kg.jpg)"></div></a><div class="author-info"><h4><a href="/@DeCrazy">DeCrazy</a><span class="ns ml-2"><i class="fas fa-battery-empty"></i> 0%</span></h4><p class="author-description">Hi</p><ul class="author-state"><li><img src="https://img.shields.io/badge/-blogger-gray"></li><li onclick="userFollow('DeCrazy')"><img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social"></li></ul><a class="author-email d-block" href="/login">Sign in to view email</a><p></p></div></div><article class="article noto"><p>파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다.</p><p>필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다.</p><pre><code class="language-python">&gt;&gt;&gt; Lists = [[0] * 2] * 5
-&gt;&gt;&gt; Lists</code></pre><p>출력은 본인 생각대로 <code>[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]</code> 이 나왔다.</p><p>그 후 for문을 이용해서 값을 채워주었다. 숫자를 채워 넣은 후 출력해보니 신기한 현상이 발생했다.</p><p>모든 리스트에 마지막으로 넣었던 값이 나오는 것이다. 못믿겠으면 이 코드를 한번 실행시켜보자.</p><pre><code class="language-python">Lists = [[0] * 2] * 5
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다. 필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다. &amp;gt;&amp;gt;&amp;gt; Lists = [[0] * 2] * 5 &amp;gt;&amp;gt;&amp;gt; Lists 출력은 본인 생각대로 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]] 이 나왔다. 그 후 …">
+<meta property="og:url" content="https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[3분꿀팁]Python 다차원 리스트">
+<meta property="og:description" content="파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다. 필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다. &amp;gt;&amp;gt;&amp;gt; Lists = [[0] * 2] * 5 &amp;gt;&amp;gt;&amp;gt; Lists 출력은 본인 생각대로 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]] 이 나왔다. 그 후 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/2019/10/25/DeCrazy/12_18_42.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="DeCrazy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[3분꿀팁]Python 다차원 리스트">
+<meta name="twitter:url" content="https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8">
+<meta name="twitter:description" content="파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다. 필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다. &amp;gt;&amp;gt;&amp;gt; Lists = [[0] * 2] * 5 &amp;gt;&amp;gt;&amp;gt; Lists 출력은 본인 생각대로 [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]] 이 나왔다. 그 후 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/2019/10/25/DeCrazy/12_18_42.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.38">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>[3분꿀팁]Python 다차원 리스트 – DeCrazy</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/2019/10/25/DeCrazy/12_18_42.png" alt="[3분꿀팁]Python 다차원 리스트">
+        <div class="post-image-mask">
+            <h1 class="post-headline">[3분꿀팁]Python 다차원 리스트</h1>
+            <p class="post-date">2019-10-25 12:18</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@DeCrazy">DeCrazy</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(100);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=[3분꿀팁]Python 다차원 리스트&url=https://blex.kr/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@DeCrazy">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/DeCrazy/J5kg.jpg)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@DeCrazy">DeCrazy</a><span class="ns ml-2"><i class="fas fa-battery-empty"></i> 0%</span></h4>
+            
+            <p class="author-description">Hi</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('DeCrazy')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>파이썬으로 1차원 이상의 리스트를 만들다가 신기한 문제점에 봉착한 적이 있다.</p>
+<p>필자는 그냥 생각 없이 이런 코드를 이용하여 5 X 2짜리 리스트를 만들려 했다.</p>
+<pre><code class="language-python">&gt;&gt;&gt; Lists = [[0] * 2] * 5
+&gt;&gt;&gt; Lists</code></pre>
+<p>출력은 본인 생각대로 <code>[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]</code> 이 나왔다.</p>
+<p>그 후 for문을 이용해서 값을 채워주었다. 숫자를 채워 넣은 후 출력해보니 신기한 현상이 발생했다.</p>
+<p>모든 리스트에 마지막으로 넣었던 값이 나오는 것이다. 못믿겠으면 이 코드를 한번 실행시켜보자.</p>
+<pre><code class="language-python">Lists = [[0] * 2] * 5
 
 for i in range (5):
     for j in range(2):
         Lists[i][j] = i * j
 
-print(Lists)</code></pre><p>결과를 보면 <code>[[0, 4], [0, 4], [0, 4], [0, 4], [0, 4]]</code> 가 나오는 걸 볼 수 있다. 그래서 본인은 파이썬 레퍼런스를 보았다.</p><p>레퍼런스에서는 이렇게 설명했다. <code>Lists = [[0] * 2] * 5</code> 에서 * 는 객체의 복사를 실행하지 않고 객체의 레퍼런스를 복사하여 같은 하나의<code>[0, 0]</code> 리스트를 참조한다고 한다.</p><p>따라서 복하를 원하면 위의 방법보다 <code>Lists = [[0] * 2 for i in range(2)]</code> 를 추천한다고 한다.</p></article><ul class="tag-list"><li><a href="/@DeCrazy/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li></ul></div><div class="col-lg-2 mobile-disable"><div id="article-nav" class="sticky-top sticky-top-100"></div></div></div><div id="comment" class="mt-5"><div id="comment-empty" class="comment-list"><p>작성된 댓글이 없습니다!</p></div></div><div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div></div></div><div class="rel-posts"><div class="container pt-4 pb-2"><div class="header-title"><h4 class="serif">이 작성자가 게시한 다른 글</h4></div><div class="row"><div class="col-md-4"><a href="/@DeCrazy/microsoft-azure%EB%A1%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%9E%84%EB%8C%80%ED%95%B4%EB%B3%B4%EC%9E%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/25/DeCrazy/10_24_25.jpg);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/microsoft-azure%EB%A1%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%9E%84%EB%8C%80%ED%95%B4%EB%B3%B4%EC%9E%90">#Microsoft Azure로 서버를 임대해보자</a></h5></div><div class="col-md-4"><a href="/@DeCrazy/%EA%B2%8C%EC%9E%84%EC%9D%98-%EA%B0%95%ED%99%94%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B6%94%EC%82%B0%ED%95%B4%EB%B3%B4%EC%9E%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/%EA%B2%8C%EC%9E%84%EC%9D%98-%EA%B0%95%ED%99%94%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B6%94%EC%82%B0%ED%95%B4%EB%B3%B4%EC%9E%90">게임의 강화비용을 추산해보자!(수정중)</a></h5></div><div class="col-md-4"><a href="/@DeCrazy/microsoft-azure%EC%9D%84-1%EB%85%84%EB%8F%99%EC%95%88-%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90%ED%95%99%EC%83%9D-%EC%A0%84%EC%9A%A9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/24/DeCrazy/12_8_59.png);"></div></a><h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/microsoft-azure%EC%9D%84-1%EB%85%84%EB%8F%99%EC%95%88-%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90%ED%95%99%EC%83%9D-%EC%A0%84%EC%9A%A9">#Microsoft Azure을 2년동안 무료로 사용해보자!!(학생 전용)</a></h5></div></div></div></div><footer class="page-footer font-small bg-theme"><div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.</div></footer><script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.36"></script><div id="notify-content"></div><script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.36"></script><script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.36"></script><script>$(document).ready(function() {
+print(Lists)</code></pre>
+<p>결과를 보면 <code>[[0, 4], [0, 4], [0, 4], [0, 4], [0, 4]]</code> 가 나오는 걸 볼 수 있다. 그래서 본인은 파이썬 레퍼런스를 보았다.</p>
+<p>레퍼런스에서는 이렇게 설명했다. <code>Lists = [[0] * 2] * 5</code> 에서 * 는 객체의 복사를 실행하지 않고 객체의 레퍼런스를 복사하여 같은 하나의<code>[0, 0]</code> 리스트를 참조한다고 한다. </p>
+<p>따라서 복하를 원하면 위의 방법보다 <code>Lists = [[0] * 2 for i in range(2)]</code> 를 추천한다고 한다.</p>
+        </article>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@DeCrazy/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="msjrcDiMcc5uHWobbYnNsaCG0KfcB8oFxVPZdIF6em66VCSJPMKCdzXET68auBqg">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@DeCrazy/microsoft-azure%EC%9D%84-1%EB%85%84%EB%8F%99%EC%95%88-%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90%ED%95%99%EC%83%9D-%EC%A0%84%EC%9A%A9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/24/DeCrazy/12_8_59.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/microsoft-azure%EC%9D%84-1%EB%85%84%EB%8F%99%EC%95%88-%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90%ED%95%99%EC%83%9D-%EC%A0%84%EC%9A%A9">#Microsoft Azure을 2년동안 무료로 사용해보자!!(학생 전용)</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@DeCrazy/microsoft-azure%EB%A1%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%9E%84%EB%8C%80%ED%95%B4%EB%B3%B4%EC%9E%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/2019/10/25/DeCrazy/10_24_25.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/microsoft-azure%EB%A1%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%9E%84%EB%8C%80%ED%95%B4%EB%B3%B4%EC%9E%90">#Microsoft Azure로 서버를 임대해보자</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@DeCrazy/%EA%B2%8C%EC%9E%84%EC%9D%98-%EA%B0%95%ED%99%94%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B6%94%EC%82%B0%ED%95%B4%EB%B3%B4%EC%9E%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/%EA%B2%8C%EC%9E%84%EC%9D%98-%EA%B0%95%ED%99%94%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B6%94%EC%82%B0%ED%95%B4%EB%B3%B4%EC%9E%90">게임의 강화비용을 추산해보자!(수정중)</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.38"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.38"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.38"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.38"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.38"></script>
+
+<script>
+$(document).ready(function() {
   var csrftoken = getCookie('csrftoken');
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -18,4 +251,9 @@ print(Lists)</code></pre><p>결과를 보면 <code>[[0, 4], [0, 4], [0, 4], [0, 
       }
     }
   });
-});</script></body></html>
+});
+</script>
+
+    
+</body>
+</html>
