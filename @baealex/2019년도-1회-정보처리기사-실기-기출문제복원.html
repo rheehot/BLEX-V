@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="그냥 문제가 이런 유형으로 나왔다는 것을 보여드리기 위해서 작성하는 것이며 실제 문제와 완벽히 일치하는 것이 아니며 순서와 내용이 다소 다릅니다. 틀린 부분 지적은 언제나 감사합니다. 내용은 지속적으로 추가할 예정입니다 :) 알고리즘 1. 다음은 1000이하의 숫자에서 약수의 합이 자신이 되는 숫자의 수를 구하는 순서도이다. 가령 6의 약수는 1, 2, 3이고 이들의 …">
+<meta property="og:url" content="https://blex.kr/@baealex/2019%EB%85%84%EB%8F%84-1%ED%9A%8C-%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C%EB%B3%B5%EC%9B%90">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="2019년도 1회 정보처리기사 실기 기출문제(복원)">
+<meta property="og:description" content="그냥 문제가 이런 유형으로 나왔다는 것을 보여드리기 위해서 작성하는 것이며 실제 문제와 완벽히 일치하는 것이 아니며 순서와 내용이 다소 다릅니다. 틀린 부분 지적은 언제나 감사합니다. 내용은 지속적으로 추가할 예정입니다 :) 알고리즘 1. 다음은 1000이하의 숫자에서 약수의 합이 자신이 되는 숫자의 수를 구하는 순서도이다. 가령 6의 약수는 1, 2, 3이고 이들의 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/24/22LJtq.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019년도 1회 정보처리기사 실기 기출문제(복원)">
+<meta name="twitter:url" content="https://blex.kr/@baealex/2019%EB%85%84%EB%8F%84-1%ED%9A%8C-%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C%EB%B3%B5%EC%9B%90">
+<meta name="twitter:description" content="그냥 문제가 이런 유형으로 나왔다는 것을 보여드리기 위해서 작성하는 것이며 실제 문제와 완벽히 일치하는 것이 아니며 순서와 내용이 다소 다릅니다. 틀린 부분 지적은 언제나 감사합니다. 내용은 지속적으로 추가할 예정입니다 :) 알고리즘 1. 다음은 1000이하의 숫자에서 약수의 합이 자신이 되는 숫자의 수를 구하는 순서도이다. 가령 6의 약수는 1, 2, 3이고 이들의 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/24/22LJtq.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.39">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>2019년도 1회 정보처리기사 실기 기출문제(복원) – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/baealex/2020/2/24/22LJtq.png" alt="2019년도 1회 정보처리기사 실기 기출문제(복원)">
+        <div class="post-image-mask">
+            <h1 class="post-headline">2019년도 1회 정보처리기사 실기 기출문제(복원)</h1>
+            <p class="post-date">2019-04-15 22:48</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@baealex">baealex</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(385);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/2019%EB%85%84%EB%8F%84-1%ED%9A%8C-%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C%EB%B3%B5%EC%9B%90" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=2019년도 1회 정보처리기사 실기 기출문제(복원)&url=https://blex.kr/@baealex/2019%EB%85%84%EB%8F%84-1%ED%9A%8C-%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C%EB%B3%B5%EC%9B%90" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>그냥 문제가 이런 유형으로 나왔다는 것을 보여드리기 위해서 작성하는 것이며 실제 문제와 완벽히 일치하는 것이 아니며 순서와 내용이 다소 다릅니다. 틀린 부분 지적은 언제나 감사합니다. 내용은 지속적으로 추가할 예정입니다 :)</p>
+<p><br></p>
+<h3>알고리즘</h3>
+<p><strong>1.</strong> 다음은 1000이하의 숫자에서 약수의 합이 자신이 되는 숫자의 수를 구하는 순서도이다. 가령 6의 약수는 1, 2, 3이고 이들의 합은 6으로 자신과 같다.</p>
+<p><strong>처리조건</strong></p>
+<p>약수 중 가장 큰 수는 그 수를 2로 나눈 것 보다 작거나 같다. 짝수의 경우 자신을 제외한 큰 약수는 2를 나눈 값이다.</p>
+<p><strong>사용변수</strong></p>
+<ul>
+<li>LM : 문제에서 주어진 수의 개수</li>
+<li>N,J,R</li>
+</ul>
+<p><strong>그림</strong></p>
+<p><img src="https://static.blex.kr/image/2020/2/24/1aI2pTiCOqdXXcDoq4cN.png" alt="순서도 그림" title="순서도 그림"></p>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<ol>
+<li>J</li>
+<li>R</li>
+<li>SUM = SUM + J</li>
+<li>N</li>
+<li>LM + 1</li>
+</ol>
+</details>
+<p><br></p>
+<p><strong>2.</strong> 다음 소스코드의 출력결과를 작성하시오. 단, println 함수를 사용했음을 고려하시오.</p>
+<p><strong>코드</strong></p>
+<pre><code class="language-java">class SuperClass {
+    void paint() {
+        draw();
+    }
+    void draw() {
+        system.out.println("Super Object");
+    }
+}
+
+class SubClass extends SuperClass {
+    void paint() {
+        super.paint();
+        super.draw();
+    }
+    void draw() {
+        system.out.println("Sub Object");
+    }
+}
+
+public class SampleProgram {
+    public static void main(String[] args) {
+        SuperClass ex = new SubClass();
+        ex.paint();
+    }
+}</code></pre>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<p>Sub Object<br>Super Object </p>
+</details>
+<p><br></p>
+<p><strong>3.</strong> 다음 소스코드의 출력결과를 작성하시오.</p>
+<p><strong>코드</strong></p>
+<pre><code class="language-java">public static void main(String[] args) {
+    int n = 0;
+
+    for(int i=1; i&lt;=110; i++) {
+        if(i%4==0) {
+            n++;
+        }
+    }
+
+    system.out.println(n);
+}</code></pre>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<p>27</p>
+</details>
+<p><br></p>
+<p><strong>4.</strong> 다음 코드는 입력받은 숫자의 자릿수를 전부 더하는 프로그램이다. 가령 1004를 입력받으면 천의 자리의 1과 백의 자리의 0과 십의 자리의 0과 일의 자리의 4가 더해져 5가된다. 빈칸을 완성하시오.</p>
+<p><strong>코드</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int input = 0;
+    int sum = 0;
+
+    scanf("%d", &amp;input);
+
+    while(1)
+    {
+        if([  1  ] == 0)
+        {
+            break;
+        }
+        sum = sum + input%[  2  ];
+        input = input/[  2  ];
+    }
+
+    printf("%d\n", sum);
+    return 0;
+}</code></pre>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<ol>
+<li>input</li>
+<li>10</li>
+</ol>
+</details>
+<p><br></p>
+<h3>데이터베이스</h3>
+<p><strong>1.</strong> ( 1 )가 주목받고 있는 이유는... ( 1 )을 컨트롤 하기 위해선 ( 2 )를 사용해야 한다... 중복된 릴레이션의 문제로 발생하는 현상을 ( 3 )현상이라고 한다...( 4 )...( 5 )...이행 함수 종속이란 A-&gt;B이고 B-&gt;C일때 ( 6 )가 만족하는 것이다.</p>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<ol>
+<li>빅데이터</li>
+<li>DSMS</li>
+<li>이상</li>
+<li>부분함수종속</li>
+<li>2NF</li>
+<li>A-&gt;C</li>
+</ol>
+</details>
+<p><br></p>
+<p><strong>2.</strong> 다음 테이블의 차수와 카디널리티의 갯수를 구하시오.</p>
+<table>
+<thead>
+<tr>
+<th>번호</th>
+<th><span class="red">이름</span></th>
+<th>이메일</th>
+<th><span class="red">전화번호</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="red">홍길동</span></td>
+<td>hong@daum.net</td>
+<td><span class="red">010-0000-0000</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="red">강감찬</span></td>
+<td>kgc@hanmail.net</td>
+<td><span class="red">010-0000-1111</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="red">이순신</span></td>
+<td>leess@naver.com</td>
+<td><span class="red">010-0000-2222</span></td>
+</tr>
+</tbody>
+</table>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<ul>
+<li>차수 : 4</li>
+<li>카디널리티 : 3</li>
+</ul>
+</details>
+<p><br></p>
+<p><strong>3.</strong> 데이터베이스에서 다른 사용자에게 권한을 부여하는 명령어는 ( 1 )이다.</p>
+<p>( 1 ) SELECT, INSERT, DELETE, UPDATE ON 학생 TO 배진오;</p>
+<p>부여한 권한을 회수할때 사용하는 명령어는 ( 2 )이다.</p>
+<p>( 2 ) SELECT, INSERT, DELETE, UPDATE ON 학생 FROM 배진오;</p>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<ol>
+<li>GRANT</li>
+<li>REVOKE</li>
+</ol>
+</details>
+<p><br></p>
+<p><strong>4.</strong> 트랜잭션 A를 실행한 후 B에서 A의 변경된 내용을 볼 수 있고, 트랜잭션 B를 실행한 후 A에서 B의 변경된 내용을 볼 수 있으나, A, B가 동시에 실행될 수 없는 것은 트랜잭션의 어떤 특징 때문인가?</p>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<p>독립성(Isolation)</p>
+</details>
+<p><br></p>
+<h3>전산영어</h3>
+<p>When the signal ( 1 ) is received, the computer stops what it is doing, processes ( 1 ) and returns to its original state. The modern operating system consists primarily of ( 1 ).</p>
+<p>( 2 ) automatically finds the driver when the user connects the input/output device and makes it easier to use the input/output device.</p>
+<p>( 3 ) consists of flip-flops in the CPU and is the fastest in memory.</p>
+<p>( 4 ) controls the operating system. Can be controlled using a shell.</p>
+<p>( 5 ) is also called main memory.</p>
+<details markdown="1">
+<summary>정답 펼치기</summary>
+<ol>
+<li>Interrupt</li>
+<li>PnP(Plug and Play)</li>
+<li>Register</li>
+<li>Kernel</li>
+<li>RAM</li>
+</ol>
+</details>
+<p><br></p>
+<h3>신기술동향</h3>
+<ul>
+<li>정보보안</li>
+</ul>
+<p>크라임웨어, 해시함수(해쉬함수), SSL, SET, Rootkit(루트킷)</p>
+<ul>
+<li>신기술</li>
+</ul>
+<p>SaaS, ITIL, RAID, 옵테인메모리, ...</p>
+<p><br></p>
+<h3>업무프로세스</h3>
+<p>SEM, BSC, 기업인수자, 일반투자자</p>
+        </article>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC">정보처리기사</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="2irQtf4tbdkf8NgbbxnMOsjW7e3CxWFZyQU1C4yQ3E4GhXBJqWACrptjU2FrxpKw">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/23H2Ag.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90">파이썬으로 구현한 자료구조 - 큐</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-2%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-2%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 2장(이론)</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 7장(이론)</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.39"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.39"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.39"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.39"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.39"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.39"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>
