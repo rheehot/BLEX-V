@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.39">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.40">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
     <title>mildsalmon – '한라대학교 공지 알림 봇 제작기' 시리즈</title>
@@ -109,6 +109,11 @@
             <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">Intro 이 글에서는 Requests와 BeautifulSoup를 내 코드에 어떻게 적용시켰는지 알려준다. 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # …</a></p>
         </div>
         
+        <div class="mb-5">
+            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)</a></h5>
+            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">Intro 이번 챕터에서는 telegram bot을 활용해서 공지가 생기면 알람이 오도록 구현해보겠다. 지금까지 만든 코드를 실행하면 위 같은 결과가 나온다. 공지를 제외한 1page에 있는 게시글을 전부 크롤링한 모습이다. telegram bot 텔레그램 봇 정리본 위 정리본에 링크 되어 있는 문서를 참고하자. 봇 만들기 BotFather 텔레그램 봇은 BotFather을 통해 만들 수 있다. 만드는 …</a></p>
+        </div>
+        
     </div>
 </div>
 
@@ -126,9 +131,9 @@
 
     <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.39"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.39"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.39"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.40"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.40"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.40"></script>
     <div id="notify-content"></div>
     
 
