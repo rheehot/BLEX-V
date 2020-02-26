@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="Intro 서버는 AWS의 Amazon Lunux 2를 사용했다. PuTTY 나는 서버에 접속할때 PuTTY를 주로 사용한다. PuTTY는 SSH, Telet 등의 접속방식을 제공한다. PuTTY는 서버에 원격으로 접속하게 도와주는 프로그램이다. 다운로드 위 링크를 통해 다운받을 수 있다. PuTTY 접속 방법 빨간 부분만 잘 설정해주면 잘 접속이 된다. AWS .pem을 .ppk로 변환하는 방법 위에서 puttygen.exe를 …">
+<meta property="og:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (5) - 서버 작업">
+<meta property="og:description" content="Intro 서버는 AWS의 Amazon Lunux 2를 사용했다. PuTTY 나는 서버에 접속할때 PuTTY를 주로 사용한다. PuTTY는 SSH, Telet 등의 접속방식을 제공한다. PuTTY는 서버에 원격으로 접속하게 도와주는 프로그램이다. 다운로드 위 링크를 통해 다운받을 수 있다. PuTTY 접속 방법 빨간 부분만 잘 설정해주면 잘 접속이 된다. AWS .pem을 .ppk로 변환하는 방법 위에서 puttygen.exe를 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/2/26/125hKF.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (5) - 서버 작업">
+<meta name="twitter:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">
+<meta name="twitter:description" content="Intro 서버는 AWS의 Amazon Lunux 2를 사용했다. PuTTY 나는 서버에 접속할때 PuTTY를 주로 사용한다. PuTTY는 SSH, Telet 등의 접속방식을 제공한다. PuTTY는 서버에 원격으로 접속하게 도와주는 프로그램이다. 다운로드 위 링크를 통해 다운받을 수 있다. PuTTY 접속 방법 빨간 부분만 잘 설정해주면 잘 접속이 된다. AWS .pem을 .ppk로 변환하는 방법 위에서 puttygen.exe를 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/2/26/125hKF.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.40">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>한라대학교 공지 알림 봇 제작기 (5) - 서버 작업 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/mildsalmon/2020/2/26/125hKF.jpg" alt="한라대학교 공지 알림 봇 제작기 (5) - 서버 작업">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in">한라대학교 공지 알림 봇 제작기 (5) - 서버 작업</h1>
+            <p class="post-date fade-in">2020-02-24 23:23<span>(Last Update: 2020-02-26 12:31)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@mildsalmon">mildsalmon</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(387);">
+            <i class="far fa-heart"></i> <span id="like-count">1</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 0
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (5) - 서버 작업&url=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>Intro</h1>
+<p>서버는 AWS의 Amazon Lunux 2를 사용했다.</p>
+<h1>PuTTY</h1>
+<p>나는 서버에 접속할때 PuTTY를 주로 사용한다. <br>
+PuTTY는 SSH, Telet 등의 접속방식을 제공한다.<br>
+PuTTY는 서버에 원격으로 접속하게 도와주는 프로그램이다.<br></p>
+<p><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">다운로드</a><br>
+위 링크를 통해 다운받을 수 있다.</p>
+<p><img src="https://static.blex.kr/image/2020/2/26/4fyLlwWcwFNfqep47NXe.png" alt=""></p>
+<h5>PuTTY 접속 방법</h5>
+<p><img src="https://static.blex.kr/image/2020/2/26/LttMZ4ghi1E94ysSiVUz.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/2/26/gtaAXgx3SYuggcIqegqc.png" alt=""></p>
+<p>빨간 부분만 잘 설정해주면 잘 접속이 된다.</p>
+<h5>AWS .pem을 .ppk로 변환하는 방법</h5>
+<p><img src="https://static.blex.kr/image/2020/2/26/IjzvIQm2XhlMNeacO18n.png" alt=""></p>
+<p>위에서 <code>puttygen.exe</code>를 클릭한다.</p>
+<p><img src="https://static.blex.kr/image/2020/2/26/50km2bK44zh4oADWBVqT.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/2/26/k8lHyiOplj3Py68W3Est.png" alt=""></p>
+<p><code>Load</code>를 먼저 누르고 <code>Save private key</code>를 누르면 <code>.ppk</code>가 만들어진다.<br>
+다른 블로그를 보면 <code>Generate</code>를 누르고 마우스를 빙글빙글 돌리라는데.<br>
+난 그 방법으로 절대 리눅스 접속이 안되서 위 방법으로 했더니 잘 접속되더라.<br></p>
+<h5>AWS 주소 알아내는 방법</h5>
+<p><img src="https://static.blex.kr/image/2020/2/26/R3sI3E9YqawpcnTSy3Qr.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/2/26/R1Sd1ehRTxXidF9ct80o.png" alt=""></p>
+<p>연결을 누르면 인스턴스에 연결이 뜰텐데 거기서 빨간색 박스를 확인하면 된다.</p>
+<h3>pscp</h3>
+<pre><code>SCP란. (Secure Copy Protocol)
+로컬 호스트와 원격 호스트 간 또는 두 원격 호스트 간에 파일을 안전하게 전송하는 수단.
+SSH(Secure Shell) 기반으로 동작.</code></pre>
+<p>윈도우에서 리눅스로 파일을 전송하기 위해 FTP, PSCP 등의 많은 프로그램이 있지만,<br>
+내가 사용하는 리눅스에는 FTP 서비스를 구축하지 않았다.<br>
+그래서 속도도 빠르고 간편한 PSCP를 사용하기로 헀다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/2/26/IjzvIQm2XhlMNeacO18n.png" alt=""></p>
+<p>정상적으로 PuTTY를 설치했다면 위와 같이 파일이 깔려 있을 것이다.<br>
+그 중에서 <code>pageant.ext</code>를 클릭하자.<br>
+<code>pageant.ext</code>는 pscp로 파일을 보낼때 보안 검증을 도와준다.<br>
+AWS는 리눅스에 접속할때 <code>.pem</code> 형식의 키가 발급된다.<br>
+PuTTY에서는 이 <code>.pem</code> 형식의 키를 <code>.ppk</code>로 변환해서 사용해야한다.<br>
+즉, <code>.ppk</code>가 등록되어 있지 않으면 pscp로 파일 전송하는 것도 불가능하다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/2/26/xNbSu0Vo2htBejmeR4gi.png" alt=""></p>
+<p>처음 실행하면 이렇게 뜬다.</p>
+<h5>pscp 키 등록 방법</h5>
+<p><img src="https://static.blex.kr/image/2020/2/26/SoN7cDfCyxoImBpna7xs.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/2/26/4wr5XrKn9bnyyuvVY6SI.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/2/26/3PuDxK5BfCfKEPQq2Zd3.png" alt=""></p>
+<p>등록은 어렵지 않다.<br>
+저렇게 잘 뜨면 등록된거다.<br></p>
+<h5>pscp 파일 전송</h5>
+<p><img src="https://static.blex.kr/image/2020/2/26/7Conl6SyCInndSiyBVxn.png" alt=""></p>
+<p>명령어는</p>
+<pre><code>pscp 보낼파일주소/보낼파일명 받을주소:/받을폴더명</code></pre>
+<p><img src="https://static.blex.kr/image/2020/2/26/KEMeY0hNBSnuXI6pWlLt.png" alt=""></p>
+<p>확인해보면, 잘 받아진걸 알 수 있다.</p>
+<h1>crontab</h1>
+<p><code>크론탭 포스팅 완료되면 주소 기입</code></p>
+<p>이제 crontab을 이용해서 정해진 시간마다 자동으로 프로그램이 실행되게 설정해야한다.</p>
+<pre><code>crontab -l</code></pre>
+<p><img src="https://static.blex.kr/image/2020/2/26/JFbTUd6FbiYnfrZwpc72.png" alt=""></p>
+<p>난 지금 실행중인 파일이 있어서 리스트에 뭐가 뜨는데 처음 실행하는거면 아무것도 없을 것이다.</p>
+<pre><code>crontab -e</code></pre>
+<p>위 명령어를 통해 실행주기 / 실행할 파일 명 / 로그 를 적어줘야한다.</p>
+<p>기본 형식은</p>
+<pre><code>* * * * * python3 실행파일주소 &gt;&gt; 로그저장주소 2&gt;&amp;1</code></pre>
+<p>* * * * * 은 실행 주기를 나타낸다.<br>
+순서대로<br>
+분(0-59) 시간(0-23) 일(1-31) 월(1-12) 요일(0-7)<br>
+이며 0과 7은 일요일이다.<br></p>
+<p>내 경우에는 */10 * * * * 이면 10분마다 실행되어야 하는데, 그렇지 않았다.<br></p>
+<p>crontab은 -e를 통해 설정을 변경해주면 서비스를 재시작해야한다.<br></p>
+<pre><code>service crond stop
+service crond start
+service crond status</code></pre>
+<p>를 통해 정지 후 시작 / 상태확인이 가능하다.</p>
+<h1>코드 수정</h1>
+<pre><code class="language-python">import requests
+from bs4 import BeautifulSoup
+import sys
+import telegram
+import os
+import time
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+my_token = '봇 토큰'
+my_chat_id = '채널 주소 / 서비스 채널은 @*** / 테스트 체널은 -***'
+req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
+
+client_errors = [400, 401, 403, 404, 408]
+server_errors = [500,502, 503, 504]
+
+print(time.strftime("%c", time.localtime(time.time())))
+
+if req.status_code in client_errors:
+    print(req.status_code + ": 클라이언트 에러")
+    sys.exit(1)
+elif req.status_code in server_errors:
+    print(req.status_code + ": 서버 에러")
+    sys.exit(1)
+
+bot = telegram.Bot(token=my_token)
+html = req.text
+soup = BeautifulSoup(html, "html.parser")
+posts = soup.select("td &gt; a")
+num = soup.find_all(title='공지')
+
+for i in range(len(num)):           # 공지로 위로 올라간 게시글 제외한 최신 게시글 분류
+    del posts[0]
+
+if not(os.path.isfile(os.path.join(BASE_DIR, 'latest.txt'))):
+    new_file = open('latest.txt', 'w+', encoding='utf-8')
+    new_file.write(posts[0].text)
+    new_file.close()
+
+with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+', encoding='utf-8') as f_read:
+    before = f_read.readline()
+
+    for post in posts:
+        print('post = ' + post.text)
+        print('before = ' + before)
+        if before == post.text:
+            print('최신글입니다.')
+            break
+        elif before != post.text:
+            url = "http://www.halla.ac.kr/mbs/kr/jsp/board/" + post.get('href')
+            print(url)
+            try:
+                if post != posts[10]:
+                    bot.sendMessage(chat_id=my_chat_id, text="일반공지 : " + post.text)
+                    bot.sendMessage(chat_id=my_chat_id, text=url)
+                else:
+                    break
+            except Exception as ex:
+                print("timeout")
+                break
+
+with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf--8') as f_write:
+    f_write.write(posts[0].text)</code></pre>
+<p>정확한 로그 확인을 위해서<br>
+time 모듈을 사용해 시간을 출력해주기로 했다.<br></p>
+<h1>추가 설정</h1>
+<p>python3은 따로 설치해야한다<br>
+python3을 따로 설치하면 pip3를 설치해서 모듈을 설치해야한다.<br></p>
+<h1>다음 시간에</h1>
+<p>드디어 끝났다.<br>
+다음 챕터에서는 후기를 남길예정이다.<br></p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>notice_alarm, "<a href="https://github.com/mildsalmon/notice_alarm">https://github.com/mildsalmon/notice_alarm</a>", [mildsalmon]</p>
+</blockquote>
+        </article>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%84%9C%EB%B2%84%EC%9E%91%EC%97%85">서버작업</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="GMMuOaY7BFF3vtULWZO3f7zJ2JSn46SHVDsyMCwaKVCLq2RsAPFw458Wh31YsuwD">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19Uqot.gif);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/beautifulsoup"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/12/21UPtd.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/beautifulsoup">beautifulsoup4</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/crontab"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/26/20KGDT.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/crontab">crontab</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.40"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.40"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.40"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.40"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.40"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.40"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>
