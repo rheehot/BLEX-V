@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.40">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.42">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
     <title>crontab – mildsalmon</title>
@@ -53,7 +53,7 @@
         <img src="https://static.blex.kr/title/mildsalmon/2020/2/26/20KGDT.png" alt="crontab">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'리눅스' 시리즈</span>crontab</h1>
-            <p class="post-date fade-in">2020-02-26 12:14<span>(Last Update: 2020-02-26 20:12)<span></span></span></p>
+            <p class="post-date fade-in">2020-02-26 12:14<span>(Last Update: 2020-02-28 00:37)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -81,7 +81,7 @@
 <ul class="navbar-nav">
     <li class="nav-item">
         <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(394);">
-            <i class="far fa-heart"></i> <span id="like-count">0</span>
+            <i class="far fa-heart"></i> <span id="like-count">1</span>
         </a>
     </li>
     
@@ -123,7 +123,7 @@
         
     </a>
     <div class="author-info">
-        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 90%</span></h4>
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
             
             <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
             
@@ -164,10 +164,10 @@
 <h5>수정 후 할일</h5>
 <pre><code>service crond stop
 service crond start</code></pre>
-<p>크론을 재시작 해줘야한다.
-restart는 사용이 안되는듯하다.
-정상적으로 재시작이 되었는지 확인하기 위해서는 <code>service crond status</code>로 확인하면 된다.
-Active : active (running) ~~ 이렇게 뜰꺼임</p>
+<p>크론을 재시작 해줘야한다.<br>
+restart는 사용이 안되는듯하다.<br>
+정상적으로 재시작이 되었는지 확인하기 위해서는 <code>service crond status</code>로 확인하면 된다.<br>
+Active : active (running) ~~ 이렇게 뜰꺼임<br></p>
 <h3>-l</h3>
 <pre><code>crontab -l</code></pre>
 <blockquote>
@@ -185,15 +185,16 @@ Active : active (running) ~~ 이렇게 뜰꺼임</p>
 <p>크론탭의 내용을 모두 삭제한다.</p>
 </blockquote>
 <h1>등록 형식</h1>
-<p>* * * * *  수행할 명령어
-┬ ┬ ┬ ┬ ┬
-│ │ │ │ │
-│ │ │ │ │
-│ │ │ │ └───────── 요일 (0 - 6) (0:일요일, 1:월요일, 2:화요일, …, 6:토요일)
-│ │ │ └───────── 월 (1 - 12)
-│ │ └───────── 일 (1 - 31)
-│ └───────── 시 (0 - 23)
-└───────── 분 (0 - 59)</p>
+<p>* * * * *  수행할 명령어<br>
+┬ ┬ ┬ ┬ ┬<br>
+│ │ │ │ │<br>
+│ │ │ │ │<br>
+│ │ │ │ └───────── 요일 (0 - 6) (0:일요일, 1:월요일, 2:화요일, …, 6:토요일)<br>
+│ │ │ └───────── 월 (1 - 12)<br>
+│ │ └───────── 일 (1 - 31)<br>
+│ └───────── 시 (0 - 23)<br>
+└───────── 분 (0 - 59)<br>
+<br></p>
 <h3>예시</h3>
 <h5>매 1분마다 작업 수행</h5>
 <pre><code>* * * * * /Hi/Hi.sh</code></pre>
@@ -241,20 +242,20 @@ Active : active (running) ~~ 이렇게 뜰꺼임</p>
 <p>위 명령어로 크론탭 편집에 들어간다.</p>
 <pre><code>*/10 * * * * /Hi/Hi.sh &gt; /Hi/Hi.log 2&gt;&amp;1
 */10 * * * * /Hi/Hi.sh &gt;&gt; /Hi/Hi.log 2&gt;&amp;1</code></pre>
-<p>이렇게 하면 Hi.sh 파일 실행의 출력 내용과 에러가 담긴다.
-<code>&gt;</code> 이 화살표가 한개면 파일을 실행 시킬때마다 log를 새로 작성한다.
-<code>&gt;&gt;</code> 이렇게 두개면 이전 내용 다음에 이어서 작성된다.</p>
+<p>이렇게 하면 Hi.sh 파일 실행의 출력 내용과 에러가 담긴다.<br>
+<code>&gt;</code> 이 화살표가 한개면 파일을 실행 시킬때마다 log를 새로 작성한다.<br>
+<code>&gt;&gt;</code> 이렇게 두개면 이전 내용 다음에 이어서 작성된다.<br></p>
 <p><img src="https://static.blex.kr/image/2020/2/26/A2HEYCmUtHqrB3hLg4wa.png" alt=""></p>
 <h5>/dev/null 2&gt;&amp;1</h5>
 <p><code>/dev/null 2&gt;&amp;1</code>
 명령어 처리결과 그리고 발생할지 모르는 에러메세지를 출력하지 않고 모두 다 버린다는 의미이다.</p>
-<p>2 : 표준 에러</p>
+<p>2 : 표준 에러<br></p>
 <blockquote>
-<p>: 리다이렉트
-&amp;1 : 표준 출력</p>
+<p>: 리다이렉트<br>
+&amp;1 : 표준 출력<br></p>
 </blockquote>
-<p>즉 <code>/dev/null 2&gt;&amp;1</code>은 표준 에러가 발생하면 /dev/null에다 리다이렉트로 표준 출력해라.</p>
-<p>고로. 에러를 보고 싶으면 /dev/null 대신에 /Hi/Hi.log 처럼 파일명을 적어주면 된다.</p>
+<p>즉 <code>/dev/null 2&gt;&amp;1</code>은 표준 에러가 발생하면 /dev/null에다 리다이렉트로 표준 출력해라.<br></p>
+<p>고로. 에러를 보고 싶으면 /dev/null 대신에 /Hi/Hi.log 처럼 파일명을 적어주면 된다.<br></p>
 <h3>기본 로그</h3>
 <pre><code>vim /var/log/cron</code></pre>
 <p><img src="https://static.blex.kr/image/2020/2/26/zjsyAgOues4MXThnUF9w.png" alt=""></p>
@@ -316,7 +317,7 @@ Active : active (running) ~~ 이렇게 뜰꺼임</p>
 
 
     
-    <input type="hidden" name="csrfmiddlewaretoken" value="jHpAW8OC2RCZtCQ1J8UBAO24dwqH7Rq8EsqMCKllYfo0aHCi7hIMywwlvJ0SQEPO">
+    <input type="hidden" name="csrfmiddlewaretoken" value="LPdWH6v2hl0pbSEvHjBGEbugM8XPoilXfFcNSOb7HutDHI85opRrTVJMhtk8ebX9">
     <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
     
 
@@ -330,18 +331,18 @@ Active : active (running) ~~ 이렇게 뜰꺼임</p>
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/requests"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/15/12WiKy.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/requests">Requests</a></h5>
+                <a href="/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85">파이썬 모듈 시리즈 설명</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">한라대학교 공지 알림 봇 제작기 (2) - 코딩</a></h5>
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/26/125hKF.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">한라대학교 공지 알림 봇 제작기 (5) - 서버 작업</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/25/13lyKV.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)</a></h5>
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-6-%EB%A7%88%EC%B9%98%EB%A9%B0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/28/17qXbY.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-6-%EB%A7%88%EC%B9%98%EB%A9%B0">한라대학교 공지 알림 봇 제작기 (6) - 마치며</a></h5>
             </div>
         
         </div>
@@ -359,17 +360,17 @@ Active : active (running) ~~ 이렇게 뜰꺼임</p>
 
     <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.40"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.40"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.40"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.42"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.42"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.42"></script>
     <div id="notify-content"></div>
     
 <script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.40"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.40"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.42"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.42"></script>
 
-<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.40"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.42"></script>
 
 <script>
 $(document).ready(function() {
