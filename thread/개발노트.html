@@ -20,11 +20,11 @@
     gtag('config', 'UA-113864080-4');
     </script>
     
-<meta name="description" content="@BLEX_BOT 연동 메세지가 아닌 메세지의 응답 메세지를 추가하였습니다. 매일 12시 정각에 사용자님의 게시글 정보를 집계하여 전달합니다.">
+<meta name="description" content="페이지 무한 스크롤을 페이지 네비게이션으로 변경했습니다. 텔레그램 연동 모달의 메세지가 변경됩니다. 프로필 유저 활동에서 숨겨진 스레드의 스토리가 숨겨집니다. 기존 무한스크롤이 가지고 있었던 이슈를 온전하게 해결할 수 없을 것으로 예상하고 페이지 네비게이션을 추가하는 것으로 전환했습니다. 메인 페이지, 유저 페이지 외에 설정의 포스트란에도 페이징 기법과 페이지 네비게이션을 추가했습니다.">
 <meta property="og:url" content="https://blex.kr/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="업데이트 내역">
-<meta property="og:description" content="@BLEX_BOT 연동 메세지가 아닌 메세지의 응답 메세지를 추가하였습니다. 매일 12시 정각에 사용자님의 게시글 정보를 집계하여 전달합니다.">
+<meta property="og:description" content="페이지 무한 스크롤을 페이지 네비게이션으로 변경했습니다. 텔레그램 연동 모달의 메세지가 변경됩니다. 프로필 유저 활동에서 숨겨진 스레드의 스토리가 숨겨집니다. 기존 무한스크롤이 가지고 있었던 이슈를 온전하게 해결할 수 없을 것으로 예상하고 페이지 네비게이션을 추가하는 것으로 전환했습니다. 메인 페이지, 유저 페이지 외에 설정의 포스트란에도 페이징 기법과 페이지 네비게이션을 추가했습니다.">
 <meta property="og:site_name" content="BLEX">
 <meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/12/2085Q8.png">
 <meta property="og:locale" content="ko_KR">
@@ -32,13 +32,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="업데이트 내역">
 <meta name="twitter:url" content="https://blex.kr/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">
-<meta name="twitter:description" content="@BLEX_BOT 연동 메세지가 아닌 메세지의 응답 메세지를 추가하였습니다. 매일 12시 정각에 사용자님의 게시글 정보를 집계하여 전달합니다.">
+<meta name="twitter:description" content="페이지 무한 스크롤을 페이지 네비게이션으로 변경했습니다. 텔레그램 연동 모달의 메세지가 변경됩니다. 프로필 유저 활동에서 숨겨진 스레드의 스토리가 숨겨집니다. 기존 무한스크롤이 가지고 있었던 이슈를 온전하게 해결할 수 없을 것으로 예상하고 페이지 네비게이션을 추가하는 것으로 전환했습니다. 메인 페이지, 유저 페이지 외에 설정의 포스트란에도 페이징 기법과 페이지 네비게이션을 추가했습니다.">
 <meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/12/2085Q8.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.43">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.44">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
     <title>업데이트 내역 –  baealex</title>
@@ -48,7 +48,7 @@
     
     <nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
         <div class="container">
-            <a class="navbar-brand" onmousedown="distoryLatelyPosition()" href="https://blex.kr">
+            <a class="navbar-brand" href="https://blex.kr">
                 <img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt="">
             </a>
     
@@ -84,14 +84,14 @@
     
     <div class="p-4">
       <h1 class="post-headline">업데이트 내역</h1>
-      <p class="post-date">1일, 7시간전 새로운 스토리가 추가됨</p>
+      <p class="post-date">15시간, 1분전 새로운 스토리가 추가됨</p>
       
       
       <ul class="tag-list">
           
-          <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li>
+          <li><a href="/@baealex/topic/blex">blex</a></li>
           
-          <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+          <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">개발일지</a></li>
           
       </ul>
       
@@ -101,6 +101,46 @@
   <div class="thread-card p-4">참여할 수 없는 스레드입니다.</div>
   
   <article id="story" class="noto">
+    
+    <div id="story-144">
+      <div class="thread-card p-4">
+    <p class="serif"><strong>2020-03-01</strong></p>
+    <a href="/@baealex">
+        
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+        
+    </a>
+    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
+    <br>
+    <small>2020-03-01 08:58(Last Update: 2020-03-01 21:09)</small>
+    <ul class="none-list">
+    
+    </ul>
+    <div class="article">
+        <p><img src="https://static.blex.kr/image/2020/3/1/AkVWPho9NOap1kCXZlq3.png" alt=""></p>
+<ul>
+<li>페이지<ul>
+<li>무한 스크롤을 페이지 네비게이션으로 변경했습니다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://static.blex.kr/image/2020/3/1/OVFd4hs6wgWTEhSXcvky.png" alt=""></p>
+<ul>
+<li>텔레그램<ul>
+<li>연동 모달의 메세지가 변경됩니다.</li>
+</ul>
+</li>
+<li>프로필<ul>
+<li>유저 활동에서 숨겨진 스레드의 스토리가 숨겨집니다.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>기존 무한스크롤이 가지고 있었던 이슈를 온전하게 해결할 수 없을 것으로 예상하고 페이지 네비게이션을 추가하는 것으로 전환했습니다. 메인 페이지, 유저 페이지 외에 설정의 포스트란에도 페이징 기법과 페이지 네비게이션을 추가했습니다.</p>
+</blockquote>
+    </div>
+</div>
+    </div>
     
     <div id="story-143">
       <div class="thread-card p-4">
@@ -112,12 +152,13 @@
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
     <br>
-    <small>2020-02-28 16:39</small>
+    <small>2020-02-28 16:39(Last Update: 2020-03-01 12:10)</small>
     <ul class="none-list">
     
     </ul>
     <div class="article">
-        <ul>
+        <p><img src="https://static.blex.kr/image/2020/3/1/gj7BWRYbWo0rGpTDuZmX.jpg" alt=""></p>
+<ul>
 <li><code>@BLEX_BOT</code><ul>
 <li>연동 메세지가 아닌 메세지의 응답 메세지를 추가하였습니다.</li>
 <li>매일 12시 정각에 사용자님의 게시글 정보를 집계하여 전달합니다.</li>
@@ -2981,14 +3022,14 @@
 
     <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.43"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.43"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.43"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.44"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.44"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.44"></script>
     <div id="notify-content"></div>
     
 <script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/thread.js?version=1.0.43"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/thread.js?version=1.0.44"></script>
 <script>
   $(document).ready(function () {
     var csrftoken = getCookie('csrftoken');
