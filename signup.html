@@ -65,13 +65,13 @@
 <div class="card p-3 col-lg-5 mx-auto">
     
     <form method="post">
-        <input type="hidden" name="csrfmiddlewaretoken" value="9NnN98ikL5Tt7vV3zQorpmdJP8wnXSJqNnsA0BqEFyqQcsVWI2dcP9hJXo5OIw7x">
-        <p><input type="text" name="username" id="id_username" required placeholder="아이디(필명)" class="form-control" maxlength="150"></p>
+        <input type="hidden" name="csrfmiddlewaretoken" value="bbfmoiH7oGkppm3xFqYx4jgdpZYl2zB51SHk5iePjI323Q5vWiPHvedJ5qou5efn">
+        <p><input type="text" name="username" placeholder="아이디(필명)" required maxlength="150" class="form-control" id="id_username"></p>
         <div id="idCheck" role="alert"></div>
-        <p><input type="password" name="password" id="id_password" required placeholder="비밀번호" class="form-control" maxlength="128"></p>
-        <p><input type="password" name="password_check" id="id_password_check" required placeholder="비밀번호 확인" class="form-control" maxlength="200"></p>
-        <p><input type="text" name="first_name" id="id_first_name" placeholder="이름" class="form-control" maxlength="30"></p>
-        <p><input type="text" name="email" id="id_email" placeholder="이메일 주소" class="form-control" maxlength="254"></p>
+        <p><input type="password" name="password" placeholder="비밀번호" required maxlength="128" class="form-control" id="id_password"></p>
+        <p><input type="password" name="password_check" placeholder="비밀번호 확인" required maxlength="200" class="form-control" id="id_password_check"></p>
+        <p><input type="text" name="first_name" placeholder="이름" maxlength="30" class="form-control" id="id_first_name"></p>
+        <p><input type="text" name="email" placeholder="이메일 주소" maxlength="254" class="form-control" id="id_email"></p>
         <div class="alert alert-warning" role="alert">
             입력한 메일로 인증 메일을 발송합니다.
         </div>

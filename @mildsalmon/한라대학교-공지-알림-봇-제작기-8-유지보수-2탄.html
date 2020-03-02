@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="Intro 다시는 이 시리즈에 글 쓸 일이 없길 바랐지만. 짜잔. 그럴리가 없죠. 시작하겠습니다. 유지보수 2탄 사건 설명 사건 개요 알람이 폭팔적으로 와서, &#39;또 제목을 바꾼건가?&#39;, &#39;난 잘 고쳤는데?&#39;라는 생각을 했다. 그런데 그게 아니였다. 게시글을 지운것이다. 게시글은 3가지 방식으로 작동된다. 작성,수정,삭제 작성과 수정에 대한 대책은 바로 앞 게시글에서 해결했다. 하지만 삭제를 …">
+<meta property="og:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄">
+<meta property="og:description" content="Intro 다시는 이 시리즈에 글 쓸 일이 없길 바랐지만. 짜잔. 그럴리가 없죠. 시작하겠습니다. 유지보수 2탄 사건 설명 사건 개요 알람이 폭팔적으로 와서, &#39;또 제목을 바꾼건가?&#39;, &#39;난 잘 고쳤는데?&#39;라는 생각을 했다. 그런데 그게 아니였다. 게시글을 지운것이다. 게시글은 3가지 방식으로 작동된다. 작성,수정,삭제 작성과 수정에 대한 대책은 바로 앞 게시글에서 해결했다. 하지만 삭제를 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/3/2/21xL2d.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄">
+<meta name="twitter:url" content="https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84">
+<meta name="twitter:description" content="Intro 다시는 이 시리즈에 글 쓸 일이 없길 바랐지만. 짜잔. 그럴리가 없죠. 시작하겠습니다. 유지보수 2탄 사건 설명 사건 개요 알람이 폭팔적으로 와서, &#39;또 제목을 바꾼건가?&#39;, &#39;난 잘 고쳤는데?&#39;라는 생각을 했다. 그런데 그게 아니였다. 게시글을 지운것이다. 게시글은 3가지 방식으로 작동된다. 작성,수정,삭제 작성과 수정에 대한 대책은 바로 앞 게시글에서 해결했다. 하지만 삭제를 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/3/2/21xL2d.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.44">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <title>한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.kr/title/mildsalmon/2020/3/2/21xL2d.jpg" alt="한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄</h1>
+            <p class="post-date fade-in">2020-03-02 21:56<span>(Last Update: 2020-03-02 22:43)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.kr">
+                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/@mildsalmon">mildsalmon</a>
+    </li>
+</ul>
+
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(403);">
+            <i class="far fa-heart"></i> <span id="like-count">0</span>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
+            <i class="far fa-comment"></i> 2
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄&url=https://blex.kr/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+            
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="ml-auto col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>Intro</h1>
+<p>다시는 이 시리즈에 글 쓸 일이 없길 바랐지만.</p>
+<p><img src="https://static.blex.kr/image/2020/3/2/0lxydgFzlkYgwEOzajkO.jpg" alt=""></p>
+<p>짜잔.<br>
+그럴리가 없죠.<br></p>
+<p>시작하겠습니다.<br>
+유지보수 2탄<br></p>
+<h1>사건 설명</h1>
+<h3>사건 개요</h3>
+<p><img src="https://static.blex.kr/image/2020/3/2/YvJo25FRE8TqKAfaK9HO.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/2/dtcd7Nfa0ciSDj6KnLNS.png" alt=""></p>
+<p>알람이 폭팔적으로 와서,<br>
+'또 제목을 바꾼건가?', '난 잘 고쳤는데?'라는 생각을 했다.<br>
+그런데 그게 아니였다.<br></p>
+<p>게시글을 지운것이다.</p>
+<p>게시글은 3가지 방식으로 작동된다.<br>
+<code>작성</code>,<code>수정</code>,<code>삭제</code><br>
+<code>작성</code>과 <code>수정</code>에 대한 대책은 바로 앞 게시글에서 해결했다.<br>
+하지만 <code>삭제</code>를 할 줄은...<br>
+상상도 하지 못했다.<br></p>
+<p>어쨋든 유지보수를 시작하자.</p>
+<h3>수정 과정</h3>
+<p>게시글 삭제에 대처하기 위해서는 크롤링한 데이터에 대한 의존성이 높아지게된다.<br>
+구상을 이렇게 했다.<br>
+크롤링한 데이터를 좀 더 활용해보자.<br>
+각 게시글의 제목은 리스트 형식으로 데이터가 정제된다.<br>
+정제된 데이터인<code>&lt;a&gt;</code>태그는 각 태그마다 고유한 값(boardSeq)이 존재한다.<br>
+그럼 이 고유한 값만 모아서 리스트 형태로 저장시킨 후, 로컬에 저장한다.<br>
+그리고 최신 게시글을 판단하는 부분에서 로컬의 값 3~5개 정도와 크롤링한 데이터를 비교하는 보조 검사대를 만들자.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/2/ABe8xxytLrJMytXTqWre.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/2/M8Nw0oSAaYhaNWA71JX0.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/2/zkM2TyGiPNy5NB4pRzeJ.png" alt=""></p>
+<p>대충 이런 모습이다.</p>
+<p>자 그럼 만들자.</p>
+<p>리스트가 2개 필요하다.<br>
+local에 파일로 저장할 리스트, 코드를 실행하면서 사용할(그림에서 웹 데이터) 리스트.<br></p>
+<pre><code class="language-python">for post in posts:
+    save_boardSeq.append(str(post).split("&amp;amp")[2])  # 최신 공지랑 같은지 검사
+    use_boardSeq.append(str(post).split("&amp;amp;")[2])
+
+save_boardSeq[0] = save_boardSeq[0].lstrip(";")</code></pre>
+<p>기존에는 boardSeq를 가장 최신 게시물 한개만 저장했다.<br>
+변경 후에는 크롤링한 모든 게시글의 boardSeq를 리스트로 저장한다.<br>
+<code>save_boardSeq</code>에서 맨 왼쪽';'를 제거하는 이유는 나중에 데이터를 불러올 때 <code>;</code>를 기준으로 리스트를 만들 것이다.<br>
+그런데 맨 왼쪽에 ';'이 있으면 리스트를 만들 때 ['', 'boardSeq=~', 'boardSeq=~'] 이런식으로 나온다.<br>
+즉, 공백 원소를 제거하기 위함이다.<br>
+<code>save_boardSeq</code>만으로 데이터를 검사하려고 하니 많이 불편했다.<br>
+그래서 하나 더 만들고 '&amp;'로 ;까지 다 날려서 순수한 boardSeq를 만들었다.<br></p>
+<pre><code class="language-python">if not (os.path.isfile(os.path.join(BASE_DIR, 'latest.txt'))):
+    new_file = open("latest.txt", 'w+', encoding='utf-8')
+    new_file.writelines(save_boardSeq)
+    new_file.close()</code></pre>
+<p>writelines는 리스트 형태로도 파일에 저장이 가능하다.<br>
+writeline은 불가능.<br></p>
+<pre><code class="language-python">    before = f_read.readline().split(";")
+    for i, post in enumerate(posts):  # 기존 크롤링 한 부분과 최신 게시글 사이에 게시글이 존재하는지 확인
+        print("post = " + post.text)
+        print("new = " + use_boardSeq[i])
+        print("before = " + before[0])  #
+        if before[0] == use_boardSeq[i]:
+            print("최신글입니다.")
+            break
+        elif before[1] == use_boardSeq[i]:
+            print("두번째 게시글이랑 체크, 첫 게시글 삭제된거냐")
+            break
+        elif before[2] == use_boardSeq[i]:
+            print("게시글 2개 삭제는 에바자나")
+            break
+        else:
+            url = "http://www.halla.ac.kr/mbs/kr/jsp/board/" + post.get('href')
+            print(url)
+            try:
+                if post != posts[5]:  # 10번 post 이상 넘어가는지 확인 / 텔레그램 메시지가 url 10개 이상 한번에 못보냄
+                    bot.sendMessage(chat_id=my_chat_id, text="일반공지 : " + post.text)
+                    bot.sendMessage(chat_id=my_chat_id, text=url)
+                else:
+                    break
+            except Exception as ex:
+                print("timeout")  # 짧은 시간에 message를 과도하게 보내면 timeout이 뜨는것같다.
+                break  # message를 많이 보내서 발생한다기 보다는, 한번에 보낼 수 있는 url의 양이 10개로 제한되어 있는듯</code></pre>
+<p>before 부분에서 한 줄로 저장된 데이터를 문자열 형태로 받게된다.<br>
+받은 문자열을 ';'를 기준으로 리스트를 만들었다.<br>
+python은 for문에서 리스트를 이용하여 루프를 돌릴때 <code>enumerate</code>를 사용하면 인덱스를 같이 넘겨준다.<br></p>
+<ol>
+<li>새로운 공지가 안올라온 경우</li>
+</ol>
+<ul>
+<li>첫 if문에서 참이면 for문을 벗어난다.</li>
+</ul>
+<ol start="2">
+<li>새로운 공지가 작성된 경우</li>
+</ol>
+<ul>
+<li>if문, elif문 전부 거짓이면 else문을 통과하고 if문이랑 일치하는지 루프를 돌면서 확인한다.<br>맞다면 for문을 탈출하고, 아니라면 반복한다.</li>
+</ul>
+<ol start="3">
+<li>이전 게시글이 삭제된 경우</li>
+</ol>
+<ul>
+<li>if문을 넘어서 elif문을 만날 것이다.<br>web data기준 2번 게시글의 데이터도 가지고 있어서 elif로 검증이 가능하다.<br>elif문은 일부로 2개만 만들었다.<br>즉 local에 2번 인덱스까지만 검사한다.<br>한 번에 게시글 3개가 날라갈일은 없다고 생각하고 만들었다.</li>
+</ul>
+<ol start="4">
+<li>게시글이 수정되는 경우</li>
+</ol>
+<ul>
+<li>게시글 확인을 게시글 제목이 아닌, 게시글 고유 숫자로 검사하기 때문에 상관없다.</li>
+</ul>
+<p>elif 안에 print를 적은 이유는 만약에 저 elif문이 실행될 경우 로그를 찍어보기 위해서 남겼다.</p>
+<h1>유지보수 결과</h1>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+########## 서비스 코드
+
+import requests
+from bs4 import BeautifulSoup
+import os
+import telegram
+import sys
+import time
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+my_token = '봇 토큰'
+my_chat_id = "채널 주소 / 서비스 채널은 '@***' / 테스트 채널은 '-***'"
+req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
+# 일반 = boardId = 23401
+client_errors = [400, 401, 403, 404, 408]
+server_errors = [500, 502, 503, 504]
+
+print(time.strftime("%c", time.localtime(time.time())))
+
+if req.status_code in client_errors:
+    print(req.status_code + ": 클라이언트 에러")
+    sys.exit(1)
+elif req.status_code in server_errors:
+    print(req.status_code + ": 서버 에러")
+    sys.exit(1)
+
+bot = telegram.Bot(token=my_token)
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
+posts = soup.select('td &gt; a')
+num = soup.find_all(title='공지')
+save_boardSeq = []
+use_boardSeq = []
+
+for i in range(len(num)):  # 공지로 위로 올라간 게시글 제외한 최신 게시글 분류
+    del posts[0]
+
+for post in posts:
+    save_boardSeq.append(str(post).split("&amp;amp")[2])  # 가장 최신 공지랑 같은지 검사
+    use_boardSeq.append(str(post).split("&amp;amp;")[2])
+
+save_boardSeq[0] = save_boardSeq[0].lstrip(";")
+
+if not (os.path.isfile(os.path.join(BASE_DIR, 'latest.txt'))):
+    new_file = open("latest.txt", 'w+', encoding='utf-8')
+    new_file.writelines(save_boardSeq)
+    new_file.close()
+
+with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+', encoding='utf-8') as f_read:  # DB 구현후 변경 에정
+    before = f_read.readline().split(";")
+    for i, post in enumerate(posts):  # 기존 크롤링 한 부분과 최신 게시글 사이에 게시글이 존재하는지 확인
+        print("post = " + post.text)
+        print("new = " + use_boardSeq[i])
+        print("before = " + before[0])  #
+        if before[0] == use_boardSeq[i]:
+            print("최신글입니다.")
+            break
+        elif before[1] == use_boardSeq[i]:
+            print("두번째 게시글이랑 체크, 첫 게시글 삭제된거냐")
+            break
+        elif before[2] == use_boardSeq[i]:
+            print("게시글 2개 삭제는 에바자나")
+            break
+        else:
+            url = "http://www.halla.ac.kr/mbs/kr/jsp/board/" + post.get('href')
+            print(url)
+            try:
+                if post != posts[5]:  # 10번 post 이상 넘어가는지 확인 / 텔레그램 메시지가 url 10개 이상 한번에 못보냄
+                    bot.sendMessage(chat_id=my_chat_id, text="일반공지 : " + post.text)
+                    bot.sendMessage(chat_id=my_chat_id, text=url)
+                else:
+                    break
+            except Exception as ex:
+                print("timeout")  # 짧은 시간에 message를 과도하게 보내면 timeout이 뜨는것같다.
+                break  # message를 많이 보내서 발생한다기 보다는, 한번에 보낼 수 있는 url의 양이 10개로 제한되어 있는듯
+
+with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf-8') as f_write:
+    f_write.writelines(save_boardSeq)
+
+print("\n")</code></pre>
+<h1>마치며</h1>
+<p>알람 갯수를 10개에서 5개로 조정했는데<br>
+테스트 코드쪽에만 적용이 된 모양이다.<br>
+오늘 이 사건이 발생했을때 메세지 20개 (url 10개)가 동시에 날라오는 것을 보고 참... 많은 생각이 들었다.<br>
+테스트 코드 뿐만 아니라 실 서비스 코드에서도 확인을 꼭 잘하자.<br>
+귀찮고 힘들어도 두번 세번 확인해야 한다.<br>
+안그러면 대참사가 일어날테니까...<br></p>
+<p>그리고 그림판을 너무 오랜만에 사용해서 도형들이 별로 이쁘지 않다.<br>
+원래는 더 자유롭게 사용했었는데..<br>
+뭐 하다보면 나아지겠지.<br></p>
+        </article>
+        
+            <div class="my-4 text-center">
+    <h5 class="serif bg-border-purple p-4"><a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none vivid-purple">'한라대학교 공지 알림 봇 제작기' 시리즈</a></h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98?series=한라대학교-공지-알림-봇-제작기">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (7)  - 유지보수
+                </a>
+            </div>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">유지보수</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+            <div>
+    <div class="comment-list">
+        <a href="/@baealex">
+            
+            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/yAAi.png)"></div>
+            
+        </a>
+        <a class="font-weight-bold deep-dark" href="/@baealex">baealex</a>
+        <br>
+        <small>1시간, 50분전</small>
+        <ul class="none-list">
+        
+            
+        
+        </ul>
+        <div class="mt-3 noto"><p>`태스트 코드 뿐만 아니라` 오타 제보합니다 🙂</p></div>
+        <ul class="none-list">
+            <li>
+                <a class="shallow-dark" href="javascript:void(0);" onclick="comment.like(220)">
+                    <i class="fas fa-angle-up"></i> <span id="clc220">0</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+        
+            <div>
+    <div class="comment-list">
+        <a href="/@mildsalmon">
+            
+            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/WgGq.png)"></div>
+            
+        </a>
+        <a class="font-weight-bold deep-dark" href="/@mildsalmon">mildsalmon</a>
+        <br>
+        <small>1시간, 16분전</small>
+        <ul class="none-list">
+        
+            
+        
+        </ul>
+        <div class="mt-3 noto"><p>@baealex 수정했습니다. 감사합니다 ㅎㅎ</p></div>
+        <ul class="none-list">
+            <li>
+                <a class="shallow-dark" href="javascript:void(0);" onclick="comment.like(221)">
+                    <i class="fas fa-angle-up"></i> <span id="clc221">0</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="aVShukehnB3uWIywgL7qC9KUSUctBozAhnPKfmAjHbUDUNGgqSOeRGX1TPsu1vMs">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/3/2/12xqYx.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">한라대학교 공지 알림 봇 제작기 (7)  - 유지보수</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">한라대학교 공지 알림 봇 제작기 (2) - 코딩</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19Uqot.gif);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.44"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.44"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.44"></script>
+    <div id="notify-content"></div>
+    
+<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.44"></script>
+<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.44"></script>
+
+<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.44"></script>
+
+<script>
+$(document).ready(function() {
+  var csrftoken = getCookie('csrftoken');
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+});
+</script>
+
+    
+</body>
+</html>
