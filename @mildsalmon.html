@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.44">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.46">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
     <title>mildsalmon (김학진)</title>
@@ -53,7 +53,7 @@
 <body>
     
     
-    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
         <div class="container">
             <a class="navbar-brand" href="https://blex.kr">
                 <img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt="">
@@ -87,7 +87,7 @@
     <div class="user-profile">
         
         <picture>
-            <img class="user-avatar" src="https://static.blex.kr/avatar/u/mildsalmon/WgGq.png" alt="mildsalmon">
+            <img class="user-avatar blur-off" src="https://static.blex.kr/avatar/u/mildsalmon/WgGq.png" alt="mildsalmon">
         </picture>
         
         <h4 class="serif username">김학진</h4>
@@ -121,9 +121,7 @@
 </div>
 </div>
 </div>
-
-<div class="profile-tab back-image" style="background-image:url(https://static.blex.kr/avatar/u/mildsalmon/WgGq.png)">
-
+<div class="profile-tab back-image" style="background-image:url(https://static.blex.kr/assets/images/default-post.png)">
     <div class="mask">
         <ul class="serif">
             <li><a href="/@mildsalmon">포스트</a></li>
@@ -141,11 +139,9 @@
             
             <ul class="mt-4 noto">
                 <h5 class="serif">카테고리</h5>
-                <li><a class="active" href="/@mildsalmon">전체<span class="ns">(15)</span></a></li>
+                <li><a class="active" href="/@mildsalmon">전체<span class="ns">(17)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/python">python<span class="ns">(12)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교<span class="ns">(8)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇<span class="ns">(8)</span></a></li>
                 
@@ -153,45 +149,61 @@
                 
                 <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링<span class="ns">(8)</span></a></li>
                 
+                <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교<span class="ns">(8)</span></a></li>
+                
                 <li><a href="/@mildsalmon/topic/document">document<span class="ns">(5)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EB%AA%A8%EB%93%88">모듈<span class="ns">(4)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">코드분석<span class="ns">(2)</span></a></li>
+                <li><a href="/@mildsalmon/topic/git">git<span class="ns">(2)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">유지보수<span class="ns">(2)</span></a></li>
                 
+                <li><a href="/@mildsalmon/topic/%EA%B0%9C%EC%9A%94">개요<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">코드분석<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%B4%88%EC%BD%9C%EB%A6%BF%ED%95%98%ED%8A%B8%EB%93%9C%EB%9E%98%EA%B3%A4">초콜릿하트드래곤<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리<span class="ns">(1)</span></a></li>
+                
                 <li><a href="/@mildsalmon/topic/crond">crond<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EB%AA%A8%EB%93%88">파이썬모듈<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/pythontelegrambot">pythontelegrambot<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">개발환경<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/crontab">crontab<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/beautifulsoup">beautifulsoup<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EA%B0%9C%EC%9A%94">개요<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%84%9C%EB%B2%84%EC%9E%91%EC%97%85">서버작업<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/requests">requests<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%9D%B8%ED%8A%B8%EB%A1%9C">인트로<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/os">os<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/init">init<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8">텔레그램<span class="ns">(1)</span></a></li>
                 
+                <li><a href="/@mildsalmon/topic/crontab">crontab<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/requests">requests<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%84%9C%ED%8F%89">서평<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/beautifulsoup">beautifulsoup<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EA%B8%B0%EC%B4%88">기초<span class="ns">(1)</span></a></li>
+                
                 <li><a href="/@mildsalmon/topic/coding">coding<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/beautifulsoup4">beautifulsoup4<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%EC%9D%B8%ED%8A%B8%EB%A1%9C">인트로<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EB%AA%A8%EB%93%88">파이썬모듈<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EB%A7%88%EC%B9%98%EB%A9%B0">마치며<span class="ns">(1)</span></a></li>
                 
+                <li><a href="/@mildsalmon/topic/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">개발환경<span class="ns">(1)</span></a></li>
+                
                 <li><a href="/@mildsalmon/topic/linux">linux<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/pythontelegrambot">pythontelegrambot<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%84%9C%EB%B2%84%EC%9E%91%EC%97%85">서버작업<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/beautifulsoup4">beautifulsoup4<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/os">os<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/statut">statut<span class="ns">(1)</span></a></li>
                 
             </ul>
             
@@ -199,6 +211,60 @@
         <div class="col-lg-8 mt-4">
         
         <div id="wrapper">
+        
+            <div class="profile-post">
+                
+                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status">
+                    <picture>
+                        <img src="https://static.blex.kr/title/mildsalmon/2020/3/3/18ZHWT.jpg" alt="Git 정리 - 버전관리 - init, status" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status">Git 정리 - 버전관리 - init, status</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status">버전관리 깃 초기화하기 mkdir test cd test git init git init test cd test 깃을 사용할 수 있도록 디렉터리를 초기화하는 것이다. 위 두개는 같은 동작을 한다. test 디렉터리에 .git 디렉터리가 생긴다. 이 .git 디렉터리가 깃을 사용하면서 버전이 저장될 저장소(repository)이다. 깃의 구조 작업 트리 --(add)--&amp;gt; 스테이지 --(commit)--&amp;gt; 저장소 작업 트리 파일 …</a></p>
+                
+                
+                <ul class="tag-list">
+                    
+                    <li><a href="/@mildsalmon/topic/git">git</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/init">init</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/statut">statut</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
+                    
+                </ul>
+                
+            </div>
+        
+            <div class="profile-post">
+                
+                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94">
+                    <picture>
+                        <img src="https://static.blex.kr/title/mildsalmon/2020/3/3/184G92.jpg" alt="Git 정리 - 기초, 개요" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94">Git 정리 - 기초, 개요</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94">Intro 깃을 공부해야겠다고 다짐을 했다. 인터넷으로 정보를 찾아보긴 했지만, 글들이 중간 중간 끊겨있어서 책을 구매했다. 이고잉님이 작성하신 Do it 깃&amp;amp;깃허브 입문인데, 초보자가 보기에도 쉽고 자세히 잘 정리되어 있었다. 내 기억력도 별로 안좋아서 복습할겸, 나중에 쉽게 찾아볼겸 겸사 겸사 글로 작성하려고 한다. 책을 보고 직접 해보고 작성하지만, 책에 있는 내용만 쓰지는 …</a></p>
+                
+                
+                <ul class="tag-list">
+                    
+                    <li><a href="/@mildsalmon/topic/git">git</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EA%B0%9C%EC%9A%94">개요</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EA%B8%B0%EC%B4%88">기초</a></li>
+                    
+                </ul>
+                
+            </div>
         
             <div class="profile-post">
                 
@@ -278,6 +344,14 @@
                 <p class="noto"><a class="shallow-dark" href="/@mildsalmon/%EC%B4%88%EC%BD%9C%EB%A6%BF-%ED%95%98%ED%8A%B8-%EB%93%9C%EB%9E%98%EA%B3%A4">제목 : 초콜릿 하트 드래곤 인상 깊은 핵심 문구 뭐 어때? 이 책을 어떻게 읽게 되었는지 완벽한 공부법저자인 신박사님과 고작가님이 추천하길래, 짧은 소설이기도 해서 기분전환겸 서점에 들러 구매했다. 저자 histroy 저자 : 스테파니 버지스 출판년도 : 2019.09 출판사 : (주)로크미디어 줄거리 어린 드래곤인 어벤추린이 원하는 것은 단 하나, 집 밖의 …</a></p>
                 
                 
+                <ul class="tag-list">
+                    
+                    <li><a href="/@mildsalmon/topic/%EC%84%9C%ED%8F%89">서평</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EC%B4%88%EC%BD%9C%EB%A6%BF%ED%95%98%ED%8A%B8%EB%93%9C%EB%9E%98%EA%B3%A4">초콜릿하트드래곤</a></li>
+                    
+                </ul>
+                
             </div>
         
             <div class="profile-post">
@@ -308,70 +382,6 @@
                 
             </div>
         
-            <div class="profile-post">
-                
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-6-%EB%A7%88%EC%B9%98%EB%A9%B0">
-                    <picture>
-                        <img src="https://static.blex.kr/title/mildsalmon/2020/2/28/17qXbY.jpg" alt="한라대학교 공지 알림 봇 제작기 (6) - 마치며" loading="lazy">
-                    </picture>
-                </a>
-                
-                <h4 class="card-title serif font-weight-bold mt-3">
-                    <a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-6-%EB%A7%88%EC%B9%98%EB%A9%B0">한라대학교 공지 알림 봇 제작기 (6) - 마치며</a>
-                </h4>
-                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-6-%EB%A7%88%EC%B9%98%EB%A9%B0">Intro 블로그 첫 프로젝트가 끝났습니다. 다음에 다른 프로젝트로 찾아뵙겠습니다. 한라대학교 공지 알림 봇 제작기를 읽어주신 모든분들께 감사드립니다. 최종 코드 일반 공지_ver # -*- coding: utf-8 -*- ########## 서비스 코드 import requests from bs4 import BeautifulSoup import os import telegram import sys import time BASE_DIR = os.path.dirname(os.path.abspath(__file__)) my_token = &#39;봇 토큰&#39; …</a></p>
-                
-                
-                <ul class="tag-list">
-                    
-                    <li><a href="/@mildsalmon/topic/python">python</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EB%A7%88%EC%B9%98%EB%A9%B0">마치며</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
-                    
-                </ul>
-                
-            </div>
-        
-            <div class="profile-post">
-                
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">
-                    <picture>
-                        <img src="https://static.blex.kr/title/mildsalmon/2020/2/26/125hKF.jpg" alt="한라대학교 공지 알림 봇 제작기 (5) - 서버 작업" loading="lazy">
-                    </picture>
-                </a>
-                
-                <h4 class="card-title serif font-weight-bold mt-3">
-                    <a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">한라대학교 공지 알림 봇 제작기 (5) - 서버 작업</a>
-                </h4>
-                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">Intro 서버는 AWS의 Amazon Lunux 2를 사용했다. PuTTY 나는 서버에 접속할때 PuTTY를 주로 사용한다. PuTTY는 SSH, Telet 등의 접속방식을 제공한다. PuTTY는 서버에 원격으로 접속하게 도와주는 프로그램이다. 다운로드 위 링크를 통해 다운받을 수 있다. PuTTY 접속 방법 빨간 부분만 잘 설정해주면 잘 접속이 된다. AWS .pem을 .ppk로 변환하는 방법 위에서 puttygen.exe를 …</a></p>
-                
-                
-                <ul class="tag-list">
-                    
-                    <li><a href="/@mildsalmon/topic/python">python</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EC%84%9C%EB%B2%84%EC%9E%91%EC%97%85">서버작업</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
-                    
-                </ul>
-                
-            </div>
-        
         </div>
         <nav class="pgnav noto" aria-label="Page navigation"><ul class="pg none-list"><li class="pi disabled"><a class="pl" href="#" tabindex="-1"><i class="fas fa-arrow-left"></i></a></li><li class="pi disabled"><a class="pl pl" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li><li class="pi active"><a class="pl" href="/@mildsalmon">
                 1
@@ -379,7 +389,7 @@
                 2
             </a></li><li class="pi"><a class="pl" href="?page=3">
                 3
-            </a></li><li class="pi"><a class="pl" href="?page=3"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li><li class="pi"><a class="pl" href="?page=2"><i class="fas fa-arrow-right"></i></a></li></ul><ul class="ps none-list"><form onsubmit="return false"><span class="vs shallow-dark mr-2">Go to page</span><input class="pn" name="page" type="number" min="1" max="3"><button class="gp">Go <i class="fas fa-chevron-right"></i></button></form></ul></nav>
+            </a></li><li class="pi"><a class="pl" href="?page=3"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li><li class="pi"><a class="pl" href="?page=2"><i class="fas fa-arrow-right"></i></a></li></ul><ul class="ps none-list mobile-disable"><form onsubmit="return false"><span class="vs shallow-dark mr-2">Go to page</span><input class="pn" name="page" type="number" min="1" max="3"><button class="gp">Go <i class="fas fa-chevron-right"></i></button></form></ul></nav>
     </div>
 </div>
 
@@ -402,9 +412,9 @@
 
     <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.44"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.44"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.44"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.46"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.46"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.46"></script>
     <div id="notify-content"></div>
     
 <script type="text/javascript">
@@ -421,7 +431,7 @@ $(document).ready(function() {
 </script>
 
 
-<script src="https://static.blex.kr/assets/js/user.js?version=1.0.44"></script>
+<script src="https://static.blex.kr/assets/js/user.js?version=1.0.46"></script>
 
     
 </body>

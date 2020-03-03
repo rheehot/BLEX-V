@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.44">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.46">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
     <title>jepi (김형진)</title>
@@ -46,7 +46,7 @@
 <body>
     
     
-    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
         <div class="container">
             <a class="navbar-brand" href="https://blex.kr">
                 <img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt="">
@@ -80,7 +80,7 @@
     <div class="user-profile">
         
         <picture>
-            <img class="user-avatar" src="https://static.blex.kr/assets/images/default-avatar.jpg" alt="jepi">
+            <img class="user-avatar blur-off" src="https://static.blex.kr/assets/images/default-avatar.jpg" alt="jepi">
         </picture>
         
         <h4 class="serif username">김형진</h4>
@@ -112,9 +112,7 @@
 </div>
 </div>
 </div>
-
-<div class="profile-tab back-image" style="background-image:url(https://static.blex.kr/assets/images/default-avatar.jpg)">
-
+<div class="profile-tab back-image" style="background-image:url(https://static.blex.kr/assets/images/default-post.png)">
     <div class="mask">
         <ul class="serif">
             <li><a href="/@jepi">포스트</a></li>
@@ -135,10 +133,14 @@
         
         <div id="wrapper">
         
+        <div class="bg-border-purple noto p-3 bg-light vivid-purple">
+            아직 작성된 포스트가 없습니다.
+        </div>
+        
         </div>
         <nav class="pgnav noto" aria-label="Page navigation"><ul class="pg none-list"><li class="pi disabled"><a class="pl" href="#" tabindex="-1"><i class="fas fa-arrow-left"></i></a></li><li class="pi disabled"><a class="pl pl" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li><li class="pi active"><a class="pl" href="/@jepi">
                 1
-            </a></li><li class="pi disabled"><a class="pl" href="#" tabindex="-1"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li><li class="pi disabled"><a class="pl" href="#" tabindex="-1"><i class="fas fa-arrow-right"></i></a></li></ul><ul class="ps none-list"><form onsubmit="return false"><span class="vs shallow-dark mr-2">Go to page</span><input class="pn" name="page" type="number" min="1" max="1"><button class="gp">Go <i class="fas fa-chevron-right"></i></button></form></ul></nav>
+            </a></li><li class="pi disabled"><a class="pl" href="#" tabindex="-1"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li><li class="pi disabled"><a class="pl" href="#" tabindex="-1"><i class="fas fa-arrow-right"></i></a></li></ul><ul class="ps none-list mobile-disable"><form onsubmit="return false"><span class="vs shallow-dark mr-2">Go to page</span><input class="pn" name="page" type="number" min="1" max="1"><button class="gp">Go <i class="fas fa-chevron-right"></i></button></form></ul></nav>
     </div>
 </div>
 
@@ -161,9 +163,9 @@
 
     <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.44"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.44"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.44"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.46"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.46"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.46"></script>
     <div id="notify-content"></div>
     
 <script type="text/javascript">
@@ -180,7 +182,7 @@ $(document).ready(function() {
 </script>
 
 
-<script src="https://static.blex.kr/assets/js/user.js?version=1.0.44"></script>
+<script src="https://static.blex.kr/assets/js/user.js?version=1.0.46"></script>
 
     
 </body>

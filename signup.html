@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.44">
+    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.46">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
     <title>BLEX - Join us</title>
@@ -31,7 +31,7 @@
 <body>
     
     
-    <nav id="mNavigation" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
         <div class="container">
             <a class="navbar-brand" href="https://blex.kr">
                 <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
@@ -65,13 +65,13 @@
 <div class="card p-3 col-lg-5 mx-auto">
     
     <form method="post">
-        <input type="hidden" name="csrfmiddlewaretoken" value="bbfmoiH7oGkppm3xFqYx4jgdpZYl2zB51SHk5iePjI323Q5vWiPHvedJ5qou5efn">
-        <p><input type="text" name="username" placeholder="아이디(필명)" required maxlength="150" class="form-control" id="id_username"></p>
+        <input type="hidden" name="csrfmiddlewaretoken" value="jtYFmy9PrNcSIVS9ZkVRTuQbDjXvaF5NCnj8Zmu5xOvOYUVoct2e73WI1B9UdNjB">
+        <p><input type="text" name="username" id="id_username" required placeholder="아이디(필명)" maxlength="150" class="form-control"></p>
         <div id="idCheck" role="alert"></div>
-        <p><input type="password" name="password" placeholder="비밀번호" required maxlength="128" class="form-control" id="id_password"></p>
-        <p><input type="password" name="password_check" placeholder="비밀번호 확인" required maxlength="200" class="form-control" id="id_password_check"></p>
-        <p><input type="text" name="first_name" placeholder="이름" maxlength="30" class="form-control" id="id_first_name"></p>
-        <p><input type="text" name="email" placeholder="이메일 주소" maxlength="254" class="form-control" id="id_email"></p>
+        <p><input type="password" name="password" id="id_password" required placeholder="비밀번호" maxlength="128" class="form-control"></p>
+        <p><input type="password" name="password_check" id="id_password_check" required placeholder="비밀번호 확인" maxlength="200" class="form-control"></p>
+        <p><input type="text" name="first_name" id="id_first_name" placeholder="이름" maxlength="30" class="form-control"></p>
+        <p><input type="text" name="email" id="id_email" placeholder="이메일 주소" maxlength="254" class="form-control"></p>
         <div class="alert alert-warning" role="alert">
             입력한 메일로 인증 메일을 발송합니다.
         </div>
@@ -91,9 +91,9 @@
 
     <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.44"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.44"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.44"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.46"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.46"></script>
+    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.46"></script>
     <div id="notify-content"></div>
     
 <script>
