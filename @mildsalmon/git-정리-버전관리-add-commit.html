@@ -21,20 +21,20 @@
     </script>
     
 
-<meta name="description" content="버전 관리 깃 초기화하기 mkdir test cd test git init git init test cd test 깃을 사용할 수 있도록 디렉터리를 초기화하는 것이다. 위 두개는 같은 동작을 한다. test 디렉터리에 .git 디렉터리가 생긴다. 이 .git 디렉터리가 깃을 사용하면서 버전이 저장될 저장소(repository)이다. 깃의 구조 작업 트리 --(add)--&amp;gt; 스테이지 --(commit)--&amp;gt; 저장소 작업 트리 …">
-<meta property="og:url" content="https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status">
+<meta name="description" content="스테이징 (git.add) 스테이지에 작업 트리에서 수정한 파일을 추가한다. 깃에게 버전 만들 준비를 하라고 알려주는 것을 스테이징(staging), 스테이지에 올린다, 인덱스에 등록한다라고 표현한다. 스테이징 내용을 .git/index 파일에 저장하기 때문에 스테이지에 올리는 것을 인덱스에 등록한다라고 한다. git add &quot;파일명&quot; git add . git add .은 작업 트리에서 수정한 파일 전체를 스테이징한다. warning이 뜨는 …">
+<meta property="og:url" content="https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Git 정리 - 버전 관리 - init, status">
-<meta property="og:description" content="버전 관리 깃 초기화하기 mkdir test cd test git init git init test cd test 깃을 사용할 수 있도록 디렉터리를 초기화하는 것이다. 위 두개는 같은 동작을 한다. test 디렉터리에 .git 디렉터리가 생긴다. 이 .git 디렉터리가 깃을 사용하면서 버전이 저장될 저장소(repository)이다. 깃의 구조 작업 트리 --(add)--&amp;gt; 스테이지 --(commit)--&amp;gt; 저장소 작업 트리 …">
+<meta property="og:title" content="Git 정리 - 버전 관리 - add , commit">
+<meta property="og:description" content="스테이징 (git.add) 스테이지에 작업 트리에서 수정한 파일을 추가한다. 깃에게 버전 만들 준비를 하라고 알려주는 것을 스테이징(staging), 스테이지에 올린다, 인덱스에 등록한다라고 표현한다. 스테이징 내용을 .git/index 파일에 저장하기 때문에 스테이지에 올리는 것을 인덱스에 등록한다라고 한다. git add &quot;파일명&quot; git add . git add .은 작업 트리에서 수정한 파일 전체를 스테이징한다. warning이 뜨는 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/3/3/18ZHWT.jpg">
+<meta property="og:image" content="https://static.blex.kr/title/mildsalmon/2020/3/4/14pQGo.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="mildsalmon">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 정리 - 버전 관리 - init, status">
-<meta name="twitter:url" content="https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status">
-<meta name="twitter:description" content="버전 관리 깃 초기화하기 mkdir test cd test git init git init test cd test 깃을 사용할 수 있도록 디렉터리를 초기화하는 것이다. 위 두개는 같은 동작을 한다. test 디렉터리에 .git 디렉터리가 생긴다. 이 .git 디렉터리가 깃을 사용하면서 버전이 저장될 저장소(repository)이다. 깃의 구조 작업 트리 --(add)--&amp;gt; 스테이지 --(commit)--&amp;gt; 저장소 작업 트리 …">
-<meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/3/3/18ZHWT.jpg">
+<meta name="twitter:title" content="Git 정리 - 버전 관리 - add , commit">
+<meta name="twitter:url" content="https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit">
+<meta name="twitter:description" content="스테이징 (git.add) 스테이지에 작업 트리에서 수정한 파일을 추가한다. 깃에게 버전 만들 준비를 하라고 알려주는 것을 스테이징(staging), 스테이지에 올린다, 인덱스에 등록한다라고 표현한다. 스테이징 내용을 .git/index 파일에 저장하기 때문에 스테이지에 올리는 것을 인덱스에 등록한다라고 한다. git add &quot;파일명&quot; git add . git add .은 작업 트리에서 수정한 파일 전체를 스테이징한다. warning이 뜨는 …">
+<meta name="twitter:image" content="https://static.blex.kr/title/mildsalmon/2020/3/4/14pQGo.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.46">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
-    <title>Git 정리 - 버전 관리 - init, status – mildsalmon</title>
+    <title>Git 정리 - 버전 관리 - add , commit – mildsalmon</title>
 </head>
 <body>
     
@@ -50,10 +50,10 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.kr/title/mildsalmon/2020/3/3/18ZHWT.jpg" alt="Git 정리 - 버전 관리 - init, status">
+        <img src="https://static.blex.kr/title/mildsalmon/2020/3/4/14pQGo.png" alt="Git 정리 - 버전 관리 - add , commit">
         <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - init, status</h1>
-            <p class="post-date fade-in">2020-03-03 18:51<span>(Last Update: 2020-03-04 14:56)<span></span></span></p>
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - add , commit</h1>
+            <p class="post-date fade-in">2020-03-04 14:49<span>(Last Update: 2020-03-04 14:59)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -80,7 +80,7 @@
             
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(405);">
+        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(408);">
             <i class="far fa-heart"></i> <span id="like-count">0</span>
         </a>
     </li>
@@ -97,8 +97,8 @@
                 <i class="fas fa-share-alt"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
-                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - init, status&url=https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
+                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - add , commit&url=https://blex.kr/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
             </div>
         </div>
     </li>
@@ -142,56 +142,44 @@
     </div>
 </div>
         <article class="article noto">
-            <h1>버전 관리</h1>
-<h3>깃 초기화하기</h3>
-<pre><code>mkdir test
-cd test
-git init</code></pre>
-<pre><code>git init test
-cd test</code></pre>
-<p><code>깃을 사용할 수 있도록 디렉터리를 초기화</code>하는 것이다.<br>
-위 두개는 같은 동작을 한다.<br>
-<code>test</code> 디렉터리에 <code>.git</code> 디렉터리가 생긴다.<br>
-이 <code>.git</code> 디렉터리가 깃을 사용하면서 버전이 저장될 <code>저장소(repository)</code>이다.<br></p>
-<h3>깃의 구조</h3>
-<p>작업 트리 --(add)--&gt; 스테이지 --(commit)--&gt; 저장소</p>
-<ul>
-<li>
-<p>작업 트리</p>
-<ul>
-<li>파일 수정, 저장 등의 작업을 하는 디렉터리</li>
-<li>작업 디렉터리(working directory)</li>
-<li>위에서 test디렉터리 같이 눈에 보이는 디렉터리</li>
-</ul>
-</li>
-<li>
-<p>스테이지</p>
-<ul>
-<li>버전으로 만들 파일이 대기하는 곳</li>
-<li>스테이징 영역(staging area)</li>
-<li>스테이지에서 저장소로 저장하는 것을 커밋(commit)이라고 부름</li>
-</ul>
-</li>
-<li>
-<p>저장소</p>
-<ul>
-<li>스테이지에서 대기하고 있던 파일들을 버전으로 만들어 저장하는 곳</li>
-</ul>
-</li>
-</ul>
-<p>스테이지와 저장소는 눈에 안보인다.<br>
-깃을 초기화했을 때 <code>.git</code>디렉터리 안에 숨은 파일 형태로 존재<br>
-커밋 = 버전<br></p>
-<h3>깃 상태 확인</h3>
-<pre><code>git status</code></pre>
-<p><img src="https://static.blex.kr/image/2020/2/25/S4COGG9JJH2ovVCNHRCp.png" alt=""></p>
-<p>On branch master : 현재 master 브랜치에 있습니다.<br>
-No commits yet : 아직 커밋한 파일이 없습니다.<br>
-nothing to commit : 현재 커밋할 파일이 없습니다.<br></p>
-<p><img src="https://static.blex.kr/image/2020/2/25/LKLnmc06Ige3joNd5Mv7.png" alt=""></p>
-<p>Untracked files : 깃에서 한번도 버전 관리하지 않은 파일을 부를때 사용</p>
+            <h1>스테이징 (git.add)</h1>
+<p>스테이지에 <code>작업 트리에서 수정한 파일을 추가</code>한다.<br>
+깃에게 버전 만들 준비를 하라고 알려주는 것을 <code>스테이징(staging)</code>, <code>스테이지에 올린다</code>, <code>인덱스에 등록한다</code>라고 표현한다.<br>
+스테이징 내용을 .git/index 파일에 저장하기 때문에 스테이지에 올리는 것을 <code>인덱스에 등록한다</code>라고 한다.<br></p>
+<pre><code>git add "파일명"</code></pre>
+<pre><code>git add .</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/2/BVATpypULBofHyXP61Ac.png" alt=""></p>
+<p><code>git add .</code>은 작업 트리에서 수정한 파일 전체를 스테이징한다.<br></p>
+<h3>warning이 뜨는 이유.</h3>
+<p>윈도우의 줄바꿈 문자와 리눅스의 줄바꿈 문자가 다르기 때문이다.<br>
+윈도우는 줄바꿈이 발생하는 자리에 CR 문자와 LF 문자가 삽입된다. (합쳐서 CRLF 문자)<br>
+리눅스와 맥은 줄바꿈이 발생하는 자리에 LF 문자가 삽입된다.<br>
+따라서 윈도우에서 텍스트 문서를 올릴 때는 깃에서 자동으로 텍스트 문서의 CRLF 문자를 LF 문자로 변환해서 커밋할 것이라는 의미이다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/2/McM1gDR10NGpxNvsEmSU.png" alt=""></p>
+<p>test.txt 앞에 new file이 생겼다.<br>
+'새 파일 test.txt를 앞으로 커밋할 것이라'라는 뜻이다.<br></p>
+<h1>커밋 (git.commit)</h1>
+<p>파일이 스테이지에 있다면 버전을 만들 수 있다.<br>
+<code>버전을 만드는 것</code>은 커밋(commit)한다라고도 말한다.<br>
+어떤 내용을 변경했는지 확인하기 위해 메시지를 함께 기록해야한다.<br></p>
+<pre><code>git commit -m "커밋 메시지"</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/2/XJiMwbVRhn4QxUeBGU3K.png" alt=""></p>
+<p>1 file changed, 1 insertion(+)<br>
+1개의 파일이 수정되었고, 추가되었다.<br>
+스테이지에 있던 test.txt 파일이 저장소에 추가되었다.<br></p>
+<p><strong>커밋을 완료하면.</strong></p>
+<p>커밋을 완료하고 <code>git status</code>를 입력하면 아래와 같이 나온다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/2/3Z4zWWWGOwh5vzN4U4Dz.png" alt=""></p>
+<p>nothing to commit, working tree clean<br>
+버전으로 만들 파일이 없고, 작업 트리도 수정사항이 없다.<br></p>
+<h3>스테이징과 커밋 한번에 처리하기 (git commit -am)</h3>
+<p>commit 명령에 -am 옵션을 사용하면 스테이지에 올리고 커밋하는 과정을 한꺼번에 처리할 수 있다.<br>
+단, 이 옵션은 <code>한 번이라도 커밋한 적이 있는 파일을 다시 커밋할 때만</code> 사용할 수 있다.<br></p>
+<pre><code>git commit -am "커밋 메시지"</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/2/QOp5NoWk2jix1Hr7J6fc.png" alt=""></p>
 <h1>마치며</h1>
-<p>다음 챕터에서는 add와 commit에 대해 포스팅하겠습니다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/4/8LuUPXaKRxPFGPjReg8X.png" alt=""></p>
+<p>다음 챕터에서는 log에 대해 포스팅하겠습니다.</p>
 <h1>참고문헌</h1>
 <blockquote>
 <p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
@@ -204,19 +192,13 @@ nothing to commit : 현재 커밋할 파일이 없습니다.<br></p>
         <div class="col-md-6">
         
             <div class="col-md-12 bg-light rounded p-3 mt-3">
-                <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94?series=git">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 기초, 개요
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status?series=git">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - init, status
                 </a>
             </div>
         
         </div>
         <div class="col-md-6">
-        
-            <div class="col-md-12 bg-light rounded p-3 mt-3">
-                <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit?series=git">
-                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Git 정리 - 버전 관리 - add , commit
-                </a>
-            </div>
         
         </div>
     </div>
@@ -226,11 +208,11 @@ nothing to commit : 현재 커밋할 파일이 없습니다.<br></p>
         
         <ul class="tag-list">
             
+            <li><a href="/@mildsalmon/topic/add">add</a></li>
+            
+            <li><a href="/@mildsalmon/topic/commit">commit</a></li>
+            
             <li><a href="/@mildsalmon/topic/git">git</a></li>
-            
-            <li><a href="/@mildsalmon/topic/init">init</a></li>
-            
-            <li><a href="/@mildsalmon/topic/statut">statut</a></li>
             
             <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
             
@@ -253,7 +235,7 @@ nothing to commit : 현재 커밋할 파일이 없습니다.<br></p>
 
 
     
-    <input type="hidden" name="csrfmiddlewaretoken" value="86emrEOS0MY9h0FbBadUT7czbeizRgY4l4nFrnz0T6Sj99hzzwI344y0udRMgfPi">
+    <input type="hidden" name="csrfmiddlewaretoken" value="u4a41mgXou5Dp5RNQuwb3Mi60hmSUWlrJwdIfx5LAqvv5oiVy120K6viOXfpI8Ll">
     <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
     
 
@@ -267,8 +249,8 @@ nothing to commit : 현재 커밋할 파일이 없습니다.<br></p>
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">한라대학교 공지 알림 봇 제작기 (2) - 코딩</a></h5>
+                <a href="/@mildsalmon/os"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/26/22UZuy.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/os">OS</a></h5>
             </div>
         
             <div class="col-md-4">
@@ -277,8 +259,8 @@ nothing to commit : 현재 커밋할 파일이 없습니다.<br></p>
             </div>
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/25/13lyKV.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)</a></h5>
+                <a href="/@mildsalmon/telegram"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/17/15Qb1t.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/telegram">Python Telegram Bot</a></h5>
             </div>
         
         </div>

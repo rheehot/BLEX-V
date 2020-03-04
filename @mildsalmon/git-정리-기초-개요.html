@@ -47,13 +47,13 @@
 <body>
     
 
-<style>.content {margin-top: 20px;} #mNavigation {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
         <img src="https://static.blex.kr/title/mildsalmon/2020/3/3/184G92.jpg" alt="Git 정리 - 기초, 개요">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 기초, 개요</h1>
-            <p class="post-date fade-in">2020-03-03 18:39</p>
+            <p class="post-date fade-in">2020-03-03 18:39<span>(Last Update: 2020-03-04 14:53)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -143,29 +143,30 @@
 </div>
         <article class="article noto">
             <h1>Intro</h1>
-<p>깃을 공부해야겠다고 다짐을 했다.
-인터넷으로 정보를 찾아보긴 했지만, 글들이 중간 중간 끊겨있어서 책을 구매했다.
-이고잉님이 작성하신 Do it 깃&amp;깃허브 입문인데,
-초보자가 보기에도 쉽고 자세히 잘 정리되어 있었다.
-내 기억력도 별로 안좋아서 복습할겸, 나중에 쉽게 찾아볼겸 겸사 겸사 글로 작성하려고 한다.
-책을 보고 직접 해보고 작성하지만,
-책에 있는 내용만 쓰지는 않았다.
-더 궁금한 부분은 구글링도 하면서 정보를 더 모아서 작성했다.
-입문이니 많이 어렵지는 않다.
-그냥 한번 해보자.</p>
+<p>깃을 공부해야겠다고 다짐을 했다.<br>
+인터넷으로 정보를 찾아보긴 했지만, 글들이 중간 중간 끊겨있어서 책을 구매했다.<br>
+이고잉님이 작성하신 Do it 깃&amp;깃허브 입문인데,<br>
+초보자가 보기에도 쉽고 자세히 잘 정리되어 있었다.<br>
+내 기억력도 별로 안좋아서 복습할겸, 나중에 쉽게 찾아볼겸 겸사 겸사 글로 작성하려고 한다.<br>
+책을 보고 직접 해보고 작성하지만,<br>
+책에 있는 내용만 쓰지는 않았다.<br>
+더 궁금한 부분은 구글링도 하면서 정보를 더 모아서 작성했다.<br>
+입문이니 많이 어렵지는 않다.<br>
+그냥 한번 해보자.<br>
+한 포스팅 당 100줄을 넘기지 않는 선에서 매일 포스팅 할 예정이다.<br></p>
 <h1>깃</h1>
-<p>버전 관리 -&gt; 백업 -&gt; 협업 순서로 이해해야한다.
-각 개념은 하위 개념을 포함하는 개념이기 때문.
-난이도는 갈수록 어려워진다.</p>
+<p>버전 관리 -&gt; 백업 -&gt; 협업 순서로 이해해야한다.<br>
+각 개념은 하위 개념을 포함하는 개념이기 때문.<br>
+난이도는 갈수록 어려워진다.<br></p>
 <h5>환경 설정</h5>
 <pre><code>git config --global user.name "KimHakJin"
 git config --global user.email "mildsalmon@gmail.com"</code></pre>
 <h3>버전 관리 (version Control)</h3>
-<p>원래 내용도 남겨두고 수정한 내용을 저장
-보통 '다른 이름으로 저장'하는 방법을 주로 사용
-다른 파일과 구별하기 위해 원래 파일 이름 뒤에 숫자를 붙이거나 문자를 추가
-단점은 파일의 양이 많아지면 파일마다 수정내용을 기억하기 힘듬</p>
-<p>but 깃은 문서를 수정할 때마다 언제, 어떤 것을 변경했는지 편하고 구체적으로 기록하기 위한 <code>버전 관리 시스템</code></p>
+<p>원래 내용도 남겨두고 수정한 내용을 저장<br>
+보통 '다른 이름으로 저장'하는 방법을 주로 사용<br>
+다른 파일과 구별하기 위해 원래 파일 이름 뒤에 숫자를 붙이거나 문자를 추가<br>
+단점은 파일의 양이 많아지면 파일마다 수정내용을 기억하기 힘듬<br></p>
+<p>but 깃은 문서를 수정할 때마다 언제, 어떤 것을 변경했는지 편하고 구체적으로 기록하기 위한 <code>버전 관리 시스템</code><br></p>
 <h3>백업 (Backup)</h3>
 <p>컴퓨터는 두가지로 나뉜다</p>
 <ol>
@@ -180,12 +181,12 @@ git config --global user.email "mildsalmon@gmail.com"</code></pre>
 <ul>
 <li>내 컴퓨터가 언제 고장 날지 모른다.</li>
 </ul>
-<p>파일은 외장 하드 디스크, USB 디스크 등 별도의 저장 장치
-또는 드롭박스, 구글 드라이브같은 인터넷 서비스를 통해 백업 가능</p>
+<p>파일은 외장 하드 디스크, USB 디스크 등 별도의 저장 장치<br>
+또는 드롭박스, 구글 드라이브같은 인터넷 서비스를 통해 백업 가능<br></p>
 <p>깃 파일은 깃허브를 통해 가능</p>
 <h3>협업 (Collavoration)</h3>
-<p>여러 사람이 함께 일할 수 있다는 강력한 장점이 생긴다.
-누가 어느 부분을 어떻게 수정했는지 기록에 남기 때문에 오류가 생겼을때도 파악하기 쉽다.</p>
+<p>여러 사람이 함께 일할 수 있다는 강력한 장점이 생긴다.<br>
+누가 어느 부분을 어떻게 수정했는지 기록에 남기 때문에 오류가 생겼을때도 파악하기 쉽다.<br></p>
 <h1>마치며</h1>
 <p>틈틈이 Git을 공부하고 정리해서 Git 시리즈에 올리겠습니다.</p>
 <h1>참고문헌</h1>
@@ -201,6 +202,12 @@ git config --global user.email "mildsalmon@gmail.com"</code></pre>
         
         </div>
         <div class="col-md-6">
+        
+            <div class="col-md-12 bg-light rounded p-3 mt-3">
+                <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status?series=git">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Git 정리 - 버전 관리 - init, status
+                </a>
+            </div>
         
         </div>
     </div>
@@ -235,7 +242,7 @@ git config --global user.email "mildsalmon@gmail.com"</code></pre>
 
 
     
-    <input type="hidden" name="csrfmiddlewaretoken" value="1apDdzxyqjSzRUx52VvoAV5QxRpko2xyY69itzFQs7DmDCQvBaOjN3DRMhdDbzW0">
+    <input type="hidden" name="csrfmiddlewaretoken" value="NbL5bQc2ckUwpxVikA22EJA43RssnVlj35H1iYSiGyxeU4bTMbkwFK9Ev5GL96LQ">
     <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
     
 
@@ -249,18 +256,18 @@ git config --global user.email "mildsalmon@gmail.com"</code></pre>
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19bt8C.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">한라대학교 공지 알림 봇 제작기 (2) - 코딩</a></h5>
+                <a href="/@mildsalmon/requests"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/15/12WiKy.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/requests">Requests</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/18/19Uqot.gif);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/3/2/12xqYx.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">한라대학교 공지 알림 봇 제작기 (7)  - 유지보수</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/telegram"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/2/17/15Qb1t.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/telegram">Python Telegram Bot</a></h5>
+                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/mildsalmon/2020/3/4/14pQGo.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit">Git 정리 - 버전 관리 - add , commit</a></h5>
             </div>
         
         </div>
