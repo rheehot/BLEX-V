@@ -21,26 +21,26 @@
     </script>
     
 <meta name="description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …">
-<meta property="og:url" content="https://blex.kr/thread/electron">
+<meta property="og:url" content="https://blex.me/thread/electron">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Electron + React">
 <meta property="og:description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/19/18Yfq7.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Electron + React">
-<meta name="twitter:url" content="https://blex.kr/thread/electron">
+<meta name="twitter:url" content="https://blex.me/thread/electron">
 <meta name="twitter:description" content="class App extends Component { componentDidMount = () =&amp;gt; { ipcRenderer.send(&#39;call-init&#39;); ipcRenderer.on(&#39;data-init&#39;, (event, arg) =&amp;gt; { this.setState({ information: arg, }); this.id = arg.length; }); } } componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다! ipcMain.on(&#39;data-save&#39;, (event, arg) =&amp;gt; { fs.writeFile(&#39;save.data&#39;, JSON.stringify(arg), &#39;utf8&#39;, function(error) { console.log(&#39;error&#39;); }); }) ipcMain.on(&#39;call-init&#39;, (event, arg) =&amp;gt; …">
-<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/19/18Yfq7.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.46">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.48">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Electron + React –  baealex</title>
 </head>
 <body>
@@ -48,8 +48,8 @@
     
     <nav id="top-nav" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="https://blex.kr">
-                <img src="https://static.blex.kr/assets/images/logo.png" width="35" height="35" alt="">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logo.png" width="35" height="35" alt="">
             </a>
     
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,11 +80,11 @@
 <div class="col-md-10 mx-auto">
   <div class="thread-card">
     
-    <img src="https://static.blex.kr/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React">
+    <img src="https://static.blex.me/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React">
     
     <div class="p-4">
       <h1 class="post-headline">Electron + React</h1>
-      <p class="post-date">2주, 1일전 새로운 스토리가 추가됨</p>
+      <p class="post-date">2주, 2일전 새로운 스토리가 추가됨</p>
       
       
       <ul class="tag-list">
@@ -109,7 +109,7 @@
     <p class="serif"><strong>React + Electron : Component에서 ipcRenderer.on</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -157,7 +157,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
     <p class="serif"><strong>React : 데이터 추가하기</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -214,7 +214,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
     <p class="serif"><strong>React : 상위 컴포넌트에서 하위 컴포넌트의 값을 전달 받으려면?</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -287,7 +287,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
     <p class="serif"><strong>React + Electron : ipcRenderer import</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -322,7 +322,7 @@ class App extends Component {
     <p class="serif"><strong>React + Electron : Example</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -356,7 +356,7 @@ yarn start</code></pre>
     <p class="serif"><strong>Electron : 이벤트</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -383,7 +383,7 @@ mainButton.addEventListener('click', function() {
     <p class="serif"><strong>Electron : 통신</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -420,7 +420,7 @@ ipcRenderer.on('asynchronous-reply', (event, arg) =&gt; {
     <p class="serif"><strong>Electron : 파일의 구성</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -455,7 +455,7 @@ ipcRenderer.on('asynchronous-reply', (event, arg) =&gt; {
     <p class="serif"><strong>Electron : 효과 넣기</strong></p>
     <a href="/@baealex">
         
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
@@ -494,16 +494,16 @@ myNotification.onclick = () =&gt; {
     </div>
 </footer>
 
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.46"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.46"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.46"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.48"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.48"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.48"></script>
     <div id="notify-content"></div>
     
-<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/thread.js?version=1.0.46"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/thread.js?version=1.0.48"></script>
 <script>
   $(document).ready(function () {
     var csrftoken = getCookie('csrftoken');
