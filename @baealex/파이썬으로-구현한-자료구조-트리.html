@@ -11,6 +11,7 @@
     
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,26 +23,26 @@
     
 
 <meta name="description" content="트리(Tree) 리스트나 스택 또는 큐로 가계도나 조직도를 구현할 수 있을까요? 선형 자료구조로 계층형 구조를 표현하기 어렵습니다. 이처럼 계층형 구조를 가진 문제를 해결하기 위한 자료구조 형태가 트리입니다. 트리의 구조를 일정하게 제한하여 정의하면 트리의 연산이 단순하고 명확해진다. 전체 트리의 차수가 2 이하가 되도록 정의한 것이 이진 트리이다. 이 글에서 구현된 트리의 종류는 …">
-<meta property="og:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">
+<meta property="og:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="파이썬으로 구현한 자료구조 - 트리">
 <meta property="og:description" content="트리(Tree) 리스트나 스택 또는 큐로 가계도나 조직도를 구현할 수 있을까요? 선형 자료구조로 계층형 구조를 표현하기 어렵습니다. 이처럼 계층형 구조를 가진 문제를 해결하기 위한 자료구조 형태가 트리입니다. 트리의 구조를 일정하게 제한하여 정의하면 트리의 연산이 단순하고 명확해진다. 전체 트리의 차수가 2 이하가 되도록 정의한 것이 이진 트리이다. 이 글에서 구현된 트리의 종류는 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/2/17/23ejv7.png">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/17/23ejv7.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="파이썬으로 구현한 자료구조 - 트리">
-<meta name="twitter:url" content="https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">
+<meta name="twitter:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">
 <meta name="twitter:description" content="트리(Tree) 리스트나 스택 또는 큐로 가계도나 조직도를 구현할 수 있을까요? 선형 자료구조로 계층형 구조를 표현하기 어렵습니다. 이처럼 계층형 구조를 가진 문제를 해결하기 위한 자료구조 형태가 트리입니다. 트리의 구조를 일정하게 제한하여 정의하면 트리의 연산이 단순하고 명확해진다. 전체 트리의 차수가 2 이하가 되도록 정의한 것이 이진 트리이다. 이 글에서 구현된 트리의 종류는 …">
-<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/2/17/23ejv7.png">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/17/23ejv7.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.46">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>파이썬으로 구현한 자료구조 - 트리 – baealex</title>
 </head>
 <body>
@@ -50,7 +51,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.kr/title/baealex/2020/2/17/23ejv7.png" alt="파이썬으로 구현한 자료구조 - 트리">
+        <img src="https://static.blex.me/title/baealex/2020/2/17/23ejv7.png" alt="파이썬으로 구현한 자료구조 - 트리">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'파이썬으로 구현한 자료구조' 시리즈</span>파이썬으로 구현한 자료구조 - 트리</h1>
             <p class="post-date fade-in">2019-09-03 09:35<span>(Last Update: 2020-02-17 23:36)<span></span></span></p>
@@ -62,49 +63,24 @@
     
     <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="https://blex.kr">
-                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
             </a>
-            
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link" href="/@baealex">baealex</a>
-    </li>
-</ul>
-
     
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(354);">
-            <i class="far fa-heart"></i> <span id="like-count">0</span>
-        </a>
-    </li>
-    
-    <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
-            <i class="far fa-comment"></i> 0
-        </a>
-    </li>
-    
-    <li class="nav-item">
-        <div class="dropdown">
-            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-share-alt"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
-                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=파이썬으로 구현한 자료구조 - 트리&url=https://blex.kr/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
-            </div>
-        </div>
-    </li>
-</ul>
-
-            
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
             </div>
         </div>
     </nav>
@@ -113,13 +89,45 @@
         <div class="content">
         
 <div class="row">
-    <div class="ml-auto col-lg-8">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="posts.like(354);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(354)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=파이썬으로 구현한 자료구조 - 트리&url=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
         
         
         <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <div class="author-info">
@@ -646,25 +654,6 @@ Delete Root : 4
 Heap : [3, 2, 2]</code></pre>
         </article>
         
-            <div class="my-4 text-center">
-    <h5 class="serif bg-border-purple p-4"><a href="/@baealex/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="text-decoration-none vivid-purple">'파이썬으로 구현한 자료구조' 시리즈</a></h5>
-    <div class="row justify-content-between">
-        <div class="col-md-6">
-        
-            <div class="col-md-12 bg-light rounded p-3 mt-3">
-                <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90?series=파이썬으로-구현한-자료구조">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>파이썬으로 구현한 자료구조 - 큐
-                </a>
-            </div>
-        
-        </div>
-        <div class="col-md-6">
-        
-        </div>
-    </div>
-</div>
-        
-        
         
         <ul class="tag-list">
             
@@ -675,6 +664,30 @@ Heap : [3, 2, 2]</code></pre>
             <li><a href="/@baealex/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조</a></li>
             
         </ul>
+        
+            <div class="my-4 text-center noto">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="text-decoration-none deep-dark">
+            '파이썬으로 구현한 자료구조' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90?series=파이썬으로-구현한-자료구조">
+                <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>파이썬으로 구현한 자료구조 - 큐
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
     </div>
     <div class="col-lg-2 mobile-disable">
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
@@ -693,7 +706,7 @@ Heap : [3, 2, 2]</code></pre>
 
 
     
-    <input type="hidden" name="csrfmiddlewaretoken" value="OnUbJZASpHobyD5Feb8ooMDd8YnG8H4Eqjd2hrEh8P0UanXd3CIN0P7bzek5sFi2">
+    <input type="hidden" name="csrfmiddlewaretoken" value="QLqUJ6YkBNyvAp2U0CVo8UNgU1q8PT5K3zxOosTmlLUtado6XFhxvvLwFh1IZiAI">
     <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
     
 
@@ -707,18 +720,18 @@ Heap : [3, 2, 2]</code></pre>
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@baealex/2019%EB%85%84%EB%8F%84-1%ED%9A%8C-%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C%EB%B3%B5%EC%9B%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/24/22LJtq.png);"></div></a>
+                <a href="/@baealex/2019%EB%85%84%EB%8F%84-1%ED%9A%8C-%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C%EB%B3%B5%EC%9B%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/24/22LJtq.png);"></div></a>
                 <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/2019%EB%85%84%EB%8F%84-1%ED%9A%8C-%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C%EB%B3%B5%EC%9B%90">2019년도 1회 정보처리기사 실기 기출문제(복원)</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/blog-history"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/24/21AE4k.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/blog-history">블로그 히스토리</a></h5>
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-6%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-6%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 6장(이론)</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4%EC%97%90-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%A7%80%EC%8B%9D"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/3/1/20ltS9.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4%EC%97%90-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%A7%80%EC%8B%9D">프로그래밍 언어에 관련된 지식</a></h5>
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/24/20ltaD.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2">파이썬(Python) - 유전 알고리즘 - 가방 채우기 2</a></h5>
             </div>
         
         </div>
@@ -734,32 +747,32 @@ Heap : [3, 2, 2]</code></pre>
     </div>
 </footer>
 
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.46"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.46"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.46"></script>
     <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
     
-<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.46"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.46"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.46"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
 
-<script>
-$(document).ready(function() {
-  var csrftoken = getCookie('csrftoken');
-  $.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-        xhr.setRequestHeader("X-CSRFToken", csrftoken);
-      }
-    }
-  });
-});
-</script>
 
     
 </body>

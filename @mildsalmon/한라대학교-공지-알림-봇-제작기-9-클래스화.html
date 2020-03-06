@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="Intro 단국대 공지 알림 봇 제작을 하면서 기존의 코드 작성 방법이 너무 불편하다고 느껴졌다. 클래스 혹은 함수를 사용하면 훨씬 더 편해질꺼 같다는 생각이 들었다. 그래서 클래스로 만들었다. 코드 main.py import notice_alarm import time if __name__ in &quot;__main__&quot;: print(time.strftime(&quot;%c&quot;, time.localtime(time.time()))) start_time = time.time() halla_alarm = notice_alarm.NoticeAlarm(&quot;한라&quot;, &quot;일반&quot;) end_time = time.time() - …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-9-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (9) - 클래스화">
+<meta property="og:description" content="Intro 단국대 공지 알림 봇 제작을 하면서 기존의 코드 작성 방법이 너무 불편하다고 느껴졌다. 클래스 혹은 함수를 사용하면 훨씬 더 편해질꺼 같다는 생각이 들었다. 그래서 클래스로 만들었다. 코드 main.py import notice_alarm import time if __name__ in &quot;__main__&quot;: print(time.strftime(&quot;%c&quot;, time.localtime(time.time()))) start_time = time.time() halla_alarm = notice_alarm.NoticeAlarm(&quot;한라&quot;, &quot;일반&quot;) end_time = time.time() - …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/5/20aGwb.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (9) - 클래스화">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-9-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">
+<meta name="twitter:description" content="Intro 단국대 공지 알림 봇 제작을 하면서 기존의 코드 작성 방법이 너무 불편하다고 느껴졌다. 클래스 혹은 함수를 사용하면 훨씬 더 편해질꺼 같다는 생각이 들었다. 그래서 클래스로 만들었다. 코드 main.py import notice_alarm import time if __name__ in &quot;__main__&quot;: print(time.strftime(&quot;%c&quot;, time.localtime(time.time()))) start_time = time.time() halla_alarm = notice_alarm.NoticeAlarm(&quot;한라&quot;, &quot;일반&quot;) end_time = time.time() - …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/5/20aGwb.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>한라대학교 공지 알림 봇 제작기 (9) - 클래스화 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/5/20aGwb.jpg" alt="한라대학교 공지 알림 봇 제작기 (9) - 클래스화">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (9) - 클래스화</h1>
+            <p class="post-date fade-in">2020-03-05 20:26<span>(Last Update: 2020-03-05 20:44)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="posts.like(412);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(412)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (9) - 클래스화&url=https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-9-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-9-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>Intro</h1>
+<p>단국대 공지 알림 봇 제작을 하면서 기존의 코드 작성 방법이 너무 불편하다고 느껴졌다.<br>
+클래스 혹은 함수를 사용하면 훨씬 더 편해질꺼 같다는 생각이 들었다.<br>
+그래서 클래스로 만들었다.<br></p>
+<h1>코드</h1>
+<p><code>main.py</code></p>
+<pre><code class="language-python">import notice_alarm
+import time
+
+if __name__ in "__main__":
+    print(time.strftime("%c", time.localtime(time.time())))
+    start_time = time.time()
+    halla_alarm = notice_alarm.NoticeAlarm("한라", "일반")
+    end_time = time.time() - start_time
+    print(end_time)</code></pre>
+<p><code>notice_alarm.py</code></p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+###### 테스트 코드
+
+import security_data
+import requests
+import sys
+import telegram
+from bs4 import BeautifulSoup
+import os
+
+class NoticeAlarm:
+    def __init__(self, univ_name, notice_type):
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+        bot_token = security_data.bot_info("halla_test")
+        chat_id = security_data.chat_info("halla_test")
+
+        bot = self.create_telegram_bot(bot_token)
+
+        if univ_name == "한라":
+            if notice_type == "일반":
+                req = requests.get("http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000")
+            elif notice_type == "학사":
+                req = requests.get("")
+        elif univ_name == "단국":
+            req = requests.get("")
+
+        save_file_name = "old_data.txt"
+        self.__web_errors(req.status_code)
+        save_content, posts, user_boardSeq = self.html_analyze(req, univ_name)
+        if not(os.path.isfile(os.path.join(BASE_DIR, save_file_name))):
+            self.write_file(BASE_DIR, save_file_name, save_content)
+        self.matching(BASE_DIR, save_file_name, posts, user_boardSeq, univ_name, bot, chat_id, notice_type)
+        self.write_file(BASE_DIR, save_file_name, save_content)
+
+    # 웹의 상태 코드를 받아서 클라이언트 에러 / 서버 에러가 발생시 프로그램 종료
+    def __web_errors(self,status_code_req):
+        client_errors = [400, 401, 403, 404, 408]
+        server_errors = [500, 502, 503, 504]
+        status_errors = client_errors + server_errors
+
+        if status_code_req in status_errors:
+            if status_code_req in client_errors:
+                print(str(status_code_req) + ": 클라이언트 에러")
+            elif status_code_req in server_errors:
+                print(str(status_code_req) + ": 서버 에러")
+            sys.exit(1)
+
+    def create_telegram_bot(self, bot_token):
+        bot = telegram.Bot(token=bot_token)
+        return bot
+
+    def telegram_bot_sendmessage(self, bot, chat_id, new_post, notice_type, url):
+        print(notice_type, new_post)
+        bot.sendMessage(chat_id=chat_id, text= notice_type + "공지 : " + new_post)
+        bot.sendMessage(chat_id=chat_id, text=url)
+
+    def html_analyze(self, req, univ_name):
+        html = req.text
+        soup = BeautifulSoup(html, 'html.parser')
+        if univ_name == "한라":   # 한라대의 경우 일반공지와 학사공지 크롤링 방식이 같다.
+            posts = soup.select('td &gt; a')
+            notice_num = len(soup.find_all(title='공지')) # 새로운 게시글이 아닌 공지 글 개수를 카운트
+            save_boardSeq = []
+            use_boardSeq = []
+
+            for i in range(notice_num): # 게시글을 제외한 공지 글 제거
+                del posts[0]
+
+            for post in posts:
+                save_boardSeq.append(str(post).split("&amp;amp")[2])    # local에 파일로 저장할 내용
+                use_boardSeq.append(str(post).split("&amp;amp;")[2])    # 이 코드에서 실행할 내용
+
+            save_boardSeq[0] = save_boardSeq[0].lstrip(";")
+
+        return save_boardSeq, posts, use_boardSeq
+
+    def write_file(self,BASE_DIR, save_file_name,save_content):
+        with open(os.path.join(BASE_DIR, save_file_name),'w+', encoding='utf-8') as f_write:
+            f_write.writelines(save_content)
+
+    def open_file(self, BASE_DIR, save_file_name):
+        with open(os.path.join(BASE_DIR, save_file_name),'r+', encoding='utf-8') as f_read:
+            old_data = f_read.readline().split(";")
+        return old_data
+
+    def matching(self, BASE_DIR, save_file_name, posts, use_boardSeq, univ_name, bot, chat_id, notice_type):
+        old_data = self.open_file(BASE_DIR, save_file_name)
+        for index, post in enumerate(posts):
+            print("post title = " + post.text)
+            print("new post Seq = ", use_boardSeq[index])
+            print("old data Seq num1 = ", old_data[0])
+            if old_data[0] == use_boardSeq[index]:
+                print("최신글")
+                break
+            elif old_data[1] == use_boardSeq[index]:
+                print("두번째 게시글이랑 체크")
+                break
+            elif old_data[2] == use_boardSeq[index]:
+                print("세번째 게시글 체크")
+                break
+            else:
+                if univ_name == "한라":
+                    url = "http://www.halla.ac.kr/mbs/kr/jsp/board/" + post.get('href')
+                    # print(url)
+                    try:
+                        if post != posts[5]:
+                            self.telegram_bot_sendmessage(bot=bot, chat_id=chat_id, new_post=post.text, notice_type=notice_type, url=url)
+                        else:
+                            break
+                    except Exception as ex:
+                        print(ex)
+                        break</code></pre>
+<p><code>security_data.py</code></p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+####### 테스트 코드
+
+##### 보안 처리되어야 하는 값을 처리.
+#   차후 값은 파일에 보관하고, 파일에서 읽어오는 형식으로 변경 예정
+
+# 학교별로 / 학교에서도 테스트, 서비스별로 다른 봇을 사용한다.
+def bot_info(bot_name):
+    if bot_name == "halla_test":
+        halla_test_bot_token = '1007690176:AAFsf-Lr9TYuaYP8UThNByM-Wv9m5ppxUDQ'
+        return halla_test_bot_token
+    elif bot_name == "halla_service":
+        halla_service_bot_token = ''
+        return halla_service_bot_token
+
+# 학교별 -&gt; 테스트, 서비스별로 다른 채팅을 사용한다.
+# 테스트 채팅 id는 -로, 서비스 채팅 id는 @로 시작한다.
+def chat_info(chat_name):
+    if chat_name == "halla_test":
+        halla_test_chat_id = "-1001381209607"
+        return halla_test_chat_id
+    elif chat_name == "halla_service":
+        halla_service_chat_id = ""
+        return halla_service_chat_id</code></pre>
+<h1>마치며</h1>
+<p>그냥 원래 코드를 클래스로 바꾼것 뿐이라 따로 부가 설명은 필요없다고 생각한다.<br>
+<code>security_data.py</code>는 좀 더 수정을 해야하지만.<br>
+지금 해야할게 너무 많이 쌓여있어서.<br>
+밀린 일부터 처리하고 수정해야겠다.<br></p>
+        </article>
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">클래스화</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
+            
+        </ul>
+        
+            <div class="my-4 text-center noto">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none deep-dark">
+            '한라대학교 공지 알림 봇 제작기' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84?series=한라대학교-공지-알림-봇-제작기">
+                <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="4UlZmItDjby6V70s3kkuHI1nZFQnrKKx4q9m9cc9DQyO7zuzcsLUb7iGVn2BWTki">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/3/5/22gBdW.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/18/19Uqot.gif);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%EC%B4%88%EC%BD%9C%EB%A6%BF-%ED%95%98%ED%8A%B8-%EB%93%9C%EB%9E%98%EA%B3%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/28/21ITu6.jfif);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%EC%B4%88%EC%BD%9C%EB%A6%BF-%ED%95%98%ED%8A%B8-%EB%93%9C%EB%9E%98%EA%B3%A4">초콜릿 하트 드래곤</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+
+
+    
+</body>
+</html>

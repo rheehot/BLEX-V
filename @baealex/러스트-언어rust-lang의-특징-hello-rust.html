@@ -11,6 +11,7 @@
     
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,26 +23,26 @@
     
 
 <meta name="description" content="Rust-Lang이 추구하는 것은 C, C++보다 빠르거나 동등한 속도를 내면서도 Python 혹은 JavaScript 처럼 안정적인 것이었고 현재 러스트는 빠르고 안정적인 언어로 높이 평가 받고있다. 러스트는 어떻게 이러한 목표를 달성할 수 있었을까? 컴파일러 언어 C 혹은 C++는 프로그래머가 메모리를 제어한다. 프로그래머의 역량에 따라 속도 및 안정성에 많은 영향을 받는다. 메모리를 해제하지 않으면 …">
-<meta property="og:url" content="https://blex.kr/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust">
+<meta property="og:url" content="https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="러스트 언어(rust-lang)의 특징 Hello, Rust!">
 <meta property="og:description" content="Rust-Lang이 추구하는 것은 C, C++보다 빠르거나 동등한 속도를 내면서도 Python 혹은 JavaScript 처럼 안정적인 것이었고 현재 러스트는 빠르고 안정적인 언어로 높이 평가 받고있다. 러스트는 어떻게 이러한 목표를 달성할 수 있었을까? 컴파일러 언어 C 혹은 C++는 프로그래머가 메모리를 제어한다. 프로그래머의 역량에 따라 속도 및 안정성에 많은 영향을 받는다. 메모리를 해제하지 않으면 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.kr/title/baealex/2020/3/1/16t3Ek.png">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/1/16t3Ek.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="러스트 언어(rust-lang)의 특징 Hello, Rust!">
-<meta name="twitter:url" content="https://blex.kr/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust">
 <meta name="twitter:description" content="Rust-Lang이 추구하는 것은 C, C++보다 빠르거나 동등한 속도를 내면서도 Python 혹은 JavaScript 처럼 안정적인 것이었고 현재 러스트는 빠르고 안정적인 언어로 높이 평가 받고있다. 러스트는 어떻게 이러한 목표를 달성할 수 있었을까? 컴파일러 언어 C 혹은 C++는 프로그래머가 메모리를 제어한다. 프로그래머의 역량에 따라 속도 및 안정성에 많은 영향을 받는다. 메모리를 해제하지 않으면 …">
-<meta name="twitter:image" content="https://static.blex.kr/title/baealex/2020/3/1/16t3Ek.png">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/1/16t3Ek.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.kr/assets/css/main.css?version=1.0.46">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.kr/assets/images/logo.png">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>러스트 언어(rust-lang)의 특징 Hello, Rust! – baealex</title>
 </head>
 <body>
@@ -50,7 +51,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.kr/title/baealex/2020/3/1/16t3Ek.png" alt="러스트 언어(rust-lang)의 특징 Hello, Rust!">
+        <img src="https://static.blex.me/title/baealex/2020/3/1/16t3Ek.png" alt="러스트 언어(rust-lang)의 특징 Hello, Rust!">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in">러스트 언어(rust-lang)의 특징 Hello, Rust!</h1>
             <p class="post-date fade-in">2019-12-10 16:49</p>
@@ -62,49 +63,24 @@
     
     <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="https://blex.kr">
-                <img src="https://static.blex.kr/assets/images/logor.png" width="35" height="35" alt="">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
             </a>
-            
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link" href="/@baealex">baealex</a>
-    </li>
-</ul>
-
     
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a id="heart" class="nav-link" href="javascript:void(0);" onclick="posts.like(398);">
-            <i class="far fa-heart"></i> <span id="like-count">0</span>
-        </a>
-    </li>
-    
-    <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" onclick="moveSlide('comment')">
-            <i class="far fa-comment"></i> 0
-        </a>
-    </li>
-    
-    <li class="nav-item">
-        <div class="dropdown">
-            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-share-alt"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=https://blex.kr/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;"><i class="fab fa-facebook-square"></i> Facebook</a>
-                <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?text=러스트 언어(rust-lang)의 특징 Hello, Rust!&url=https://blex.kr/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square"></i> Twitter</a>
-            </div>
-        </div>
-    </li>
-</ul>
-
-            
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
             </div>
         </div>
     </nav>
@@ -113,13 +89,45 @@
         <div class="content">
         
 <div class="row">
-    <div class="ml-auto col-lg-8">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="posts.like(398);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(398)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=러스트 언어(rust-lang)의 특징 Hello, Rust!&url=https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
         
         
         <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.kr/avatar/u/baealex/nJBQ.png)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
         
     </a>
     <div class="author-info">
@@ -235,7 +243,6 @@ fn main() {
         </article>
         
         
-        
         <ul class="tag-list">
             
             <li><a href="/@baealex/topic/programing">programing</a></li>
@@ -243,6 +250,7 @@ fn main() {
             <li><a href="/@baealex/topic/rust">rust</a></li>
             
         </ul>
+        
     </div>
     <div class="col-lg-2 mobile-disable">
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
@@ -261,7 +269,7 @@ fn main() {
 
 
     
-    <input type="hidden" name="csrfmiddlewaretoken" value="cJmB08foW2EyToBWMevgC4xqwo4FCi5krmZf881WZ5yA04zwdzMVnZist6JblAQs">
+    <input type="hidden" name="csrfmiddlewaretoken" value="itjSr5Iq5xpJi9l3MsUhPF7Ks1PrtSuflXdAesMJYGSyN9Ol9SWCpNrcDvklrCSE">
     <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
     
 
@@ -275,18 +283,18 @@ fn main() {
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/22/13saaI.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 1장(이론)</a></h5>
+                <a href="/@baealex/%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%B6%94%EC%B2%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/4/15r0WC.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%B6%94%EC%B2%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">포스트 추천 알고리즘</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/title/baealex/2020/2/17/23H2Ag.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90">파이썬으로 구현한 자료구조 - 큐</a></h5>
+                <a href="/@baealex/pythonic%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/3/1/20Xdc2.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/pythonic%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Pythonic이란 무엇인가?</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.kr/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-5%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 5장(이론)</a></h5>
+                <a href="/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/22/133ieE.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5">React로 Hello World 출력</a></h5>
             </div>
         
         </div>
@@ -302,32 +310,32 @@ fn main() {
     </div>
 </footer>
 
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/main.js?version=1.0.46"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/renderer.js?version=1.0.46"></script>
-    <script type="text/javascript" src="https://static.blex.kr/assets/js/notify.js?version=1.0.46"></script>
     <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
     
-<script type="text/javascript" src="https://static.blex.kr/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/posts.js?version=1.0.46"></script>
-<script type="text/javascript" src="https://static.blex.kr/assets/js/user.js?version=1.0.46"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.kr/assets/js/navigation.js?version=1.0.46"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
 
-<script>
-$(document).ready(function() {
-  var csrftoken = getCookie('csrftoken');
-  $.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-        xhr.setRequestHeader("X-CSRFToken", csrftoken);
-      }
-    }
-  });
-});
-</script>
 
     
 </body>

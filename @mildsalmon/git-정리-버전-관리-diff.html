@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="변경 사항 확인하기 (git diff) 작업 트리에 있는 파일과 스테이지에 있는 파일을 비교, 스테이지에 있는 파일과 저장소에 있는 최신 커밋을 비교한다. 수정한 파일을 커밋하기 전에 최종적으로 검토할 수 있다. 파일이 수정되지 않으면, git diff를 입력해도 아무 것도 안뜬다. 작업 트리와 스테이지에 있는 파일 비교 (git diff) 파일을 하나 만들어서 스테이지에 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Git 정리 - 버전 관리 - diff">
+<meta property="og:description" content="변경 사항 확인하기 (git diff) 작업 트리에 있는 파일과 스테이지에 있는 파일을 비교, 스테이지에 있는 파일과 저장소에 있는 최신 커밋을 비교한다. 수정한 파일을 커밋하기 전에 최종적으로 검토할 수 있다. 파일이 수정되지 않으면, git diff를 입력해도 아무 것도 안뜬다. 작업 트리와 스테이지에 있는 파일 비교 (git diff) 파일을 하나 만들어서 스테이지에 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/6/12F34G.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 정리 - 버전 관리 - diff">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff">
+<meta name="twitter:description" content="변경 사항 확인하기 (git diff) 작업 트리에 있는 파일과 스테이지에 있는 파일을 비교, 스테이지에 있는 파일과 저장소에 있는 최신 커밋을 비교한다. 수정한 파일을 커밋하기 전에 최종적으로 검토할 수 있다. 파일이 수정되지 않으면, git diff를 입력해도 아무 것도 안뜬다. 작업 트리와 스테이지에 있는 파일 비교 (git diff) 파일을 하나 만들어서 스테이지에 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/6/12F34G.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Git 정리 - 버전 관리 - diff – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/6/12F34G.jpg" alt="Git 정리 - 버전 관리 - diff">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - diff</h1>
+            <p class="post-date fade-in">2020-03-06 12:29</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="posts.like(414);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(414)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - diff&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="userFollow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>변경 사항 확인하기 (git diff)</h1>
+<p>작업 트리에 있는 파일과 스테이지에 있는 파일을 비교,
+스테이지에 있는 파일과 저장소에 있는 최신 커밋을 비교한다.
+수정한 파일을 커밋하기 전에 최종적으로 검토할 수 있다.</p>
+<p>파일이 수정되지 않으면,
+git diff를 입력해도 아무 것도 안뜬다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/6/vYmxdjCsSkGZNhc1xPZs.png" alt=""></p>
+<h3>작업 트리와 스테이지에 있는 파일 비교 (git diff)</h3>
+<p>파일을 하나 만들어서 스테이지에 올렸다.
+status에는 커밋을 하라며 수정된 파일을 초록색으로 보여준다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/6/rtYDcnC0m111VSOjcvBq.png" alt=""></p>
+<p>스테이지에 올라간 파일을 수정했다.
+status를 입력하면 test1.txt파일이 스테이징되지 않았다, 커밋할 수 있다고 나온다.
+이 상태에서 수정 내역을 알고 싶다면
+git diff를 사용한다.</p>
+<pre><code>git diff</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/XQIQOCYowcLnYuksXBNw.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/6/xiUczckx6XTyL2IMEZYQ.png" alt=""></p>
+<h3>스테이지와 저장소에 있는 파일 비교 (--staged)</h3>
+<p>저장소에 저장된 내역과 스테이지에 저장된 내역을 비교한다.</p>
+<pre><code>git diff --staged
+git diff --cached</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/HYHZem9jCywVwhrzL7ei.png" alt=""></p>
+<p>지금까지 진행 상황을 그림으로 그려보면 이렇다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/6/YS9F1G45pUnTE1RqIyGd.png" alt=""></p>
+<h3>뭔가 이상함</h3>
+<p>그리고 뭔가 이상한걸 발견했다.
+처음에 책에 나온대로 실습을 잘못해서인지.
+파일을 커밋하고, 작업 트리에서 수정을 했다.
+그리고 diff를 입력하니까.
+저장소에 저장된(커밋된) 파일과 작업트리에 저장된(스테이지에 올리지 않은) 파일을 diff한 결과를 보여준다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/6/BrVq2c35KoEcG9jeOZdF.png" alt=""></p>
+<p>그림으로 표현하면 이렇게 된다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/6/UyGMSN1ZA7KVNpGafBAm.png" alt=""></p>
+<h2>해결</h2>
+<p>찾아보니까</p>
+<p><code>git diff HEAD</code>가 있는데.
+tracked files을 비교한다.
+그래서 untracked files을 하나 만들고 diff를 해보니
+untracked files은 비교하지 않았다.
+당연한 이야기겠지만.(비교 대상이 없으니까)
+작업트리에서 변경한 파일과 비교할 파일이 스테이지에 없으면 저장소에 저장된 파일과 비교하는 것 같다.</p>
+<pre><code>git diff HEAD</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/FMzELSYqiDLjGoy31cLD.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/6/pIK7GmMDhTan75SbCrcm.png" alt=""></p>
+<h3>수정된 글자만 색 옵션주기 (--color-words)</h3>
+<p>diff는 한 글자만 수정이 되어도 수정된 줄을 전부 표시한다.
+이렇게 되면 어느 부분에서 수정되었는지 확실하게 알기 힘들다.
+수정된 부분을 확실히 알고 싶으면 --color-words를 사용한다.</p>
+<pre><code>git diff --color-words</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/Whp7CSJf0c1N77ge6VTD.png" alt=""></p>
+<h3>좀 더 명시적으로 표시하기 (--word-diff)</h3>
+<p>--color-words보다 좀 더 확실하게 구분하고 싶다면.</p>
+<pre><code>git diff --word-diff</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/QyupoK7Bqbdr3NYmdm5z.png" alt=""></p>
+<h1>마치며</h1>
+<h1>참고문헌</h1>
+<blockquote>
+<p>[Git] git diff 명령어를 통한 변경 내용 보기, "<a href="https://dololak.tistory.com/308">https://dololak.tistory.com/308</a>", [코끼리를 냉장고에 넣는 방법]</p>
+<p>git-diff Documentation, "<a href="https://git-scm.com/docs/git-diff">https://git-scm.com/docs/git-diff</a>", [git]</p>
+<p>Git - diff 사용하기, "<a href="http://hochulshin.com/git-diff/">http://hochulshin.com/git-diff/</a>", [Keep learning and keep sharing]</p>
+<p>git diff 에서 변경된 부분을 더 명확하게 보는 방법, "<a href="https://blog.outsider.ne.kr/1011">https://blog.outsider.ne.kr/1011</a>", [Outsider's Dev Story]</p>
+</blockquote>
+        </article>
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@mildsalmon/topic/diff">diff</a></li>
+            
+            <li><a href="/@mildsalmon/topic/git">git</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
+            
+        </ul>
+        
+            <div class="my-4 text-center noto">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
+            'Git' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-log?series=git">
+                <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - log
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="2iBBG8wCF3bqgH5uoAlsIBlEZ5x7acLign5J6BLPdXtvPkAPABbUKatMTyIjYW8t">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/3/3/184G92.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94">Git 정리 - 기초, 개요</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/3/2/12xqYx.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">한라대학교 공지 알림 봇 제작기 (7)  - 유지보수</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@mildsalmon/crontab"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/26/20KGDT.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/crontab">crontab</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+
+
+    
+</body>
+</html>
