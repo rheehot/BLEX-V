@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다. 맨날 &#39;해야지 해야지&#39; 하면서 &#39;해야지&#39;만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 해야지! 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 …">
+<meta property="og:url" content="https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)">
+<meta property="og:description" content="2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다. 맨날 &#39;해야지 해야지&#39; 하면서 &#39;해야지&#39;만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 해야지! 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1">
+<meta name="twitter:description" content="2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다. 맨날 &#39;해야지 해야지&#39; 하면서 &#39;해야지&#39;만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 해야지! 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543) – baealex</title>
+</head>
+<body>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="posts.like(419);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(419)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)&url=https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'러스트 박살내기(?)' 시리즈</span>러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)</h1>
+        <p class="post-date">
+            2020-03-07 10:01
+            <span>(Last Update: 2020-03-07 18:03)<span></span></span></p>
+        
+        
+        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="userFollow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><img src="https://static.blex.kr/image/2020/3/6/S7aQtmtbLZ44EofMfAg0.png" alt=""></p>
+<div class="p-4 noto bg-border-purple bg-light">
+2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다.
+</div>
+<p><br></p>
+<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/6/2KaTZCwYBtf5aw2Yi4qK.mp4" type="video/mp4"></video>
+<p><br></p>
+<p>맨날 '해야지 해야지' 하면서 '해야지'만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 <em>해야지!</em> 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 올린다! 차후엔 러스트를 이용해서 실사용 가능한 서비스를 만들고 싶다. 기존것을 러스트로 바꿔보던지. 이유는 없다 그냥 재밌어 보이기 때문에 도전하는 것이다!</p>
+<p><br></p>
+<h4>두 수 비교하기</h4>
+<ul>
+<li><a href="https://www.acmicpc.net/problem/1330">https://www.acmicpc.net/problem/1330</a></li>
+</ul>
+<p>첫째 줄에 다음 세 가지 중 하나를 출력한다.</p>
+<ul>
+<li>A가 B보다 큰 경우에는 '&gt;'를 출력한다.</li>
+<li>A가 B보다 작은 경우에는 '&lt;'를 출력한다.</li>
+<li>A와 B가 같은 경우에는 '=='를 출력한다.</li>
+</ul>
+<p>입력과 비교, 출력을 수행하는 아주 기초적이면서 훌륭한 문제라고 생각한다.</p>
+<pre><code class="language-rust">use std::io;
+
+fn main() {
+    let mut input_number = String::new();
+
+    io::stdin().read_line(&amp;mut input_number)
+        .expect("Falied to read line");
+}</code></pre>
+<p>입력은 위와같이 받았던 걸로 기억하는데 스플릿은 어떻게 하는거지?</p>
+<p><img src="https://static.blex.kr/image/2020/3/6/Y6ziy8i5P8CQdH9Oihi8.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/6/Mn4ewguZRRVZpm3PgD4F.jpeg" alt=""></p>
+<pre><code class="language-rust">let split_input_number = input_number.split(' ');
+for number in split_input_number {
+    println!("{}", number);
+}</code></pre>
+<p>문서가 어려워 보였던거지 사실은 일반적인 언어들과 비슷하게 위와같이 잘라낼 수 있다. 다만 참고한 스택오버플로에선 <code>mut</code>로 선언하였는데 컴파일시 <code>mut</code>로 선언한 것이 위험하다고 알려줬다. 하긴 스플릿된 변수를 굳이 <code>mut</code>로 선언할 필요는 없어보이긴 한다.</p>
+<pre><code class="language-rust">use std::io;
+
+fn main() {
+    let mut input_number = String::new();
+
+    io::stdin().read_line(&amp;mut input_number)
+        .expect("Falied to read line");
+
+    let split_input_number = input_number.split(' ');
+    for number in split_input_number {
+        println!("{}", number);
+    }
+}</code></pre>
+<pre><code>45 21
+45
+21</code></pre>
+<p>이제 위와같이 두개의 숫자를 분할하였으니 비교를 진행하자.</p>
+<p><br><br><br><br><br></p>
+<p>잠깐...</p>
+<p><br><br><br><br><br></p>
+<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/7/fz8x9FwK7BpPY1gZ3Ysf.mp4" type="video/mp4"></video>
+<p><code>split_input_number</code>에 어떻게... 접근하는 거지...</p>
+<pre><code class="language-rust">use std::io;
+
+fn main() {
+    let mut input_number = String::new();
+
+    io::stdin().read_line(&amp;mut input_number)
+        .expect("Falied to read line");
+
+    let strings: Vec&lt;&amp;str&gt; = input_number.split_whitespace().collect();
+    println!("{:?}", strings);
+}</code></pre>
+<pre><code>45 21
+["45", "21"]</code></pre>
+<p>스플릿한 결과가 <code>iterator</code>를 반환하므로 아까 위와같이 <code>for i in items</code>로 사용한 거였다. 이걸 배열로 받으려면 위와같이 <code>collect</code>를 사용해서 얻어야 한다고 설명한다. 이제 형변환을 해줘야 할 차례!</p>
+<pre><code class="language-rust">use std::io;
+
+fn main() {
+    let mut input_number = String::new();
+
+    io::stdin().read_line(&amp;mut input_number)
+        .expect("Falied to read line");
+
+    let numbers: Vec&lt;&amp;str&gt; = input_number.split_whitespace().collect();
+
+    let number_a = match numbers[0].parse::&lt;i32&gt;() {
+        Ok(i) =&gt; i,
+        Err(_e) =&gt; {
+            -1
+        }
+    };
+    let number_b = match numbers[1].parse::&lt;i32&gt;() {
+        Ok(i) =&gt; i,
+        Err(_e) =&gt; {
+            -1
+        }
+    };
+    println!("{}", number_a);
+    println!("{}", number_b);
+}</code></pre>
+<p>이제 비교만 해주면 끝이구나...</p>
+<pre><code class="language-rust">use std::io;
+use std::cmp::Ordering;
+
+fn main() {
+    let mut input_number = String::new();
+
+    io::stdin().read_line(&amp;mut input_number)
+        .expect("Falied to read line");
+
+    let numbers: Vec&lt;&amp;str&gt; = input_number.split_whitespace().collect();
+
+    let number_a = match numbers[0].parse::&lt;i32&gt;() {
+        Ok(i) =&gt; i,
+        Err(_e) =&gt; {
+            -1
+        }
+    };
+    let number_b = match numbers[1].parse::&lt;i32&gt;() {
+        Ok(i) =&gt; i,
+        Err(_e) =&gt; {
+            -1
+        }
+    };
+    match number_a.cmp(&amp;number_b) {
+        Ordering::Less      =&gt; println!("&lt;"),
+        Ordering::Greater   =&gt; println!("&gt;"),
+        Ordering::Equal     =&gt; {
+            println!("==");
+        },
+    }
+}</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/7/H5BvVqfzksZJvkpfu4OJ.png" alt=""></p>
+<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/7/E5Ag1GJN5aHD3VJy21DI.mp4" type="video/mp4"></video>
+<p>난생처음 러스트로 문제를 풀어보았다. 문법 적응이 너무 안된다. 한문제를 더 풀어보자.</p>
+<p><br></p>
+<h4>상근날드</h4>
+<ul>
+<li><a href="https://www.acmicpc.net/problem/5543">https://www.acmicpc.net/problem/5543</a></li>
+</ul>
+<p>가장 적응이 안되는 문법은 <code>cmp</code>와 <code>Ordering</code>이다. 러스트에는 <code>if</code>문이 없는건가?</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/rust-by-example/index.html">https://doc.rust-lang.org/rust-by-example/index.html</a></li>
+</ul>
+<p>를 찾다가 위와같이 문법이 정리된 페이지를 발견했다. 싹 정리 되있어서 찾아보고 싶은건 금방 찾아볼 수 있겠다. 여하지간 <code>if/else</code>님께서도 아주 잘 계셨다. 왜 튜토리얼에선 <code>if/else</code>가 아닌 <code>cmp</code>와 <code>Ordering</code>을 먼저 알려준;</p>
+<p>여하지간 상근날드라는 문제는 5개의 입력을 받는데 3개는 햄버거 가격이고 2개는 음료수 가격이다 각각 물건중 저렴한 물건을 구매하여 합산한 가격에 50원을 빼는 문제다. 배열과 반복문 조건문을 활용해야 하는 간단한 문제다.</p>
+<pre><code class="language-rust">use std::io;
+
+fn input_int() -&gt; i32 {
+    let mut temp_str = String::new();
+    io::stdin().read_line(&amp;mut temp_str)
+        .expect("Falied to read line");
+    let result = match temp_str.trim().parse::&lt;i32&gt;() {
+        Ok(i) =&gt; i,
+        Err(_e) =&gt; {
+            -1
+        }
+    };
+    return result;
+}</code></pre>
+<p>정수 입력 받는게 귀찮아서 위와같이 함수로 만들었다.</p>
+<pre><code class="language-rust">fn main() {
+    let mut menus: [i32; 5] = Default::default();
+
+    let mut optional = Some(0);
+    while let Some(i) = optional {
+        if i &lt; menus.len() {
+            optional = Some(i + 1);
+            menus[i] = input_int()
+        } else {
+            optional = None;
+        }
+    }
+    let bergers = &amp;menus[0 .. 3];
+    let drinks = &amp;menus[3 .. 5];
+
+    println!("{:?}", bergers);
+    println!("{:?}", drinks);
+}</code></pre>
+<p>진입점에선 위와같이 루프를 돌리며 메뉴 배열에 값을 채우고 버거와 음료를 나눠주었다. 이제 이걸 정렬해서 앞에것만 가져오려고 하였더만 정렬을 사용하려면 백터로 선언하는게 일반적인 것 같다.</p>
+<pre><code class="language-rust">let mut bergers = vec![&amp;menus[3 .. 5]];
+bergers[0].sort(); // Error
+
+let mut bergers = Vec::new();
+bergers.extend(&amp;mut menus[0 .. 3].iter().cloned());
+bergers.sort();</code></pre>
+<p>백터를 생성하면서 <code>munus</code>를 넣어주려 했더니 2차원 배열로 만들어지고 정렬하려고 시도하자 <code>mut</code> 변수가 아니라고 오류를 뿜어냈다. 그래서 위와같이 작성하였다.</p>
+<pre><code class="language-rust">use std::io;
+
+fn input_int() -&gt; i32 {
+    let mut temp_str = String::new();
+    io::stdin().read_line(&amp;mut temp_str)
+        .expect("Falied to read line");
+    let result = match temp_str.trim().parse::&lt;i32&gt;() {
+        Ok(i) =&gt; i,
+        Err(_e) =&gt; {
+            -1
+        }
+    };
+    return result;
+}
+
+fn main() {
+    let mut menus: [i32; 5] = Default::default();
+
+    let mut optional = Some(0);
+    while let Some(i) = optional {
+        if i &lt; menus.len() {
+            optional = Some(i + 1);
+            menus[i] = input_int()
+        } else {
+            optional = None;
+        }
+    }
+
+    let mut bergers = Vec::new();
+    bergers.extend(&amp;mut menus[0 .. 3].iter().cloned());
+    bergers.sort();
+
+    let mut drinks = Vec::new();
+    drinks.extend(&amp;mut menus[3 .. 5].iter().cloned());
+    drinks.sort();
+
+    println!("{:?}", bergers[0] + drinks[0] - 50);
+}</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/7/38x2udWbe61Yq7Vj7sp2.png" alt=""></p>
+<p>파이썬이면 5줄이면 짤 코드가 이렇게 길어지니 왠지 바보가 된 느낌이다. 이 또한 문법이 익숙해 지면서 차차 나아질 것이라 생각된다. 오늘은 러스트의 기본기(?)를 다졌으니 다음에는 파이썬으로 풀었던 코드를 러스트로 바꿔보는 시도를 해봐야겠다.</p>
+        </article>
+        
+        
+        <ul class="tag-list">
+            
+            <li><a href="/@baealex/topic/programing">programing</a></li>
+            
+            <li><a href="/@baealex/topic/rustlang">rustlang</a></li>
+            
+        </ul>
+        
+            <div class="my-4 text-center noto">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%B0%95%EC%82%B4%EB%82%B4%EA%B8%B0" class="text-decoration-none deep-dark">
+            '러스트 박살내기(?)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust?series=러스트-박살내기">
+                <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>러스트 언어(rust-lang)의 특징 Hello, Rust!
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+
+<div id="comment" class="mt-5">
+    
+        
+        <div id="comment-empty" class="comment-list">
+            <p>작성된 댓글이 없습니다!</p>
+        </div>
+        
+    
+</div>
+
+
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="aR3PXo1YT3E3hPUg3eTwnQB8SFB9bKsMpjrg28eZ9MeqZQD5BpS42JFQcxVhkyTV">
+    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+    
+
+</div>
+</div>
+<div class="rel-posts">
+    <div class="container pt-4 pb-2">
+        <div class="header-title">
+            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
+        </div>
+        <div class="row">
+        
+            <div class="col-md-4">
+                <a href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-1-%EA%B8%B0%EC%B4%88-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4-%EC%96%B4%EB%96%A4%EA%B1%B0%EB%B6%80%ED%84%B0-%EB%B0%B0%EC%9A%B0%EC%A7%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/3/baealex/14_10_49.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-1-%EA%B8%B0%EC%B4%88-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4-%EC%96%B4%EB%96%A4%EA%B1%B0%EB%B6%80%ED%84%B0-%EB%B0%B0%EC%9A%B0%EC%A7%80">C++ 튜토리얼 1. 기초 :: 프로그래밍 언어 어떤거부터 배우지?</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%99%80-%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%99%80-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B4%80%EA%B3%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/4/15D3r3.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%99%80-%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%99%80-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B4%80%EA%B3%84">사용자와 시리즈와 포스트의 관계</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 3장(이론)</a></h5>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
+
+
+    
+</body>
+</html>
