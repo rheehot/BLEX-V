@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>test – 최웅</title>
@@ -83,10 +83,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(296);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(296);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(296)">0<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(296)">0<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -117,7 +117,7 @@
             2020-01-13 14:19</p>
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@%EC%B5%9C%EC%9B%85">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/assets/images/default-avatar.jpg)"></div>
@@ -130,7 +130,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-blogger-gray">
                 </li>
-                <li onclick="userFollow('최웅')">
+                <li onclick="User.follow('최웅')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
                 </li>
             </ul>
@@ -158,26 +158,31 @@
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="heloEAhQlG10PvvBOC7R0U5EZAy9dIUQuvdy3dnNTgZTZwIGB29ri3175JEA8r8E">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-        <div id="comment-empty" class="comment-list">
-            <p>작성된 댓글이 없습니다!</p>
         </div>
-        
-    
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="0eNzI5V7tRJJJD9XlgCZ3sFOEJ5b6biUBgElwzZb64DBbEtNoyns6amJQP1PKmR9">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -200,9 +205,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -218,8 +224,6 @@
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
 
     

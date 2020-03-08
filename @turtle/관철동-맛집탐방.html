@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>관철동 점심 맛집 탐방 – turtle</title>
@@ -94,10 +94,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(86);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(86);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(86)">0<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(86)">0<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -124,7 +124,7 @@
     <div class="col-lg-8">
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@turtle">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/kimdongho/8PIm.jpg)"></div>
@@ -139,7 +139,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-blogger-gray">
                 </li>
-                <li onclick="userFollow('turtle')">
+                <li onclick="User.follow('turtle')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
                 </li>
             </ul>
@@ -207,11 +207,16 @@
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
-        
-            <div>
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                    <div>
     <div class="comment-list">
         <a href="/@yoyounn18">
             
@@ -229,7 +234,7 @@
         <div class="mt-3 noto"><p>파불고기가 별미!</p></div>
         <ul class="none-list">
             <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="comment.like(48)">
+                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(48)">
                     <i class="fas fa-angle-up"></i> <span id="clc48">0</span>
                 </a>
             </li>
@@ -237,19 +242,19 @@
         </ul>
     </div>
 </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="B8zV6ZfXbvzuNsEvOUsMH8kUc7omUysAM0nuAw4AniQ4AOymw87ipYy0m9oXVeKn">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-    
+        </div>
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="IpWsBD7QBAWKn90lMFjkUuTnQjlYePkRLQJIon5ye7qqYEXDxICIjT0TFit6HfJv">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -258,17 +263,17 @@
         
             <div class="col-md-4">
                 <a href="/@turtle/%EC%98%88%EC%88%A0-%EC%9E%91%ED%92%88%EB%93%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/turtle/2019/11/19/16_d2Cm.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@turtle/%EC%98%88%EC%88%A0-%EC%9E%91%ED%92%88%EB%93%A4">예술 작품들</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@turtle/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EC%9D%98-%EC%9D%B4%ED%95%B4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/23/kimdongho/13_22_59.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@turtle/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EC%9D%98-%EC%9D%B4%ED%95%B4">#컴파일러의 이해</a></h5>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@turtle/%EC%98%88%EC%88%A0-%EC%9E%91%ED%92%88%EB%93%A4">예술 작품들</a></h5>
             </div>
         
             <div class="col-md-4">
                 <a href="/@turtle/board-dbms"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/23/kimdongho/14_20_33.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@turtle/board-dbms">Board DBMS</a></h5>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@turtle/board-dbms">Board DBMS</a></h5>
+            </div>
+        
+            <div class="col-md-4">
+                <a href="/@turtle/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EC%9D%98-%EC%9D%B4%ED%95%B4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/23/kimdongho/13_22_59.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@turtle/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EC%9D%98-%EC%9D%B4%ED%95%B4">#컴파일러의 이해</a></h5>
             </div>
         
         </div>
@@ -287,9 +292,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -305,10 +311,8 @@
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
 
 
     

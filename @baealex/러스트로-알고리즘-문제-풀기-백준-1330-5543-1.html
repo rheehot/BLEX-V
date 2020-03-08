@@ -25,14 +25,14 @@
 <meta name="description" content="2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다. 맨날 &#39;해야지 해야지&#39; 하면서 &#39;해야지&#39;만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 해야지! 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 …">
 <meta property="og:url" content="https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)">
+<meta property="og:title" content="Rust-Lang으로 알고리즘 문제 풀기 (기초 다지기)">
 <meta property="og:description" content="2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다. 맨날 &#39;해야지 해야지&#39; 하면서 &#39;해야지&#39;만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 해야지! 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 …">
 <meta property="og:site_name" content="BLEX">
 
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)">
+<meta name="twitter:title" content="Rust-Lang으로 알고리즘 문제 풀기 (기초 다지기)">
 <meta name="twitter:url" content="https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1">
 <meta name="twitter:description" content="2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다. 맨날 &#39;해야지 해야지&#39; 하면서 &#39;해야지&#39;만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 해야지! 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 …">
 
@@ -40,10 +40,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543) – baealex</title>
+    <title>Rust-Lang으로 알고리즘 문제 풀기 (기초 다지기) – baealex</title>
 </head>
 <body>
     
@@ -83,10 +83,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(419);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(419);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(419)">0<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(419)">0<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -97,7 +97,7 @@
             </li>
             
             <li class="mx-4">
-                <a target="_blank" href="https://twitter.com/intent/tweet?text=러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)&url=https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=Rust-Lang으로 알고리즘 문제 풀기 (기초 다지기)&url=https://blex.me/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fab fa-twitter"></i>
                 </a>
             </li>
@@ -112,13 +112,13 @@
     </div>
     <div class="col-lg-8">
         
-        <h1 class="post-headline"><span class="post-series">'러스트 박살내기(?)' 시리즈</span>러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)</h1>
+        <h1 class="post-headline"><span class="post-series">'러스트 박살내기(?)' 시리즈</span>Rust-Lang으로 알고리즘 문제 풀기 (기초 다지기)</h1>
         <p class="post-date">
             2020-03-07 10:01
-            <span>(Last Update: 2020-03-07 18:03)<span></span></span></p>
+            <span>(Last Update: 2020-03-08 23:47)<span></span></span></p>
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@baealex">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
@@ -134,7 +134,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-master-purple">
                 </li>
-                <li onclick="userFollow('baealex')">
+                <li onclick="User.follow('baealex')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
                 </li>
             </ul>
@@ -374,9 +374,9 @@ fn main() {
         
         <ul class="tag-list">
             
-            <li><a href="/@baealex/topic/programing">programing</a></li>
+            <li><a href="/@baealex/topic/%EB%9F%AC%EC%8A%A4%ED%8A%B8">러스트</a></li>
             
-            <li><a href="/@baealex/topic/rustlang">rustlang</a></li>
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
             
         </ul>
         
@@ -392,12 +392,18 @@ fn main() {
         
             <a class="text-decoration-none deep-dark" href="/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4rust-lang%EC%9D%98-%ED%8A%B9%EC%A7%95-hello-rust?series=러스트-박살내기">
                 <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>러스트 언어(rust-lang)의 특징 Hello, Rust!
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Rust-Lang의 특징 Hello, Rust!
                 </div>
             </a>
         
         </div>
         <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/rust-lang%EC%9C%BC%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-k%EB%B2%88%EC%A7%B8-%EC%86%8C%EC%88%98?series=러스트-박살내기">
+                <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)
+                </div>
+            </a>
         
         </div>
     </div>
@@ -408,26 +414,31 @@ fn main() {
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="TR1LK8WronIzoXMFy1iC55Y0uuX98fX0qObtGUaToZYStjA8ZKXYInHhFZn9I4LG">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-        <div id="comment-empty" class="comment-list">
-            <p>작성된 댓글이 없습니다!</p>
         </div>
-        
-    
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="aR3PXo1YT3E3hPUg3eTwnQB8SFB9bKsMpjrg28eZ9MeqZQD5BpS42JFQcxVhkyTV">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -435,18 +446,18 @@ fn main() {
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-1-%EA%B8%B0%EC%B4%88-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4-%EC%96%B4%EB%96%A4%EA%B1%B0%EB%B6%80%ED%84%B0-%EB%B0%B0%EC%9A%B0%EC%A7%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/3/baealex/14_10_49.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/c-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-1-%EA%B8%B0%EC%B4%88-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4-%EC%96%B4%EB%96%A4%EA%B1%B0%EB%B6%80%ED%84%B0-%EB%B0%B0%EC%9A%B0%EC%A7%80">C++ 튜토리얼 1. 기초 :: 프로그래밍 언어 어떤거부터 배우지?</a></h5>
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 8장(이론)</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%99%80-%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%99%80-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B4%80%EA%B3%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/4/15D3r3.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%99%80-%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%99%80-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B4%80%EA%B3%84">사용자와 시리즈와 포스트의 관계</a></h5>
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/22/13saaI.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-1%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 1장(이론)</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 3장(이론)</a></h5>
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/24/20ltaD.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2">파이썬(Python) - 유전 알고리즘 - 가방 채우기 2</a></h5>
             </div>
         
         </div>
@@ -465,9 +476,10 @@ fn main() {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -483,8 +495,6 @@ fn main() {
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
 
     

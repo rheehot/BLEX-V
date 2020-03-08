@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>초콜릿 하트 드래곤 – mildsalmon</title>
@@ -94,10 +94,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(397);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(397);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(397)">0<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(397)">0<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -124,14 +124,14 @@
     <div class="col-lg-8">
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@mildsalmon">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
         
     </a>
     <div class="author-info">
-        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 90%</span></h4>
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 85%</span></h4>
             
             <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
             
@@ -139,7 +139,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-blogger-gray">
                 </li>
-                <li onclick="userFollow('mildsalmon')">
+                <li onclick="User.follow('mildsalmon')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
                 </li>
             </ul>
@@ -258,26 +258,31 @@
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="VcmMVqAulz7be0m9WZ7vaZ3CXHvkhGKRBo3fOmRk3ZoiLU4Jjo4yG03E8NQNTzJD">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-        <div id="comment-empty" class="comment-list">
-            <p>작성된 댓글이 없습니다!</p>
         </div>
-        
-    
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="droAUsEQifvNC660Xn3Eh879VwLK9fCPquS8rAutcTYro85pAonNa91mHPm9VBlI">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -286,17 +291,17 @@
         
             <div class="col-md-4">
                 <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/3/3/18ZHWT.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status">Git 정리 - 버전 관리 - init, status</a></h5>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-init-status">Git 정리 - 버전 관리 - init, status</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/3/3/184G92.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94">Git 정리 - 기초, 개요</a></h5>
+                <a href="/@mildsalmon/requests"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/15/12WiKy.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@mildsalmon/requests">Requests</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/3/6/12F34G.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff">Git 정리 - 버전 관리 - diff</a></h5>
+                <a href="/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/3/5/22gBdW.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석</a></h5>
             </div>
         
         </div>
@@ -315,9 +320,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -333,10 +339,8 @@
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
 
 
     

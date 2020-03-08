@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>BLEX - Log in</title>
@@ -62,7 +62,7 @@
     <div class="card p-3 col-lg-5 mx-auto">
         
         <form method="post" action="/login?next=">
-        <input type="hidden" name="csrfmiddlewaretoken" value="x7gsIsxLM4MB2LBE9c0TjGCUGUkfQsDh4fLS3TIkBKEx3GdaCwOyCSKqiTjqvtSH">
+        <input type="hidden" name="csrfmiddlewaretoken" value="1RmGn26WyommE80BDvqTpos7Yc7ZO3QITXC6WWC2Wb41LFOrAEzrjIBnzX4zFl50">
             <p><input type="text" name="username" autofocus="" maxlength="254" required="" id="id_username" class="form-control" placeholder="아이디" autocomplete="off"></p>
             <p><input type="password" name="password" id="id_password" required="" class="form-control" placeholder="비밀번호"></p>
             <p><a href="/signup">아직 회원이 아니신가요?</a></p>
@@ -106,9 +106,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

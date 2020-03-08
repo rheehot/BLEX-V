@@ -27,6 +27,7 @@
 <meta property="og:title" content="Node.js">
 <meta property="og:description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …">
 <meta property="og:site_name" content="BLEX">
+
 <meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/13/21gvYY.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="BLEX">
@@ -34,15 +35,17 @@
 <meta name="twitter:title" content="Node.js">
 <meta name="twitter:url" content="https://blex.me/thread/node">
 <meta name="twitter:description" content="var express = require(&#39;express&#39;); var app = express(); var http = require(&#39;http&#39;).Server(app); const fs = require(&#39;fs&#39;); const util = require(&#39;util&#39;); const readFile = util.promisify(fs.readFile); app.get(&#39;/&#39;, async (req, res) =&amp;gt; { var text = await readFile(&#39;hello.txt&#39;, &#39;utf8&#39;); res.json({ text: text, }) }) http.listen(3000, () =&amp;gt; { console.log(&#39;SERVER RUN IN PORT 3000&#39;); …">
+
 <meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/13/21gvYY.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>Node.js –  BLEX</title>
+    <title>Node.js –
+BLEX</title>
 </head>
 <body>
     
@@ -74,46 +77,49 @@
     <div class="container">
         <div class="content">
         
-<style>.container .col-md-10 {padding: 0;}</style>
-<div class="col-md-10 mx-auto">
-  <div class="thread-card">
+<div class="col-md-12 px-0">
     
-    <img src="https://static.blex.me/title/baealex/2020/2/13/21gvYY.jpg" alt="Node.js">
+    <img style="width: 100%;" src="https://static.blex.me/title/baealex/2020/2/13/21gvYY.jpg" alt="Node.js">
     
-    <div class="p-4">
-      <h1 class="post-headline">Node.js</h1>
-      <p class="post-date">3주, 2일전 새로운 스토리가 추가됨</p>
-      
-      
-      <ul class="tag-list">
-          
-      </ul>
-      
+    <div class="text-center mt-5">
+        <h1 class="post-headline">Node.js</h1>
+        <p class="post-date">3주, 3일전 새로운 스토리가 추가됨</p>
+        
     </div>
+</div>
+<div class="col-md-8 mx-auto mt-5 px-0">
+  
+    
+  <div class="bg-border-purple vivid-purple noto p-3">
+    로그인 후 스토리를 작성할 수 있습니다.
   </div>
-  
-    
-    <div class="thread-card p-4">로그인 후 이용하세요.</div>
     
   
-  <article id="story" class="noto">
+  <article id="story" class="noto mt-3">
     
     <div id="story-101">
-      <div class="thread-card p-4">
-    <p class="serif"><strong>async await</strong></p>
-    <a href="/@baealex">
-        
-        <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
-        
-    </a>
-    <a class="font-weight-bold deep-dark" href="/@baealex">@baealex</a>
-    <br>
-    <small>2020-02-13 16:30(Last Update: 2020-02-13 20:44)</small>
-    <ul class="none-list">
-    
-    </ul>
-    <div class="article">
-        <pre><code class="language-js">var express = require('express');
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">async await</div>
+                    <div class="h7 text-muted">@baealex</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>3주, 3일 전 (edited)</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <pre><code class="language-js">var express = require('express');
 var app     = express();
 var http    = require('http').Server(app);
 
@@ -137,6 +143,11 @@ http.listen(3000, () =&gt; {
 <p>위와같이 사용하여 그대로 fs.readFile에 async await을 적용하면 된다.</p>
 <pre><code>{"text":"hello world!"}</code></pre>
 <p>비동기 통신 별거 없구먼 😒</p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
     </div>
 </div>
     </div>
@@ -156,9 +167,10 @@ http.listen(3000, () =&gt; {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -174,7 +186,13 @@ http.listen(3000, () =&gt; {
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/thread.js?version=1.0.50"></script>
+<script src="https://static.blex.me/assets/library/InfiniteScroll.js?version=1.0.52"></script>
+<script type="text/javascript">
+  var postWrapperId = 'story';
+  var paginatePath = '/thread/node?page=';
+  var lastPage = 1;
+  new InfiniteScroll(paginatePath, postWrapperId, lastPage);
+</script>
 
     
 </body>

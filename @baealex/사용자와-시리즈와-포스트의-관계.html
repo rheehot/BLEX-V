@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>사용자와 시리즈와 포스트의 관계 – baealex</title>
@@ -94,10 +94,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(268);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(268);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(268)">1<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(268)">1<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -124,7 +124,7 @@
     <div class="col-lg-8">
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@baealex">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
@@ -140,7 +140,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-master-purple">
                 </li>
-                <li onclick="userFollow('baealex')">
+                <li onclick="User.follow('baealex')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
                 </li>
             </ul>
@@ -203,9 +203,9 @@
         
         <ul class="tag-list">
             
-            <li><a href="/@baealex/topic/blex">blex</a></li>
+            <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></li>
             
-            <li><a href="/@baealex/topic/devnote">devnote</a></li>
+            <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
             
         </ul>
         
@@ -243,11 +243,16 @@
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
-        
-            <div>
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                    <div>
     <div class="comment-list">
         <a href="/@mildsalmon">
             
@@ -256,7 +261,7 @@
         </a>
         <a class="font-weight-bold deep-dark" href="/@mildsalmon">mildsalmon</a>
         <br>
-        <small>3일, 23시간전</small>
+        <small>4일, 23시간전</small>
         <ul class="none-list">
         
             
@@ -265,7 +270,7 @@
         <div class="mt-3 noto"><p>다른 곳에는 없는 다대다 방식이 blex만의 개성이라고 생각할 수도 있겠네요 !</p></div>
         <ul class="none-list">
             <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="comment.like(222)">
+                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(222)">
                     <i class="fas fa-angle-up"></i> <span id="clc222">1</span>
                 </a>
             </li>
@@ -273,8 +278,8 @@
         </ul>
     </div>
 </div>
-        
-            <div>
+                
+                    <div>
     <div class="comment-list">
         <a href="/@baealex">
             
@@ -283,7 +288,7 @@
         </a>
         <a class="font-weight-bold deep-dark" href="/@baealex">baealex</a>
         <br>
-        <small>3일, 23시간전</small>
+        <small>4일, 23시간전</small>
         <ul class="none-list">
         
             
@@ -292,7 +297,7 @@
         <div class="mt-3 noto"><p>@mildsalmon 저도 그렇게 생각했는데 생각보다 쓸일이 없더라구요 😂</p></div>
         <ul class="none-list">
             <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="comment.like(223)">
+                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(223)">
                     <i class="fas fa-angle-up"></i> <span id="clc223">0</span>
                 </a>
             </li>
@@ -300,19 +305,19 @@
         </ul>
     </div>
 </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="FE3L8EBf7EstvvXM8KA7edWsQlijHmmJNPRa1OZGsPDy6AYNEl2FQGJdjYbjsVRq">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-    
+        </div>
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="GNvnhMoxzNTjtJPDwr0B5iuwwTTxSx6b6DuKstFrrm1xWVtOcJqhq1gS0uv33ESj">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -320,18 +325,18 @@
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A4%80%EB%B9%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/17/0bQj6.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A4%80%EB%B9%84">개발자 취준생의 포트폴리오 준비</a></h5>
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 13장(이론)</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/17/23ejv7.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%A6%AC">파이썬으로 구현한 자료구조 - 트리</a></h5>
+                <a href="/@baealex/%EB%82%98%EB%A8%B8%EC%A7%80-%EA%B3%B5%EB%B6%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2019/11/15/20_8af4.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%82%98%EB%A8%B8%EC%A7%80-%EA%B3%B5%EB%B6%80">나머지 공부</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/17/23NBxM.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%B2%AB-%EC%B6%9C%EA%B7%BC%EC%9D%84-%EC%A4%80%EB%B9%84%ED%95%98%EB%8A%94-%EC%9E%90%EC%84%B8">첫 출근을 준비하는 자세</a></h5>
+                <a href="/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/22/133ieE.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5">React로 Hello World 출력</a></h5>
             </div>
         
         </div>
@@ -350,9 +355,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -368,10 +374,8 @@
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
 
 
     

@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>#Microsoft Azure을 2년동안 무료로 사용해보자!!(학생 전용) – DeCrazy</title>
@@ -94,10 +94,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(92);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(92);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(92)">0<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(92)">0<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -124,7 +124,7 @@
     <div class="col-lg-8">
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@DeCrazy">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/DeCrazy/J5kg.jpg)"></div>
@@ -139,7 +139,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-blogger-gray">
                 </li>
-                <li onclick="userFollow('DeCrazy')">
+                <li onclick="User.follow('DeCrazy')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
                 </li>
             </ul>
@@ -175,11 +175,16 @@
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
-        
-            <div>
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                    <div>
     <div class="comment-list">
         <a href="/@baealex">
             
@@ -197,7 +202,7 @@
         <div class="mt-3 noto"><p>와 정말 유용하다</p></div>
         <ul class="none-list">
             <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="comment.like(62)">
+                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(62)">
                     <i class="fas fa-angle-up"></i> <span id="clc62">0</span>
                 </a>
             </li>
@@ -205,19 +210,19 @@
         </ul>
     </div>
 </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="vnK6uh9S2mTTmX8F8tlzxvwcXNCni35qF77S1h6JZwdm1ODIDaFCEkZOXh9Cepa3">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-    
+        </div>
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="3pDw4dvENFWlwgfFZ9mBCzvqhoVqcsXFXMqPKqWr21Pq1GZl5hL66r7GIMJkfDL9">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -226,17 +231,17 @@
         
             <div class="col-md-4">
                 <a href="/@DeCrazy/%EA%B2%8C%EC%9E%84%EC%9D%98-%EA%B0%95%ED%99%94%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B6%94%EC%82%B0%ED%95%B4%EB%B3%B4%EC%9E%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/%EA%B2%8C%EC%9E%84%EC%9D%98-%EA%B0%95%ED%99%94%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B6%94%EC%82%B0%ED%95%B4%EB%B3%B4%EC%9E%90">게임의 강화비용을 추산해보자!(수정중)</a></h5>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@DeCrazy/%EA%B2%8C%EC%9E%84%EC%9D%98-%EA%B0%95%ED%99%94%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B6%94%EC%82%B0%ED%95%B4%EB%B3%B4%EC%9E%90">게임의 강화비용을 추산해보자!(수정중)</a></h5>
             </div>
         
             <div class="col-md-4">
                 <a href="/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/25/DeCrazy/12_18_42.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8">[3분꿀팁]Python 다차원 리스트</a></h5>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@DeCrazy/3%EB%B6%84%EA%BF%80%ED%8C%81python-%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8">[3분꿀팁]Python 다차원 리스트</a></h5>
             </div>
         
             <div class="col-md-4">
                 <a href="/@DeCrazy/microsoft-azure%EB%A1%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%9E%84%EB%8C%80%ED%95%B4%EB%B3%B4%EC%9E%90"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/25/DeCrazy/10_24_25.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@DeCrazy/microsoft-azure%EB%A1%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%9E%84%EB%8C%80%ED%95%B4%EB%B3%B4%EC%9E%90">#Microsoft Azure로 서버를 임대해보자</a></h5>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@DeCrazy/microsoft-azure%EB%A1%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%9E%84%EB%8C%80%ED%95%B4%EB%B3%B4%EC%9E%90">#Microsoft Azure로 서버를 임대해보자</a></h5>
             </div>
         
         </div>
@@ -255,9 +260,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -273,10 +279,8 @@
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
 
 
     

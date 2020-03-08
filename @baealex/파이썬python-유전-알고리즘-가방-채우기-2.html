@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>파이썬(Python) - 유전 알고리즘 - 가방 채우기 2 – baealex</title>
@@ -94,10 +94,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(383);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(383);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(383)">0<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(383)">0<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -124,7 +124,7 @@
     <div class="col-lg-8">
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@baealex">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
@@ -140,7 +140,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-master-purple">
                 </li>
-                <li onclick="userFollow('baealex')">
+                <li onclick="User.follow('baealex')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
                 </li>
             </ul>
@@ -300,15 +300,15 @@ while(1):
         
         <ul class="tag-list">
             
-            <li><a href="/@baealex/topic/ai">ai</a></li>
+            <li><a href="/@baealex/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li>
             
-            <li><a href="/@baealex/topic/algorithm">algorithm</a></li>
+            <li><a href="/@baealex/topic/%EC%9C%A0%EC%A0%84">유전</a></li>
             
-            <li><a href="/@baealex/topic/genetic">genetic</a></li>
+            <li><a href="/@baealex/topic/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5">인공지능</a></li>
             
-            <li><a href="/@baealex/topic/programing">programing</a></li>
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
             
-            <li><a href="/@baealex/topic/python">python</a></li>
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
             
         </ul>
         
@@ -340,26 +340,31 @@ while(1):
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="2tYt4qvet98XHgfMKAe3G9gqyRA4gRty1QHOpDiQEx5ukFywqMo34I1wJU0VPcKF">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-        <div id="comment-empty" class="comment-list">
-            <p>작성된 댓글이 없습니다!</p>
         </div>
-        
-    
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="4h6mxvoFyJTlqenyevFoVcuXcwUy3HWUttLt5s4P4POJIUjTOwzyBrwLKeMFLS6c">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -367,18 +372,18 @@ while(1):
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/11/23EZWK.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">스레드와 스토리에 관하여</a></h5>
+                <a href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/1/3mZXf.webp);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">사용자 댓글 태그 알고리즘</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EA%B0%88-%EA%B2%83%EC%9D%B4%EB%83%90-%EB%A7%90-%EA%B2%83%EC%9D%B4%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EA%B0%88-%EA%B2%83%EC%9D%B4%EB%83%90-%EB%A7%90-%EA%B2%83%EC%9D%B4%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4">스타트업 갈 것이냐 말 것이냐 그것이 문제로다</a></h5>
+                <a href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/18/0ddHo.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EC%B7%A8%EC%A4%80%EC%83%9D%EC%9D%B4-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84">개발자 취준생의 기술면접 준비</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1">러스트로 알고리즘 문제 풀기 (백준 : 1330, 5543)</a></h5>
+                <a href="/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/1/3iNVF.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88">팀블로그 고안</a></h5>
             </div>
         
         </div>
@@ -397,9 +402,10 @@ while(1):
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -415,10 +421,8 @@ while(1):
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
 
 
     

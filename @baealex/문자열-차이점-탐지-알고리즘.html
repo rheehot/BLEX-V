@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>문자열 차이점 탐지 알고리즘 – baealex</title>
@@ -94,10 +94,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(266);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(266);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(266)">1<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(266)">1<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -124,7 +124,7 @@
     <div class="col-lg-8">
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@baealex">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
@@ -140,7 +140,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-master-purple">
                 </li>
-                <li onclick="userFollow('baealex')">
+                <li onclick="User.follow('baealex')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
                 </li>
             </ul>
@@ -269,9 +269,9 @@ for i in remove_common(old_text[0], new_text[0])['old']:
         
         <ul class="tag-list">
             
-            <li><a href="/@baealex/topic/blex">blex</a></li>
+            <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></li>
             
-            <li><a href="/@baealex/topic/devnote">devnote</a></li>
+            <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
             
         </ul>
         
@@ -309,11 +309,16 @@ for i in remove_common(old_text[0], new_text[0])['old']:
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
-        
-            <div>
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                    <div>
     <div class="comment-list">
         <a href="/@baealex">
             
@@ -331,7 +336,7 @@ for i in remove_common(old_text[0], new_text[0])['old']:
         <div class="mt-3 noto"><p>이 길은 내 길이 아니었다...</p></div>
         <ul class="none-list">
             <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="comment.like(185)">
+                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(185)">
                     <i class="fas fa-angle-up"></i> <span id="clc185">0</span>
                 </a>
             </li>
@@ -339,19 +344,19 @@ for i in remove_common(old_text[0], new_text[0])['old']:
         </ul>
     </div>
 </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="jfMl0PS6OoOzuioxm4JojU7HlAZNjUp2ou9BwufyzW6bkt7xZFMnpwPHa34vpPkg">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-    
+        </div>
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="UOqSh8Iw90w3yrUtOU5z7JLnrJBsrPYCoT9MAFo49BaCZnC6w7Xdn8jOhrym68Wp">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -359,18 +364,18 @@ for i in remove_common(old_text[0], new_text[0])['old']:
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/17/13GQvW.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8">파이썬으로 구현한 자료구조 - 연결 리스트</a></h5>
+                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-10%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-10%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 10장(이론)</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/24/20ltaD.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2">파이썬(Python) - 유전 알고리즘 - 가방 채우기 2</a></h5>
+                <a href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/10/1KwyV.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80">서비스 이용약관</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/10/1ewGe.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></h5>
+                <a href="/@baealex/skychat-%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/16/20Jvcf.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/skychat-%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80">SkyChat 개발일지</a></h5>
             </div>
         
         </div>
@@ -389,9 +394,10 @@ for i in remove_common(old_text[0], new_text[0])['old']:
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -407,10 +413,8 @@ for i in remove_common(old_text[0], new_text[0])['old']:
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
 
 
     

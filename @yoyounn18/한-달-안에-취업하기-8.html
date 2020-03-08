@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>한 달 안에 취업하기 #8 – yoyounn18</title>
@@ -94,10 +94,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="posts.like(319);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(319);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="posts.like(319)">1<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(319)">1<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -124,7 +124,7 @@
     <div class="col-lg-8">
         
         
-        <div class="row post-top-meta" onmousedown="distoryLatelyPosition()">
+        <div class="row post-top-meta">
     <a href="/@yoyounn18">
         
         <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/yoyounn18/BL4W.png)"></div>
@@ -139,7 +139,7 @@
                 <li>
                     <img src="https://img.shields.io/badge/-blogger-gray">
                 </li>
-                <li onclick="userFollow('yoyounn18')">
+                <li onclick="User.follow('yoyounn18')">
                     <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
                 </li>
             </ul>
@@ -236,26 +236,31 @@
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
     </div>
 </div>
+</div>
+</div>
 
-<div id="comment" class="mt-5">
-    
+<div class="mt-5 py-5 bg-light">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="6zvSnVOpjL23enjiHHtvJnP4ci6rbOD9lDAFOKOPauAxOeRCHcKn7Ba2T3BnckHn">
+            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
         
-        <div id="comment-empty" class="comment-list">
-            <p>작성된 댓글이 없습니다!</p>
         </div>
-        
-    
+    </div>
 </div>
-
-
-    
-    <input type="hidden" name="csrfmiddlewaretoken" value="A7MgbtjCiWcOQmnhceiC3LfViVtMiIXC3nzYzFth1R28fhgPC9d3irpPKWveQDOF">
-    <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-    
-
-</div>
-</div>
-<div class="rel-posts">
+<div class="rel-posts bg-theme">
     <div class="container pt-4 pb-2">
         <div class="header-title">
             <h4 class="serif">이 작성자가 게시한 다른 글</h4>
@@ -263,18 +268,18 @@
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@yoyounn18/reactjs-hover-%EB%B2%84%ED%8A%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/reactjs-hover-%EB%B2%84%ED%8A%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0">[React.js] Hover 버튼 만들기</a></h5>
+                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-17"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-17">한 달 안에 취업하기 #17</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-3"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/yoyounn18/2020/1/27/5kco9.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/%ED%95%9C-%EB%8B%AC-%EC%95%88%EC%97%90-%EC%B7%A8%EC%97%85%ED%95%98%EA%B8%B0-3">한 달 안에 취업하기 #3</a></h5>
+                <a href="/@yoyounn18/javascript-map-%EC%A0%95%EB%B3%B5%ED%95%98%EA%B8%B0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/yoyounn18/2020/1/29/7FdVZ.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@yoyounn18/javascript-map-%EC%A0%95%EB%B3%B5%ED%95%98%EA%B8%B0">Javascript Map 정복하기</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@yoyounn18/javscript-array-method-%EC%A0%95%EB%A6%AC"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/yoyounn18/2020/1/29/732qS.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="deep-dark" href="/@yoyounn18/javscript-array-method-%EC%A0%95%EB%A6%AC">Javscript Array Method 정리</a></h5>
+                <a href="/@yoyounn18/react-%EC%86%8C%EA%B0%9C-%EB%B0%8F-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC-react%EB%8A%94-%EC%99%9C-%EB%B9%A0%EB%A5%B4%EB%A9%B0-%EA%B0%81%EA%B4%91%EB%B0%9B%EB%8A%94-%EA%B8%B0%EC%88%A0%EC%9D%B8%EA%B0%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/11/yoyounn18/10_54_11.png);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@yoyounn18/react-%EC%86%8C%EA%B0%9C-%EB%B0%8F-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC-react%EB%8A%94-%EC%99%9C-%EB%B9%A0%EB%A5%B4%EB%A9%B0-%EA%B0%81%EA%B4%91%EB%B0%9B%EB%8A%94-%EA%B8%B0%EC%88%A0%EC%9D%B8%EA%B0%80">React 소개 및 작동 원리 (React는 왜 빠르며 각광받는 기술인가)</a></h5>
             </div>
         
         </div>
@@ -293,9 +298,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -311,10 +317,8 @@
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/posts.js?version=1.0.50"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.50"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
 
 
     

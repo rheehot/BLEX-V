@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.50">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>turtle (거북이)</title>
@@ -95,7 +95,7 @@
             <li>
                 <img src="https://img.shields.io/badge/-blogger-gray">
             </li>
-            <li onclick="userFollow('turtle')">
+            <li onclick="User.follow('turtle')">
                 <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
             </li>
         </ul>
@@ -141,9 +141,9 @@
                 
                 <li><a href="/@turtle/topic/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC">컴파일러<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@turtle/topic/dbms">dbms<span class="ns">(1)</span></a></li>
-                
                 <li><a href="/@turtle/topic/%EB%A7%9B%EC%A7%91">맛집<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@turtle/topic/dbms">dbms<span class="ns">(1)</span></a></li>
                 
             </ul>
             
@@ -261,9 +261,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/main.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/renderer.js?version=1.0.50"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/notify.js?version=1.0.50"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -279,7 +280,6 @@
     
 
 
-<script src="https://static.blex.me/assets/js/user.js?version=1.0.50"></script>
 
     
 </body>
