@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.54">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>졸업작품(AAT) –
@@ -83,7 +83,7 @@ mildsalmon</title>
     
     <div class="text-center mt-5">
         <h1 class="post-headline">졸업작품(AAT)</h1>
-        <p class="post-date">3일, 1시간전 생성됨</p>
+        <p class="post-date">1시간, 18분전 생성됨</p>
         
     </div>
 </div>
@@ -95,8 +95,180 @@ mildsalmon</title>
   
   <article id="story" class="noto mt-3">
     
-    <div id="story-empty" class="bg-border-purple vivid-purple noto p-3">
-      작성된 스토리가 없습니다.
+    <div id="story-169">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">200309_learning api</div>
+                    <div class="h7 text-muted">@mildsalmon</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>1시간, 18분 전 </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <h1>공부를 통해 새로 알게된 부분</h1>
+<ul>
+<li>connect<ul>
+<li>이벤트와 이벤트 처리 메서드를 연결</li>
+</ul>
+</li>
+<li>dynamicCall<ul>
+<li>OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다.</li>
+<li>dynamicCall 메서드의 인자로 호출하려는 메서드를 전달</li>
+<li>인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다.</li>
+</ul>
+</li>
+<li>Kiwoom Open API는 고유 CLSID와 ProgID를 가진다<ul>
+<li>QAxWidget 클래스의 생성자로 전달해야 사용할 수 있는 인스턴스가 생긴다.</li>
+<li>ProgID = KHOPENAPI.KHOpenAPICtrl.1</li>
+<li>CLSID = {A1574A0D-6BFA-4BD7-9020-DED88711818D}</li>
+</ul>
+</li>
+<li>키움에서 제공하는 OPEN API 메서드, 이벤트는 정말 다양하다.<ul>
+<li>책에 나온 일부 메서드(CommGetData)는 Kiwoom 개발 가이드에서 사용을 자제하라고 한다.  해당 메서드는 GetCommData, GetCommRealData, GetChejanData를 사용하라고 권고한다. → <strong>즉 책에 나온 정보를 무조건 맹신하지 말고 오피셜 자료를 계속 보면서 비교하고 학습하는 것이 중요하다.</strong></li>
+</ul>
+</li>
+<li>PyQt</li>
+<li>Open API+의 TR 처리 순서<ol>
+<li>SetInputValue 메서드를 사용해 TR 입력 값을 설정.</li>
+<li>CommRqData 메서드를 사용해 TR을 서버로 송신</li>
+<li>서버로부터 이벤트가 발생할 때까지 이벤트 루프를 사용해 대기</li>
+<li>CommGetData 메서드를 사용해 수신 데이터를 가져온다.</li>
+</ol>
+</li>
+</ul>
+<h1>좀 더 공부해야하는 부분</h1>
+<ul>
+<li>PyQt<ul>
+<li>기본적인 Qt가 조금 부족하다.</li>
+<li>블로그를 통해 정리를 해보자.</li>
+</ul>
+</li>
+<li>OPEN API 메서드 &amp; 이벤트<ul>
+<li>전부 알 필요는 없다, 하지만 적제 적소에 필요한 기능을 생각할 정도의 기능 인지와 상상력 필요.</li>
+</ul>
+</li>
+</ul>
+<h1>한줄평</h1>
+<p>입대하기 전에 코드를 작성할 때는 Kiwoom OPEN API의 동작 원리조차 이해하지 못하고 진행했는데, 한줄 한줄 분석하고 이해하면서 작성하니까 처음에는 어려웠지만, 오히려 더 쉬워지는 느낌을 받았다. 빠르게 전체 내용을 작성하고 졸업작품 제작에 들어가자. 아무리 어렵고 처음 보는 것이라도 포기하지 말자.</p>
+<h1>오늘 작성한 코드</h1>
+<p><a href="https://github.com/mildsalmon/AAT/commit/0c37b6f80686e130e76a9137fcf0d840e452a088">Learned the base api. · mildsalmon/AAT@0c37b6f</a></p>
+<h1>참고자료</h1>
+<p><a href="https://download.kiwoom.com/web/openapi/kiwoom_openapi_plus_devguide_ver_1.5.pdf">Kiwoom OPEN API 개발가이드</a></p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+    <div id="story-168">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">작업 진행 상황 to Notion</div>
+                    <div class="h7 text-muted">@mildsalmon</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>4시간, 15분 전 (edited)</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <p>실시간 작업 진행 상황을 Notion page를 통해 확인하실 수 있습니다.</p>
+<p><a href="https://www.notion.so/mildsalmon/AAT-34c0c21f8f0a474faf2bbc499dd6d0b3">AAT</a></p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+    <div id="story-167">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">200308_PyQt</div>
+                    <div class="h7 text-muted">@mildsalmon</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>7시간, 55분 전 </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <h2>공부를 통해 새로 알게된 부분</h2>
+<ul>
+<li>PyQt 사용자 정의 시그널 / 슬롯</li>
+<li>함수는 argument 없이 함수 자체가 인자 값이 될 수 있다.<ul>
+<li>함수를 다른 함수의 argument로 사용할 수 있다.</li>
+</ul>
+</li>
+<li>콜백 함수</li>
+</ul>
+<h2>좀 더 공부해야하는 부분</h2>
+<ul>
+<li>파이썬 함수는 일급 함수이다.<ul>
+<li>일급 함수 부분</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://static.blex.kr/image/2020/3/9/xweeQJpfXHdZJmekBvzx.png" alt=""></p>
+<h1>참고자료</h1>
+<p>PyQt 시그널 슬롯 (추가)</p>
+<p><a href="https://wikidocs.net/21876">위키독스</a></p>
+<p>PySide에서의 시그널과 슬롯</p>
+<p><a href="https://wiki.qt.io/Signals_and_Slots_in_PySide/ko">Signals and Slots in PySide/ko</a></p>
+<p>PyQt5 Tutorial - 파이썬으로 만드는 나만의 GUI 프로그램</p>
+<p><a href="http://codetorial.net/pyqt5/index.html">PyQt5 Tutorial - 파이썬으로 만드는 나만의 GUI 프로그램 - Codetorial</a></p>
+<p>[python] signal의 connect시 lambda 사용, callback함수,</p>
+<p><a href="http://blog.naver.com/PostView.nhn?blogId=21ahn&amp;logNo=221388594129&amp;from=search&amp;redirect=Log&amp;widgetTypeCall=true&amp;directAccess=false">[python] signal의 connect시 lambda 사용, callback함수,</a></p>
+<p>Callback(콜백 함수)에 대해서</p>
+<p><a href="https://guslabview.tistory.com/214">Callback(콜백 함수)에 대해서</a></p>
+<p>파이썬의 함수는? 이급이 아니라 일급</p>
+<p><a href="https://devdoggo.netlify.com/post/python/first_class_function/">DevDoggo</a></p>
+<p>[Python] 함수를 변수에 담아 사용하기</p>
+<p><a href="https://brownbears.tistory.com/107">[Python] 함수를 변수에 담아 사용하기</a></p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
     </div>
     
   </article>
@@ -114,10 +286,10 @@ mildsalmon</title>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.54"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -133,7 +305,7 @@ mildsalmon</title>
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script src="https://static.blex.me/assets/library/InfiniteScroll.js?version=1.0.52"></script>
+<script src="https://static.blex.me/assets/library/InfiniteScroll.js?version=1.0.54"></script>
 <script type="text/javascript">
   var postWrapperId = 'story';
   var paginatePath = '/thread/3?page=';

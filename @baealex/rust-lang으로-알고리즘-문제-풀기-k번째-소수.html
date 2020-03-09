@@ -22,11 +22,11 @@
     </script>
     
 
-<meta name="description" content="이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 일단 이 코드는 파이썬의 내부 함수가 아닌 기초적인 로직들이 들어있으므로 그냥 문법에 조금 익숙해지기 위한 과정이다. &quot;기초 다지기 - 2&quot; 라고 …">
+<meta name="description" content="저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) &quot;개발자 능력 실화?&quot; K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 이 코드를 변환하는 이유는 필자의 궁금증을 해결하기 위함이다. 파이썬이기 때문에 25점을 받은건지, …">
 <meta property="og:url" content="https://blex.me/@baealex/rust-lang%EC%9C%BC%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-k%EB%B2%88%EC%A7%B8-%EC%86%8C%EC%88%98">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)">
-<meta property="og:description" content="이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 일단 이 코드는 파이썬의 내부 함수가 아닌 기초적인 로직들이 들어있으므로 그냥 문법에 조금 익숙해지기 위한 과정이다. &quot;기초 다지기 - 2&quot; 라고 …">
+<meta property="og:description" content="저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) &quot;개발자 능력 실화?&quot; K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 이 코드를 변환하는 이유는 필자의 궁금증을 해결하기 위함이다. 파이썬이기 때문에 25점을 받은건지, …">
 <meta property="og:site_name" content="BLEX">
 <meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/8/23NIvq.jpg">
 <meta property="og:locale" content="ko_KR">
@@ -34,13 +34,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)">
 <meta name="twitter:url" content="https://blex.me/@baealex/rust-lang%EC%9C%BC%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-k%EB%B2%88%EC%A7%B8-%EC%86%8C%EC%88%98">
-<meta name="twitter:description" content="이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 일단 이 코드는 파이썬의 내부 함수가 아닌 기초적인 로직들이 들어있으므로 그냥 문법에 조금 익숙해지기 위한 과정이다. &quot;기초 다지기 - 2&quot; 라고 …">
+<meta name="twitter:description" content="저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) &quot;개발자 능력 실화?&quot; K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 이 코드를 변환하는 이유는 필자의 궁금증을 해결하기 위함이다. 파이썬이기 때문에 25점을 받은건지, …">
 <meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/8/23NIvq.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.52">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.54">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수) – baealex</title>
@@ -54,7 +54,7 @@
         <img src="https://static.blex.me/title/baealex/2020/3/8/23NIvq.jpg" alt="Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'러스트 박살내기(?)' 시리즈</span>Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)</h1>
-            <p class="post-date fade-in">2020-03-08 23:55<span>(Last Update: 2020-03-08 23:58)<span></span></span></p>
+            <p class="post-date fade-in">2020-03-08 23:55<span>(Last Update: 2020-03-09 23:01)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -151,7 +151,16 @@
     </div>
 </div>
         <article class="article noto">
-            <p>이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 일단 이 코드는 파이썬의 내부 함수가 아닌 기초적인 로직들이 들어있으므로 그냥 문법에 조금 익숙해지기 위한 과정이다. "기초 다지기 - 2" 라고 생각하면 되겠다. 25점보다 더 높게 받는다면 더 좋고 😃</p>
+            <p>저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...)</p>
+<p><br></p>
+<div style="text-align:center">
+<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/9/d0lQ6UzibRxmqupJuLXH.mp4" type="video/mp4"></video>
+<p><span class="ns shallow-dark">"개발자 능력 실화?"</span></p>
+</div>
+<p><br></p>
+<p><a href="https://www.acmicpc.net/problem/15965">K번째 소수라는 문제</a>의 파이썬 코드를 러스트로 변환해 볼 것이다. 이 코드를 변환하는 이유는 필자의 궁금증을 해결하기 위함이다. 파이썬이기 때문에 25점을 받은건지, 아니면 내가 똥멍청인지. 일단 이 코드는 파이썬의 내부 함수가 아닌 기초적인 로직들이 들어있으므로 "기초 다지기 - 2" 정도의 포스트가 될 것이다.</p>
+<p><br></p>
+<h4>K 번째 소수 — 파이썬</h4>
 <pre><code class="language-python">import math
 
 def prime_of_number(K):
@@ -186,7 +195,7 @@ if __name__=='__main__':
 <p><br></p>
 <pre><code>no method named `sqrt` found for type `i32` in the current scope</code></pre>
 <ul>
-<li>구글에 검색하였더니 <code>var.sqrt()</code>로 제곱근을 구하길래 똑같이 따라했더니 발생한 오류였는데 <code>i32</code>에는 <code>sqrt()</code>라는 함수가 존재하지 않는다. 따라서 실수로 형태를 변환하고 제곱근을 구하여 값을 비교하였다. 형변환은 무조건 <code>parse</code>와 <code>match</code>를 써야하는 줄 알았는데 <code>var as Type</code>으로 변환이 가능했다. 나중에 더 알아봐야 할 듯.</li>
+<li>구글에 검색하였더니 <code>var.sqrt()</code>로 제곱근을 구하길래 똑같이 따라했더니 발생한 오류였는데 <code>i32</code>에는 <code>sqrt()</code>라는 함수가 존재하지 않는다. 따라서 실수로 형태를 변환하고 제곱근을 구하였다. 그리고 실수와 정수를 비교할 수 없다는 오류도 있었는데... 러스트가 정적 타입의 언어라는 걸 자꾸 망각하는 듯 하다. 비교되는 값도 실수형으로 변환하고 값을 비교해 주었다. 형변환은 무조건 <code>parse</code>와 <code>match</code>를 써야하는 줄 알았는데 <code>var as Type</code>으로 변환이 가능했다. 나중에 더 알아봐야 할 듯.</li>
 </ul>
 <p><br></p>
 <pre><code>value moved here, in previous iteration of loop</code></pre>
@@ -199,7 +208,7 @@ if __name__=='__main__':
 <li><code>for</code>문의 <code>iterator</code>로 들어온 <code>y</code>라는 변수가 <code>&amp;i32</code>라서 <code>f32</code>로 형변환이 안된다는 오류로 여러 게시글을 찾아보다가 <code>C</code>언어와 마찬가지로 <code>*</code>과 <code>&amp;</code>를 교차하는 방식으로 사용하길래 이걸 힌트로 해결할 수 있었다. 다만 러스트에서 <code>*</code>과 <code>&amp;</code>가 무엇을 의미하는지 잘 모르겠다. 메모리에 접근하려면 <code>unsafe</code>라는 키워드를 사용한다는 것으로 알고 있어서 메모리 관련된 건 아니라 생각했는데... 찾아봐야 할 것 같다.</li>
 </ul>
 <p><br></p>
-<p>그래서 완성된 코드는 아래와 같다.</p>
+<h4>K 번째 소수 — 러스트</h4>
 <pre><code class="language-rust">use std::io;
 
 fn input_int() -&gt; i32 {
@@ -251,7 +260,7 @@ fn main() {
 }</code></pre>
 <p>결과값 비교해보려고 파이썬과 러스트를 교차해서 실행했는데 파이썬에 값을 넣고 엔터를 치고 이후 러스트에 값 넣고 엔터를 쳤더니 러스트에서 결과가 먼저 나오는 걸 보고 굉장히 신기했다. 이대로라면 50점은 넘게 나오지 않을까!</p>
 <p><img src="https://static.blex.kr/image/2020/3/8/12Y8PgFZjpWHwcJekCr0.png" alt=""></p>
-<p>예상외로 100점이 나와버렸다.</p>
+<p>예상외로 100점이 나와버렸다. <del>나는 똥멍청이가 아니었다!</del></p>
         </article>
         
         
@@ -308,7 +317,7 @@ fn main() {
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="Uhf3zuCZU5xbwQm5NhTxVwttfDTDwstykXuaNXQjXJ8T8q4S7nec2kxE6DAXWv5z">
+            <input type="hidden" name="csrfmiddlewaretoken" value="I0vGQ48ivURqWnuWxiPbBqhqKdtSOECO6sCUedFcIivXqgNBEwb3uhHEZffyCBjt">
             <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -323,18 +332,18 @@ fn main() {
         <div class="row">
         
             <div class="col-md-4">
-                <a href="/@baealex/pythonic%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/3/1/20Xdc2.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/pythonic%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Pythonic이란 무엇인가?</a></h5>
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/24/20ltaD.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2">파이썬(Python) - 유전 알고리즘 - 가방 채우기 2</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 11장(이론)</a></h5>
+                <a href="/@baealex/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-%EC%9D%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%A9%EB%8B%88%EB%8B%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/17/23DFap.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-%EC%9D%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%A9%EB%8B%88%EB%8B%A4">당신에게 이 블로그를 추천합니다.</a></h5>
             </div>
         
             <div class="col-md-4">
-                <a href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%B0%B0%ED%84%B0%EB%A6%AC-%EC%B6%94%EA%B0%80"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/1/3ufkI.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%B0%B0%ED%84%B0%EB%A6%AC-%EC%B6%94%EA%B0%80">사용자 배터리 추가</a></h5>
+                <a href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EB%B3%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/2/24/207Vjq.jpg);"></div></a>
+                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EB%B3%B8">파이썬(Python) - 유전 알고리즘 - 기본</a></h5>
             </div>
         
         </div>
@@ -353,10 +362,10 @@ fn main() {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.52"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.52"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.52"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.52"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.54"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -373,7 +382,7 @@ fn main() {
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.52"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.54"></script>
 
 
     
