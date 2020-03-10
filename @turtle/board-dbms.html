@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.54">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Board DBMS – turtle</title>
@@ -108,12 +108,12 @@
             </li>
             
             <li class="mx-4">
-                <a target="_blank" href="https://twitter.com/intent/tweet?text=Board DBMS&url=https://blex.me/@turtle/board-dbms" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a href="https://twitter.com/intent/tweet?text=Board DBMS&url=https://blex.me/@turtle/board-dbms" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fab fa-twitter"></i>
                 </a>
             </li>
             <li class="mx-4">
-                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@turtle/board-dbms" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@turtle/board-dbms" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                     <i class="fab fa-facebook"></i>
                 </a>
             </li>
@@ -183,7 +183,7 @@ CREATE TABLE board (
         </article>
         
         
-        <ul class="tag-list">
+        <ul class="tag-list noto">
             
             <li><a href="/@turtle/topic/dbms">dbms</a></li>
             
@@ -197,13 +197,13 @@ CREATE TABLE board (
 </div>
 </div>
 
-<div class="mt-5 py-5 bg-light">
+<div class="py-5 bg-comment">
     <div class="container">
         <div class="col-lg-8 mx-auto px-0">
             
             <div id="comment">
                 
-                <div id="comment-empty" class="comment-list">
+                <div id="comment-empty" class="comment-list noto s-shadow">
                     작성된 댓글이 없습니다!
                 </div>
                 
@@ -211,34 +211,9 @@ CREATE TABLE board (
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="pFpN427yRnvnerkpOfu3m7nauPvyckfwB2Fj9poUbabMP0xqMuJVwxteCl4HsURX">
-            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            <input type="hidden" name="csrfmiddlewaretoken" value="siOeB7qAnnzQ5R7SMZBZcFAd0jlpmCEL5nVq99rRFqDxTa40CodZPFBkdMqSOeky">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
-        
-        </div>
-    </div>
-</div>
-<div class="rel-posts bg-theme">
-    <div class="container pt-4 pb-2">
-        <div class="header-title">
-            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
-        </div>
-        <div class="row">
-        
-            <div class="col-md-4">
-                <a href="/@turtle/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EC%9D%98-%EC%9D%B4%ED%95%B4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/23/kimdongho/13_22_59.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@turtle/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EC%9D%98-%EC%9D%B4%ED%95%B4">#컴파일러의 이해</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@turtle/%EA%B4%80%EC%B2%A0%EB%8F%99-%EB%A7%9B%EC%A7%91%ED%83%90%EB%B0%A9"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/2019/10/23/turtle/14_55_53.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@turtle/%EA%B4%80%EC%B2%A0%EB%8F%99-%EB%A7%9B%EC%A7%91%ED%83%90%EB%B0%A9">관철동 점심 맛집 탐방</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@turtle/%EC%98%88%EC%88%A0-%EC%9E%91%ED%92%88%EB%93%A4"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/turtle/2019/11/19/16_d2Cm.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@turtle/%EC%98%88%EC%88%A0-%EC%9E%91%ED%92%88%EB%93%A4">예술 작품들</a></h5>
-            </div>
         
         </div>
     </div>
@@ -256,10 +231,10 @@ CREATE TABLE board (
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -276,7 +251,7 @@ CREATE TABLE board (
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.54"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
 
 
     

@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.54">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>사용자 댓글 태그 알고리즘 – baealex</title>
@@ -108,12 +108,12 @@
             </li>
             
             <li class="mx-4">
-                <a target="_blank" href="https://twitter.com/intent/tweet?text=사용자 댓글 태그 알고리즘&url=https://blex.me/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a href="https://twitter.com/intent/tweet?text=사용자 댓글 태그 알고리즘&url=https://blex.me/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fab fa-twitter"></i>
                 </a>
             </li>
             <li class="mx-4">
-                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%8C%93%EA%B8%80-%ED%83%9C%EA%B7%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                     <i class="fab fa-facebook"></i>
                 </a>
             </li>
@@ -183,7 +183,7 @@
         </article>
         
         
-        <ul class="tag-list">
+        <ul class="tag-list noto">
             
             <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></li>
             
@@ -191,7 +191,7 @@
             
         </ul>
         
-            <div class="my-4 text-center noto">
+            <div class="my-4 noto text-center">
     <hr class="gradient-hr">
     <h5 class="serif py-4">
         <a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none deep-dark">
@@ -202,7 +202,7 @@
         <div class="col-md-6">
         
             <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%83%90%EC%A7%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98?series=블렉스-이야기">
-                <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
                     <i class="fas fa-arrow-circle-left vivid-purple"></i><br>문자열 차이점 탐지 알고리즘
                 </div>
             </a>
@@ -211,7 +211,7 @@
         <div class="col-md-6">
         
             <a class="text-decoration-none deep-dark" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90%EC%99%80-%EC%8B%9C%EB%A6%AC%EC%A6%88%EC%99%80-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B4%80%EA%B3%84?series=블렉스-이야기">
-                <div class="col-md-12 bg-light rounded p-3 mt-3 show-up">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
                     <i class="fas fa-arrow-circle-right vivid-purple"></i><br>사용자와 시리즈와 포스트의 관계
                 </div>
             </a>
@@ -228,13 +228,13 @@
 </div>
 </div>
 
-<div class="mt-5 py-5 bg-light">
+<div class="py-5 bg-comment">
     <div class="container">
         <div class="col-lg-8 mx-auto px-0">
             
             <div id="comment">
                 
-                <div id="comment-empty" class="comment-list">
+                <div id="comment-empty" class="comment-list noto s-shadow">
                     작성된 댓글이 없습니다!
                 </div>
                 
@@ -242,34 +242,9 @@
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="Mpjp8ynKwraYPHmmlA91lbHwUeqyNfY7y5qqZsiZPMdWHkzyVBTmRjBeTWHSx8El">
-            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            <input type="hidden" name="csrfmiddlewaretoken" value="D2kLght3aliYcUZ30MWPJ1lok4vYS89BPXuxyPX2x89kTvkW1Wo58kIhAlyguhAa">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
-        
-        </div>
-    </div>
-</div>
-<div class="rel-posts bg-theme">
-    <div class="container pt-4 pb-2">
-        <div class="header-title">
-            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
-        </div>
-        <div class="row">
-        
-            <div class="col-md-4">
-                <a href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/10/1XmX5.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">중간 댓글 알고리즘</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/baealex/2020/1/10/1ewGe.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/assets/images/default-post.png);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0">명품 자바 에센셜 연습문제 7장(이론)</a></h5>
-            </div>
         
         </div>
     </div>
@@ -287,10 +262,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -307,7 +282,7 @@
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.54"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
 
 
     

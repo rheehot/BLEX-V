@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.54">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Git 정리 - 버전 관리 - checkout – mildsalmon</title>
@@ -53,8 +53,8 @@
     <picture class="post-title-image">
         <img src="https://static.blex.me/title/mildsalmon/2020/3/9/12zuST.jpg" alt="Git 정리 - 버전 관리 - checkout">
         <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in">Git 정리 - 버전 관리 - checkout</h1>
-            <p class="post-date fade-in">2020-03-09 10:38<span>(Last Update: 2020-03-09 12:38)<span></span></span></p>
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - checkout</h1>
+            <p class="post-date fade-in">2020-03-09 10:38<span>(Last Update: 2020-03-10 13:11)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -108,12 +108,12 @@
             </li>
             
             <li class="mx-4">
-                <a target="_blank" href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - checkout&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - checkout&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fab fa-twitter"></i>
                 </a>
             </li>
             <li class="mx-4">
-                <a target="_blank" href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                     <i class="fab fa-facebook"></i>
                 </a>
             </li>
@@ -178,10 +178,16 @@ git restore 파일명</p>
 <p><img src="https://static.blex.me/image/2020/3/4/o1TOK8fZLMMkE4PMhC93.png" alt=""></p>
 <p>git checkout을 사용하면 master 브랜치에서 만든 master commit은 사라지고 a" 커밋을 최신 커밋으로 가리킨다.<br>
 master commit에서 만든 test3.txt 파일도 없다.<br></p>
+<h1>마치며</h1>
+<p>다음에는 reset에 대해 포스팅하겠습니다.</p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
+</blockquote>
         </article>
         
         
-        <ul class="tag-list">
+        <ul class="tag-list noto">
             
             <li><a href="/@mildsalmon/topic/checkout">checkout</a></li>
             
@@ -191,6 +197,35 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
             
         </ul>
         
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
+            'Git' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - diff
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Git 정리 - 버전 관리 - reset, reflog
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
     </div>
     <div class="col-lg-2 mobile-disable">
         <div id="article-nav" class="sticky-top sticky-top-100"></div>
@@ -199,13 +234,13 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
 </div>
 </div>
 
-<div class="mt-5 py-5 bg-light">
+<div class="py-5 bg-comment">
     <div class="container">
         <div class="col-lg-8 mx-auto px-0">
             
             <div id="comment">
                 
-                <div id="comment-empty" class="comment-list">
+                <div id="comment-empty" class="comment-list noto s-shadow">
                     작성된 댓글이 없습니다!
                 </div>
                 
@@ -213,34 +248,9 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="zKVAZF9xWzdEyxOiJv902DBGg3Y1Ne0E3wkf9raiCDdzKsllwLsGmgGVCNVW35jm">
-            <div class="alert alert-warning">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            <input type="hidden" name="csrfmiddlewaretoken" value="1xhXVsZQQG0rqCjiGulsSH5CcFE71U1RTCicnd3TUWgKwNTz8cfVahA4sRyBi6ih">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
-        
-        </div>
-    </div>
-</div>
-<div class="rel-posts bg-theme">
-    <div class="container pt-4 pb-2">
-        <div class="header-title">
-            <h4 class="serif">이 작성자가 게시한 다른 글</h4>
-        </div>
-        <div class="row">
-        
-            <div class="col-md-4">
-                <a href="/@mildsalmon/beautifulsoup"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/12/21UPtd.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@mildsalmon/beautifulsoup">beautifulsoup4</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/18/19Uqot.gif);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
-            </div>
-        
-            <div class="col-md-4">
-                <a href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot"><div class="back-image rel-post-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/25/13lyKV.jpg);"></div></a>
-                <h5 class="serif pt-3 pb-4 ns"><a class="text-white" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)</a></h5>
-            </div>
         
         </div>
     </div>
@@ -258,10 +268,10 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -278,7 +288,7 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.54"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
 
 
     

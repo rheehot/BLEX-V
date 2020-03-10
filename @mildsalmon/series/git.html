@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.54">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>mildsalmon – 'Git' 시리즈</title>
@@ -111,6 +111,16 @@
             <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff">변경 사항 확인하기 (git diff) 작업 트리에 있는 파일과 스테이지에 있는 파일을 비교, 스테이지에 있는 파일과 저장소에 있는 최신 커밋을 비교한다. 수정한 파일을 커밋하기 전에 최종적으로 검토할 수 있다. 파일이 수정되지 않으면, git diff를 입력해도 아무 것도 안뜬다. 작업 트리와 스테이지에 있는 파일 비교 (git diff) 파일을 하나 만들어서 스테이지에 …</a></p>
         </div>
         
+        <div class="mb-5">
+            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout">6. Git 정리 - 버전 관리 - checkout</a></h5>
+            <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout">git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 사이 이동하기 master 브랜치에서 test3.txt 파일을 새로 만들고 커밋을 했다. 로그에 master 브랜치는 최신 커밋을 가리킨다. 하지만 …</a></p>
+        </div>
+        
+        <div class="mb-5">
+            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog">7. Git 정리 - 버전 관리 - reset, reflog</a></h5>
+            <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog">git reset HEAD, git reset HEAD^ 수정된 파일을 되돌리기 위해서는 checkout을 사용했다. 수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다. git reset HEAD 수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법 git reset HEAD 파일명 git restore --staged 파일명 git reset HEAD^ 가장 마지막에 한 커밋을 취소하는 방법 git reset …</a></p>
+        </div>
+        
     </div>
 </div>
 
@@ -129,10 +139,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.54"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.54"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
