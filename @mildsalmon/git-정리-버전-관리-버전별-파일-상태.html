@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="각 단계별 버전 상태 표시 깃은 버전을 만드는 각 단계마다 파일 상태를 다르게 표시한다. tracked 파일과 untracked 파일 작업 트레이 있는 파일은 tracked 상태와 untracked 상태로 나뉜다. Tracked files Changes not staged for commit: 변경된 파일이 아직 스테이지에 올라가지 않았다. 깃은 한번이라도 커밋을 한 파일의 수정 여부를 계속 추척한다. tracked …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Git 정리 - 버전 관리 - 버전별 파일 상태">
+<meta property="og:description" content="각 단계별 버전 상태 표시 깃은 버전을 만드는 각 단계마다 파일 상태를 다르게 표시한다. tracked 파일과 untracked 파일 작업 트레이 있는 파일은 tracked 상태와 untracked 상태로 나뉜다. Tracked files Changes not staged for commit: 변경된 파일이 아직 스테이지에 올라가지 않았다. 깃은 한번이라도 커밋을 한 파일의 수정 여부를 계속 추척한다. tracked …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/11/9Lf52.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 정리 - 버전 관리 - 버전별 파일 상태">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C">
+<meta name="twitter:description" content="각 단계별 버전 상태 표시 깃은 버전을 만드는 각 단계마다 파일 상태를 다르게 표시한다. tracked 파일과 untracked 파일 작업 트레이 있는 파일은 tracked 상태와 untracked 상태로 나뉜다. Tracked files Changes not staged for commit: 변경된 파일이 아직 스테이지에 올라가지 않았다. 깃은 한번이라도 커밋을 한 파일의 수정 여부를 계속 추척한다. tracked …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/11/9Lf52.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Git 정리 - 버전 관리 - 버전별 파일 상태 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/11/9Lf52.jpg" alt="Git 정리 - 버전 관리 - 버전별 파일 상태">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - 버전별 파일 상태</h1>
+            <p class="post-date fade-in">2020-03-11 09:35<span>(Last Update: 2020-03-11 09:45)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(431);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(431)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - 버전별 파일 상태&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>각 단계별 버전 상태 표시</h1>
+<p>깃은 버전을 만드는 각 단계마다 파일 상태를 다르게 표시한다.</p>
+<h2>tracked 파일과 untracked 파일</h2>
+<p>작업 트레이 있는 파일은 tracked 상태와 untracked 상태로 나뉜다.</p>
+<p><img src="https://static.blex.me/image/2020/3/2/18LPxXzlkDZOTKGYgFqW.png" alt=""></p>
+<h3>Tracked files</h3>
+<p>Changes not staged for commit: 변경된 파일이 아직 스테이지에 올라가지 않았다.</p>
+<ul>
+<li>깃은 한번이라도 커밋을 한 파일의 수정 여부를 계속 추척한다.</li>
+<li>tracked 파일이라고 부른다.</li>
+</ul>
+<h3>Untracked files</h3>
+<ul>
+<li>한 번도 깃에서 버전 관리를 하지 않았기 때문에 수정 내역을 추적하지 않는다.</li>
+<li>Untracked 파일이라고 부른다.</li>
+</ul>
+<p><img src="https://static.blex.me/image/2020/3/2/KTTeq1jUTxUa5CoCzOVF.png" alt=""></p>
+<p>수정된 파일을 add 명령어를 통해 스테이지에 올린다.<br>
+마지막 버전 이후 수정된 test.txt는 modified라고 표시.<br>
+한 번도 버전 관리하지 않았던 test2.txt는 new file로 표시.<br></p>
+<p><img src="https://static.blex.me/image/2020/3/2/gZhbXEJl9srzqFXY7KCf.png" alt=""></p>
+<p>커밋을 하고 log를 찍어보면 어떤 파일이 수정되었는지 알 수 없다.<br>
+커밋에 관련된 파일을 살펴보려면 <code>git log --stat</code>를 사용한다.<br>
+그러면 커밋 메시지와 관련 파일이 나열된다.<br></p>
+<h2>unmodified, modified, staged 상태</h2>
+<p>tracked 상태인 파일은 깃 명령으로 파일 상태를 확인하면 현재 작업 트리에 있는지, 스테이지에 있는지 구체적인 상태를 알려준다.<br></p>
+<h3>unmodified 상태</h3>
+<p><img src="https://static.blex.me/image/2020/3/2/MIKMdUmaSIpSEZ31cY6I.png" alt=""></p>
+<p>working tree clean은 모든 파일이 수정되지 않은 상태(unmodified 상태)</p>
+<h3>modified 상태</h3>
+<p><img src="https://static.blex.me/image/2020/3/2/q406DduSBmcwGGlyk8Gg.png" alt=""></p>
+<p>파일이 수정되고, 아직 스테이지에 올라가지 않았다.<br>
+changes not staged for commit은 파일이 수정만 된 modified 상태이다.<br></p>
+<h3>staged 상태</h3>
+<p><img src="https://static.blex.me/image/2020/3/2/YtpWJDpEOMOJsj7SiZ5m.png" alt=""></p>
+<p><code>git add .</code>을 하니 Changes to be committed라고 나타난다.<br>
+커밋 직전 단계, 즉 staged 상태이다.<br></p>
+<p><img src="https://static.blex.me/image/2020/3/2/ONKEkSv2Ud5XyLOKNNWd.png" alt=""></p>
+<p>커밋을 하면, 다시 unmodified 상태로 돌아간다.<br>
+난 깃허브랑 연결을 해서 push를 하라고 뜬다.<br></p>
+<h1>마치며</h1>
+<h1>참고문헌</h1>
+<blockquote>
+<p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
+</blockquote>
+        </article>
+        
+        
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/git">git</a></li>
+            
+            <li><a href="/@mildsalmon/topic/modified">modified</a></li>
+            
+            <li><a href="/@mildsalmon/topic/staged">staged</a></li>
+            
+            <li><a href="/@mildsalmon/topic/tracked">tracked</a></li>
+            
+            <li><a href="/@mildsalmon/topic/unmodified">unmodified</a></li>
+            
+            <li><a href="/@mildsalmon/topic/untracked">untracked</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
+            'Git' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - reset, reflog, revert
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="hADmlN7g632u84pc57wOi2JyU02xAq1rGapWMcBPjTgj6eSw7GflHANNqFK4x0ck">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
+
+
+    
+</body>
+</html>

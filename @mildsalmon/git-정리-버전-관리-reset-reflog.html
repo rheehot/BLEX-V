@@ -25,14 +25,14 @@
 <meta name="description" content="git reset HEAD, git reset HEAD^ 수정된 파일을 되돌리기 위해서는 checkout을 사용했다. 수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다. git reset HEAD 수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법 git reset HEAD 파일명 git restore --staged 파일명 git reset HEAD^ 가장 마지막에 한 커밋을 취소하는 방법 git reset …">
 <meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Git 정리 - 버전 관리 - reset, reflog">
+<meta property="og:title" content="Git 정리 - 버전 관리 - reset, reflog, revert">
 <meta property="og:description" content="git reset HEAD, git reset HEAD^ 수정된 파일을 되돌리기 위해서는 checkout을 사용했다. 수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다. git reset HEAD 수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법 git reset HEAD 파일명 git restore --staged 파일명 git reset HEAD^ 가장 마지막에 한 커밋을 취소하는 방법 git reset …">
 <meta property="og:site_name" content="BLEX">
 <meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/10/9YCfQ.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="mildsalmon">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 정리 - 버전 관리 - reset, reflog">
+<meta name="twitter:title" content="Git 정리 - 버전 관리 - reset, reflog, revert">
 <meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog">
 <meta name="twitter:description" content="git reset HEAD, git reset HEAD^ 수정된 파일을 되돌리기 위해서는 checkout을 사용했다. 수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다. git reset HEAD 수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법 git reset HEAD 파일명 git restore --staged 파일명 git reset HEAD^ 가장 마지막에 한 커밋을 취소하는 방법 git reset …">
 <meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/10/9YCfQ.jpg">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>Git 정리 - 버전 관리 - reset, reflog – mildsalmon</title>
+    <title>Git 정리 - 버전 관리 - reset, reflog, revert – mildsalmon</title>
 </head>
 <body>
     
@@ -51,10 +51,10 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/3/10/9YCfQ.jpg" alt="Git 정리 - 버전 관리 - reset, reflog">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/10/9YCfQ.jpg" alt="Git 정리 - 버전 관리 - reset, reflog, revert">
         <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - reset, reflog</h1>
-            <p class="post-date fade-in">2020-03-10 09:37<span>(Last Update: 2020-03-10 13:13)<span></span></span></p>
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - reset, reflog, revert</h1>
+            <p class="post-date fade-in">2020-03-10 09:37<span>(Last Update: 2020-03-11 09:44)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -108,7 +108,7 @@
             </li>
             
             <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - reset, reflog&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - reset, reflog, revert&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fab fa-twitter"></i>
                 </a>
             </li>
@@ -283,7 +283,17 @@ git reset --hard HEAD@{0}</p>
 </blockquote>
 <p><img src="https://static.blex.kr/image/2020/3/10/4YitPExQjFjGIRnQnqkz.png" alt=""></p>
 <p><img src="https://static.blex.kr/image/2020/3/10/kNVojd1PLDDEfgA4T016.png" alt=""></p>
+<h1>커밋 삭제하지 않고 되돌리기 (git revert)</h1>
+<blockquote>
+<p>git revert (최신 커밋 해시)</p>
+</blockquote>
+<p>나중에 사용할 것을 대비해서 커밋을 되돌리더라도 취소한 커밋을 남겨두어야 할 때 사용한다.</p>
+<p><img src="https://static.blex.me/image/2020/3/3/CvWCM2B9S5vqSawnn6Hq.png" alt=""></p>
+<p>빨간 박스는 Vim 파일로 열린 파일을 의미한다.
+로그를 보면 기존 커밋은 사라지지 않고, reverts commit으로 새로운 커밋이 만들어졌다.
+oo2 버전 커밋을 지우고 oo2에서 변경했던 이력을 취소한 새 커밋을 만든다.</p>
 <h1>마치며</h1>
+<p>다음 챕터에서는 버전별 파일 상태에 대해 포스팅하겠습니다.</p>
 <h1>참고문헌</h1>
 <blockquote>
 <p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
@@ -299,6 +309,8 @@ git reset --hard HEAD@{0}</p>
             <li><a href="/@mildsalmon/topic/reflog">reflog</a></li>
             
             <li><a href="/@mildsalmon/topic/reset">reset</a></li>
+            
+            <li><a href="/@mildsalmon/topic/revert">revert</a></li>
             
             <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
             
@@ -322,6 +334,12 @@ git reset --hard HEAD@{0}</p>
         
         </div>
         <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Git 정리 - 버전 관리 - 버전별 파일 상태
+                </div>
+            </a>
         
         </div>
     </div>
@@ -349,7 +367,7 @@ git reset --hard HEAD@{0}</p>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="tSiRcApyK6RnQ7UXCLy0v8iCJH4bvqKIof0TUR58F7vVduEBtLmHSo75ZoK7PYwk">
+            <input type="hidden" name="csrfmiddlewaretoken" value="7t0OV2HM1slmRTqvEqH0wJlvknVuqp6tcuwaUdbCWPiR8foSQh0Iz73gvxFZxy3P">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -388,6 +406,9 @@ git reset --hard HEAD@{0}</p>
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
 
 <script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
 

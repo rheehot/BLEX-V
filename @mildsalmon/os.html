@@ -54,7 +54,7 @@
         <img src="https://static.blex.me/title/mildsalmon/2020/2/26/22UZuy.jpg" alt="OS">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'파이썬 모듈 문서' 시리즈</span>OS</h1>
-            <p class="post-date fade-in">2020-02-17 18:19<span>(Last Update: 2020-02-26 22:00)<span></span></span></p>
+            <p class="post-date fade-in">2020-02-17 18:19<span>(Last Update: 2020-03-11 16:22)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -198,8 +198,17 @@ print(f.read())</code></pre>
 <pre><code>D:\source\test</code></pre>
 <h3>경로 중 디렉토리명만 얻기</h3>
 <p>os.path.dir(path)</p>
-<pre><code class="language-python">print(os.path.dirname(__file__))</code></pre>
-<pre><code># D:/source/test</code></pre>
+<pre><code class="language-python">print(os.path.dirname(__file__))
+
+------
+
+print(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))) print(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))</code></pre>
+<pre><code># D:/source/test
+
+------
+
+# D:\source\notice_alarm\Test
+# D:\source\notice_alarm</code></pre>
 <h3>경로 중 파일명만 얻기</h3>
 <p>os.path.basename(path)</p>
 <pre><code class="language-python">print(os.path.basename(__file__))</code></pre>
@@ -317,7 +326,7 @@ print(dir, file, sep="\n")</code></pre>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="Flq8R42bEuSKrSBLGyoFf9BndcS6LV1EcmGb2jYVESiG0j0IRfSlzjXMVBevasv7">
+            <input type="hidden" name="csrfmiddlewaretoken" value="CW6DOGDbCMBFtkJZ8Wmqbuhb13OcZXTqr0R1eTB9AirE3NEw26YjitE9kv6Z5F8G">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -356,6 +365,9 @@ print(dir, file, sep="\n")</code></pre>
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
 
 <script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
 

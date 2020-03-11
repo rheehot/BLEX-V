@@ -485,7 +485,7 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf--8') as f_wr
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="L11qT0uZgy58UMRaBun1rUQC0vmIckPhz4aFBB7RLmOg377GD7uB24FzjfNtUMGq">
+            <input type="hidden" name="csrfmiddlewaretoken" value="CSXxpcdlRC25itazv7nlC6OTID6MzhIcf4GqAZNhlyYBoiWEvPi3mf5SLio66sdB">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -524,6 +524,9 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf--8') as f_wr
     
 <script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
 <script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
 
 <script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
 

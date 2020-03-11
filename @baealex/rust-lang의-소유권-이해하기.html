@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+
+<meta name="description" content="이번에도 파이썬으로 풀었던 알고리즘 코드를 러스트로 변환해 볼 예정이었다. 수 찾기라는 문제인데 해당 문제는 10만개의 숫자가 주어지는 만큼 빠른 속도로 탐색이 이뤄져야 하는 문제다. 필자는 직접 이진 탐색 트리를 구현하여 해결하였고 러스트에서도 그러할 계획이었다. 다만 이 문제를 해결하기 위해선 두가지의 지식을 알아야 했는데 러스트에선 어떻게 구조체를 구현하는가? 러스트에선 어떻게 구조체의 …">
+<meta property="og:url" content="https://blex.me/@baealex/rust-lang%EC%9D%98-%EC%86%8C%EC%9C%A0%EA%B6%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Rust-Lang의 소유권 이해하기">
+<meta property="og:description" content="이번에도 파이썬으로 풀었던 알고리즘 코드를 러스트로 변환해 볼 예정이었다. 수 찾기라는 문제인데 해당 문제는 10만개의 숫자가 주어지는 만큼 빠른 속도로 탐색이 이뤄져야 하는 문제다. 필자는 직접 이진 탐색 트리를 구현하여 해결하였고 러스트에서도 그러할 계획이었다. 다만 이 문제를 해결하기 위해선 두가지의 지식을 알아야 했는데 러스트에선 어떻게 구조체를 구현하는가? 러스트에선 어떻게 구조체의 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/11/14sXqX.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rust-Lang의 소유권 이해하기">
+<meta name="twitter:url" content="https://blex.me/@baealex/rust-lang%EC%9D%98-%EC%86%8C%EC%9C%A0%EA%B6%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0">
+<meta name="twitter:description" content="이번에도 파이썬으로 풀었던 알고리즘 코드를 러스트로 변환해 볼 예정이었다. 수 찾기라는 문제인데 해당 문제는 10만개의 숫자가 주어지는 만큼 빠른 속도로 탐색이 이뤄져야 하는 문제다. 필자는 직접 이진 탐색 트리를 구현하여 해결하였고 러스트에서도 그러할 계획이었다. 다만 이 문제를 해결하기 위해선 두가지의 지식을 알아야 했는데 러스트에선 어떻게 구조체를 구현하는가? 러스트에선 어떻게 구조체의 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/11/14sXqX.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Rust-Lang의 소유권 이해하기 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/3/11/14sXqX.jpg" alt="Rust-Lang의 소유권 이해하기">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'러스트 박살내기(?)' 시리즈</span>Rust-Lang의 소유권 이해하기</h1>
+            <p class="post-date fade-in">2020-03-11 14:35<span>(Last Update: 2020-03-11 17:27)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(433);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(433)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Rust-Lang의 소유권 이해하기&url=https://blex.me/@baealex/rust-lang%EC%9D%98-%EC%86%8C%EC%9C%A0%EA%B6%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/rust-lang%EC%9D%98-%EC%86%8C%EC%9C%A0%EA%B6%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>이번에도 파이썬으로 풀었던 알고리즘 코드를 러스트로 변환해 볼 예정이었다. <a href="https://www.acmicpc.net/problem/1920">수 찾기</a>라는 문제인데 해당 문제는 10만개의 숫자가 주어지는 만큼 빠른 속도로 탐색이 이뤄져야 하는 문제다. 필자는 직접 이진 탐색 트리를 구현하여 해결하였고 러스트에서도 그러할 계획이었다. 다만 이 문제를 해결하기 위해선 두가지의 지식을 알아야 했는데</p>
+<ul>
+<li>러스트에선 어떻게 구조체를 구현하는가?</li>
+<li>러스트에선 어떻게 구조체의 자가 참조를 구현하는가?</li>
+</ul>
+<p>위 두개와 관련된 지식이 필요하여 찾아봤으나 난관에 봉착했다. C 혹은 C++처럼 접근하려고 했던게 나의 큰 잘못이었다. 러스트에선 안전한 메모리의 관리를 위해서 소유권이라는 독창적인 방식을 사용하고 있으며 나는 그것을 이해해야 한다.</p>
+<p><br></p>
+<h2>스택과 힙</h2>
+<p><img src="https://static.blex.me/title/baealex/2020/2/17/231VUy.jpg" alt=""></p>
+<p>스택과 힙은 둘다 런타임에 사용할 수 있는 메모리다. 스택은 탑에서 푸시와 팝이 일어나는 구조이기 때문에 매우 빠르다. 위로 쌓고 아래로 지우는 식이다. 스택에서 고정된 크기를 가진 데이터만 넣을 수 있다는 특징은 스택을 더 빠르게 한다. 그렇다면 고정된 크기를 가지지 않은 데이터는 어떻게 할까? 힙에 저장하게 된다. 힙에 공간이 있는지 물어보고 운영체제가 적당한 힙의 크기를 포인터 주소로 돌려준다.</p>
+<p>스택에서의 작업이 가장 빠르지만 힙을 사용하지 않을 수는 없다. 힙에서 효율을 높이기 위해선 프로세서에게 열일(?)을 시켜야 하는데 프로세서는 근접한 메모리에 대한 작업이 일어날 때 효율적이다. 순차 리스트와 연결 리스트의 읽기 속도의 차이를 생각해보면 이해하기 쉬울 것이다. 러스트는 소유권이라는 개념을 가지고 있으며 이 소유권은 힙을 관리하기 위한 수단이 된다. 러스트의 소유권에는 다음과 같은 규칙이 있다.</p>
+<ol>
+<li>러스트는 각각의 값은 해당값의 오너라고 불리우는 변수를 가지고 있다.</li>
+<li>한번에 딱 하나의 오너만 존재할 수 있다.</li>
+<li>오너가 스코프 값을 벗어날 때 값은 버려진다.</li>
+</ol>
+<p><br></p>
+<h4>스코프</h4>
+<p>프로그래밍을 배워본 사람이라면 스코프라는 개념에 대해서 알고 있을 것이다. 블록으로 감싸져 있는 부분이 하나의 스코프로 파이썬과 C에선 다음과 같이 표기한다.</p>
+<pre><code class="language-python">if __name__ == '__main__':
+    x = 0
+    return x</code></pre>
+<pre><code class="language-cpp">int main(void)
+{
+    int x = 0;
+    return x;
+}</code></pre>
+<p>대부분의 언어에서 변수들은 이 스코프를 벗어나면 (대체적으로) 메모리를 반납한다. 힙에 등록된 변수들과 자바스크립트의 var 변수를 제외하곤 말이다. 힙에 등록된 변수들은 언어에 특성에 따라 메모리가 관리된다. 파이썬에선 참조중이지 않은 변수를 가비지 컬렉션이 찾아내어 수집하고 C에선 프로그래머가 직접 해제하므로써 관리하는데 러스트는 어떻게 관리되는걸까?</p>
+<p><br></p>
+<h4>소유권</h4>
+<p>변수의 모든 소유권은 모든 순간 똑같은 패턴을 따른다. 어떤 값을 다른 변수에 대입하면 값이 이동된다. 힙에 데이터를 갖고 있는 변수가 스코프 밖으로 벗어나면 해당 데이터가 다른 변수에 의해 소유되도록 이동하지 않는 한 <code>drop</code>에 의해 제거된다. 일례로 다음 코드를 살펴보자.</p>
+<pre><code class="language-rust">fn main() {
+    let my_name = String::from("Jino Bae");
+    show_my_name(my_name);
+    println!("{}", my_name);
+}
+
+fn show_my_name(name: String) {
+    println!("{}", name);
+}</code></pre>
+<p>위 코드의 결과는 무엇일까? 아마도 대부분 아래와 같은 결과를 예상할 것이다.</p>
+<pre><code>Jino Bae
+Jino Bae</code></pre>
+<p>하지만 틀렸다. 러스트에선 컴파일 에러를 발생시킨다.</p>
+<pre><code class="language-rust">fn main() {
+    let my_name = String::from("Jino Bae"); // 1. my_name 생성됨
+    show_my_name(my_name); // 2. show_my_name으로 my_name이 이동함
+    println!("{}", my_name); // 5. my_name이 존재하지 않음
+}
+
+fn show_my_name(name: String) { // 3. my_name이 이동되었음
+    println!("{}", name);
+} // 4. my_name이 스코프를 벗어나 drop에 의해 삭제됨</code></pre>
+<p>기존의 프로그래밍 언어들은 매게변수를 넘기면 대게는 복사된다. 하지만 러스트에선 '어떤 값을 다른 변수에 대입하면 값이 이동된다.' 이제 이 말이 가슴에 와닿는다. 만일 my_name을 다시 살리고자 한다면 <code>return</code>하여 다시 이동을 시켜주거나 참조자를 사용해야 한다.</p>
+<p><br></p>
+<h4>참조자</h4>
+<pre><code class="language-rust">fn main() {
+    let my_name = String::from("Jino Bae");
+    show_my_name(&amp;my_name);
+    println!("{}", my_name);
+}
+
+fn show_my_name(name: &amp;String) {
+    println!("{}", name);
+}</code></pre>
+<p>위와같이 참조자를 사용하면 변수의 소유권이 넘어가지 않으며 스코프를 벗어나도 참조자가 가리키는 값은 사라지지 않는다. 따라서 위 코드는 우리가 일반적으로 예상했던 동일한 결과를 출력한다. 러스트에선 이러한 것을 '빌림'이라고 표현하며 빌려온 값에는 아무런 변화를 줄 수 없다. 기본적으로 불변의 상태로 빌려온다.</p>
+<pre><code class="language-rust">fn main() {
+    let my_name = String::from("Jino Bae");
+    show_my_name(&amp;mut my_name);
+    println!("{}", my_name);
+}
+
+fn show_my_name(name: &amp;mut String) {
+    name = String::from("Aram Kim");
+    println!("{}", name);
+}</code></pre>
+<p>위와같이 <code>&amp;mut</code> 키워드를 사용하면 가변 참조자를 전달하여 값을 변경시킬 수 있다. 다만 이 가변 참조자는 굉장히 제한적으로 사용된다. 한 스코프에서 한 변수에 두 개 이상의 가변 참조자가 생성된 것은 오류로 간주되며 한 스코프의 특정 변수에 대해서 불변 참조자가 이미 존재하는 상황에서 가변 참조자가 선언되는 것도 오류로 간주된다.</p>
+<p><br></p>
+<h4>마무리</h4>
+<p>러스트의 소유권을 공부하면서 이전에 작성했던 코드에서 왜 그런 오류가 발생했는지에 대해서 어느정도 감이 잡혔다. 공부를 하면서 눈에 아른아른거렸던 코드가 있었는데 특히 이 부분이다.</p>
+<pre><code class="language-rust">for y in prime_lists {
+    ...
+}
+
+prime_lists.push(x); // ERROR</code></pre>
+<p>반복문에 이터레이터로 백터를 넘기는 것도 이동으로 간주되는 것 같다. 그래서 하단에 다시 <code>push</code>를 시도하자 오류가 발생했던 거였다. 일단은 컴파일러가 시키는대로 &amp;를 붙였서 해결했던 거였는데 저런 문제를 해결하기 위해서 반복문에 참조자를 사용하여 백터에 넘겨주도록 하였던 것 같다.</p>
+<pre><code class="language-rust">for y in &amp;prime_lists {
+    let f_y = y as f32; // ERROR
+}</code></pre>
+<p>반복문에서 y라는 변수는 정수형 참조자로 전달되었는데 prime_lists에서 직접 액세스되는 것으로 생각된다. 그걸 해결하기 위해서 <code>*</code>이라는 키워드를 사용했는데 <code>*</code>에 대한 존재는 아직까진 잘 모르겠다. 러스트... 어렵긴한데 굉장히 재밌는 언어인 것 같다.</p>
+<p><br></p>
+<h2>참고</h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html">https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html</a></li>
+</ul>
+        </article>
+        
+        
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EB%9F%AC%EC%8A%A4%ED%8A%B8">러스트</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%B0%95%EC%82%B4%EB%82%B4%EA%B8%B0" class="text-decoration-none deep-dark">
+            '러스트 박살내기(?)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/rust-lang%EC%9C%BC%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-k%EB%B2%88%EC%A7%B8-%EC%86%8C%EC%88%98?series=러스트-박살내기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="HIFzQdPpuMGwblE75RqstpD9PFvyX39orHfTDxJtfgGyKFQD5XbRJm677mb9Q33f">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
+
+
+    
+</body>
+</html>
