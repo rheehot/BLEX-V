@@ -1,353 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 7장 1. 컬렉션에 대한 설명 중 잘못된 것은?① 컬렉션은 배열과 달리 객체들만 삽입 가능하다.② 컬렉션에는 Vector&amp;lt;E&amp;gt;, ArrayList&amp;lt;E&amp;gt;, LinkedList&amp;lt;E&amp;gt;, HashMap&amp;lt;K, V&amp;gt;, Stack&amp;lt;E&amp;gt; …">
-<meta property="og:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="명품 자바 에센셜 연습문제 7장(이론)">
-<meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 7장 1. 컬렉션에 대한 설명 중 잘못된 것은?① 컬렉션은 배열과 달리 객체들만 삽입 가능하다.② 컬렉션에는 Vector&amp;lt;E&amp;gt;, ArrayList&amp;lt;E&amp;gt;, LinkedList&amp;lt;E&amp;gt;, HashMap&amp;lt;K, V&amp;gt;, Stack&amp;lt;E&amp;gt; …">
-<meta property="og:site_name" content="BLEX">
-
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="baealex">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="명품 자바 에센셜 연습문제 7장(이론)">
-<meta name="twitter:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0">
-<meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 7장 1. 컬렉션에 대한 설명 중 잘못된 것은?① 컬렉션은 배열과 달리 객체들만 삽입 가능하다.② 컬렉션에는 Vector&amp;lt;E&amp;gt;, ArrayList&amp;lt;E&amp;gt;, LinkedList&amp;lt;E&amp;gt;, HashMap&amp;lt;K, V&amp;gt;, Stack&amp;lt;E&amp;gt; …">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>명품 자바 에센셜 연습문제 7장(이론) – baealex</title>
-</head>
-<body>
-    
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(373);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(373)">0<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 7장(이론)&url=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-    </div>
-    <div class="col-lg-8">
-        
-        <h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 7장(이론)</h1>
-        <p class="post-date">
-            2018-11-02 13:20</p>
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@baealex">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
-좋아하는 일을 잘하고 싶어합니다 😀</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-master-purple">
-                </li>
-                <li onclick="User.follow('baealex')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <p><br></p>
-<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;">
-    <p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길
-        바랍니다.<br></p>
-</div>
-<p><br></p>
-<p><br></p>
-<h3 class="title">연습문제 7장</h3>
-<p>1. 컬렉션에 대한 설명 중 잘못된 것은?<br>① 컬렉션은 배열과 달리 객체들만 삽입 가능하다.<br>② 컬렉션에는 Vector&lt;E&gt;, ArrayList&lt;E&gt;,
-    LinkedList&lt;E&gt;, HashMap&lt;K, V&gt;, Stack&lt;E&gt; 등이 있다.<br>③ 컬렉션 클래스는 모두 제네릭(generics)으로 만들어져 있다.<br>
-    <font color="#ff0000">④ 배열처럼 저장하는 요소의 개수가 고정되어 있다.<br></font><span style="color: rgb(34, 116, 28);">크기를 자동으로 조절하고
-        추가, 삭제, 검색등을 할 수 있다.</span>
-</p>
-<p><br></p>
-<p>2. 제네릭에 대한 설명 중 틀린 것은?<br>① 제네릭은 클래스, 인터페이스, 메소드를 특정 타입에 종속되지 않게 일반화시키는 기술이다.<br><span style="color: rgb(255, 0, 0);">②
-        제네릭 클래스 등을 이용하여 응용 프로그램을 작성하는 기법을 제네릭 프로그래밍이라고 하며 최근에는 잘 활용되지 않는 추세이다.</span><br>③ Vector&lt;E&gt;에서 E를 제네릭 타입
-    혹은 타입 매개 변수라고 부른다.<br>④ Vector&lt;E&gt;에서 E에 Integer 등 구체적인 타입을 지정하여 사용해야 한다.</p>
-<p><br></p>
-<p>3. 다음 코드에 대한 설명으로 틀린 것은?</p>
-<pre><code class="language-java">Vector&lt;integer&gt; v = new Vector&lt;integer&gt;(3);</code></pre>
-<p><span style="color: rgb(255, 0, 0);">① v.size()는 3을 리턴한다.</span><br>② 제네릭 벡터로부터 Integer 타입으로 구체화된 벡터를 생성하고 있다.<br>③
-    v.add(10)을 호출하여 정수 10을 벡터에 삽입할 수 있다.<br>④ 벡터 v에는 실수 값을 절대로 삽입할 수 없다.<br><span style="color: rgb(34, 116, 28);">0을
-        반환한다.</span></p>
-<p><br></p>
-<p>4. 다음 물음에 답하라.</p>
-<p>(1) '키'는 문자열이고 '값'이 Double 타입인 HashMap 객체를 생성하는 코드는?</p>
-<p><span style="color: rgb(34, 116, 28);">HashMap&lt;String, Double&gt; hm = new HashMap&lt;String, Double</span><span style="color: rgb(34, 116, 28);">&gt;;</span></p>
-<p>(2) String 타입으로 구체화한 Vector를 생성하는 코드는?</p>
-<p><span style="color: rgb(34, 116, 28);">Vector&lt;String&gt; v = new Vector&lt;String&gt;;</span></p>
-<p>(3) Circle 클래스의 객체만 저장할 수 있는 ArrayList 객체를 생성하는 코드는?</p>
-<p><span style="color: rgb(34, 116, 28);">ArrayList&lt;Circle</span><span style="color: rgb(34, 116, 28);">&gt; al</span><span style="color: rgb(34, 116, 28);">&nbsp;= new ArrayList&lt;Circle&gt;;</span></p>
-<p><br></p>
-<p>5. 다음 코드에서 잘못된 부분을 지적하고 이유를 설명하라.</p>
-<pre><code class="language-java">Vector&lt;int&gt; v = new Vector&lt;int&gt;(100);</code></pre>
-<p><span style="color: rgb(34, 116, 28);">int</span><span style="color: rgb(34, 116, 28);">를 </span><span style="color: rgb(34, 116, 28);">Integer</span><span style="color: rgb(34, 116, 28);">로 변경하여야 한다. </span><span style="color: rgb(34, 116, 28);">컬렉션의 요소는 오직 객체만
-        사용된다.</span></p>
-<p><br></p>
-<p>6. 다음에서 벡터 v의 Iterator 객체를 얻어내는 간단한 코드는 무엇인가?</p>
-<pre><code class="language-java">Vector&lt;integer&gt; v = new Vector&lt;integer&gt;();
-_____________________________</code></pre>
-<p><span style="color: rgb(34, 116, 28);">I</span><span style="color: rgb(34, 116, 28);">terator&lt;Integer&gt; it =
-        v.iterator();</span></p>
-<p><br></p>
-<p>7. 다음에서 자동 박싱/언박싱이 일어나는 곳을 지적하라.</p>
-<pre><code class="language-java">ArrayList&lt;Double&gt; a = new ArrayList&lt;Double&gt;();
-a.add(3.5);
-double d = a.get(0);</code></pre>
-<p><span style="color: rgb(34, 116, 28);">2행의 3.5에서 자동 박싱이 발생하여 리스트에 삽입된다. 3행의 a.get(0)이 자동 언박싱되어 d에 대입된다.</span></p>
-<p><br></p>
-<p>8. 다음 프로그램은 ArrayList에 0에서 100 사이의 임의의 실수를 20개 삽입하고 이들을 모두 출력하는 코드이다. 밑줄 친 부분(6, 7행)을 Iterator를 이용하여 수정하라.</p>
-<pre><code class="language-java">ArrayList&lt;Double&gt; a = new ArrayList&lt;Double&gt;();
-for(int i=0; i&lt;20; i++) {
-    double d = Math.random()*100;
-    a.add(d);
-}
-for(int i=0; i&lt;20; i++)
-    System.out.println(a.get(i));</code></pre>
-<p><span style="color: rgb(34, 116, 28);">Iterator&lt;Double&gt; it = a.</span><span style="color: rgb(34, 116, 28);">Iterator();</span><br><span style="color: rgb(34, 116, 28);">while(it.hasNext()</span><span style="color: rgb(34, 116, 28);">)</span><br><span style="color: rgb(34, 116, 28);">&nbsp; &nbsp; System.out.println(it.next()</span><span style="color: rgb(34, 116, 28);">);</span></p>
-<p><br></p>
-<p>9. 다음 Vector에 대해 빈칸에 적절한 코드를 채워라</p>
-<pre><code class="language-java">Vector&lt;String&gt; v = new Vector&lt;String&gt;();
-_________________ // v에 "Good" 삽입
-_________________ // v에 "Bad" 삽입
-_________________ // v에 현재 삽입된 문자열 개수 출력
-_________________ // v의 인덱스 1에 있는 "Bad" 문자열 삭제</code></pre>
-<p><span style="color: rgb(34, 116, 28);">v.add("Good");</span><br><span style="color: rgb(34, 116, 28);">v.add("Bad");</span><br><span style="color: rgb(34, 116, 28);">System.out.println(</span><span style="color: rgb(34, 116, 28);">v.size());</span><br><span style="color: rgb(34, 116, 28);">v.remove(1);</span></p>
-<p><br></p>
-<p>10. 다음 HashMap에 대해 빈칸에 적절한 코드를 채워라.</p>
-<pre><code class="language-java">// 사람 이름을 키로 하고 나이를 값으로 다루는 해시맵 생성
-HashMap&lt;________&gt; h = ___________ // 해시맵 생성
-_______________ // h에 "이몽룡" 나이 25 저장
-_______________ // h에 "성춘향" 나이 18 저장
-Scanner scanner = new Scanner(System.in);
-String name = scanner.next(); // 사용자로부터 이름 입력
-Integer age = ___________ // h에서 name의 나이 검색</code></pre>
-<p>2행, 1 : <span style="color: rgb(34, 116, 28);">String, Integer</span><br>2행, 2 : <span style="color: rgb(34, 116, 28);">new
-        HashMap&lt;String,Integer&gt;();</span><br>3행 : <span style="color: rgb(34, 116, 28);">h.put</span><span style="color: rgb(34, 116, 28);">("이몽룡",
-        25);</span><br>4행 : <span style="color: rgb(34, 116, 28);">h.put</span><span style="color: rgb(34, 116, 28);">("성충향",
-        18);</span><br>7행 : <span style="color: rgb(34, 116, 28);">h.get</span><span style="color: rgb(34, 116, 28);">(name);</span></p>
-<p><br></p>
-<p>11. 다음 제네릭 클래스에서 4개의 문항에 대해 답하라.</p>
-<pre><code class="language-java">class MyGeneric&lt;W&gt; {
-    private W x;
-    public MyGeneric(W x) {
-        this.x = x;
     }
-    __________ // (2) 여러 줄로 작성 가능
-    __________ // (3) 여러 줄로 작성 가능</code></pre>
-<p>(1) MyGeneric의 타입 매개 변수는 무엇인가? <span style="color: rgb(34, 116, 28);">W</span></p>
-<p>(2) x를 리턴하는 public 메소드 take()를 작성하라. <span style="color: rgb(34, 116, 28);">public W take() { return x; }</span></p>
-<p>(3) 매개 변수를 하나 가진 compare() 메소드를 작성하라. compare는 매개 변수와 x를 비교하여 같으면 true, 아니면 false를 리턴한다.</p>
-<p><span style="color: rgb(34, 116, 28);">public boolean </span><span style="color: rgb(34, 116, 28);">compare(W x) {</span><br><span style="color: rgb(34, 116, 28);">&nbsp; &nbsp; if(this.x.equals(</span><span style="color: rgb(34, 116, 28);">x)</span><span style="color: rgb(34, 116, 28);">) { return true; }</span><br><span style="color: rgb(34, 116, 28);">&nbsp;
-        &nbsp; else { return false; }</span><br><span style="color: rgb(34, 116, 28);">}</span></p>
-<p>(4) String으로 구체화한 MyGeneric 객체를 생성하고 활용 예를 들어라.</p>
-<p><span style="color: rgb(34, 116, 28);">MyGeneric&lt;String</span><span style="color: rgb(34, 116, 28);">&gt; mg =
-        new MyGeneric&lt;String&gt;("SKYLINE");<br></span></p>
-<p>
-    <font color="#22741c">생성된 문자를 확인할 수 있고, 생성된 문자와 다른 문자를 비교할 수 있다.</font>
-</p>
-<p><br></p>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%BC%EC%85%9C">자바에센셜</a></li>
-            
-        </ul>
-        
-            <div class="my-4 noto text-center">
-    <hr class="gradient-hr">
-    <h5 class="serif py-4">
-        <a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none deep-dark">
-            '명품 자바 에센셜 풀이' 시리즈
-        </a>
-    </h5>
-    <div class="row justify-content-between">
-        <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-6%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 6장(이론)
-                </div>
-            </a>
-        
-        </div>
-        <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 8장(이론)
-                </div>
-            </a>
-        
-        </div>
-    </div>
-</div>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-</div>
-</div>
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
+</head>
 
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                <div id="comment-empty" class="comment-list noto s-shadow">
-                    작성된 댓글이 없습니다!
-                </div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="Ow8CRR9rAKfLLFREWC5JLqisK7EUkAt0cSav4lOgwuc5cc3ONUmniOa9k5SKcoxz">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
+<body>
+<div>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-
-    
 </body>
 </html>

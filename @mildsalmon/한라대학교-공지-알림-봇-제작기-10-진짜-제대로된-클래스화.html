@@ -1,339 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="Intro 내가 클래스화를 너무 단순하게 생각했다. 디테일한 구조화 없이 그냥 클래스를 만들고 거기에 기존 코드를 다 때려박았다. 가독성은 개판이 되고, 쓸모없는 부분이 너무 많아졌다. 그래서 그냥 이번에는 A4에 전체적인 흐름을 그림으로 그려서 다시 클래스화를 진행하고자 한다. 최대한 비슷한 기능끼리 모듈을 만들었다. 코드는 초반에 Doc을 추가해서 모듈에 대한 간략한 설명을 추가할 …">
-<meta property="og:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-10-%EC%A7%84%EC%A7%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C%EB%90%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화">
-<meta property="og:description" content="Intro 내가 클래스화를 너무 단순하게 생각했다. 디테일한 구조화 없이 그냥 클래스를 만들고 거기에 기존 코드를 다 때려박았다. 가독성은 개판이 되고, 쓸모없는 부분이 너무 많아졌다. 그래서 그냥 이번에는 A4에 전체적인 흐름을 그림으로 그려서 다시 클래스화를 진행하고자 한다. 최대한 비슷한 기능끼리 모듈을 만들었다. 코드는 초반에 Doc을 추가해서 모듈에 대한 간략한 설명을 추가할 …">
-<meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/11/18Fv4P.jpg">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="mildsalmon">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화">
-<meta name="twitter:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-10-%EC%A7%84%EC%A7%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C%EB%90%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">
-<meta name="twitter:description" content="Intro 내가 클래스화를 너무 단순하게 생각했다. 디테일한 구조화 없이 그냥 클래스를 만들고 거기에 기존 코드를 다 때려박았다. 가독성은 개판이 되고, 쓸모없는 부분이 너무 많아졌다. 그래서 그냥 이번에는 A4에 전체적인 흐름을 그림으로 그려서 다시 클래스화를 진행하고자 한다. 최대한 비슷한 기능끼리 모듈을 만들었다. 코드는 초반에 Doc을 추가해서 모듈에 대한 간략한 설명을 추가할 …">
-<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/11/18Fv4P.jpg">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화 – mildsalmon</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
 </head>
+
 <body>
-    
-
-<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/3/11/18Fv4P.jpg" alt="한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화">
-        <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화</h1>
-            <p class="post-date fade-in">2020-03-11 18:54<span>(Last Update: 2020-03-11 19:00)<span></span></span></p>
-        </div>
-    </picture>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(434);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(434)">0<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화&url=https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-10-%EC%A7%84%EC%A7%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C%EB%90%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-10-%EC%A7%84%EC%A7%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C%EB%90%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-    </div>
-    <div class="col-lg-8">
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@mildsalmon">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-blogger-gray">
-                </li>
-                <li onclick="User.follow('mildsalmon')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <h1>Intro</h1>
-<p>내가 클래스화를 너무 단순하게 생각했다.<br>
-디테일한 구조화 없이 그냥 클래스를 만들고 거기에 기존 코드를 다 때려박았다.<br>
-가독성은 개판이 되고,<br>
-쓸모없는 부분이 너무 많아졌다.<br>
-그래서 그냥 이번에는 A4에 전체적인 흐름을 그림으로 그려서 다시 클래스화를 진행하고자 한다.<br>
-최대한 비슷한 기능끼리 모듈을 만들었다.<br>
-코드는 초반에 Doc을 추가해서 모듈에 대한 간략한 설명을 추가할 예정이다.<br></p>
-<p><del>이전글은 너무 쪽팔려서 지웠다.</del></p>
-<h1>모델링</h1>
-<p><img src="https://static.blex.kr/image/2020/3/10/xIlvRmkJ53GuxdE380Q8.jpg" alt=""></p>
-<p>위 사진을 보기 쉽게 표시해보면 아래와 같다.</p>
-<pre><code class="language-c">(D)notice_alarm
-        |--- (D)data_file
-                    |--- (F)~.txt
-        |--- (D)module
-                    |--- (F)dankook.py
-                    |--- (F)halla.py
-                    |--- (F)notice_alarm.py
-        |--- (D)security
-                    |--- (F)chat.txt
-                    |--- (F)token.txt
-                    |--- (F)security_da
-        |--- (D)telegram_bot
-                    |--- (F)telegram_bot_control.py
-        |--- (F)main.py
-        |--- (F)run.py</code></pre>
-<ol>
-<li>같은 기능을 하는 함수, 클래스끼리 모듈로 묶었다.</li>
-<li>공통점이 있는 모듈은 디렉터리별로 분류했다.</li>
-</ol>
-<p>완벽한 코드인지는 잘 모르겠다.<br>
-사실, 단국대 크롤링 부분은 좀 더 개선을 해야하는 부분이다.<br>
-좀 더 데이터를 잘 가공할 수 있을꺼 같은데 오늘 이 공지 알림 봇에<br> 할당한 시간이 부족해서 완벽히 끝마치지는 못했다.<br>
-내일 혹은 빠른 시일내에 보완을 해야겠다.<br></p>
-<h1>코드</h1>
-<p>코드가 꽤 길다?<br>
-솔직히 긴건 아니다.<br>
-길진 않지만, 모듈별로 나눠져 있어서 이 글에 붙여넣기 해봐야 가독성이 많이 떨어진다.<del>심미성도...</del><br>
-그래서 그냥 github 주소를 게시하겠다.<br>
-관심이 있는 사람은 깃헙으로 이동해서 fork를 해서 마음대로 코드를 활용해보자.<br>
-<a href="https://github.com/mildsalmon/notice_alarm/tree/master/Test">Notice_Alarm/Test</a></p>
-<h1>마치며</h1>
-<p>주석을 달고 싶었지만.<br>
-나 혼자만 활용하는 코드여서 달지 않고 코딩했다.<br>
-다음 시간에 주석도 달고 _doc_도 달아야겠다.<br></p>
-<p>토이 프로젝트로 만든 프로그램이다.<br>
-근데 해보고 싶은게 너무 많아서 조금 거대(?)해졌다<br></p>
-<p>코드가 더러워서 클래스화를 진행했다.<br>
-클래스화를 진행하다보니 파일들이 모듈별로 나눠지게 되었다.<br>
-전국에 있는 모든 학교를 추가해도 부담이 없어졌다. (학교별로 모듈을 나눴기 때문에)<br></p>
-<p>마지막으로 이 블로그의 주인장 Baealex님께 감사하다고 전하고 싶다.<br>
-이름 짓기로 고민할때 코딩 스타일도 봐주면서 많이 도움을 주셨다.<br>
-클래스화를 하면서 고통받았던게 변수 이름짓기였다.<br>
-변수 이름을 어떤걸로 지을까?가 아니라.<br>
-변수 이름을 어떤 방식으로 지어야 하는가?였다.<br>
-파이썬은 PEP8 스타일 가이드가 있다.<br>
-꼭 따를 필요는 없다고 생각할지 몰라도,<br>
-저 규칙대로 작성하니까 가독성이 많이 올라가고,<br>
-코딩할때도 편한 느낌이다.<br>
-그리고 가독성.<br>
-가독성을 높이기 위해서 시작한 클래스화는 아니지만.<br>
-하다보니 가독성을 놓치고 싶지 않았다.<br>
-이 코드들은 나중에 <strong>내가</strong> 재사용할꺼니까.<br>
-물론 이렇게 한번 진행하니까 팀프로젝트에서도 가독성을 많이 신경써야겠다고 생각했고, 다짐했다.<br></p>
-<p><img src="https://static.blex.kr/image/2020/3/11/1eCPr6oqrdVOufrJ0EMQ.png" alt=""></p>
-<p>절대 시켜서 전국 대학교를 추가하려는게 아니다;<br></p>
-<p>그리고 응용하면 대학교 뿐만 아니라 게시판이 있는 모든 홈페이지는 앵간해선 다 추가할 수 있다.<br></p>
-<p>코드를 확인하고 좀 더 고쳐야한다면 마음껏 욕해도 된다.<br></p>
-<p>그럼 끊임없이 쏟아내던 이 시리즈는 이제 그만 마쳐야겠다.<br>
-긴 시리즈 읽으시느라 고생하셨습니다.<br></p>
-<p>다음에 해보고 싶은 프로젝트는<br>
-1.전국 대학교를 차근 차근 추가하면서 데이터 분석을 해보는 것과<br>
-2.텔레그램 봇을 만들어서 원하는 대학교로 채널링크를 알려주는 진짜 봇을 만들어볼 예정이다.<br></p>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@mildsalmon/topic/python">python</a></li>
-            
-            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
-            
-            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
-            
-            <li><a href="/@mildsalmon/topic/%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">클래스화</a></li>
-            
-            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
-            
-            <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
-            
-        </ul>
-        
-            <div class="my-4 noto text-center">
-    <hr class="gradient-hr">
-    <h5 class="serif py-4">
-        <a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none deep-dark">
-            '한라대학교 공지 알림 봇 제작기' 시리즈
-        </a>
-    </h5>
-    <div class="row justify-content-between">
-        <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84?series=한라대학교-공지-알림-봇-제작기">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄
-                </div>
-            </a>
-        
-        </div>
-        <div class="col-md-6">
-        
-        </div>
-    </div>
-</div>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-</div>
-</div>
-
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                <div id="comment-empty" class="comment-list noto s-shadow">
-                    작성된 댓글이 없습니다!
-                </div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="MUiS9Ahrnah0bOmivMgRswKnNkUzhTlbRJYno0swQkkEgLR4Zvsib4eZm5PPN5wG">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
-</div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
-
-
-    
 </body>
 </html>

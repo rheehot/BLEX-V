@@ -1,285 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="Hello, React React로 Hello World를 출력해보자. 기본적인 설치 방법과 사용 방법을 기록하기 위해서 작성한다. How to install npm install -g create-react-app How to make application create-react-app hello-world 위 명령어를 이용하여 애플리케이션을 생성할 수 있다. 생성된 디렉터리 아래 src 내부의 모든 파일을 지운 뒤 index.js와 index.css를 생성하고 index.js에 아래와 같은 내용을 …">
-<meta property="og:url" content="https://blex.me/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="React로 Hello World 출력">
-<meta property="og:description" content="Hello, React React로 Hello World를 출력해보자. 기본적인 설치 방법과 사용 방법을 기록하기 위해서 작성한다. How to install npm install -g create-react-app How to make application create-react-app hello-world 위 명령어를 이용하여 애플리케이션을 생성할 수 있다. 생성된 디렉터리 아래 src 내부의 모든 파일을 지운 뒤 index.js와 index.css를 생성하고 index.js에 아래와 같은 내용을 …">
-<meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/22/133ieE.png">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="baealex">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React로 Hello World 출력">
-<meta name="twitter:url" content="https://blex.me/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5">
-<meta name="twitter:description" content="Hello, React React로 Hello World를 출력해보자. 기본적인 설치 방법과 사용 방법을 기록하기 위해서 작성한다. How to install npm install -g create-react-app How to make application create-react-app hello-world 위 명령어를 이용하여 애플리케이션을 생성할 수 있다. 생성된 디렉터리 아래 src 내부의 모든 파일을 지운 뒤 index.js와 index.css를 생성하고 index.js에 아래와 같은 내용을 …">
-<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/22/133ieE.png">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>React로 Hello World 출력 – baealex</title>
-</head>
-<body>
-    
-
-<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
-<div>
-    <picture class="post-title-image">
-        <img src="https://static.blex.me/title/baealex/2020/2/22/133ieE.png" alt="React로 Hello World 출력">
-        <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in">React로 Hello World 출력</h1>
-            <p class="post-date fade-in">2020-01-05 13:49<span>(Last Update: 2020-03-01 20:07)<span></span></span></p>
-        </div>
-    </picture>
-</div>
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(380);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(380)">0<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=React로 Hello World 출력&url=https://blex.me/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/react%EB%A1%9C-hello-world-%EC%B6%9C%EB%A0%A5" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-    </div>
-    <div class="col-lg-8">
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@baealex">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
-좋아하는 일을 잘하고 싶어합니다 😀</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-master-purple">
-                </li>
-                <li onclick="User.follow('baealex')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <h2>Hello, React</h2>
-<video autoplay muted loop><source src="https://static.blex.me/image/2020/2/22/V0q9GL3pLXBcA48qvNtK.mp4" type="video/mp4"></video>
-<p>React로 Hello World를 출력해보자. 기본적인 설치 방법과 사용 방법을 기록하기 위해서 작성한다.</p>
-<p><br></p>
-<h4>How to install</h4>
-<pre><code>npm install -g create-react-app</code></pre>
-<p><br></p>
-<h4>How to make application</h4>
-<pre><code>create-react-app hello-world</code></pre>
-<p>위 명령어를 이용하여 애플리케이션을 생성할 수 있다. 생성된 디렉터리 아래 <code>src</code> 내부의 모든 파일을 지운 뒤 <code>index.js</code>와 <code>index.css</code>를 생성하고 <code>index.js</code>에 아래와 같은 내용을 추가한다.</p>
-<pre><code class="language-js">import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-
-ReactDOM.render(
-  &lt;h1&gt;Hello, world!&lt;/h1&gt;,
-  document.getElementById('root')
-);</code></pre>
-<p>그 후 터미널에서 다음 명령어를 사용하여 테스트 화면을 볼 수 있다.</p>
-<pre><code>npm start</code></pre>
-<p><br></p>
-<h4>Component</h4>
-<p>React의 경우는 대부분 컴포넌트 단위로 작업이 이루어진다. 컴포넌트는 객체형 혹은 함수형으로 작성할 수 있는데 위 코드를 각각의 형태로 분리한 형태는 다음과 같다.</p>
-<h6>Function</h6>
-<pre><code class="language-js">function Hello() {
-    return(
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-    )
-}
-
-ReactDOM.render(
-    &lt;Hello /&gt;,
-    document.getElementById('root')
-);</code></pre>
-<h6>Class</h6>
-<pre><code class="language-js">class Hello extends React.Component {
-    render() {
-        return (
-            &lt;h1&gt;Hello, World!&lt;/h1&gt;
-        )
     }
-}
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
+</head>
 
-ReactDOM.render(
-    &lt;Hello /&gt;,
-    document.getElementById('root')
-);</code></pre>
-<p>원레 객체형과 함수형의 차이는 <code>state</code>를 쓸 수 있냐 없냐고 구분할 수 있었는데 이번에 <code>Hooks</code>라는 개념이 도입되면서 어려워졌다. 자세한 내용은 <a href="https://overreacted.io/ko/how-are-function-components-different-from-classes/">이곳을</a> 참고해 보는 것도 좋을 것 같다.</p>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@baealex/topic/%EB%A6%AC%EC%95%A1%ED%8A%B8">리액트</a></li>
-            
-            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li>
-            
-            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
-            
-        </ul>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
+<body>
+<div>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-</div>
-</div>
-
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                <div id="comment-empty" class="comment-list noto s-shadow">
-                    작성된 댓글이 없습니다!
-                </div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="IVWtKBss5mO4FtdOg9XymSv8JEYxlvNpjtjv9nAkhtKdce58tbO5nYezt2NotyQS">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
-</div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
-
-
-    
 </body>
 </html>

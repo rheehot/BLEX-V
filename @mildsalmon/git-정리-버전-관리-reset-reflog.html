@@ -1,418 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="git reset HEAD, git reset HEAD^ 수정된 파일을 되돌리기 위해서는 checkout을 사용했다. 수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다. git reset HEAD 수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법 git reset HEAD 파일명 git restore --staged 파일명 git reset HEAD^ 가장 마지막에 한 커밋을 취소하는 방법 git reset …">
-<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="Git 정리 - 버전 관리 - reset, reflog, revert">
-<meta property="og:description" content="git reset HEAD, git reset HEAD^ 수정된 파일을 되돌리기 위해서는 checkout을 사용했다. 수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다. git reset HEAD 수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법 git reset HEAD 파일명 git restore --staged 파일명 git reset HEAD^ 가장 마지막에 한 커밋을 취소하는 방법 git reset …">
-<meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/10/9YCfQ.jpg">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="mildsalmon">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 정리 - 버전 관리 - reset, reflog, revert">
-<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog">
-<meta name="twitter:description" content="git reset HEAD, git reset HEAD^ 수정된 파일을 되돌리기 위해서는 checkout을 사용했다. 수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다. git reset HEAD 수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법 git reset HEAD 파일명 git restore --staged 파일명 git reset HEAD^ 가장 마지막에 한 커밋을 취소하는 방법 git reset …">
-<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/10/9YCfQ.jpg">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>Git 정리 - 버전 관리 - reset, reflog, revert – mildsalmon</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
 </head>
+
 <body>
-    
-
-<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/3/10/9YCfQ.jpg" alt="Git 정리 - 버전 관리 - reset, reflog, revert">
-        <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - reset, reflog, revert</h1>
-            <p class="post-date fade-in">2020-03-10 09:37<span>(Last Update: 2020-03-11 09:44)<span></span></span></p>
-        </div>
-    </picture>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(424);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(424)">1<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - reset, reflog, revert&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-reset-reflog" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-    </div>
-    <div class="col-lg-8">
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@mildsalmon">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-blogger-gray">
-                </li>
-                <li onclick="User.follow('mildsalmon')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <h1>git reset HEAD, git reset HEAD^</h1>
-<p>수정된 파일을 되돌리기 위해서는 checkout을 사용했다.<br>
-수정된 파일을 스테이징 또는 커밋을 했다면 reset을 사용한다.<br></p>
-<h3>git reset HEAD</h3>
-<p>수정된 파일을 스테이징 했을 때, 스테이징을 취소하는 방법</p>
-<blockquote>
-<p>git reset HEAD 파일명
-git restore --staged 파일명</p>
-</blockquote>
-<p><img src="https://static.blex.me/image/2020/3/3/SUVGDMvS5NwKENLnmVS7.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/3/3/Qskzr31N3VKWFdD112u9.png" alt=""></p>
-<h3>git reset HEAD^</h3>
-<p>가장 마지막에 한 커밋을 취소하는 방법</p>
-<blockquote>
-<p>git reset HEAD^</p>
-</blockquote>
-<p><img src="https://static.blex.me/image/2020/3/3/UqnTSbd3Cjaz3PU9lSFa.png" alt=""></p>
-<h5>옵션</h5>
-<ul>
-<li>--soft HEAD^<ul>
-<li>최근 커밋을 하기 전 상태로 작업 트리를 되돌린다.</li>
-<li>커밋 직전 스테이징만 한 상태로 되돌린다.</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>git reset --soft HEAD^</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/JirxM9gt7q0Ez9Y8tofg.png" alt=""></p>
-<ul>
-<li>--mixed HEAD^<ul>
-<li>최근 커밋과 스테이징을 하기 전 상태로 작업 트리를 되돌린다.</li>
-<li>옵션을 따로 사용하지 않을 경우 이 옵션이 기본값이다.</li>
-<li>작업 트리에서만 수정한 상태로 되돌린다.</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>git reset --mixed HEAD^</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/IwHIUqYtnzZAClOFLUO4.png" alt=""></p>
-<ul>
-<li>--hard HEAD^<ul>
-<li>최근 커밋과 스테이징, 파일 수정을 하기 전 상태로 작업 트리를 되돌린다.</li>
-<li>이 옵션으로 되돌린 내용은 복구할 수 없다.</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>git reset --hard HEAD^</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/cvOqd4gjpX6mZmCm207q.png" alt=""></p>
-<h3>특정 커밋으로 되돌리기 (git reset 커밋 해시)</h3>
-<p>특정 버전으로 되돌린 다음 그 이후 버전을 삭제할 수 있다.<br>
-즉 입력한 커밋으로 이동하고 그 커밋 이후에 만든 커밋을 전부 삭제한다.<br></p>
-<ul>
-<li>soft</li>
-</ul>
-<p>입력한 커밋으로 이동하고<br>
-현재 작업 중이던 파일을 커밋을 하기 전 스테이징 상태로 되돌린다.<br>
-2번 커밋으로 이동했다.<br>
-2번 커밋 이후의 커밋에서 생성한 f2.txt 파일과 제거한 t1.txt파일이 스테이지에 올라가있다.<br></p>
-<blockquote>
-<p>git reset --soft 커밋 해시</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/C9zB0r0kYlgr88oHmBEg.png" alt=""></p>
-<ul>
-<li>mixed</li>
-</ul>
-<p>입력한 커밋으로 이동하고<br>
-현재 작업 중이던 파일을 스테이징을 하기 전, 작업 트리에서만 수정한 상태로 되돌린다.<br>
-merge t1-3 커밋으로 이동했지만,<br>
-da 커밋과 merge t1-4 커밋에서 수정한 내용이 작업트리에 올라가있다.<br></p>
-<blockquote>
-<p>git reset --mixed 커밋 해시</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/HWuGWwrZnFEPkXGtW1iF.png" alt=""></p>
-<ul>
-<li>hard</li>
-</ul>
-<blockquote>
-<p>git reset --hard 커밋 해시</p>
-</blockquote>
-<p>입력한 커밋으로 이동하고<br>
-파일 수정을 하기 전 상태로 작업 트리를 되돌린다.<br>
-3번째 커밋인 1 커밋으로 이동했다.<br>
-그 앞의 커밋인 hard 커밋과 2 커밋에서 만든 t2.txt 파일과 제거한 t1.txt파일이 지워졌다.<br>
-즉, 현재 작업중이던 파일을 다 버리고 1 커밋으로 이동한 것이다.<br></p>
-<p><img src="https://static.blex.kr/image/2020/3/10/5kBsvDryzxuwCpKEKyKQ.png" alt=""></p>
-<h3>브랜치에서 reset</h3>
-<p>현재 저장소를 이렇게 구성했다.</p>
-<p><img src="https://static.blex.kr/image/2020/3/10/UxlRlzzKf56PPRo7Gijh.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/10/WSbcc1HCjTHuNixJdX6k.png" alt=""></p>
-<ul>
-<li>soft</li>
-</ul>
-<p>soft 옵션은 현재 작업 중이던, 커밋한 파일을 스테이지에 올림</p>
-<blockquote>
-<p>git reset --soft (커밋해시)</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/ofO8qmFkz3Vdq0IrFtlH.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/10/OX2n8VQLuP4WksNEn38p.png" alt=""></p>
-<ul>
-<li>mixed</li>
-</ul>
-<p>mixed 옵션은 현재 작업 중이던, 커밋한 파일을 작업 트리에 올림</p>
-<blockquote>
-<p>git reset --mixed (커밋해시)</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/OxubPai8aNGcim8IZeRp.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/10/soCmlrF7vZSauk5itZu1.png" alt=""></p>
-<ul>
-<li>hard</li>
-</ul>
-<p>hard 옵션으로 가면 현재 작업 중이던, 커밋한 파일을 다 버리고 이동</p>
-<blockquote>
-<p>git reset --hard (커밋해시)</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/ScdKrMKqbSuZaM8QMVSW.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/10/hFnKh4QVaXw9MQmdgYC0.png" alt=""></p>
-<p>작업 다 끝나고 다시 확인해보니 start 커밋에 a1.txt가 지워져 있는 상태였다.<br>
-...<br>
-start 커밋은 아무 영향 없으니 그냥 도형 그림에서 a1.txt가 있다고 생각하고 이해해주길 바란다..<br></p>
-<h1>reset 되돌리기 (git reflog)</h1>
-<p>깃에서 reset을 잘못 입력했을 경우 참 골때리게된다.<br>
-reset은 묻지도 따지지도 않고 기존 데이터를 깔끔히 지워버리니 말이다.<br></p>
-<p>그럴때 자신이 원하는 지점으로 reset을 되돌릴 수 있다.</p>
-<blockquote>
-<p>git relog
-git reset --hard HEAD@{0}</p>
-</blockquote>
-<p><img src="https://static.blex.kr/image/2020/3/10/4YitPExQjFjGIRnQnqkz.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/10/kNVojd1PLDDEfgA4T016.png" alt=""></p>
-<h1>커밋 삭제하지 않고 되돌리기 (git revert)</h1>
-<blockquote>
-<p>git revert (최신 커밋 해시)</p>
-</blockquote>
-<p>나중에 사용할 것을 대비해서 커밋을 되돌리더라도 취소한 커밋을 남겨두어야 할 때 사용한다.</p>
-<p><img src="https://static.blex.me/image/2020/3/3/CvWCM2B9S5vqSawnn6Hq.png" alt=""></p>
-<p>빨간 박스는 Vim 파일로 열린 파일을 의미한다.
-로그를 보면 기존 커밋은 사라지지 않고, reverts commit으로 새로운 커밋이 만들어졌다.
-oo2 버전 커밋을 지우고 oo2에서 변경했던 이력을 취소한 새 커밋을 만든다.</p>
-<h1>마치며</h1>
-<p>다음 챕터에서는 버전별 파일 상태에 대해 포스팅하겠습니다.</p>
-<h1>참고문헌</h1>
-<blockquote>
-<p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
-<p>[GIT] reset 한거 취소하는 방법, <a href="https://88240.tistory.com/284">https://88240.tistory.com/284</a>, [ shaking shaking]</p>
-</blockquote>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@mildsalmon/topic/git">git</a></li>
-            
-            <li><a href="/@mildsalmon/topic/reflog">reflog</a></li>
-            
-            <li><a href="/@mildsalmon/topic/reset">reset</a></li>
-            
-            <li><a href="/@mildsalmon/topic/revert">revert</a></li>
-            
-            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
-            
-        </ul>
-        
-            <div class="my-4 noto text-center">
-    <hr class="gradient-hr">
-    <h5 class="serif py-4">
-        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
-            'Git' 시리즈
-        </a>
-    </h5>
-    <div class="row justify-content-between">
-        <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout?series=git">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - checkout
-                </div>
-            </a>
-        
-        </div>
-        <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C?series=git">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Git 정리 - 버전 관리 - 버전별 파일 상태
-                </div>
-            </a>
-        
-        </div>
-    </div>
-</div>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-</div>
-</div>
-
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                <div id="comment-empty" class="comment-list noto s-shadow">
-                    작성된 댓글이 없습니다!
-                </div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="7t0OV2HM1slmRTqvEqH0wJlvknVuqp6tcuwaUdbCWPiR8foSQh0Iz73gvxFZxy3P">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
-</div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
-
-
-    
 </body>
 </html>

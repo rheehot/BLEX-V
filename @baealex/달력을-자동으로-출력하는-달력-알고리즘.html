@@ -1,390 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="달력 알고리즘 심플한 달력 프로그램을 만드려고 고민하는 도중, 최소한 달력을 자동으로 출력해서 토요일과 일요일은 다른색으로 표시하는 기능을 만들어 보려고했다. 하지만 딱히 달력이라는 개념에 대해서 생각하며 살아온 건 아니었기 때문에 기능을 구현하다가 막히게 되었다. 처음에는 시스템의 요일과 해당 일(3월 2일 금)을 가져와서 1일의 요일을 찾아가는 방식을 사용하려고 했지만 이미 만들어진 기능으로 …">
-<meta property="og:url" content="https://blex.me/@baealex/%EB%8B%AC%EB%A0%A5%EC%9D%84-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%EB%8B%AC%EB%A0%A5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="달력을 출력하는 알고리즘">
-<meta property="og:description" content="달력 알고리즘 심플한 달력 프로그램을 만드려고 고민하는 도중, 최소한 달력을 자동으로 출력해서 토요일과 일요일은 다른색으로 표시하는 기능을 만들어 보려고했다. 하지만 딱히 달력이라는 개념에 대해서 생각하며 살아온 건 아니었기 때문에 기능을 구현하다가 막히게 되었다. 처음에는 시스템의 요일과 해당 일(3월 2일 금)을 가져와서 1일의 요일을 찾아가는 방식을 사용하려고 했지만 이미 만들어진 기능으로 …">
-<meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/2019/11/1/baealex/0_49_36.jpg">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="baealex">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="달력을 출력하는 알고리즘">
-<meta name="twitter:url" content="https://blex.me/@baealex/%EB%8B%AC%EB%A0%A5%EC%9D%84-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%EB%8B%AC%EB%A0%A5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
-<meta name="twitter:description" content="달력 알고리즘 심플한 달력 프로그램을 만드려고 고민하는 도중, 최소한 달력을 자동으로 출력해서 토요일과 일요일은 다른색으로 표시하는 기능을 만들어 보려고했다. 하지만 딱히 달력이라는 개념에 대해서 생각하며 살아온 건 아니었기 때문에 기능을 구현하다가 막히게 되었다. 처음에는 시스템의 요일과 해당 일(3월 2일 금)을 가져와서 1일의 요일을 찾아가는 방식을 사용하려고 했지만 이미 만들어진 기능으로 …">
-<meta name="twitter:image" content="https://static.blex.me/title/2019/11/1/baealex/0_49_36.jpg">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>달력을 출력하는 알고리즘 – baealex</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
 </head>
+
 <body>
-    
-
-<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <picture class="post-title-image">
-        <img src="https://static.blex.me/title/2019/11/1/baealex/0_49_36.jpg" alt="달력을 출력하는 알고리즘">
-        <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in">달력을 출력하는 알고리즘</h1>
-            <p class="post-date fade-in">2019-10-31 23:56<span>(Last Update: 2020-01-30 14:02)<span></span></span></p>
-        </div>
-    </picture>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(121);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(121)">0<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">2</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=달력을 출력하는 알고리즘&url=https://blex.me/@baealex/%EB%8B%AC%EB%A0%A5%EC%9D%84-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%EB%8B%AC%EB%A0%A5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%8B%AC%EB%A0%A5%EC%9D%84-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%EB%8B%AC%EB%A0%A5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-    </div>
-    <div class="col-lg-8">
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@baealex">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
-좋아하는 일을 잘하고 싶어합니다 😀</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-master-purple">
-                </li>
-                <li onclick="User.follow('baealex')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <h4>달력 알고리즘</h4>
-<p><a href="https://github.com/baealex/2018-IUCalendar">심플한 달력 프로그램</a>을 만드려고 고민하는 도중, 최소한 달력을 자동으로 출력해서 토요일과 일요일은 다른색으로 표시하는 기능을 만들어 보려고했다. 하지만 딱히 달력이라는 개념에 대해서 생각하며 살아온 건 아니었기 때문에 기능을 구현하다가 막히게 되었다.</p>
-<p><img src="https://static.blex.me/image/2019/10/31/0_v2ubAoXWKYpIzgx.png" alt=""></p>
-<p>처음에는 시스템의 요일과 해당 일(3월 2일 금)을 가져와서 1일의 요일을 찾아가는 방식을 사용하려고 했지만 이미 만들어진 기능으로 사용하는게 못마땅했고 어떻게 만들어진지 모르는 상태에서 해당 일이 30일인 경우 뭔가 불안한 느낌이 들었기 때문에 좀 더 기초적인 방법으로 접근하고자 하였다.</p>
-<p><br></p>
-<h4>매월 1일의 요일</h4>
-<p>달력의 기초는 1년 1월 1일이 월요일 이라는 설정이다.</p>
-<p>1년 1월 7일이 일요일이 될 것이라는 가정하에</p>
-<p>1%7 == 1(월요일) ㅡ 7%7 == 0(일요일) 이므로</p>
-<p>case 0 : '일요일' case 1 : '월요일'... case 6 : '토요일'이 된다.</p>
-<p>따라서 1월 1일부터 지금까지의 모든 일 수를 구하여 7로 나눈 나머지가 요일이 된다. 매월 1일이든 현재의 일이든 간단하게 요일을 구할 수 있다. 하지만 윤년이라는 걸림돌을 고려해야 한다.</p>
-<p><br></p>
-<h4>윤년</h4>
-<pre><code class="language-c">if(Year%4==0 &amp;&amp; Year%100!=0 || Year%400==0)
-{
-    printf("윤년입니다.");
-}</code></pre>
-<p>프로그래밍에 가장 기초적인 단계에서 나오는 윤년 구하기, 이 식을 활용하면 생각보다 간단하게 구현할 수 있다, 윤년은 365일 보다 하루가 더 많은 366일이다. 이번해가 2018년이고 2017년 까지의 모든 일 수를 구하면</p>
-<p>2017*365 + {(2017/4 - 2017/100) + 2017/400}</p>
-<p>= 736,205 + 504 - 20 + 5 = 736,694</p>
-<p>4로 나누어지는 윤년이었던 해의 일 수를 더해주고 100으로 나누어지는 해의 일 수를 빼주고 400으로 나누어지는 윤년의 일 수를 더해준다. 이번 해는 2018년이고 윤년이 아니므로, 현재 2018년 3월 2일 기준</p>
-<p>736,694 + 31 + 28 + 1 = 736,754</p>
-<p>736,754 % 7 == 4 이므로 목요일</p>
-<p>3월 1일은 목요일부터 시작이다.</p>
-<p><br></p>
-<h4>이번 달의 일 수</h4>
-<pre><code class="language-c">switch (month)
-{
-    case 1:
-        day = 31;
-        break;
-    case 2:
-        day = 28;
-        if(year%4==0 &amp;&amp; year%100!=0 || year%400==0)
-            day++;
-        break;
-    case 3:
-        day = 31;
-        break;
-    case 4:
-        day = 30;
-        break;
-    case 5:
-        day = 31;
-        break;
-    case 6:
-        day = 30;
-        break;
-    case 7:
-        day = 31;
-        break;
-    case 8:
-        day = 31;
-        break;
-    case 9:
-        day = 30;
-        break;
-    case 10:
-        day = 31;
-        break;
-    case 11:
-        day = 30;
-        break;
-    case 12:
-        day = 31;
-        break;
-}</code></pre>
-<p>매 월 일수는 윤년을 제외하면 모두 일정하다. case를 반대로 뒤집고 break를 빼면 좀 더 수월하게 매 월 1일의 요일을 구할 수 있다.</p>
-<p>아래는 파이썬으로 구현한 알고리즘이다.</p>
-<pre><code class="language-python">def get_month_day(year, month):
-    if month == 4 or month == 6 or month == 9 or month == 11:
-        return 30
-    elif month == 2:
-        if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
-            return 29
-        else:
-            return 28
-    else:
-        return 31
-
-def get_total_day(year, month, day):
-    year_days = (year-1)*365 + ((int((year-1)/4) - int((year-1)/100)) + int((year-1)/400))
-
-    month_days = 0
-    for i in range(1, month):
-        month_days += get_month_day(year, i)
-
-    return year_days + month_days + day
-
-def get_weekday(day):
-    day %= 7
-    if day == 0:
-        return 'SUN'
-    if day == 1:
-        return 'MON'
-    if day == 2:
-        return 'TUE'
-    if day == 3:
-        return 'WED'
-    if day == 4:
-        return 'THU'
-    if day == 5:
-        return 'FRI'
-    if day == 6:
-        return 'SAT'
-
-print(get_weekday(get_total_day(2020, 1, 30)))</code></pre>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@baealex/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li>
-            
-        </ul>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-</div>
-</div>
-
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                    <div>
-    <div class="comment-list s-shadow">
-        <a href="/@turtle">
-            
-            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/kimdongho/8PIm.jpg)"></div>
-            
-        </a>
-        <a class="font-weight-bold deep-dark" href="/@turtle">turtle</a>
-        <br>
-        <small>4개월, 1주전</small>
-        <ul class="none-list">
-        
-            
-        
-        </ul>
-        <div class="mt-3 noto"><p>날짜는 배열에 집어넣고 쓰는게 어떨가요??????????????????????????????????????????????????????????????????</p></div>
-        <ul class="none-list">
-            <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(123)">
-                    <i class="fas fa-angle-up"></i> <span id="clc123">0</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-                
-                    <div>
-    <div class="comment-list s-shadow">
-        <a href="/@DeCrazy">
-            
-            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/DeCrazy/J5kg.jpg)"></div>
-            
-        </a>
-        <a class="font-weight-bold deep-dark" href="/@DeCrazy">DeCrazy</a>
-        <br>
-        <small>2개월, 2주전</small>
-        <ul class="none-list">
-        
-            
-        
-        </ul>
-        <div class="mt-3 noto"><p>?????????????????????????????????????????????????????????????????????????????????????????????????????</p></div>
-        <ul class="none-list">
-            <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(164)">
-                    <i class="fas fa-angle-up"></i> <span id="clc164">0</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="PIB28Zw8owkgUCGYl4SAqHEpAJwikskDrt7ck2X9jxaNETtBMXHShVCQZVHRvmrh">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
-</div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
-
-
-    
 </body>
 </html>

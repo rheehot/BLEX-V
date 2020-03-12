@@ -1,415 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="기존 블로그의 글을 옮겨온 글임 From. 2019.10.15 제작중인 서비스형 블로그#의 발전을 위해서 RESTful과 프론트엔드 프레임워크의 도입을 시도하고자 하였다. RESTful API의 개념은 어느정도 알고 있었지만 이를 어떻게 장고에서 구현하여 활용하는지가 핵심적인 궁금증이다. BLEX — BLOG EXPRESS ME REST란? REST는 Representational State Transfer의 약어로서 웹의 장점과 HTTP의 우수성을 제대로 활용할 수 있는 …">
-<meta property="og:url" content="https://blex.me/@baealex/restful-api%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%9E%A5%EA%B3%A0%EC%9D%98-rest-framework">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="RESTful API의 개념과 장고의 REST Framework">
-<meta property="og:description" content="기존 블로그의 글을 옮겨온 글임 From. 2019.10.15 제작중인 서비스형 블로그#의 발전을 위해서 RESTful과 프론트엔드 프레임워크의 도입을 시도하고자 하였다. RESTful API의 개념은 어느정도 알고 있었지만 이를 어떻게 장고에서 구현하여 활용하는지가 핵심적인 궁금증이다. BLEX — BLOG EXPRESS ME REST란? REST는 Representational State Transfer의 약어로서 웹의 장점과 HTTP의 우수성을 제대로 활용할 수 있는 …">
-<meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/2/20lNDS.jpeg">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="baealex">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RESTful API의 개념과 장고의 REST Framework">
-<meta name="twitter:url" content="https://blex.me/@baealex/restful-api%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%9E%A5%EA%B3%A0%EC%9D%98-rest-framework">
-<meta name="twitter:description" content="기존 블로그의 글을 옮겨온 글임 From. 2019.10.15 제작중인 서비스형 블로그#의 발전을 위해서 RESTful과 프론트엔드 프레임워크의 도입을 시도하고자 하였다. RESTful API의 개념은 어느정도 알고 있었지만 이를 어떻게 장고에서 구현하여 활용하는지가 핵심적인 궁금증이다. BLEX — BLOG EXPRESS ME REST란? REST는 Representational State Transfer의 약어로서 웹의 장점과 HTTP의 우수성을 제대로 활용할 수 있는 …">
-<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/2/20lNDS.jpeg">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>RESTful API의 개념과 장고의 REST Framework – baealex</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
 </head>
+
 <body>
-    
-
-<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <picture class="post-title-image">
-        <img src="https://static.blex.me/title/baealex/2020/3/2/20lNDS.jpeg" alt="RESTful API의 개념과 장고의 REST Framework">
-        <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in">RESTful API의 개념과 장고의 REST Framework</h1>
-            <p class="post-date fade-in">2020-03-02 20:00<span>(Last Update: 2020-03-03 19:56)<span></span></span></p>
-        </div>
-    </picture>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(402);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(402)">0<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=RESTful API의 개념과 장고의 REST Framework&url=https://blex.me/@baealex/restful-api%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%9E%A5%EA%B3%A0%EC%9D%98-rest-framework" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/restful-api%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%9E%A5%EA%B3%A0%EC%9D%98-rest-framework" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-    </div>
-    <div class="col-lg-8">
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@baealex">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
-좋아하는 일을 잘하고 싶어합니다 😀</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-master-purple">
-                </li>
-                <li onclick="User.follow('baealex')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <div class="bg-border-purple bg-light p-3 vivid-purple">
-    기존 블로그의 글을 옮겨온 글임 From. 2019.10.15
-</div>
-<p>제작중인 서비스형 블로그<a href="https://blex.kr">#</a>의 발전을 위해서 <code>RESTful</code>과 프론트엔드 프레임워크의 도입을 시도하고자 하였다. <code>RESTful API</code>의 개념은 어느정도 알고 있었지만 이를 어떻게 장고에서 구현하여 활용하는지가 핵심적인 궁금증이다.</p>
-<ul>
-<li><a href="https://blex.kr">BLEX — BLOG EXPRESS ME</a></li>
-</ul>
-<p><br></p>
-<p><img src="https://static.blex.me/image/2020/3/2/6kyFOuqz8XPWF8dbs5LD.png" alt=""></p>
-<p><br></p>
-<h2>REST란?</h2>
-<blockquote>
-<p>REST는 Representational State Transfer의 약어로서 웹의 장점과 HTTP의 우수성을 제대로 활용할 수 있는 아키텍처이다. HTTP URI를 통해서 자원을 명시하고 HTTP Method(POST, GET, PUT, DELETE)를 통해서 명시된 자원의 CURD 연산을 적용하는 것을 의미한다.</p>
-</blockquote>
-<p>따라서 REST는 자원(Resource), 행위(Verb), 표현(Representations)<a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/">#</a>으로 구성된 아키텍처라 볼 수 있으며 미디움의 어떤 글<a href="https://medium.com/@whj2013123218/django-rest-api%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95-a95c6dd195fd">#</a>을 보고 필요성에 대해서 느낄 수 있었다. 해당 글을 정리하자면 코드의 재사용성을 높일 수 있으며 프론트엔드와 백엔드의 완전한 분업이 가능하다고 말한다.</p>
-<ul>
-<li><a href="https://blog.npcode.com/2017/04/03/rest%EC%9D%98-representation%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/">REST의 representation이란 무엇인가</a></li>
-<li><a href="https://medium.com/@whj2013123218/django-rest-api%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95-a95c6dd195fd">Django REST API의 필요성과 간단한 사용 방법</a></li>
-</ul>
-<p><br></p>
-<h4>REST의 특징</h4>
-<p>REST 아키텍처는 다음과 같은 특징을 가지고 있다.</p>
-<p><br></p>
-<h6>Uniform Interface</h6>
-<p>URI로 지정한 리소스에 대한 조작을 통일되고 한정적인 인터페이스로 수행하는 아키텍처 스타일이다. HTTP 표준 프로토콜을 따르는 모든 플랫폼에서 사용이 가능하다.</p>
-<p><br></p>
-<h6>Stateless</h6>
-<p>작업을 위한 상태 정보(쿠키, 세션)를 보관하거나 관리하지 않고 요청만 처리하면 되므로 구현이 단순해진다.</p>
-<p><br></p>
-<h6>Cacheable</h6>
-<p>웹 표준 프로토콜을 그대로 사용하므로 기존의 인프라를 활용할 수 있으므로 캐싱 기능을 사용할 수 있다.</p>
-<p><br></p>
-<h6>Self-descriptiveness</h6>
-<p>REST API 메시지만 보고도 쉽게 이해할 수 있는 자체 표현 구조로 되어 있다.</p>
-<p><br></p>
-<h6>Client-Server</h6>
-<p>자원을 가진 쪽이 Server, 자원을 요청하는 쪽이 Client 각각의 역할이 확실히 구분되기 때문에 서로간 의존성이 줄어들게 됨</p>
-<ul>
-<li>Server : API를 제공하고 비즈니스 로직 처리 및 저장을 책임</li>
-<li>Client : 사용자 인증이나 상태정보를 직접 관리하고 책임</li>
-</ul>
-<p><br></p>
-<h6>Layered System</h6>
-<p>REST 서버는 다중 계층으로 구성될 수 있으며 보안, 로드 밸런싱, 암호화 계층을 추가해 구조상의 유연성을 둘 수 있고 PROXY, 게이트웨이 같은 네트워크 기반의 중간매체를 사용할 수 있게 한다.</p>
-<p><br></p>
-<h4>디자인 가이드</h4>
-<p><strong>URI는 정보의 자원을 표현해야 한다.</strong></p>
-<p>블로그 서비스라는 가정하에 아래와 같이 URI를 표현할 수 있다.</p>
-<pre><code>/posts/N   (포스트)
-/members/N (멤버)</code></pre>
-<blockquote>
-<p>주의사항은 다음과 같다.</p>
-</blockquote>
-<ul>
-<li>슬래시는 계층 관계를 나타낼 때 사용</li>
-<li>마지막 문자로 슬래시를 포함하지 않음</li>
-<li>하이픈은 가독성 높이는데 사용</li>
-<li>언더바는 사용하지 않음</li>
-<li>소문자가 적합함</li>
-<li>파일 확장자는 포함하지 않음</li>
-</ul>
-<blockquote>
-<p>계층 관계는 어떻게 표현할까?</p>
-</blockquote>
-<pre><code>/members
-/members/N
-/members/N/likes</code></pre>
-<p><strong>자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.</strong></p>
-<p><em>잘못된 예</em></p>
-<pre><code>POST /members/create   (회원 정보 추가함)
-GET  /members/N/get    (회원 정보 가져옴)
-POST /members/N/update (회원 정보 수정함)
-POST /members/N/delete (회원 정보 삭제함)</code></pre>
-<p><em>올바른 예</em></p>
-<pre><code>GET    /members/N (회원 정보 가져옴)
-POST   /members/N (회원 정보 추가함)
-PUT    /members/N (회원 정보 수정함)
-DELETE /members/N (회원 정보 삭제함)</code></pre>
-<p><br></p>
-<h4>HTTP 응답코드</h4>
-<table>
-<thead>
-<tr>
-<th>코드</th>
-<th>내용</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>클라이언트의 요청을 정상적으로 수행함</td>
-</tr>
-<tr>
-<td>201</td>
-<td>클라이언트가 어떠한 리소스 생성을 요청 이후 성공적으로 생성됨</td>
-</tr>
-<tr>
-<td>400</td>
-<td>클라이언트의 요청이 부적절함</td>
-</tr>
-<tr>
-<td>401</td>
-<td>클라이언트가 인증되지 않은 상태에서 보호된 리소스를 요청했을 때 사용하는 응답 코드(로그인 하지 않은 유저가 로그인 했을 때, 요청 가능한 리소스를 요청했을 때)</td>
-</tr>
-<tr>
-<td>403</td>
-<td>유저 인증과 관계 없이 응답하고 싶지 않은 리소스를 클라이언트가 요청했을 때(400, 404를 사용하는 것을 추천)</td>
-</tr>
-<tr>
-<td>405</td>
-<td>클라이언트가 요청한 리소스에서는 사용 불가능한 Method를 이용했을 경우 사용하는 응답 코드</td>
-</tr>
-<tr>
-<td>301</td>
-<td>클라이언트가 요청한 리소스에 대한 URI가 변경 되었을 때 사용</td>
-</tr>
-<tr>
-<td>500</td>
-<td>서버에 문제가 있을 경우 사용하는 응답 코드</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2>장고 REST API 구현</h2>
-<p>흠... 이것을 서비스에 직접 적용하려면 어떻게 구현해야 할까? 직접 <code>HTTP Method</code>와 <code>Content-type</code>을 알아내고 적절한 응답을 해야할까 고민했으나 곧이어 <code>DjangoRESTframework</code>가 있다는 것을 알게 되었다. 해당 튜토리얼<a href="https://www.django-rest-framework.org/tutorial/quickstart/?source=post_page-----a95c6dd195fd----------------------">#</a>을 보고 따라했는데 의외로 정말 간단한 것에 대하여 놀랐으나 실제로 서비스에 적용하려면 응용을 더 해봐야 할 듯 하다.</p>
-<ul>
-<li><a href="https://www.django-rest-framework.org/tutorial/quickstart/?source=post_page-----a95c6dd195fd----------------------">퀵스타트 튜토리얼</a></li>
-</ul>
-<p>장고를 이용하여 일반적인 웹 서버를 개발할 때와 REST Framework를 활용했을 때 느껴진 차이점은 아래와 같았다.</p>
-<pre><code class="language-python">from rest_framework import serializers
-
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'groups']
-
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ['url', 'name']</code></pre>
-<p>그간 한번도 다뤄보지 않았던 <code>Serializer</code>라는 것을 구현한다. <code>Form</code>과 비슷한 구조로 구현하는 듯 보였다.</p>
-<pre><code class="language-python">from tutorial.quickstart.serializers import UserSerializer, GroupSerializer
-
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer</code></pre>
-<p>또한 <code>urls.py</code>에서 <code>view.py</code> 함수를 연결하여 구현하는 것이 일반적이라 생각했지만 <code>REST</code>에서는 위와 같이 <code>view</code>를 구현하고</p>
-<pre><code class="language-python">from rest_framework import routers
-from tutorial.quickstart import views
-
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-
-urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]</code></pre>
-<p><code>views.py</code>에서 구현된 클래스들은 <code>urls.py</code>에서 <code>router</code>라는 객체가 연결해준다. 이는 <code>rest_framework</code>의 내부 동작이므로 자세한 내용은 문서를 읽어야 파악이 가능할 듯 보인다. 또한 디자인 가이드 몇몇이 지켜지지 않는 것 같아 보였는데, 이도 세부설정이 가능한지 살펴봐야 할 것 같다.</p>
-<p><br></p>
-<h2>느낀점</h2>
-<p>구현이 간단해지는 프레임워크의 도입은 환영이라 생각한다. 튜토리얼만 진행한 RESTful API는 그러한 느낌이었다. 다만 REST API가 정말 쉬운 아키택쳐 인지는 잘 모르겠다. HTTP와 REST에 대한 명확한 이해가 필요해 보인다.</p>
-<ul>
-<li><a href="https://slides.com/eungjun/rest#/">그런 REST API로 괜찮은가</a></li>
-<li><a href="https://meetup.toast.com/posts/92">REST API 제대로 알고 사용하기</a></li>
-</ul>
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/RP_f5dMoHFc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>위 영상을 최근에야 제대로 보았는데 웹과 <code>REST</code>에 대해서 전체적인(왜? 어떻게? 만들었는지 등) 설명을 해주셔서 굉장히 좋았다. 또한 필자는 항상 궁금증을 가지고 있었다. 정말 내 프로젝트에 이 REST API를 도입하는게 맞는가에 대해서. 그 고민을 이 영상이 해결해 주었다. 적용하지 않을 것 같다. (현재는 부분부분 도입중) 공부는 하겠지만...</p>
-<p><img src="https://static.blex.me/image/2020/3/2/vGxW9Nzl6FIW4mJwlx8U.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/3/2/iujjvmI0nx9LCJu47Rlh.png" alt=""></p>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@baealex/topic/%EC%95%84%ED%82%A4%ED%83%9D%EC%B3%90">아키택쳐</a></li>
-            
-            <li><a href="/@baealex/topic/%EC%9E%A5%EA%B3%A0">장고</a></li>
-            
-            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
-            
-            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
-            
-        </ul>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-</div>
-</div>
-
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                <div id="comment-empty" class="comment-list noto s-shadow">
-                    작성된 댓글이 없습니다!
-                </div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="gRDjxpjZRmbpnH4kCBs1TWx9V2YsxBiGsesyzMF9vXoSc2YkpMV1mAnuni8gNwrg">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
-</div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
-
-
-    
 </body>
 </html>

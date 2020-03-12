@@ -1,173 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#fff">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-<meta name="description" content="@mildsalmon (김학진)님이 작성한 '한라대학교 공지 알림 봇 제작기' 시리즈를 만나보세요!">
-<meta property="og:site_name" content="BLEX">
-<meta property="og:title" content="mildsalmon – '한라대학교 공지 알림 봇 제작기' 시리즈">
-<meta property="og:description" content="@mildsalmon (김학진)님이 작성한 '한라대학교 공지 알림 봇 제작기' 시리즈를 만나보세요!">
-<meta property="og:image" content="https://static.blex.me/avatar/u/mildsalmon/WgGq.png">
-<meta property="og:url" content="https://blex.me/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0">
-<meta property="og:type" content="blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mildsalmon – '한라대학교 공지 알림 봇 제작기' 시리즈">
-<meta name="twitter:url" content="https://blex.me/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0">
-<meta name="twitter:description" content="@mildsalmon (김학진)님이 작성한 '한라대학교 공지 알림 봇 제작기' 시리즈를 만나보세요!">
-<meta property="twitter:image" content="https://static.blex.me/avatar/u/mildsalmon/WgGq.png">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>mildsalmon – '한라대학교 공지 알림 봇 제작기' 시리즈</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
 </head>
+
 <body>
-    
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logo.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-
-<div id="series-image" class="back-image series-title-image" style="background-image: url(https://static.blex.me/title/mildsalmon/2020/2/18/19Uqot.gif);">
-
-    <div class="fade-mask">
-    </div>
+<div>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-<div class="series-list">
-    <div class="col-lg-8 mx-auto">
-        <h2 class="serif font-weight-bold">
-            '한라대학교 공지 알림 봇 제작기' 시리즈
-        </h2>
-        <a class="post-series deep-dark serif font-weight-bold mb-3" href="/@mildsalmon">written by mildsalmon</a>
-        
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">1. 한라대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94">A. 개요 17년 말쯤에 학교 근로장학생과 기타 공지를 확인하기 위해서 매일 학교 홈페이지에 들어갔던 기억이 난다. 매일같이 홈페이지에서 공지를 확인하는 일은 상당히 귀찮았다. 그래서 공지가 올라오면 알림을 받아보자 하고 검색을 했다. 다양한 방법이 나왔고, 난 웹 크롤링과 텔레그램으로 새 공지를 실시간으로 받았다. 1. 구글 알리미 2. rss 3. 웹에서 홈페이지가 …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">2. 한라대학교 공지 알림 봇 제작기 (2) - 코딩</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">3. 한라대학교 공지 알림 봇 제작기 (3) - 코드분석 (Requests, bs4)</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">Intro 이 글에서는 Requests와 BeautifulSoup를 내 코드에 어떻게 적용시켰는지 알려준다. 웹페이지를 크롤링하기 위핵서는 크롤링할 웹의 주소 웹에서 F12(개발자 도구)를 누르면 나오는 소스 분석 이 두가지가 필요하다. Requests 우선 웹의 주소를 가지고 크롤링할 웹의 데이터를 가져와보자. # -*- coding: utf-8 -*- import requests req = requests.get(&#39;http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&#39;) html = req.text print(html) # …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">4. 한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">Intro 이번 챕터에서는 telegram bot을 활용해서 공지가 생기면 알람이 오도록 구현해보겠다. 지금까지 만든 코드를 실행하면 위 같은 결과가 나온다. 공지를 제외한 1page에 있는 게시글을 전부 크롤링한 모습이다. telegram bot 텔레그램 봇 정리본 위 정리본에 링크 되어 있는 문서를 참고하자. 봇 만들기 BotFather 텔레그램 봇은 BotFather을 통해 만들 수 있다. 만드는 …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">5. 한라대학교 공지 알림 봇 제작기 (5) - 서버 작업</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-5-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%97%85">Intro 서버는 AWS의 Amazon Lunux 2를 사용했다. PuTTY 나는 서버에 접속할때 PuTTY를 주로 사용한다. PuTTY는 SSH, Telet 등의 접속방식을 제공한다. PuTTY는 서버에 원격으로 접속하게 도와주는 프로그램이다. 다운로드 위 링크를 통해 다운받을 수 있다. PuTTY 접속 방법 빨간 부분만 잘 설정해주면 잘 접속이 된다. AWS .pem을 .ppk로 변환하는 방법 위에서 puttygen.exe를 …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-6-%EB%A7%88%EC%B9%98%EB%A9%B0">6. 한라대학교 공지 알림 봇 제작기 (6) - 마치며</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-6-%EB%A7%88%EC%B9%98%EB%A9%B0">Intro 블로그 첫 프로젝트가 끝났습니다. 다음에 다른 프로젝트로 찾아뵙겠습니다. 한라대학교 공지 알림 봇 제작기를 읽어주신 모든분들께 감사드립니다. 최종 코드 일반 공지_ver # -*- coding: utf-8 -*- ########## 서비스 코드 import requests from bs4 import BeautifulSoup import os import telegram import sys import time BASE_DIR = os.path.dirname(os.path.abspath(__file__)) my_token = &#39;봇 토큰&#39; …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">7. 한라대학교 공지 알림 봇 제작기 (7)  - 유지보수</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">Intro 내가 다시 이 시리즈를 작성할 일은 없을 줄 알았는데... 사건 설명 사건 개요 학교에서 일반공지 게시글의 제목을 바꿨다. 수정 과정 ... new_file.write(posts[0].text) ... elif before != post.text: ... 지금까지 사용한 코드는 post.text (게시글의 제목)으로 최신 게시글인지 판단했다. 게시한 공지의 제목을 바꾼다는 생각을 하지 못해서이다. 충분히 가능했으나, 에측하지 못해서 에러가 …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84">8. 한라대학교 공지 알림 봇 제작기 (8) - 유지보수 2탄</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-8-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98-2%ED%83%84">Intro 다시는 이 시리즈에 글 쓸 일이 없길 바랐지만. 짜잔. 그럴리가 없죠. 시작하겠습니다. 유지보수 2탄 사건 설명 사건 개요 알람이 폭팔적으로 와서, &#39;또 제목을 바꾼건가?&#39;, &#39;난 잘 고쳤는데?&#39;라는 생각을 했다. 그런데 그게 아니였다. 게시글을 지운것이다. 게시글은 3가지 방식으로 작동된다. 작성,수정,삭제 작성과 수정에 대한 대책은 바로 앞 게시글에서 해결했다. 하지만 삭제를 …</a></p>
-        </div>
-        
-        <div class="mb-5">
-            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-10-%EC%A7%84%EC%A7%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C%EB%90%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">9. 한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-10-%EC%A7%84%EC%A7%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C%EB%90%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">Intro 내가 클래스화를 너무 단순하게 생각했다. 디테일한 구조화 없이 그냥 클래스를 만들고 거기에 기존 코드를 다 때려박았다. 가독성은 개판이 되고, 쓸모없는 부분이 너무 많아졌다. 그래서 그냥 이번에는 A4에 전체적인 흐름을 그림으로 그려서 다시 클래스화를 진행하고자 한다. 최대한 비슷한 기능끼리 모듈을 만들었다. 코드는 초반에 Doc을 추가해서 모듈에 대한 간략한 설명을 추가할 …</a></p>
-        </div>
-        
-    </div>
-</div>
-
-
-
-
-        </div>
-    </div>
-    
-    <footer class="page-footer font-small">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-
-
-    
 </body>
 </html>

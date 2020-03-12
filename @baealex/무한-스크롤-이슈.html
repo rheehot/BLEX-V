@@ -1,293 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="무한 스크롤에 대한 인식 페이징은 반드시 사용되어야 하는 기술이다. 왜냐하면 시스템 입장에서 데이터 베이스의 모든 내용을 사용자에게 전달하는 것은 매우 비효율 적이며 많은 트래픽을 발생시킨다. 모든 웹사이트에서 페이징은 기본적으로 들어간 기술이 되었다. 그 와중에 페이지를 자동으로 넘기는 방식이 무한 스크롤이다. 필자는 이 무한 스크롤 기술을 매우 좋아한다. 온전히 기술적으로 좋아보이고 …">
-<meta property="og:url" content="https://blex.me/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="무한 스크롤 이슈">
-<meta property="og:description" content="무한 스크롤에 대한 인식 페이징은 반드시 사용되어야 하는 기술이다. 왜냐하면 시스템 입장에서 데이터 베이스의 모든 내용을 사용자에게 전달하는 것은 매우 비효율 적이며 많은 트래픽을 발생시킨다. 모든 웹사이트에서 페이징은 기본적으로 들어간 기술이 되었다. 그 와중에 페이지를 자동으로 넘기는 방식이 무한 스크롤이다. 필자는 이 무한 스크롤 기술을 매우 좋아한다. 온전히 기술적으로 좋아보이고 …">
-<meta property="og:site_name" content="BLEX">
-
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="baealex">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="무한 스크롤 이슈">
-<meta name="twitter:url" content="https://blex.me/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88">
-<meta name="twitter:description" content="무한 스크롤에 대한 인식 페이징은 반드시 사용되어야 하는 기술이다. 왜냐하면 시스템 입장에서 데이터 베이스의 모든 내용을 사용자에게 전달하는 것은 매우 비효율 적이며 많은 트래픽을 발생시킨다. 모든 웹사이트에서 페이징은 기본적으로 들어간 기술이 되었다. 그 와중에 페이지를 자동으로 넘기는 방식이 무한 스크롤이다. 필자는 이 무한 스크롤 기술을 매우 좋아한다. 온전히 기술적으로 좋아보이고 …">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>무한 스크롤 이슈 – baealex</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
 </head>
+
 <body>
-    
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(270);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(270)">1<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">1</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=무한 스크롤 이슈&url=https://blex.me/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EC%8A%88" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
+<div>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-    </div>
-    <div class="col-lg-8">
-        
-        <h1 class="post-headline"><span class="post-series">'블렉스 이야기' 시리즈</span>무한 스크롤 이슈</h1>
-        <p class="post-date">
-            2019-12-30 17:48
-            <span>(Last Update: 2019-12-30 20:29)<span></span></span></p>
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@baealex">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
-좋아하는 일을 잘하고 싶어합니다 😀</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-master-purple">
-                </li>
-                <li onclick="User.follow('baealex')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <h6>무한 스크롤에 대한 인식</h6>
-<p>페이징은 반드시 사용되어야 하는 기술이다. 왜냐하면 시스템 입장에서 데이터 베이스의 모든 내용을 사용자에게 전달하는 것은 매우 비효율 적이며 많은 트래픽을 발생시킨다. 모든 웹사이트에서 페이징은 기본적으로 들어간 기술이 되었다. 그 와중에 페이지를 자동으로 넘기는 방식이 무한 스크롤이다. 필자는 이 무한 스크롤 기술을 매우 좋아한다. 온전히 기술적으로 좋아보이고 구현이 간단하다. 하지만 안타깝게도 많은 사람들은 무한 스크롤에 대한 거부감을 가지고 있다.</p>
-<p><strong>무한 스크롤 정말 짜증나지 않나요?</strong></p>
-<blockquote>
-<p>무한 스크롤이 언제부턴가 거의 대부분의 SNS 사이트들이 기본으로 채용하는 UI가 되었죠.. 근데 사실 이거 무지하게 불편한 UI 아닙니까? 무한 스크롤의 단점은 첫째 과거 게시물에의 접근성이 거의 0에 수렴한다는겁니다. 10페이지 뒤쪽 게시물을 보기 위해서 페이지 로딩 10번을 해서 차근차근 접근해야 한다니.. 이건 한마디로 보지마! 라고 말하는거나 다름없죠. 니 인내심이 이기나 내가 이기나 싸우자는겁니다. 게다가 웃긴건 간신히 몇번이고 스크롤을 아래로 댕기고 새로운 페이지를 로드하고 그래서 원하는 게시물을 찾았다고 치죠. 그걸 클릭해서 본 다음에 뒤로 돌아가면 다시 목록 처음부터 리셋!!!</p>
-</blockquote>
-<p><a href="https://xetown.com/topics/946471">출처 : XETOWN</a></p>
-<p>사실 읽고나면 정말 공감가는 메세지다. 이 글 외에도 대부분 무한 스크롤에 반감을 가진 사람들은 같은 반응이다. 뒤쪽에 있는 게시물을 보기가 힘들고 대부분의 사이트는 무한 스크롤 된 게시물을 보고 뒤로가면 1-2페이지에서 미아가 된다. 사실 BLEX도 같은 문제를 앓고 있으며 필자는 그것을 애써 모른척하고 있었다.</p>
-<h6>무한 스크롤 이슈 해결 방법</h6>
-<ol>
-<li>가장 뒤에 있는 글도 보고싶다.</li>
-<li>스크롤 된 글을 읽고 뒤로가기 문제.</li>
-</ol>
-<p>가장 뒤에 글은 오래된 순으로 정렬하면 그만일 것 같고 스크롤 된 글을 읽고 뒤로가기 문제에 대해서 찾아보니 해결하는 방법이 몇가지가 있었다. <code>Hash</code>를 이용하여 해결하는 방법, <code>pushState</code>를 이용하여 해결하는 방법. 전자의 경우에는 검색 엔진에서 난리가 날 것 같고 후자의 경우에는 뒤로가기시 이동한 페이지의 이전 페이지를 볼 수 없다는 단점이 있다. 현재는 <code>Cache</code>를 사용해서 임시적으로 해결했는데 썩 좋은 방식은 아닌 것 같다.</p>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></li>
-            
-            <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
-            
-        </ul>
-        
-            <div class="my-4 noto text-center">
-    <hr class="gradient-hr">
-    <h5 class="serif py-4">
-        <a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none deep-dark">
-            '블렉스 이야기' 시리즈
-        </a>
-    </h5>
-    <div class="row justify-content-between">
-        <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%B6%94%EC%B2%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98?series=블렉스-이야기">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>포스트 추천 알고리즘
-                </div>
-            </a>
-        
-        </div>
-        <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88?series=블렉스-이야기">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>팀블로그 고안
-                </div>
-            </a>
-        
-        </div>
-    </div>
-</div>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-</div>
-</div>
-
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                    <div>
-    <div class="comment-list s-shadow">
-        <a href="/@yoyounn18">
-            
-            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/yoyounn18/BL4W.png)"></div>
-            
-        </a>
-        <a class="font-weight-bold deep-dark" href="/@yoyounn18">yoyounn18</a>
-        <br>
-        <small>2개월, 1주전</small>
-        <ul class="none-list">
-        
-            
-        
-        </ul>
-        <div class="mt-3 noto"><p>:)</p></div>
-        <ul class="none-list">
-            <li>
-                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(186)">
-                    <i class="fas fa-angle-up"></i> <span id="clc186">0</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="hlhPBpJoCJzp2d9E31aOv2vnJ7F04xJqtzkrbOpDEpIEFi09mJXZBpDSHV365yr2">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
-</div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-
-    
 </body>
 </html>

@@ -1,385 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <meta name="theme-color" content="#000">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Example Domain</title>
 
-    gtag('config', 'UA-113864080-4');
-    </script>
-    
-
-<meta name="description" content="Intro Crontab 은 특정 시간에 특정 작업을 해주는 리눅스 스케줄러이다. 주요 명령어 (options) -u crontab -u define user user 사용자에 대해서 크론탭을 수행한다. 생략하면 크론탭 명령을 실행하는 사용자에 대해서 크론탭 수행 -e crontab -e edit user&#39;s crontab VIM을 사용하여 크론탭을 편집한다. 수정 후 할일 service crond stop service crond start …">
-<meta property="og:url" content="https://blex.me/@mildsalmon/crontab">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="crontab">
-<meta property="og:description" content="Intro Crontab 은 특정 시간에 특정 작업을 해주는 리눅스 스케줄러이다. 주요 명령어 (options) -u crontab -u define user user 사용자에 대해서 크론탭을 수행한다. 생략하면 크론탭 명령을 실행하는 사용자에 대해서 크론탭 수행 -e crontab -e edit user&#39;s crontab VIM을 사용하여 크론탭을 편집한다. 수정 후 할일 service crond stop service crond start …">
-<meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/2/26/20KGDT.png">
-<meta property="og:locale" content="ko_KR">
-<meta property="article:author" content="mildsalmon">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="crontab">
-<meta name="twitter:url" content="https://blex.me/@mildsalmon/crontab">
-<meta name="twitter:description" content="Intro Crontab 은 특정 시간에 특정 작업을 해주는 리눅스 스케줄러이다. 주요 명령어 (options) -u crontab -u define user user 사용자에 대해서 크론탭을 수행한다. 생략하면 크론탭 명령을 실행하는 사용자에 대해서 크론탭 수행 -e crontab -e edit user&#39;s crontab VIM을 사용하여 크론탭을 편집한다. 수정 후 할일 service crond stop service crond start …">
-<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/2/26/20KGDT.png">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.55">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
-    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>crontab – mildsalmon</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
 </head>
+
 <body>
-    
-
-<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/2/26/20KGDT.png" alt="crontab">
-        <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in"><span class="post-series">'리눅스' 시리즈</span>crontab</h1>
-            <p class="post-date fade-in">2020-02-26 12:14<span>(Last Update: 2020-02-28 00:37)<span></span></span></p>
-        </div>
-    </picture>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
 </div>
-
-
-    
-    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://blex.me">
-                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
-            </a>
-    
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
-                    </li>
-                
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="content">
-        
-<div class="row">
-    <div class="col-lg-2">
-        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
-    <div class="share">
-        <ul class="px-3">
-            <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(394);">
-                    <i class="far fa-heart"></i>
-                </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(394)">1<a>
-            </a></a></li>
-            
-            <li class="mx-4">
-                <a href="javascript:void(0)" onclick="moveSlide('comment')">
-                    <i class="far fa-comment"></i>
-                </a>
-                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
-            </li>
-            
-            <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=crontab&url=https://blex.me/@mildsalmon/crontab" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/crontab" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-    </div>
-    <div class="col-lg-8">
-        
-        
-        <div class="row post-top-meta">
-    <a href="/@mildsalmon">
-        
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
-        
-    </a>
-    <div class="author-info">
-        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-blogger-gray">
-                </li>
-                <li onclick="User.follow('mildsalmon')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
-    </div>
-</div>
-        <article class="article noto">
-            <h1>Intro</h1>
-<p>Crontab 은 특정 시간에 특정 작업을 해주는 리눅스 스케줄러이다.</p>
-<h1>주요 명령어 (options)</h1>
-<h3>-u</h3>
-<pre><code>crontab -u</code></pre>
-<blockquote>
-<p>define user</p>
-</blockquote>
-<blockquote>
-<p>user 사용자에 대해서 크론탭을 수행한다. 생략하면 크론탭 명령을 실행하는 사용자에 대해서 크론탭 수행</p>
-</blockquote>
-<h3>-e</h3>
-<pre><code>crontab -e</code></pre>
-<blockquote>
-<p>edit user's crontab</p>
-</blockquote>
-<blockquote>
-<p>VIM을 사용하여 크론탭을 편집한다.</p>
-</blockquote>
-<h5>수정 후 할일</h5>
-<pre><code>service crond stop
-service crond start</code></pre>
-<p>크론을 재시작 해줘야한다.<br>
-restart는 사용이 안되는듯하다.<br>
-정상적으로 재시작이 되었는지 확인하기 위해서는 <code>service crond status</code>로 확인하면 된다.<br>
-Active : active (running) ~~ 이렇게 뜰꺼임<br></p>
-<h3>-l</h3>
-<pre><code>crontab -l</code></pre>
-<blockquote>
-<p>list user's crontab</p>
-</blockquote>
-<blockquote>
-<p>cat 명령어 처럼 크론탭에 저장된 명령어(작업목록)를 출력한다.</p>
-</blockquote>
-<h3>-r</h3>
-<pre><code>crontab -r</code></pre>
-<blockquote>
-<p>delete user's crontab</p>
-</blockquote>
-<blockquote>
-<p>크론탭의 내용을 모두 삭제한다.</p>
-</blockquote>
-<h1>등록 형식</h1>
-<p>* * * * *  수행할 명령어<br>
-┬ ┬ ┬ ┬ ┬<br>
-│ │ │ │ │<br>
-│ │ │ │ │<br>
-│ │ │ │ └───────── 요일 (0 - 6) (0:일요일, 1:월요일, 2:화요일, …, 6:토요일)<br>
-│ │ │ └───────── 월 (1 - 12)<br>
-│ │ └───────── 일 (1 - 31)<br>
-│ └───────── 시 (0 - 23)<br>
-└───────── 분 (0 - 59)<br>
-<br></p>
-<h3>예시</h3>
-<h5>매 1분마다 작업 수행</h5>
-<pre><code>* * * * * /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>1, 2, 3, 4, 5 ...</p>
-</blockquote>
-<h5>매시 15분, 45분에 작업 수행</h5>
-<pre><code>15,45 * * * * /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>00:15, 00:45, 01:15, 01:45 ...</p>
-</blockquote>
-<h5>10분마다 작업 수행</h5>
-<pre><code>*/10 * * * * /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>10, 20, 30, 40 ...</p>
-</blockquote>
-<h5>매일 2:00에 작업 수행</h5>
-<pre><code>0 2 * * * /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>2:00, 2:00</p>
-</blockquote>
-<h5>매 6시간마다 작업 수행</h5>
-<pre><code>30 */6 * * * /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>00:30, 6:30, 12:30 ...</p>
-</blockquote>
-<h5>1시부터 매 6시간마다 작업 수행</h5>
-<pre><code>30 1-23/6 * * * /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>1:30, 7:30, 13:30 ...</p>
-</blockquote>
-<h5>월-금요일 8:00에 작업 실행</h5>
-<pre><code>0 8 * * 1-5 /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>월 08:00, 화 08:00 ...</p>
-</blockquote>
-<h5>주말 08:00에 작업 실행</h5>
-<pre><code>0 8 * * 0,6 /Hi/Hi.sh</code></pre>
-<blockquote>
-<p>토 08:00, 일 08:00 ...</p>
-</blockquote>
-<h1>로그</h1>
-<h3>작업 명령 등록시</h3>
-<pre><code>crontab -e</code></pre>
-<p>위 명령어로 크론탭 편집에 들어간다.</p>
-<pre><code>*/10 * * * * /Hi/Hi.sh &gt; /Hi/Hi.log 2&gt;&amp;1
-*/10 * * * * /Hi/Hi.sh &gt;&gt; /Hi/Hi.log 2&gt;&amp;1</code></pre>
-<p>이렇게 하면 Hi.sh 파일 실행의 출력 내용과 에러가 담긴다.<br>
-<code>&gt;</code> 이 화살표가 한개면 파일을 실행 시킬때마다 log를 새로 작성한다.<br>
-<code>&gt;&gt;</code> 이렇게 두개면 이전 내용 다음에 이어서 작성된다.<br></p>
-<p><img src="https://static.blex.me/image/2020/2/26/A2HEYCmUtHqrB3hLg4wa.png" alt=""></p>
-<h5>/dev/null 2&gt;&amp;1</h5>
-<p><code>/dev/null 2&gt;&amp;1</code>
-명령어 처리결과 그리고 발생할지 모르는 에러메세지를 출력하지 않고 모두 다 버린다는 의미이다.</p>
-<p>2 : 표준 에러<br></p>
-<blockquote>
-<p>: 리다이렉트<br>
-&amp;1 : 표준 출력<br></p>
-</blockquote>
-<p>즉 <code>/dev/null 2&gt;&amp;1</code>은 표준 에러가 발생하면 /dev/null에다 리다이렉트로 표준 출력해라.<br></p>
-<p>고로. 에러를 보고 싶으면 /dev/null 대신에 /Hi/Hi.log 처럼 파일명을 적어주면 된다.<br></p>
-<h3>기본 로그</h3>
-<pre><code>vim /var/log/cron</code></pre>
-<p><img src="https://static.blex.me/image/2020/2/26/zjsyAgOues4MXThnUF9w.png" alt=""></p>
-<h1>주의사항</h1>
-<p>크론탭에 입력하는 작업 명령은 꼭 한줄로 작성해야한다.</p>
-<h1>참고문헌</h1>
-<blockquote>
-<p>리눅스 크론탭(Linux Crontab) 사용법, "<a href="https://jdm.kr/blog/2">https://jdm.kr/blog/2</a>", [JDM's Blog]</p>
-<p>리눅스 cron - 작업 예약 명령, "<a href="https://webdir.tistory.com/174">https://webdir.tistory.com/174</a>", [WEBDIR]</p>
-<p>리눅스 반복 예약작업 cron, crond, crontab, "<a href="https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_%EB%B0%98%EB%B3%B5_%EC%98%88%EC%95%BD%EC%9E%91%EC%97%85_cron,_crond,_crontab">https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_%EB%B0%98%EB%B3%B5_%EC%98%88%EC%95%BD%EC%9E%91%EC%97%85_cron,_crond,_crontab</a>", [ZETAWIKI]</p>
-<p>[Linux] crontab 사용법, "<a href="https://includestdio.tistory.com/31">https://includestdio.tistory.com/31</a>", [includestdio]</p>
-<p>Crontab 설정 및 로그 - 스케줄링하기, "<a href="https://ourcstory.tistory.com/63">https://ourcstory.tistory.com/63</a>", 불로</p>
-<p>cron(crontab) 실행 로그 남기기2, "<a href="https://blog.work6.kr/321">https://blog.work6.kr/321</a>", [WORK6]</p>
-<p>crontab 사용법 및 log, "<a href="https://loveroid.tistory.com/57">https://loveroid.tistory.com/57</a>", [sgawn james]</p>
-<p>[Linux] 쉘스크립트 crontab 동작시 /dev/null 2&gt;&amp;1 효과, "<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=04kqb&amp;articleno=15418625&amp;categoryId=736857&amp;regdt=20171113114402">http://blog.daum.net/_blog/BlogTypeView.do?blogid=04kqb&amp;articleno=15418625&amp;categoryId=736857&amp;regdt=20171113114402</a>", [삽돌이]</p>
-</blockquote>
-        </article>
-        
-        
-        <ul class="tag-list noto">
-            
-            <li><a href="/@mildsalmon/topic/crond">crond</a></li>
-            
-            <li><a href="/@mildsalmon/topic/crontab">crontab</a></li>
-            
-            <li><a href="/@mildsalmon/topic/document">document</a></li>
-            
-            <li><a href="/@mildsalmon/topic/linux">linux</a></li>
-            
-        </ul>
-        
-            <div class="my-4 noto text-center">
-    <hr class="gradient-hr">
-    <h5 class="serif py-4">
-        <a href="/@mildsalmon/series/%EB%A6%AC%EB%88%85%EC%8A%A4" class="text-decoration-none deep-dark">
-            '리눅스' 시리즈
-        </a>
-    </h5>
-    <div class="row justify-content-between">
-        <div class="col-md-6">
-        
-        </div>
-        <div class="col-md-6">
-        
-        </div>
-    </div>
-</div>
-        
-    </div>
-    <div class="col-lg-2 mobile-disable">
-        <div id="article-nav" class="sticky-top sticky-top-100"></div>
-    </div>
-</div>
-</div>
-</div>
-
-<div class="py-5 bg-comment">
-    <div class="container">
-        <div class="col-lg-8 mx-auto px-0">
-            
-            <div id="comment">
-                
-                <div id="comment-empty" class="comment-list noto s-shadow">
-                    작성된 댓글이 없습니다!
-                </div>
-                
-            </div>
-            
-            
-            
-            <input type="hidden" name="csrfmiddlewaretoken" value="vLuoXtxLYfp5Q8LquAZnoFjOgzNniOpWlTdhiXloMCJOVnQCix9FAliNRjUPVb51">
-            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
-            
-        
-        </div>
-    </div>
-</div>
-
-        
-    
-    
-    <footer class="page-footer font-small bg-theme">
-    
-        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
-    </div>
-</footer>
-
-    <div id="notify-content"></div>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.55"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.55"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var csrftoken = getCookie('csrftoken');
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-    });
-    </script>
-    
-<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
-<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
-<script>
-    autolink($('#comment'));
-</script>
-
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.55"></script>
-
-
-    
 </body>
 </html>
