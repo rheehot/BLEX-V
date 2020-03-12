@@ -1,46 +1,832 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="간단한 Requests 예시 r = requests.get(&#39;https://api.github.com/user&#39;, auth=(&#39;user&#39;, &#39;pass&#39;)) print(r.status_code) print(r.headers[&#39;content-type&#39;]) print(r.encoding) print(r.text) print(r.json()) # 403 # application/json; charset=utf-8 # utf-8 # {&quot;message&quot;:&quot;Maximum number of login attempts exceeded. Please try again later.&quot;,&quot;documentation_url&quot;:&quot;https://developer.github.com/v3&quot;} # {&#39;message&#39;: &#39;Maximum number of login attempts exceeded. Please try again later.&#39;, &#39;documentation_url&#39;: &#39;https://developer.github.com/v3&#39;} r.status_code 는 .get 부분에 auth=에 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/requests">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Requests">
+<meta property="og:description" content="간단한 Requests 예시 r = requests.get(&#39;https://api.github.com/user&#39;, auth=(&#39;user&#39;, &#39;pass&#39;)) print(r.status_code) print(r.headers[&#39;content-type&#39;]) print(r.encoding) print(r.text) print(r.json()) # 403 # application/json; charset=utf-8 # utf-8 # {&quot;message&quot;:&quot;Maximum number of login attempts exceeded. Please try again later.&quot;,&quot;documentation_url&quot;:&quot;https://developer.github.com/v3&quot;} # {&#39;message&#39;: &#39;Maximum number of login attempts exceeded. Please try again later.&#39;, &#39;documentation_url&#39;: &#39;https://developer.github.com/v3&#39;} r.status_code 는 .get 부분에 auth=에 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/2/15/12WiKy.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Requests">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/requests">
+<meta name="twitter:description" content="간단한 Requests 예시 r = requests.get(&#39;https://api.github.com/user&#39;, auth=(&#39;user&#39;, &#39;pass&#39;)) print(r.status_code) print(r.headers[&#39;content-type&#39;]) print(r.encoding) print(r.text) print(r.json()) # 403 # application/json; charset=utf-8 # utf-8 # {&quot;message&quot;:&quot;Maximum number of login attempts exceeded. Please try again later.&quot;,&quot;documentation_url&quot;:&quot;https://developer.github.com/v3&quot;} # {&#39;message&#39;: &#39;Maximum number of login attempts exceeded. Please try again later.&#39;, &#39;documentation_url&#39;: &#39;https://developer.github.com/v3&#39;} r.status_code 는 .get 부분에 auth=에 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/2/15/12WiKy.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Requests – mildsalmon</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/2/15/12WiKy.jpg" alt="Requests">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'파이썬 모듈 문서' 시리즈</span>Requests</h1>
+            <p class="post-date fade-in">2020-02-15 12:26<span>(Last Update: 2020-02-26 21:50)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(346);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(346)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Requests&url=https://blex.me/@mildsalmon/requests" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/requests" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>간단한 Requests 예시</p>
+<pre><code class="language-python">r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+
+print(r.status_code)
+print(r.headers['content-type'])
+print(r.encoding)
+print(r.text)
+print(r.json())</code></pre>
+<pre><code># 403
+# application/json; charset=utf-8
+# utf-8
+# {"message":"Maximum number of login attempts exceeded. Please try again later.","documentation_url":"https://developer.github.com/v3"}
+#  {'message': 'Maximum number of login attempts exceeded. Please try again later.', 'documentation_url': 'https://developer.github.com/v3'}</code></pre>
+<p><code>r.status_code</code> 는 <code>.get</code> 부분에 <code>auth=</code>에 자신의 깃허브 ID, Pass를 적으면 200이 출력된다.</p>
+<hr>
+<h1>소개</h1>
+<p>Requests를 사용하면 HTTP/1.1 요청을 매우 쉽게 보낼 수 있다. URL에 쿼리 문자열을 수동으로 추가하거나 POST 데이터를 양식 인코딩 할 필요가 없다. urllib3 덕분에 Keep-alive 및 HTTP connection pooling은 100% 자동이다.</p>
+<h3>철학</h3>
+<p>Requests는 몇가지 <a href="https://www.python.org/dev/peps/pep-0020/">PEP20</a> 관용구와 함께 개발이 되었다.</p>
+<blockquote>
+<p>Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Readability counts.</p>
+</blockquote>
+<ol>
+<li>못생긴 것보다 아름다운 것이 낫다.</li>
+<li>암시적인 것보다 명시적인 것이 좋다.</li>
+<li>복잡한 것보다 단순한 것이 낫다.</li>
+<li>추상적인(복잡한) 것보다 복합적인 것이 낫다.</li>
+<li>가독성이 중요하다.</li>
+</ol>
+<h1>설치</h1>
+<h3>pipenv로 설치</h3>
+<pre><code>$ pipenv install requests</code></pre>
+<h3>pip로 설치</h3>
+<pre><code>$ pip install requests</code></pre>
+<p>pipenv가 설치되지 않은 경우 pipene 웹 사이트로 이동하여 설치하면 된다.</p>
+<h1>HTTP 기본 지식</h1>
+<h3>HTTP 응답 코드</h3>
+<table>
+<thead>
+<tr>
+<th>응답 코드</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Continue (클라이언트로 부터 일부 요청을 받았으며 나머지 정보를 계속 요청함)</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Switching protocols</td>
+</tr>
+<tr>
+<td><code>200</code></td>
+<td>OK(요청이 성공적으로 수행되었음)</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created (PUT 메소드에 의해 원격지 서버에 파일 생성됨)</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Accepted(웹 서버가 명령 수신함)</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Non-authoritative information (서버가 클라이언트 요구 중 일부만 전송)</td>
+</tr>
+<tr>
+<td>204</td>
+<td>No content, (사용자 요구 처리하였으나 전송할 데이터가 없음)</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Moved permanently (요구한 데이터를 변경된 타 URL에 요청함)</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Not temporarily</td>
+</tr>
+<tr>
+<td>304</td>
+<td>Not modified (컴퓨터 로컬의 캐시 정보를 이용함, 대개 gif 등은 웹 서버에 요청하지 않음)</td>
+</tr>
+<tr>
+<td><code>400</code></td>
+<td>Bad request (사용자의 잘못된 요청을 처리할 수 없음)</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>Unauthorized (인증이 필요한 페이지를 요청한 경우)</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment required(예약됨)</td>
+</tr>
+<tr>
+<td><code>403</code></td>
+<td>Forbidden (접근 금지, 디렉터리 리스팅 요청 및 관리자 페이지 접근 등을 차단)</td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>Not found, (요청한 페이지 없음)</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method not allowed (혀용되지 않는 http method 사용함)</td>
+</tr>
+<tr>
+<td>407</td>
+<td>Proxy authentication required (프락시 인증 요구됨)</td>
+</tr>
+<tr>
+<td><code>408</code></td>
+<td>Request timeout (요청 시간 초과)</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone (영구적으로 사용 금지)</td>
+</tr>
+<tr>
+<td>412</td>
+<td>Precondition failed (전체 조건 실패)</td>
+</tr>
+<tr>
+<td>414</td>
+<td>Request-URI too long (요청 URL 길이가 긴 경우임)</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>Internal server error (내부 서버 오류)</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Not implemented (웹 서버가 처리할 수 없음)</td>
+</tr>
+<tr>
+<td><code>503</code></td>
+<td>Service unnailable (서비스 제공 불가)</td>
+</tr>
+<tr>
+<td><code>504</code></td>
+<td>Gateway timeout (게이트웨이 시간 초과)</td>
+</tr>
+<tr>
+<td>505</td>
+<td>HTTP version not supported (해당 http 버전 지원되지 않음)</td>
+</tr>
+</tbody>
+</table>
+<h3>HTTP 메소드 종류</h3>
+<table>
+<thead>
+<tr>
+<th>HTTP Method</th>
+<th>전송 형태</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>GET [request-uri]?query_string <br>&lt;/brHTTP/1.1\r\n&gt;HTTP/1.1\r\n<br>&lt;/brHost:[Hostname]&gt;Host:[Hostname] 혹은 [IP] \r\n</td>
+<td>GET 요청 방식은 URI(URL)가 가진 정보를 검색하기 위해 서버 측에 요청하는형태이다</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>POST [request-uri]?query_string<br>HTTP/1.1\r\n<br>HOST:[Hostname] 혹은 [IP] \r\n<br>Content-Lenght:[Lenght in Bytes] \r\n <br>\r\n<br>[query-string] 혹은 [데이터]</td>
+<td>POST 요청 방식은 요청 URI(URL)에 폼 입력을 처리하기 위해 구성한 서버 측 스크립트(ASP, PHP, JSP 등) 혹은 CGI 프로그램으로 구성되고 Form Action과 함께 전송되는데, 이때 헤더 정보에 포함되지 않고 데이터 부분에 요청 정보가 들어가게 된다.</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>HEAD [request-uri] HTTP/1.1\r\n<br>Host:[Hostname] 혹은 [IP] \r\n</td>
+<td>HEAD 요청 방식은 GET과 유사한 방식이나 웹 서버에서 헤더 정보 이외에는 어떤 데이터도 보내지 않는다.<br>웹 서버의 다운 여부 점검(Health Check)이나 웹 서버 정보(버전 등)등을 얻기 위해 사용될 수 있다.</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>OPTIONS [request-ri]<br>HTTP/1.1\r\n<br>Host:[Hostname] 혹은 [IP] \r\n</td>
+<td>해당 메소드를 통해 시스템에서 지원되는 메소드 종류를 확인할 수 있다.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>PUT [request-uri] HTTP/1.1\r\n<br>Host:[Hostname] 혹은 [IP] \r\n<br>Content-Lenght:[Length in Bytes] \r\n<br>Content-Type:[Content Type] \r\n<br>\r\n<br>[데이터]</td>
+<td>POST와 유사한 전송 구조를 가지기 때문에 헤더 이외에 메시지(데이터)가 함께 전송된다.<br>원격지 서버에 지정한 콘텐츠를 저장하기 위해 사용되며 홈페이지 변조에 많이 악용되고 있다.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>DELETE [request-uri] HTTP/1.1\r\n<br>Host:[Hostname] 혹은 [IP] \r\n<br>\r\n</td>
+<td>원격지 웹 서버에 파일을 삭제하기 위해 사용되며 PUT과는 반대 개념의 메소드이다.</td>
+</tr>
+<tr>
+<td><del>TRACE</del></td>
+<td>TRACE [request-uri] HTTP/1.1\r\n<br>Host:[Hostname] 혹은 [IP] \r\n<br>\r\n <br></td>
+<td>원격지 서버에 Loopback(루프백) 메시지를 호출하기 위해 사용된다.</td>
+</tr>
+<tr>
+<td>CONNECT</td>
+<td>CONNECT [request-uri] HTTP/1.1\r\n<br>Host:[Hostname] 혹은 [IP] \r\n<br>\r\n</td>
+<td>웹 서버에 프락시 기능을 요청할 때 사용된다.</td>
+</tr>
+</tbody>
+</table>
+<p><del>취조선</del>은 requests에서 지원을 안하는듯</p>
+<h1>Requests 사용하기</h1>
+<p>이제 Response라는 객체 r로 필요한 모든 정보를 얻을 수 있다.
+Requests의 간단한 API는 모든 형태의 HTTP 요청이 분명하다는 것을 의미한다.</p>
+<h3>.get</h3>
+<pre><code class="language-python">r = requests.get("https://api.github.com/events")
+
+print(r.status_code)
+print(r.json())
+print(r)</code></pre>
+<pre><code># 200
+# [{'id': '11524845355', 'type': 'PullRequestEvent', 'actor': {'id': 39814207, 'login': 'pull[bot]', 'display_login': 'pull', 'gravatar_id': '', 'url': 'https://api.github.com/users/pull[bot]', 'avatar_url': 'https://avatars.githubusercontent.com/u/39814207?'}, ... 'org': {'id': 78455, 'login': 'moovweb', 'gravatar_id': '', 'url': 'https://api.github.com/orgs/moovweb', 'avatar_url': 'https://avatars.githubusercontent.com/u/78455?'}}]
+# &lt;Response [200]&gt;</code></pre>
+<blockquote>
+<p>requests.get(url, params=None, **kwargs)[source]</p>
+</blockquote>
+<p>Sends a GET request.</p>
+<p>Parameters:<br>
+url – URL for the new Request object.<br>
+params – (optional) Dictionary, list of tuples or bytes to send in the query string for the Request.<br>
+**kwargs – Optional arguments that request takes.<br>
+Returns - Response object<br>
+Return type - requests.Response<br></p>
+<h3>.post</h3>
+<pre><code class="language-python">r = requests.post('https://httpbin.org/post', data = {'key':'value'})
+
+print(r.status_code)
+print(r.json())
+print(r)</code></pre>
+<pre><code># 200
+# {'args': {}, 'data': '', 'files': {}, 'form': {'key': 'value'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Content-Length': '9', 'Content-Type': 'application/x-www-form-urlencoded', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.22.0', 'X-Amzn-Trace-Id': 'Root=1-5e4767d1-8b2e1335e641a080800a47c2'}, 'json': None, 'origin': '27.179.9.117', 'url': 'https://httpbin.org/post'}
+# &lt;Response [200]&gt;</code></pre>
+<blockquote>
+<p>requests.post(url, data=None, json=None, **kwargs)[source]</p>
+</blockquote>
+<p>Sends a POST request.</p>
+<p>Parameters:<br>
+url – URL for the new Request object.<br>
+data – (optional) Dictionary, list of tuples, bytes, or file-like object to send in the body of the Request.<br>
+json – (optional) json data to send in the body of the Request.<br>
+**kwargs – Optional arguments that request takes.<br>
+Returns - Response object<br>
+Return type - requests.Response<br></p>
+<h3>other</h3>
+<h5>.put</h5>
+<pre><code class="language-python">r = requests.put('https://httpbin.org/put', data = {'key':'value'})
+
+print(r.status_code)
+print(r.json())
+print(r)</code></pre>
+<pre><code># 200
+# {'args': {}, 'data': '', 'files': {}, 'form': {'key': 'value'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Content-Length': '9', 'Content-Type': 'application/x-www-form-urlencoded', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.22.0', 'X-Amzn-Trace-Id': 'Root=1-5e47687b-3e252ba025bd68e0bf043810'}, 'json': None, 'origin': '27.179.9.117', 'url': 'https://httpbin.org/put'}
+# &lt;Response [200]&gt;</code></pre>
+<blockquote>
+<p>requests.put(url, data=None, **kwargs)[source]</p>
+</blockquote>
+<p>Sends a PUT request.</p>
+<p>Parameters: <br>
+url – URL for the new Request object.<br>
+data – (optional) Dictionary, list of tuples, bytes, or file-like object to send in the body of the Request.<br>
+json – (optional) json data to send in the body of the Request.<br>
+**kwargs – Optional arguments that request takes.<br>
+Returns - Response object<br>
+Return type - requests.Response<br></p>
+<h5>.delete</h5>
+<pre><code class="language-python">r = requests.delete('https://httpbin.org/delete')
+
+print(r.status_code)
+print(r.json())
+print(r)</code></pre>
+<pre><code># 200
+# {'args': {}, 'data': '', 'files': {}, 'form': {}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Content-Length': '0', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.22.0', 'X-Amzn-Trace-Id': 'Root=1-5e4768f0-decd6710f49d2320ba414150'}, 'json': None, 'origin': '27.179.9.117', 'url': 'https://httpbin.org/delete'}
+# &lt;Response [200]&gt;</code></pre>
+<blockquote>
+<p>requests.delete(url, **kwargs)[source]</p>
+</blockquote>
+<p>Sends a DELETE request.</p>
+<p>Parameters: <br>
+url – URL for the new Request object.<br>
+**kwargs – Optional arguments that request takes.<br>
+Returns - Response object<br>
+Return type - requests.Response<br></p>
+<h5>.head</h5>
+<pre><code class="language-python">r = requests.head('https://httpbin.org/get')
+
+print(r.status_code)
+print(r.headers)
+print(r)</code></pre>
+<pre><code># 200
+# {'Date': 'Sat, 15 Feb 2020 03:45:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '306', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'}
+# &lt;Response [200]&gt;</code></pre>
+<blockquote>
+<p>requests.head(url, **kwargs)[source]</p>
+</blockquote>
+<p>Sends a HEAD request.</p>
+<p>Parameters: <br>
+url – URL for the new Request object.<br>
+**kwargs – Optional arguments that request takes. If allow_redirects is not provided, it will be set to False (as opposed to the default request behavior).<br>
+Returns - Response object<br>
+Return type - requests.Response<br></p>
+<h5>.options</h5>
+<pre><code class="language-python">r = requests.options('https://httpbin.org/get')
+
+print(r.status_code)
+print(r.headers)
+print(r)</code></pre>
+<pre><code># 200
+# {'Date': 'Sat, 15 Feb 2020 03:51:55 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '0', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Allow': 'HEAD, GET, OPTIONS', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS', 'Access-Control-Max-Age': '3600'}
+# &lt;Response [200]&gt;</code></pre>
+<h1>URL로 매개변수 전달</h1>
+<p>URL 쿼리 문자열에 데이터를 보내려고 한다. URL을 직접 작성하는 경우 데이터는 물음표 뒤에 키 / 값 쌍으로 제공된다. <code>https://httpbin.org/get?key=val</code> 요청을 사용하면 <code>params</code> 키워드 인수를 사용하여 이러한 인수를 문자열 사전으로 제공 할 수 있다.<br>
+값이 <code>None</code>인 경우 URL's 쿼리 문자열에 추가되지 않는다.<br>
+list 형식으로도 값을 전달 할 수 있다.</p>
+<pre><code class="language-python">payload = {"key1": 'value1', 'key2':'value2'}
+payload2 = {'key3' : None}
+payload3 = {'key4' : ['value3','value4']}
+
+r = requests.get('https://httpbin.org/get', params=payload)
+print(r.url)
+
+r = requests.get('https://httpbin.org/get', params=payload2)
+print(r.url)
+
+r = requests.get('https://httpbin.org/get', params=payload3)
+print(r.url)</code></pre>
+<pre><code># https://httpbin.org/get?key1=value1&amp;key2=value2
+# https://httpbin.org/get
+# https://httpbin.org/get?key4=value3&amp;key4=value4</code></pre>
+<h1>Response Content</h1>
+<pre><code class="language-python">r = requests.get('https://api.github.com/events')
+print(r.text)</code></pre>
+<pre><code># [{"id":"11528229236","type":"IssuesEvent","actor":{"id":10379601,"login" ... ]</code></pre>
+<p>requests는 서버에서 컨턴츠를 자동으로 디코딩한다. 대부분의 유니코드 문자셋은 완벽하게 디코딩된다.</p>
+<p>requests를 할 때 requests는 HTTP 헤더를 기반으로 response의 인코딩에 대해 교육된 추측을 한다. <code>r.text</code>에 액세스 할 때 requests에서 추측한 텍스트 인코딩이 사용됩니다. <code>ㄱ.encoding</code>속성을 사용하여 requests가 사용중인 인코딩을 찾아서 변경할 수 있습니다.<br>
+인코딩을 변경하면 <code>r.text</code>를 호출할 때마다 requests에서 새로운 <code>r.encoding</code>값을 사용합니다. 콘텐츠의 인코딩이 무엇인지 알아 내기 위해 특수로직을 적용할 수 있는 모든 상황에서 이 작업을 수행할 수 있습니다. <br>
+예를 들어 HTML과 XML은 본문에서 인코딩을 지정할 수 있습니다. 이와 같은 상황에서는 <code>r.content</code>를 사용하여 인코딩을 찾은 다음 <code>r.encoding</code>을 설정해야합니다. 올바른 인코딩으로 <code>r.text</code>를 사용할 수 있습니다.</p>
+<pre><code class="language-python">print(r.encoding)
+r.encoding = 'ISO-8859-1'
+print(r.encoding)</code></pre>
+<pre><code># utf-8
+# ISO-8859-1</code></pre>
+<h1>JSON 응답 내용</h1>
+<p>JSON 디코딩에 실패하면 <code>r.json ()</code>에서 예외가 발생합니다. 예를 들어 응답에 <code>204 (콘텐츠 없음)</code>가 표시되거나 <code>응답에 유효하지 않은 JSON이 포함</code>되어 있으면 r.json ()을 시도하면 <code>ValueError</code>가 발생합니다. JSON 객체를 디코딩 할 수 없습니다.<br>
+<code>r.json () 호출 성공은 응답 성공을 나타내지 않습니다.</code> 일부 서버는 실패한 응답 (예 : HTTP 500의 오류 세부 사항)으로 JSON 오브젝트를 리턴 할 수 있습니다. 이러한 JSON은 디코딩되어 반환됩니다. 요청이 성공했는지 확인하려면 <code>r.raise_for_status ()</code>를 사용하거나 <code>r.status_code</code>가 예상 한 것인지 확인하십시오.</p>
+<pre><code class="language-python">print(r.json())</code></pre>
+<pre><code># [{'id': '11528273836', 'type': 'IssueCommentEvent', 'actor': {'id': 24736507 ... ]</code></pre>
+<h1>사용자 정의 헤더</h1>
+<p>requests에 HTTP 헤더를 추가하려면 간단히 헤더 매개 변수에 dict를 전달하십시오.<br>
+예를 들어 이전 예에서 사용자 에이전트를 지정하지 않았습니다.</p>
+<pre><code class="language-python">url = 'https://api.github.com/'
+headers = {'user-agent': 'my-app/0.0.1'}
+
+r = requests.get(url, headers=headers)</code></pre>
+<p>참고 : 사용자 지정 헤더는보다 구체적인 정보 소스보다 우선 순위가 낮습니다.<br>
+예를 들어 :<br></p>
+<ul>
+<li>자격 증명이 .netrc에 지정된 경우 headers =로 설정된 권한 부여 헤더가 재정의되고 auth = 매개 변수로 재정의됩니다.</li>
+<li>호스트 외부로 리디렉션되면 승인 헤더가 제거됩니다.</li>
+<li>프록시 인증 헤더는 URL에 제공된 프록시 자격 증명으로 재정의됩니다.</li>
+<li>콘텐츠 길이를 결정할 수 있으면 콘텐츠 길이 헤더가 재정의됩니다.<br>
+또한 요청은 지정된 사용자 정의 헤더에 따라 동작을 전혀 변경하지 않습니다. 헤더는 단순히 최종 요청에 전달됩니다.</li>
+</ul>
+<p>참고 : 모든 헤더 값은 문자열, 바이트 열 또는 유니 코드 여야합니다. 허용되는 동안 유니 코드 헤더 값을 전달하지 않는 것이 좋습니다.</p>
+<h1>더 복잡한 POST 요청</h1>
+<p>일반적으로 HTML 형식과 매우 유사한 형식으로 인코딩 된 데이터를 보내려고합니다. 이렇게하려면 단순히 데이터 인수에 사전을 전달하십시오. 요청하면 데이터 사전이 자동으로 양식 인코딩됩니다</p>
+<pre><code class="language-python">payload = {'key1': 'value1', 'key2': 'value2'}
+
+r = requests.post("https://httpbin.org/post", data=payload)
+print(r.text)</code></pre>
+<pre><code># ...
+#   "form": {
+#     "key1": "value1", 
+#     "key2": "value2"
+#   }, 
+# ...</code></pre>
+<p><code>data 인수</code>는 각 키에 대해 여러 값을 가질 수도 있습니다. 데이터를 튜플 리스트 또는 리스트을 값으로 사용하는 사전을 만들어서 수행 할 수 있습니다. 양식에 동일한 키를 사용하는 여러 요소가있는 경우 특히 유용합니다.</p>
+<pre><code class="language-python">payload_tuples = [('key1', 'value1'), ('key1', 'value2')]
+r1 = requests.post('https://httpbin.org/post', data=payload_tuples)
+payload_dict = {'key1': ['value1', 'value2']}
+r2 = requests.post('https://httpbin.org/post', data=payload_dict)
+
+r1_text = r1.text
+
+print(r1.text)
+print(r2.text)</code></pre>
+<pre><code># {
+# ...
+#   "form": {
+#     "key1": [
+#       "value1", 
+#       "value2"
+#     ]
+#  ...
+# }
+# 
+# {
+# ...
+#     "key1": [
+#       "value1", 
+#       "value2"
+#     ]
+# ...
+# }
+</code></pre>
+<p>양식 인코딩되지 않은 데이터를 보내려는 경우가 있습니다. dict 대신 문자열을 전달하면 해당 데이터가 직접 게시됩니다.</p>
+<p>예를 들어, GitHub API v3은 JSON 인코딩 POST / PATCH 데이터를 허용합니다.<br>
+dict을 직접 인코딩하는 대신 json 매개 변수 (버전 2.4.2에 추가)를 사용하여 직접 전달할 수 있으며 자동으로 인코딩됩니다.</p>
+<p>데이터 또는 파일이 전달되면 json 매개 변수는 무시됩니다.</p>
+<p>요청에서 json 매개 변수를 사용하면 헤더의 Content-Type이 application / json으로 변경됩니다.</p>
+<pre><code class="language-python">url = "https://api.github.com/"
+payload = {'some':'data'}
+
+r1 = requests.post(url, data=json.dumps(payload))
+r2 = requests.post(url, json=payload)
+
+print(r1.headers['Content-Type'])
+print(r2.headers['Content-Type'])</code></pre>
+<pre><code># application/json; charset=utf-8
+# application/json; charset=utf-8</code></pre>
+<h1>POST a Multipart-Encoded File</h1>
+<p>requests으로 멀티 파트 인코딩 파일을 간단하게 업로드 할 수 있습니다.<br>
+파일 이름, content_type 및 헤더를 명시적으로 설정할 수 있습니다.<br>
+원하는 경우 문자열을 파일로 수신하도록 보낼 수 있습니다.</p>
+<pre><code class="language-python">url = 'https://httpbin.org/post'
+files = {'file': open('report.xls', 'rb')}
+files = {'file': ('report.xls', open('report.xls', 'rb'), 'application/vnd.ms-excel', {'Expires': '0'})}
+files = {'file': ('report.csv', 'some,data,to,send\nanother,row,to,send\n')}
+
+
+r = requests.post(url, files=files)</code></pre>
+<h1>Response Status Codes</h1>
+<p>응답 상태 코드를 확인 할 수 있습니다.<br>
+requests에는 또한 쉽게 참조 할 수 있도록 내장 된 상태 코드 조회 객체가 제공됩니다.</p>
+<pre><code class="language-python">r = requests.get('https://httpbin.org/get')
+
+print(r.status_code)
+print(requests.codes.ok)</code></pre>
+<pre><code># 200
+# 200</code></pre>
+<p>잘못된 요청을 만든 경우 Response.raise_for_status ()를 사용하여 요청할 수 있습니다.</p>
+<pre><code class="language-python">bad_r = requests.get('https://httpbin.org/status/404')
+print(bad_r.status_code)
+
+print(bad_r.raise_for_status())</code></pre>
+<pre><code># 404
+# Traceback (most recent call last):
+#   File "D:/source/test/requests_test.py", line 8, in &lt;module&gt;
+#     print(bad_r.raise_for_status())
+#   File "D:\python\venv\lib\site-packages\requests\models.py", line 940, in raise_for_status
+#     raise HTTPError(http_error_msg, response=self)
+# requests.exceptions.HTTPError: 404 Client Error: NOT FOUND for url: https://httpbin.org/status/404</code></pre>
+<p>그러나 r에 대한 status_code는 200이므로, raise_for_status ()를 호출하면 다음과 같은 결과를 얻습니다.</p>
+<pre><code class="language-python">r.raise_for_status()</code></pre>
+<pre><code># None</code></pre>
+<h1>Response Headers</h1>
+<p>Python 사전을 사용하여 서버의 응답 헤더를 볼 수 있습니다.<br>
+그러나 사전은 특별합니다. HTTP 헤더 전용입니다. RFC 7230에 따르면 HTTP 헤더 이름은 대소 문자를 구분하지 않습니다.<br>
+따라서 원하는 대문자를 사용하여 헤더에 액세스 할 수 있습니다.<br></p>
+<pre><code class="language-python">r = requests.get('https://httpbin.org/get')
+
+print(r.headers)
+print(r.headers['Content-Type'])
+print(r.headers.get('content-type'))</code></pre>
+<pre><code># {'Date': 'Sun, 16 Feb 2020 06:18:37 GMT', 'Content-Type': 'application/json', 'Content-Length': '309', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'}
+# application/json
+# application/json</code></pre>
+<p>또한 서버가 다른 값으로 동일한 헤더를 여러 번 전송할 수 있다는 점에서 특별하지만 RFC 7230에 따라 요청이 단일 매핑 내 사전에 표시 될 수 있도록 요청을 결합합니다.</p>
+<p>수신자는 메시지의 의미를 변경하지 않고 동일한 필드 이름을 가진 여러 헤더 필드를 하나의 "field-name : field-value"쌍으로 결합 할 수 있습니다. 각 후속 필드 값을 결합 된 필드 값에 순서대로 추가하여 반점.</p>
+<h1>쿠키</h1>
+<p>응답에 일부 쿠키가 포함된 경우 쿠키에 빠르게 접근할 수 있습니다.</p>
+<pre><code class="language-python">url = 'http://example.com/some/cookie/setting/url'
+r = requests.get(url)
+
+r.cookies['example_cookie_name']</code></pre>
+<p>서버에 자체 쿠키를 보내려면 다음 <code>cookies</code> 매개변수를 사용할 수 있습니다.</p>
+<pre><code class="language-python">url = 'https://httpbin.org/cookies'
+cookies = dict(cookies_are='working')
+print(cookies)
+
+r = requests.get(url, cookies=cookies)
+print(r.text)</code></pre>
+<pre><code># {'cookies_are': 'working'}
+#
+# {
+#   "cookies": {
+#     "cookies_are": "working"
+#   }
+# }</code></pre>
+<p>쿠키는 <code>dicts</code>처럼 작동하지만 여러 도메인이나 경로에서 사용하기에 더 완벽한 인터페이스를 제공하는 <code>RequestsCookieJar</code>에 반환됩니다. 쿠키 jar는 requests에 전달할 수도 있습니다.</p>
+<pre><code class="language-python">jar = requests.cookies.RequestsCookieJar()
+jar.set('tasty_cookie', 'yum', domain='httpbin.org', path='/cookies')
+jar.set('gross_cookie', 'blech', domain='httpbin.org', path='/elsewhere')
+url = 'https://httpbin.org/cookies'
+r = requests.get(url, cookies=jar)
+
+print(r.text)</code></pre>
+<pre><code># {
+#   "cookies": {
+#     "tasty_cookie": "yum"
+#   }
+# }</code></pre>
+<h1>Redirection and History</h1>
+<p>기본적으로 요청은 HEAD를 제외한 모든 동사에 대해 위치 재 지정을 수행합니다.</p>
+<p>Response 객체의 <code>history 속성</code>을 사용하여 리디렉션을 추적 할 수 있습니다.</p>
+<p><code>Response.history</code> 목록에는 요청을 완료하기 위해 작성된 Response 오브젝트가 있습니다. 목록은 가장 오래된 것부터 가장 최근의 것까지 정렬됩니다.</p>
+<p>예를 들어 blex는 모든 HTTP 요청을 HTTPS로 리디렉션합니다.</p>
+<pre><code class="language-python">r = requests.get("http://blex.kr/")
+
+print(r.url)
+print(r.status_code)
+print(r.history)</code></pre>
+<pre><code># https://blex.kr/trendy
+# 200
+# [&lt;Response [301]&gt;, &lt;Response [302]&gt;]</code></pre>
+<p>GET, OPTIONS, POST, PUT, PATCH 또는 DELETE를 사용하는 경우 allow_redirects 매개 변수를 사용하여 리디렉션 처리를 비활성화 할 수 있습니다.</p>
+<pre><code class="language-python">r = requests.get('https://blex.kr/', allow_redirects=False)
+
+print(r.url)
+print(r.status_code)
+print(r.history)</code></pre>
+<pre><code># https://blex.kr/
+# 302
+# []</code></pre>
+<p>HEAD를 사용하는 경우 리디렉션을 활성화 할 수도 있습니다.</p>
+<pre><code class="language-python">r = requests.head('https://blex.kr/', allow_redirects=True)
+
+print(r.url)
+print(r.status_code)
+print(r.history)</code></pre>
+<pre><code># https://blex.kr/trendy
+# 200
+# [&lt;Response [302]&gt;]</code></pre>
+<h1>Timeouts</h1>
+<p>timeout 매개 변수를 사용하여 지정된 시간 (초) 후에 응답 대기를 중지하도록 요청에 지시 할 수 있습니다. 거의 모든 프로덕션 코드는 거의 모든 요청에서 이 매개 변수를 사용해야합니다. 그렇지 않으면 프로그램이 무기한 중단 될 수 있습니다.</p>
+<pre><code class="language-python">requests.get('https://github.com/', timeout=0.001)</code></pre>
+<h1>예외</h1>
+<p>exception requests.RequestException(*args, **kwargs)[source]</p>
+<p>요청을 처리하는 동안 발생한 모호한 예외가있었습니다.</p>
+<p>exception requests.ConnectionError(*args, **kwargs)[source]</p>
+<p>연결 오류가 발생했습니다.</p>
+<p>exception requests.HTTPError(*args, **kwargs)[source]</p>
+<p>HTTP 오류가 발생했습니다.</p>
+<p>exception requests.URLRequired(*args, **kwargs)[source]</p>
+<p>요청하려면 유효한 URL이 필요합니다.</p>
+<p>exception requests.TooManyRedirects(*args, **kwargs)[source]</p>
+<p>리디렉션이 너무 많습니다.</p>
+<p>exception requests.ConnectTimeout(*args, **kwargs)[source]</p>
+<p>원격 서버에 연결하는 동안 요청 시간이 초과되었습니다.</p>
+<p><code>이 오류가 발생한 요청은 다시 시도해도 안전합니다.</code></p>
+<p>exception requests.ReadTimeout(*args, **kwargs)[source]</p>
+<p>서버가 할당 된 시간 내에 데이터를 보내지 않았습니다.</p>
+<p>exception requests.Timeout(*args, **kwargs)[source]</p>
+<p>요청 시간이 초과되었습니다.</p>
+<p><code>이 오류를 잡으면 ConnectTimeout 및 ReadTimeout 오류가 모두 발생합니다.</code></p>
+<h1>세션</h1>
+<p>몰라</p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>Requests: HTTP for Humans™. "<a href="https://requests.readthedocs.io/en/master/">https://requests.readthedocs.io/en/master/</a>"</p>
+<p>HTTP 응답 코드 종류 &amp;&amp; HTTP 메소드 종류, "<a href="http://bitly.kr/SAXCblyO">http://bitly.kr/SAXCblyO</a>"</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/requests">requests</a></li>
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%AA%A8%EB%93%88">모듈</a></li>
+            
+            <li><a href="/@mildsalmon/topic/document">document</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88-%EB%AC%B8%EC%84%9C" class="text-decoration-none deep-dark">
+            '파이썬 모듈 문서' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%8B%9C%EB%A6%AC%EC%A6%88-%EC%84%A4%EB%AA%85?series=파이썬-모듈-문서">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>파이썬 모듈 시리즈 설명
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/telegram?series=파이썬-모듈-문서">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Python Telegram Bot
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="OJGE2yzUWiXD2OTesx4VxRcbI3rEtSnLP9WxtaWMpKkSJueFyoYD3i8fiGBrhG82">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

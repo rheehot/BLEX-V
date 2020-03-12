@@ -1,46 +1,306 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 12장 1. 일상생활에서 일어나는 멀티태스킹의 사례를 2가지만 찾아보라.음악을 들으면서 웹서핑한다.&amp;nbsp;피아노를 치면서 노래를 부른다. 2. 자바의 멀티태스킹에 대한 설명 중 틀린 것은?① …">
+<meta property="og:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-12%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="명품 자바 에센셜 연습문제 12장(이론)">
+<meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 12장 1. 일상생활에서 일어나는 멀티태스킹의 사례를 2가지만 찾아보라.음악을 들으면서 웹서핑한다.&amp;nbsp;피아노를 치면서 노래를 부른다. 2. 자바의 멀티태스킹에 대한 설명 중 틀린 것은?① …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="명품 자바 에센셜 연습문제 12장(이론)">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-12%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 12장 1. 일상생활에서 일어나는 멀티태스킹의 사례를 2가지만 찾아보라.음악을 들으면서 웹서핑한다.&amp;nbsp;피아노를 치면서 노래를 부른다. 2. 자바의 멀티태스킹에 대한 설명 중 틀린 것은?① …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>명품 자바 에센셜 연습문제 12장(이론) – baealex</title>
 </head>
-
 <body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(378);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(378)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 12장(이론)&url=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-12%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-12%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 12장(이론)</h1>
+        <p class="post-date">
+            2018-11-24 13:21</p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><br></p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;">
+    <p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길
+        바랍니다.<br></p>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 class="title">연습문제 12장</h3>
+<p>1. 일상생활에서 일어나는 멀티태스킹의 사례를 2가지만 찾아보라.<br><span style="color: rgb(47, 157, 39);">음악을 들으면서 웹서핑한다.</span><span style="color: rgb(47, 157, 39);">&nbsp;피아노를
+    </span><span style="color: rgb(47, 157, 39);">치면서 노래를 부른다.</span><br><br></p>
+<p>2. 자바의 멀티태스킹에 대한 설명 중 틀린 것은?<br>① 자바에서는 다수의 스레드를 가진 멀티스레드를 지원한다.<br><span style="color: rgb(255, 0, 0);">② 자바에서는
+        다수의 프로세스를 가진 멀티프로세스를 지원한다.</span><br>③ 자바에서 하나의 JVM은 오직 하나의 응용프로그램만을 실행한다.<br>④ 자바에서 synchronized는 멀티스레드
+    사이의 동기화를 위해 만들어진 것이다.<br><span style="color: rgb(47, 157, 39);">멀티프로세싱은 프로세스 사이의 변수 통신이 어렵고 오버헤드가 크다.</span></p>
+<p><br></p>
+<p>3. 스레드에 대한 다음 질문에 답하라.</p>
+<p>(1) Thread 클래스를 상속받아 스레드를 만들기 위해 반드시 오버라이딩해야 하는 메소드는?<br><span style="color: rgb(47, 157, 39);">run()</span></p>
+<p>(2) 스레드 객체 생성 후 스레드 실행 시작을 지시하기 위한 메소드는?<br><span style="color: rgb(47, 157, 39);">start()</span></p>
+<p>(3) 다른 스레드를 종료시키기 위해 InterruptedException을 유발시키는 메소드는?<br><span style="color: rgb(47, 157, 39);">interrupt()</span></p>
+<p><br></p>
+<p>4. 다음은 Runnable 인터페이스를 이용하여 스레드를 작성하는 코드이다. 스레드는 작동 10초 후에 종료한다. 빈칸을 채워라.</p>
+<pre><code class="language-java">public class MyThread __________ Runnable {
+    public void __________() { // 스레드 코드를 작성한다.
+        try {
+            __________ // 10초 동안 잠을 잔다.
+        } catch(InterruptedException e) { return; }
+    }
+    public static void main(String [] args) {
+        Thread th = new Thread(__________);
+        __________ // 스레드를 실행시킨다.
+    }
+}</code></pre>
+<p>1행 : <span style="color: rgb(47, 157, 39);">implement</span><span style="color: rgb(47, 157, 39);">&nbsp;</span><br>2행
+    : <span style="color: rgb(47, 157, 39);">run</span><br>4행 : <span style="color: rgb(47, 157, 39);">sleep(10000)</span><br>8행
+    : <span style="color: rgb(47, 157, 39);">new MyThread()</span><br>9행 : <span style="color: rgb(47, 157, 39);">th.start();</span></p>
+<p><br></p>
+<p>5. JVM이 자바 응용프로그램을 실행하기 위해 생성하는 기본 스레드를 무엇이라고 부르는가? 이 스레드는 자바 응용프로그램의 어떤 코드에서부터 실행을 시작하는가?<br><span style="color: rgb(47, 157, 39);">메인(main)
+        스레드, 실행 시작 주소는 main() 메소드의 첫 코드부터다.</span></p>
+<p><br></p>
+<p>6. wait(), notify()는 어떤 클래스의 메소드인가?<br>① Thread<br>② Runnable<br><span style="color: rgb(255, 0, 0);">③ Objcet</span><br>④
+    JVM</p>
+<p><br></p>
+<p>7. 동기화가 필요 없는 멀티태스킹 경우는?<br>① 미디어 플레이어에서, 하드디스크로부터 비디오 스트림을 읽어 공급하는 스레드와 읽은 스트림을 스크린에 출력하는 스레드<br><span style="color: rgb(255, 0, 0);">②
+        스마트폰에서, 문자를 전송하는 스레드와 음악을 연주하는 스레드</span><br>③ 웹 서버에서, 접속한 각 사용자마다 로그인 정보 데이터베이스를 기록하는 다수의 스레드<br>④ 방송
+    서버에서, 말하는 사람의 목소리를 샘플링하여 오디오 샘플을 만드는 스레드와 샘플을 청취자의 컴퓨터로 전송하는 스레드<br><span style="color: rgb(47, 157, 39);">별개의
+        작업이므로 동기화가 필요없다.</span></p>
+<p><br></p>
+<p>8. 다음 줄 멀티스레드로 응용프로그램을 작성하면 효과적이지 않은 것은? 그리고 그 이유를 말하라.<br>① 웹 서버<br>② 그리기와 프린팅 기능을 동시에 할 수 있는 그래픽 편집기<br><span style="color: rgb(255, 0, 0);">③ 1에서 100000까지 더하기를 2개의 스레드를 작성하여 한 스레드는 짝수만 더하고, 다른 스레드는 홀수만 더하여 최종적으로 두 합을 더하여
+        결과를 내는 응용프로그램</span><br><span style="color: rgb(47, 157, 39);">스레드는 작업을 나누어 할 뿐이다. </span><span style="color: rgb(47, 157, 39);">처리되는
+        시간은 동일한 반면에 문맥교환으로 인한 처리 시간의 낭비가 더 발생한다.</span><br><br></p>
+<p>9. 다음 줄 한 코드 블록에 두 개 이상의 스레드가 동시에 접근할 때, 먼저 실행을 시작한 스레드가 끝날 때까지 다른 스레드를 대기 상태로 만들기 위해 코드 블록 앞에 사용하는 키워드는 무엇인가?<br>①
+    lock<br><span style="color: rgb(255, 0, 0);">② synchronized</span><br>③ wait<br>④ notify<br><span style="color: rgb(47, 157, 39);">공유
+        데이터에 접근할 때 순차적으로 처리</span></p>
+<p><br></p>
+<p>10. 어떤 객체 a의 wait() 메소드를 호출하여 대기 상태인 스레드는 어던 경우에 깨어나서 실행을 계속할 수 있는가?<br><span style="color: rgb(255, 0, 0);">① 다른
+        스레드가 객체 a의 notify()를 호출할 때</span><br>② 객체 a가 소멸할 때<br>③ 일정 시간이 지나면<br>④ 다른 스레드가 객체 a의 wakeup()을 호출할 때</p>
+<p><br></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%BC%EC%85%9C">자바에센셜</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none deep-dark">
+            '명품 자바 에센셜 풀이' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-11%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 11장(이론)
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 13장(이론)
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="b2PfJWjrsUpoYZIr3DVZqfkYHRRiUaqp47VmEQdIjr1dxTbLnO6KLGRbkudDovdj">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
 </body>
 </html>

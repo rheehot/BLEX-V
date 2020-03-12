@@ -1,46 +1,368 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 3장 1. while문을 가진 다음 프로그램에 대해 물음에 답하라. int i = 0, sum = 0; while(i&amp;lt;10) { i = i …">
+<meta property="og:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="명품 자바 에센셜 연습문제 3장(이론)">
+<meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 3장 1. while문을 가진 다음 프로그램에 대해 물음에 답하라. int i = 0, sum = 0; while(i&amp;lt;10) { i = i …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="명품 자바 에센셜 연습문제 3장(이론)">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 3장 1. while문을 가진 다음 프로그램에 대해 물음에 답하라. int i = 0, sum = 0; while(i&amp;lt;10) { i = i …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>명품 자바 에센셜 연습문제 3장(이론) – baealex</title>
 </head>
-
 <body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(369);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(369)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 3장(이론)&url=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-3%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 3장(이론)</h1>
+        <p class="post-date">
+            2018-05-28 13:19</p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><br></p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;">
+    <p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만
+        봐주시길 바랍니다.<br></p>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 class="title">연습문제 3장</h3>
+<p>1. while문을 가진 다음 프로그램에 대해 물음에 답하라.</p>
+<pre><code class="language-java">int i = 0, sum = 0;
+while(i&lt;10) {
+    i = i + 2;
+    sum += i;
+}
+System.out.println(sum);</code></pre>
+<p>(1)무엇을 계산하는 프로그램이며, 실행 결과는?<br><span style="color: rgb(255, 0, 0);">10보다 작은 2의 배수를 더함, 30</span></p>
+<p>(2)앞의 실행 결과와 동일한 실행 결과를 얻고자 할때 다음 빈칸을 채워라.</p>
+<p></p>
+<pre><code class="language-java">int i = 0, sum = 0;
+while(true) {
+    i = i + 2;
+    sum += i;
+    if(/*i &gt;= 10*/) break;
+}
+System.out.println(sum);</code></pre>
+<pre><code class="language-java">int i = 0, sum = 0;
+do {
+    i = i + 2;
+    if(/*i%2 == 1*/) continue;
+    sum += i;
+}
+System.out.println(sum);</code></pre>
+<p><br></p>
+<p>2. 다음 for문에 대해 물음에 답하라.</p>
+<p></p>
+<pre><code class="language-java">double sum = 0.0;
+double d[] = {1.0, 2.3, 3.4, 5.5};
+for(int i=0; i&lt;4; i++) sum += d[i];
+System.out.println(sum);</code></pre>
+<p>(1)예상되는 실행 결과는 무엇인가?<br><span style="color: rgb(255, 0, 0);">d 배열의 모든 값이 더해져 출력된다. [12.2]</span></p>
+<p></p>
+<p>(2)for(int i=0; i&lt;4; i++) 부분을 배열의 length 필드를 이용히여 수정하라.<br><span style="color: rgb(255, 0, 0);">for(int i=0;
+        i&lt;d.length; i++</span><span style="color: rgb(255, 0, 0);">)</span></p>
+<p>(3)while문으로 바꾸어 작성하라.</p>
+<p></p>
+<pre><code class="language-java">double sum = 0.0;
+double d[] = {1.0, 2.3, 3.4, 5.5};
+int i = 0;
+while(i &lt; d.length) sum += d[i++];
+System.out.println(sum);</code></pre>
+<p></p>
+<p>(4)do-whlie 문으로 바꾸어 작성하라.</p>
+<p></p>
+<pre><code class="language-java">double sum = 0.0;
+double d[] = {1.0, 2.3, 3.4, 5.5};
+int i = 0;
+do {
+    sum += d[i++];
+} while(i &lt; d.length);
+System.out.println(sum);</code></pre>
+<p></p>
+<p>(5)for-each 문으로 바꾸어 작성하라.</p>
+<p></p>
+<pre><code class="language-java">double sum = 0.0;
+double d[] = {1.0, 2.3, 3.4, 5.5};
+for(double i : d) sum+= i;
+System.out.println(sum);</code></pre>
+<p><br></p>
+<p></p>
+<p>3. 배열을 선언하고 생성하는 다음 물음에 답하라.</p>
+<p>(1)10개의 문자를 가지는 배열 c를 생성하는 코드를 쓰라.<br><span style="color: rgb(255, 0, 0);">char c[] = new char[10];</span></p>
+<p>(2)0에서 5까지 정수 값으로 초기화된 정수 배열 n을 선언하라.<br><span style="color: rgb(255, 0, 0);">int n[] = { 0, 1, 2, 3, 4, 5
+    </span><span style="color: rgb(255, 0, 0);">};</span></p>
+<p>(3)'일', '월', '화', '수', '목', '금', '토'로 초기화된 배열 day를 선언하라.<br><span style="color: rgb(255, 0, 0);">char [] day = {
+        '일', '월', '화', '수', '목', '금', '토' };</span></p>
+<p>(4)5행 4열 크기의 실수 배열 d를 선언하라.<br><span style="color: rgb(255, 0, 0);">double[][] d = new double[4][5</span><span style="color: rgb(255, 0, 0);">];</span></p>
+<p>(5)1에서 12까지 순서대로 정수로 초기화되는 3행 4열의 이차원 배열 var을 선언하라.</p>
+<p></p>
+<pre><code class="language-java">int[][] var = { {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9},
+                {10, 11, 12} };</code></pre>
+<p><br></p>
+<p></p>
+<p>4. 다음 코드에 대해 실행 중 오류가 발생하는 보기는?<br><span style="color: rgb(255, 0, 0);">②myArray[myArray.length] = 100;</span></p>
+<p></p>
+<p><br></p>
+<p>5. 다음 2차원 배열 선언문에서 문법적으로 잘못된 것은?<br><span style="color: rgb(255, 0, 0);">④int [3][2] n = { {1, 2}, {3</span><span style="color: rgb(255, 0, 0);">, 4</span><span style="color: rgb(255, 0, 0);">}, {4</span><span style="color: rgb(255, 0, 0);">,
+        5</span><span style="color: rgb(255, 0, 0);">}</span><span style="color: rgb(255, 0, 0);"> };</span></p>
+<p><br></p>
+<p>6. for-each 문을 이용하여 배열 b를 모두 출력하고자 한다. 빈칸에 적절한 코드를 삽입하라.</p>
+<p></p>
+<pre><code class="language-java">boolean [] b = {true, false, true, true};
+for(/*boolean boo : b*/)
+    System.out.println(boo);</code></pre>
+<p><br></p>
+<p>7. 다음은 사용자로부터 배열의 개수를 얻어서 배열을 생성하여 리턴하는 allocArray() 메소드를 작성하고자 한다.</p>
+<p></p>
+<pre><code class="language-java">&lt;1&gt; allocArray() {
+    Scanner scanner = new Scanner(System.in);
+    double [] n = new double[scanner.nextInt()];
+    &lt;2&gt; // 배열 리턴</code></pre>
+<p>(1)빈칸을 적절한 코드로 채워라.<br><span style="color: rgb(255, 0, 0);">①static double[] </span><span style="color: rgb(255, 0, 0);">②return
+        n;</span><br></p>
+<p></p>
+<p>(2)allocArray()를 호출하여 배열을 전달받는 한 줄의 코드를 작성하라.<br><span style="color: rgb(255, 0, 0);">double [] d =
+        allocArray();</span></p><br>
+<p></p>
+<p>8.다음 코드에 대해 물음에 답하라.</p>
+<p>(1)코드를 실행하면 출력되는 내용은?</p>
+<div class="txc-textbox" style="border-style: none; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); padding: 10px;">
+    <p><span style="color: rgb(255, 255, 255);">123<br></span><span style="color: rgb(255, 255, 255);">계산을 끝냅니다.</span></p>
+</div>
+<p>(2)s가&nbsp;“23.5”일 때 앞의 코드를 실행한 결과 출력되는 내용은?</p>
+<div class="txc-textbox" style="border-style: none; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); padding: 10px;">
+    <p><span style="color: rgb(255, 255, 255);">23.5를 정수로 변환할 수 없습니다.<br>계산을 끝냅니다.</span></p>
+</div>
+<p><br></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%BC%EC%85%9C">자바에센셜</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none deep-dark">
+            '명품 자바 에센셜 풀이' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-2%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 2장(이론)
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-4%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 4장(이론)
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="Aei1lAwqZtMzujJ306vtB9OiKmFLO8xLAaEFhpQDFSN9vud6yHcbSO67tBshhP6n">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
 </body>
 </html>

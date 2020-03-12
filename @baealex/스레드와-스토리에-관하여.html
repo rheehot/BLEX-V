@@ -1,46 +1,287 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="스레드 글은 하나로 끝나는 경우도 많지만 대게는 여러 시리즈를 통해서 완성됩니다. 장편 글의 시리즈라면 현재의 포스트 방식으로 작성하는 것이 좋겠지만 단편 글(TIL, 개발노트 등)인 경우 사용자를 짧은 시간내에 다른 페이지로 이동시키는 등 불편함이 존재합니다. 이를 개선하기 위해서 스레드라는 외국에서 흔히 사용되는 게시판 양식을 가져왔습니다. 포스트 : 정적으로 채워놓은 글 스레드 …">
+<meta property="og:url" content="https://blex.me/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="스레드와 스토리에 관하여">
+<meta property="og:description" content="스레드 글은 하나로 끝나는 경우도 많지만 대게는 여러 시리즈를 통해서 완성됩니다. 장편 글의 시리즈라면 현재의 포스트 방식으로 작성하는 것이 좋겠지만 단편 글(TIL, 개발노트 등)인 경우 사용자를 짧은 시간내에 다른 페이지로 이동시키는 등 불편함이 존재합니다. 이를 개선하기 위해서 스레드라는 외국에서 흔히 사용되는 게시판 양식을 가져왔습니다. 포스트 : 정적으로 채워놓은 글 스레드 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/11/23EZWK.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="스레드와 스토리에 관하여">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC">
+<meta name="twitter:description" content="스레드 글은 하나로 끝나는 경우도 많지만 대게는 여러 시리즈를 통해서 완성됩니다. 장편 글의 시리즈라면 현재의 포스트 방식으로 작성하는 것이 좋겠지만 단편 글(TIL, 개발노트 등)인 경우 사용자를 짧은 시간내에 다른 페이지로 이동시키는 등 불편함이 존재합니다. 이를 개선하기 위해서 스레드라는 외국에서 흔히 사용되는 게시판 양식을 가져왔습니다. 포스트 : 정적으로 채워놓은 글 스레드 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/11/23EZWK.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>스레드와 스토리에 관하여 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/2/11/23EZWK.jpg" alt="스레드와 스토리에 관하여">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'블렉스 이야기' 시리즈</span>스레드와 스토리에 관하여</h1>
+            <p class="post-date fade-in">2020-02-11 22:55<span>(Last Update: 2020-02-13 00:18)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(333);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(333)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=스레드와 스토리에 관하여&url=https://blex.me/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h4>스레드</h4>
+<p>글은 하나로 끝나는 경우도 많지만 대게는 여러 시리즈를 통해서 완성됩니다. 장편 글의 시리즈라면 현재의 포스트 방식으로 작성하는 것이 좋겠지만 단편 글(TIL, 개발노트 등)인 경우 사용자를 짧은 시간내에 다른 페이지로 이동시키는 등 불편함이 존재합니다. 이를 개선하기 위해서 <strong>스레드</strong>라는 외국에서 흔히 사용되는 게시판 양식을 가져왔습니다.</p>
+<ul>
+<li>포스트 : 정적으로 채워놓은 글</li>
+<li>스레드 : 동적으로 채워가는 글</li>
+</ul>
+<p><br></p>
+<h4>스토리</h4>
+<p>스레드는 기존 포스트에서 댓글이라 불리는 <strong>스토리</strong>가 핵심 컨텐츠가 됩니다. 글과 같은 페이지에 아무 제약없는 댓글을 달아 컨텐츠를 생성해 나갑니다. 쉽게 생각하면 주제를 생성하여 타임라인을 채워간다고 생각하면 좋겠습니다. 실제로 스레드 양식을 만들게 된 근본적인 이유는 개발자가 <a href="https://blex.kr/thread/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a>를 작성하거나, 신입사원으로서의 경험을 짧게 시간별로 공유하고 싶었는데 기존의 방식으로는 작성하기가 어려웠습니다.</p>
+<p><img src="https://static.blex.me/image/2020/2/11/36e5iq7bscpekzRrYBcS.png" alt=""></p>
+<p>동적으로 채워가는 글이기에 생성한지 오래되어 하위에 노출된다면 의미가 없을 것 입니다. 따라서 스레드는 플로트 형식으로 정렬됩니다. 스토리가 달린 날짜를 기준으로 이전에 생성한 스레드임에도 상위에 노출할 수 있게 됩니다. 최신순으로 상위에 노출된 가능성이 높으므로 트렌드 알고리즘을 적용하지 않았습니다.</p>
+<p><img src="https://static.blex.me/image/2020/2/11/gA7DGQ2YRsv8joP10jZ8.png" alt=""></p>
+<p>스레드 형식의 글에서는 타 사용자도 참여할 수 있도록 설정할 수 있습니다. 기존의 글로 따지면 댓글 차단과 유사한 기능입니다. 다양한 사용자들이 한 스레드에 대해서 고품질의 글을 완성시킬 수 있습니다.</p>
+<p><br></p>
+<h6>추가 될 특징</h6>
+<ul>
+<li>스레드 구독<ul>
+<li>새로 올라오는 스토리를 알림으로 받아볼 수 있음</li>
+</ul>
+</li>
+<li>스토리 반대<ul>
+<li>타인이 생성한 스토리가 적절하지 않은 경우 블라인드 처리시킬 수 있음</li>
+</ul>
+</li>
+</ul>
+<p>스레드가 블로그라는 특징을 가장 잘 살린 양식이 아닌가 싶어 만들게 되었습니다. 😁</p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></li>
+            
+            <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none deep-dark">
+            '블렉스 이야기' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%B0%B0%ED%84%B0%EB%A6%AC-%EC%B6%94%EA%B0%80?series=블렉스-이야기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>사용자 배터리 추가
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%B8%94%EB%A0%89%EC%8A%A4%EC%99%80-%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0?series=블렉스-이야기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>블렉스와 텔레그램 연동하기
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="eLNTtaJ22i0KjE24HsYwHktkaaSRqiK0einNrN7QzYhRrpO2Cm5gmx3WAvSxmRXF">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

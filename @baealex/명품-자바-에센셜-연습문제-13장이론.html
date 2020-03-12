@@ -1,46 +1,335 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 13장 1. 스트림에 대한 설명으로 틀린 것은?① 스트림은 단방향이다.② 스트림은 다른 스트림과 연결될 수 없다.③ 스트림은 선입선출 구조이다.④ 스트림은 버퍼를 가질 …">
+<meta property="og:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="명품 자바 에센셜 연습문제 13장(이론)">
+<meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 13장 1. 스트림에 대한 설명으로 틀린 것은?① 스트림은 단방향이다.② 스트림은 다른 스트림과 연결될 수 없다.③ 스트림은 선입선출 구조이다.④ 스트림은 버퍼를 가질 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="명품 자바 에센셜 연습문제 13장(이론)">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 13장 1. 스트림에 대한 설명으로 틀린 것은?① 스트림은 단방향이다.② 스트림은 다른 스트림과 연결될 수 없다.③ 스트림은 선입선출 구조이다.④ 스트림은 버퍼를 가질 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>명품 자바 에센셜 연습문제 13장(이론) – baealex</title>
 </head>
-
 <body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(379);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(379)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 13장(이론)&url=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-13%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 13장(이론)</h1>
+        <p class="post-date">
+            2018-11-29 13:22</p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><br></p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;">
+    <p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길
+        바랍니다.<br></p>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 class="title">연습문제 13장</h3>
+<p>1. 스트림에 대한 설명으로 틀린 것은?<br>① 스트림은 단방향이다.<br><span style="color: rgb(255, 0, 0);">② 스트림은 다른 스트림과 연결될 수 없다.</span><br>③
+    스트림은 선입선출 구조이다.<br>④ 스트림은 버퍼를 가질 수 있다.<br><br></p>
+<p>2. 다음 파일을 읽고자 할 때 바이트 스트림 클래스와 문자 스트림 클래스 중 어떤 것이 더 적합한지 설명하라.<br>
+    (1) 동영상 파일(.avi) <span style="color: rgb(255, 0, 0);">바이트 스트림 클래스</span><br>
+    (2) 메모장으로 작성한 파일(.txt) <span style="color: rgb(255, 0, 0);">문자 스트림 클래스</span><br>
+    (3) 자바 클래스 파일(.class) <span style="color: rgb(255, 0, 0);">바이트 스트림 클래스</span><br>
+    (4) HTML 파일(.html) <span style="color: rgb(255, 0, 0);">문자 스트림 클래스</span><br>
+    <span style="color: rgb(47, 157, 39);">자바 클래스는 컴파일 된 상태이므로 바이트 스트림이며, HTML의 경우 </span><span style="color: rgb(47, 157, 39);">&nbsp;모두 텍스트로 이루어</span><span style="color: rgb(47, 157, 39);">진 파일이다.</span></p>
+<p><br></p>
+<p>3. 다음 중 바이트 스트림 클래스가 아닌 것은?<br>① OutputStream<br><span style="color: rgb(255, 0, 0);">② FileReader</span><br>③
+    BufferedInputStream<br>④ FileInputStream</p>
+<p><br></p>
+<p>4. 동영상 파일을 읽으려고 한다. 가장 적합한 스트림 클래스는?<br>① InputStream<br><span style="color: rgb(255, 0, 0);">② FileInputStream</span><br>③
+    FileReader<br>④ InputStreamReader</p>
+<p><br></p>
+<p>5. c:\tmp\test.txt 파일이 다음과 같을 때, 다음 코드의 실행 결과는?</p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;">
+    <p>1234567890<br></p>
+</div>
+<pre><code class="language-java">FileInputStream fin;
+try {
+    fin = new FileInputStream("c:\\tmp\\test.txt");
+    int c;
+    for(int i=0; i&lt;5; i++) {
+        c = fin.read();
+        if(c != -1) System.out.print((char)c);
+        else break;
+    }
+    fin.close();
+} catch (IOException e) { }</code></pre>
+<p><span style="color: rgb(47, 157, 39);">12345</span><br></p>
+<p><br></p>
+<p>6. 다음은 파일 입력 스트림을 생성하는 코드이다. 이 코드는 어떤 경우에 예외가 발생하는가? 그리고 예외를 처리하기 위해 try-catch 블록으로 감싸라.</p>
+<pre><code class="language-java">FileInputStream fin;
+FileReader fin = new FileReader("c:\\tmp\\sample.txt");</code></pre>
+<pre><code class="language-java">try {
+    FileReader fin = new FileReader("c:\\Temp\\sample.txt");
+} catch (FileNotFoundException e) { }</code></pre>
+<p><br></p>
+<p>7. 다음은 128바이트 크기의 버퍼를 이용하여 fin으로부터 한번에 128바이트씩 파일을 읽어 fout 스트림에 복사하는 프로그램이다. 빈칸에 적절한 코드를 삽입하라.</p>
+<pre><code class="language-java">FileIOututStream fout;
+FileInputStream fin;
+try {
+    fout = new FileOutputStream("c:\\tmp\\test2.txt");
+    fin = new FileInputStream("c:\\tmp\\test.txt");
+    byte [] buf = __________; // 버퍼 할당
+    while(true) {
+        int n = fin.read(buf); // 버퍼 크기만큼 읽는다.
+        _________________ // 읽은 버퍼만큼 쓴다.
+        if(n &lt; _______) // 버퍼 크기보다 적게 읽었다면
+            break; // 파일 끝에 도달했으므로 복사 완료
+    fin.close();
+    fout.close();
+} catch (IOException e) { }</code></pre>
+<p>6행 : <span style="color: rgb(47, 157, 39);">new byte[128]</span><br>9행 : <span style="color: rgb(47, 157, 39);">fout.write(buf,
+        0, n</span><span style="color: rgb(47, 157, 39);">);</span><br>10행 : <span style="color: rgb(47, 157, 39);">buf.length</span></p>
+<p><br></p>
+<p>8. File 클래스가 제공하는 기능이 아닌 것은?<br><span style="color: rgb(255, 0, 0);">① 파일 읽기</span><br>② 파일 크기<br>③ 파일의 부모
+    디렉터리 명<br>④ 파일 수정 시간</p>
+<p><br></p>
+<p>9. 다음 코드에 대해 답하라.</p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;">
+    <p>File f = <span style="color: rgb(255, 94, 0);">new</span> File(<span style="color: rgb(0, 85, 255);">"c:\\Program
+            Files\\java\\jre8\\Welcome.html</span><span style="color: rgb(0, 85, 255);">"</span>);</p>
+</div>
+<p>(1) f.isFile()의 리턴 값은? <span style="color: rgb(47, 157, 39);">true</span><br>(2) f.getParent()의 리턴 값은? <span style="color: rgb(47, 157, 39);">"c:\Program
+        Files\java\jre8</span><span style="color: rgb(47, 157, 39);">"</span><br>(3) f.getPath()의 리턴 값은? <span style="color: rgb(47, 157, 39);">"c:\Program
+        Files\java\jre8\Welcome.html"</span><br>(4) f.getName()의 리턴 값은? <span style="color: rgb(47, 157, 39);">"Welcome.html</span><span style="color: rgb(47, 157, 39);">"</span><br>(5) 다음 코드의 빈칸을 채워 문제와 동일한 파일 객체를 생성하라.<br></p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); padding: 10px;">
+    <p>File f = <span style="color: rgb(255, 94, 0);">new</span> File(<span style="color: rgb(47, 157, 39);">"c:\Program
+            Files\java\jre8</span><span style="color: rgb(47, 157, 39);">"</span>, <span style="color: rgb(0, 85, 255);">"</span><span style="color: rgb(0, 85, 255);">Welcome.html"</span>);</p>
+</div>
+<p><br></p>
+<p>10. 다음 코드의 빈칸에 적절한 코드를 삽입하라.</p>
+<pre><code class="language-java">File f = new File("c:\\tmp\\a.txt");
+____________________ // (1) c:\tmp에 a.txt 파일이 존재하면 yes 출력
+____________________ // (2) a.txt 파일 크기 출력
+____________________ // (3) a.txt를 b.txt로 이름 변경
+____________________ // (4) b.txt 삭제</code></pre>
+<p>2행 : <span style="color: rgb(47, 157, 39);">if(f.exists()) System.out.println("yes");</span><br>3행 : <span style="color: rgb(47, 157, 39);">System.out.println(f.length());</span><br>4행
+    : <span style="color: rgb(47, 157, 39);">f.renameTo(new File("c:\\Temp\\b.txt"));</span><br>5행 : <span style="color: rgb(47, 157, 39);">new
+        File("c:\\Temp\\b.txt</span><span style="color: rgb(47, 157, 39);">").delete();</span></p>
+<p><br></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%BC%EC%85%9C">자바에센셜</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none deep-dark">
+            '명품 자바 에센셜 풀이' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-12%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 12장(이론)
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="PSVIlIUKvnZm9w5dLLgx4rqJLN0vMjFAqWKAJ2IUPSfZpj71Wffe1xlnqyoJLD6f">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
 </body>
 </html>

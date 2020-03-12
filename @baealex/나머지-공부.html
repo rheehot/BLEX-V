@@ -1,46 +1,277 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="CSS css의 display - relative를 사용하는 이유를 드디어 알게 되었다. 이제까지 궁금했던 absolute의 기준을 부모로 설정하는 것이었는데 relative를 직접 사용해서 컨트롤하는게 아니라 부모를 relative로 설정하고 자식을 absolute로 설정하면 기준이 body가 아닌 부모가 된다! Alt 0150 Alt 0151 앞으로 공부해야 할 것들 RESTful API VUE.js 객체지향 Elastic Search django 기존의 데이터베이스 …">
+<meta property="og:url" content="https://blex.me/@baealex/%EB%82%98%EB%A8%B8%EC%A7%80-%EA%B3%B5%EB%B6%80">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="나머지 공부">
+<meta property="og:description" content="CSS css의 display - relative를 사용하는 이유를 드디어 알게 되었다. 이제까지 궁금했던 absolute의 기준을 부모로 설정하는 것이었는데 relative를 직접 사용해서 컨트롤하는게 아니라 부모를 relative로 설정하고 자식을 absolute로 설정하면 기준이 body가 아닌 부모가 된다! Alt 0150 Alt 0151 앞으로 공부해야 할 것들 RESTful API VUE.js 객체지향 Elastic Search django 기존의 데이터베이스 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2019/11/15/20_8af4.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="나머지 공부">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EB%82%98%EB%A8%B8%EC%A7%80-%EA%B3%B5%EB%B6%80">
+<meta name="twitter:description" content="CSS css의 display - relative를 사용하는 이유를 드디어 알게 되었다. 이제까지 궁금했던 absolute의 기준을 부모로 설정하는 것이었는데 relative를 직접 사용해서 컨트롤하는게 아니라 부모를 relative로 설정하고 자식을 absolute로 설정하면 기준이 body가 아닌 부모가 된다! Alt 0150 Alt 0151 앞으로 공부해야 할 것들 RESTful API VUE.js 객체지향 Elastic Search django 기존의 데이터베이스 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2019/11/15/20_8af4.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>나머지 공부 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2019/11/15/20_8af4.jpg" alt="나머지 공부">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in">나머지 공부</h1>
+            <p class="post-date fade-in">2019-11-14 23:21<span>(Last Update: 2020-01-22 01:27)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(146);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(146)">1<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=나머지 공부&url=https://blex.me/@baealex/%EB%82%98%EB%A8%B8%EC%A7%80-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%82%98%EB%A8%B8%EC%A7%80-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h2>CSS</h2>
+<ul>
+<li><code>css</code>의 display - relative를 사용하는 이유를 드디어 알게 되었다. 이제까지 궁금했던 absolute의 기준을 부모로 설정하는 것이었는데 relative를 직접 사용해서 컨트롤하는게 아니라 부모를 relative로 설정하고 자식을 absolute로 설정하면 기준이 body가 아닌 부모가 된다!</li>
+</ul>
+<p>Alt 0150</p>
+<p>Alt 0151</p>
+<h2>앞으로 공부해야 할 것들</h2>
+<p><img src="https://static.blex.me/image/2019/08/22/10_XPoZJSNjyEzSJyo.jpg" alt=""></p>
+<p><br></p>
+<h2>RESTful API</h2>
+<p><img src="https://static.blex.me/image/2019/08/22/2_YCyTDjCsW4Pkdp5.jpg" alt=""></p>
+<p><img src="https://static.blex.me/image/2019/08/22/9_SD8IAsqOVUN8qio.jpg" alt=""></p>
+<p><br></p>
+<h2>VUE.js</h2>
+<p><img src="https://static.blex.me/image/2019/08/22/4_ijxCvDIAc80doi7.jpg" alt=""></p>
+<p><img src="https://static.blex.me/image/2019/08/22/7_QTIUJxrTUrXOcgz.jpg" alt=""></p>
+<p><img src="https://static.blex.me/image/2019/08/22/6_t8a15MOWGEVNH8c.jpg" alt=""></p>
+<p><img src="https://static.blex.me/image/2019/08/22/5_dVVPli1wjBSvDU7.jpg" alt=""></p>
+<p><img src="https://static.blex.me/image/2019/08/23/0_4VrQOpTM2eDnZD1.jpg" alt=""></p>
+<p><br></p>
+<h2>객체지향</h2>
+<p><img src="https://static.blex.me/image/2019/08/22/1_Uerzl2P5WBYjEs1.jpg" alt=""></p>
+<p><br></p>
+<h2>Elastic Search</h2>
+<p><img src="https://static.blex.me/image/2019/08/22/3_lUddA6rHti2mG4q.jpg" alt=""></p>
+<p><br></p>
+<h2>django</h2>
+<ul>
+<li>기존의 데이터베이스 장고로 마이그레이션</li>
+</ul>
+<pre><code>pip install pymysql</code></pre>
+<pre><code>import pymysql
+
+pymysql.install_as_MySQLdb()</code></pre>
+<pre><code>python manage.py migrate
+python manage.py inspectdb &gt; models.py</code></pre>
+<ul>
+<li><a href="https://stackoverflow.com/questions/23520615/django-admin-how-to-clear-recent-actions-panel">어드민 로그</a></li>
+</ul>
+<p><br></p>
+<h2>NginX</h2>
+<ul>
+<li>address already use error</li>
+</ul>
+<pre><code>sudo netstat -tulpn
+sudo kill -2 &lt;PID&gt;</code></pre>
+<p>손 쉬운 포트포워딩 socat</p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EA%B3%B5%EB%B6%80">공부</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="S0taRCmsk8jDr6Ou7FI9jMHTOo8qHhmOLlzPdkZBuwJHqWm9XoQT6FTgjVHwR1js">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

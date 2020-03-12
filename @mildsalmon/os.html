@@ -1,46 +1,380 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="OS 모듈은 파이썬을 설치할 때 자동으로 설치되는 파이썬 라이브러리에 포함된다. 그리고 환경 변수나 디렉토리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈입니다. 현재 작업 폴더 얻기 os.getcwd()를 사용하여 얻습니다. (get current working directory) print(os.getcwd()) # D:\source\test 디렉토리 변경 os.chdir(path)를 사용합니다. (path는 문자열이어야함.) os.chdir(&quot;C:\WINDOWS&quot;) print(os.getcwd()) # C:\WINDOWS 시스템 명령어 호출하기 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/os">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="OS">
+<meta property="og:description" content="OS 모듈은 파이썬을 설치할 때 자동으로 설치되는 파이썬 라이브러리에 포함된다. 그리고 환경 변수나 디렉토리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈입니다. 현재 작업 폴더 얻기 os.getcwd()를 사용하여 얻습니다. (get current working directory) print(os.getcwd()) # D:\source\test 디렉토리 변경 os.chdir(path)를 사용합니다. (path는 문자열이어야함.) os.chdir(&quot;C:\WINDOWS&quot;) print(os.getcwd()) # C:\WINDOWS 시스템 명령어 호출하기 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/2/26/22UZuy.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OS">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/os">
+<meta name="twitter:description" content="OS 모듈은 파이썬을 설치할 때 자동으로 설치되는 파이썬 라이브러리에 포함된다. 그리고 환경 변수나 디렉토리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈입니다. 현재 작업 폴더 얻기 os.getcwd()를 사용하여 얻습니다. (get current working directory) print(os.getcwd()) # D:\source\test 디렉토리 변경 os.chdir(path)를 사용합니다. (path는 문자열이어야함.) os.chdir(&quot;C:\WINDOWS&quot;) print(os.getcwd()) # C:\WINDOWS 시스템 명령어 호출하기 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/2/26/22UZuy.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>OS – mildsalmon</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/2/26/22UZuy.jpg" alt="OS">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'파이썬 모듈 문서' 시리즈</span>OS</h1>
+            <p class="post-date fade-in">2020-02-17 18:19<span>(Last Update: 2020-03-11 16:22)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(356);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(356)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=OS&url=https://blex.me/@mildsalmon/os" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/os" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>OS 모듈은 <code>파이썬을 설치할 때 자동으로 설치되는 파이썬 라이브러리</code>에 포함된다.<br>
+그리고 환경 변수나 디렉토리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈입니다.</p>
+<h1>현재 작업 폴더 얻기</h1>
+<p>os.getcwd()를 사용하여 얻습니다. (get current working directory)</p>
+<pre><code class="language-python">print(os.getcwd())</code></pre>
+<pre><code># D:\source\test</code></pre>
+<h1>디렉토리 변경</h1>
+<p>os.chdir(path)를 사용합니다. (path는 문자열이어야함.)</p>
+<pre><code class="language-python">os.chdir("C:\WINDOWS")
+print(os.getcwd())</code></pre>
+<pre><code># C:\WINDOWS</code></pre>
+<h1>시스템 명령어 호출하기</h1>
+<p>시스템 자체의 프로그램이나 기타 명령어를 파이썬에서 호출할 수도 있다. OS.system("")</p>
+<pre><code class="language-python">os.system("ipconfig")</code></pre>
+<pre><code># Windows IP ����
+#
+#
+# ���� LA</code></pre>
+<p>문자열이 깨져서 나온다.</p>
+<h1>실행한 시스템 명령어의 결과값 돌려받기</h1>
+<p>시스템 명령어를 실행한 결과값을 읽기 모드 형태의 파일 객체로 돌려준다.</p>
+<pre><code class="language-python">f = os.popen("ipconfig")
+print(f.read())</code></pre>
+<pre><code># [Windows IP 구성
+#
+#
+# 무선 L ... ]</code></pre>
+<p>문자열이 잘나오네</p>
+<h1>디렉터리 생성</h1>
+<p>os.mkdir(디렉터리)  디렉터리를 생성한다.</p>
+<pre><code class="language-python">os.mkdir("D:/source/test/test")</code></pre>
+<h1>디렉터리 삭제</h1>
+<p>os.rmdir(디렉터리)  디렉터리를 삭제한다.단, 디렉터리가 비어있어야 삭제가 가능하다.</p>
+<pre><code class="language-python">os.rmdir("D:/source/test/test")</code></pre>
+<h1>파일 지우기</h1>
+<p>os.unlink(파일)   파일을 지운다.</p>
+<pre><code class="language-python">os.unlink("D:/source/test/test.txt")</code></pre>
+<h1>이름 바꾸기</h1>
+<p>os.rename(src, dst) src라는 이름의 파일을 dst라는 이름으로 바꾼다.</p>
+<pre><code class="language-python">os.rename('d:/source/test/a.txt','v')</code></pre>
+<p>함수  설명</p>
+<h1>.path</h1>
+<h3>상대 경로에 대해 절대 경로 얻기</h3>
+<p>os.path.abspath(path)</p>
+<pre><code class="language-python">print(os.path.abspath("."))</code></pre>
+<pre><code>D:\source\test</code></pre>
+<h3>경로 중 디렉토리명만 얻기</h3>
+<p>os.path.dir(path)</p>
+<pre><code class="language-python">print(os.path.dirname(__file__))
+
+------
+
+print(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))) print(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))</code></pre>
+<pre><code># D:/source/test
+
+------
+
+# D:\source\notice_alarm\Test
+# D:\source\notice_alarm</code></pre>
+<h3>경로 중 파일명만 얻기</h3>
+<p>os.path.basename(path)</p>
+<pre><code class="language-python">print(os.path.basename(__file__))</code></pre>
+<pre><code># os_test.py</code></pre>
+<h3>경로 중 디렉토리명과 파일명 나누어 얻기</h3>
+<p>os.path.split(path) 디렉토리명, 파일명이 리스트 형태로 나옵니다.</p>
+<pre><code class="language-python">dir = os.path.split(__file__)
+print(dir)
+
+dir, file = os.path.split(__file__)
+print(dir, file, sep="\n")</code></pre>
+<pre><code># ('D:/source/test', 'os_test.py')
+#
+# D:/source/test
+# os_test.py</code></pre>
+<p>dir 변수 한개일때는 <code>.split</code>을 사용했을때 튜플형식으로 값이 출력된다. <br>
+따라서 <code>.split</code>은 디렉토리명과 파일명, 이 두가지 값을 출력하므로 변수 두개를 주면(dir, file) 각 변수에 나눠서 입력된다.</p>
+<p><code>sep=""</code>의 경우 각 변수들 사이에 <code>""</code>안에있는 <code>이스케이프문자</code>가 입력된다.<br>
+<code>end=""</code>는 문장을 출력하고 마지막에 <code>이스케이프문자</code>를 입력한다.</p>
+<h3>경로를 병합하여 새 경로 생성</h3>
+<p>os.path.join(path, path1, path2, ...) 넘겨준 path들을 묶어 하나의 경로로 만들어줍니다.</p>
+<pre><code class="language-python">print(os.path.join("D:\source\\test\\", "test.txt"))</code></pre>
+<pre><code># D:\source\test\test.txt</code></pre>
+<h3>파일 혹은 디렉토리가 존재하는지 체크</h3>
+<p>os.path.exists(path)</p>
+<pre><code class="language-python">print(os.path.exists("D:\source\\test"))</code></pre>
+<pre><code># True</code></pre>
+<pre><code class="language-python">print(os.path.exists("D:\source\\test\\os_test.py"))</code></pre>
+<pre><code># True</code></pre>
+<h3>디렉토리가 존재하는지 체크</h3>
+<p>os.path.isdir(path)</p>
+<pre><code class="language-python">print(os.path.isdir("D:\source\\test"))</code></pre>
+<pre><code># True</code></pre>
+<pre><code class="language-python">print(os.path.isdir("D:\source\\test\\os_test.py"))</code></pre>
+<pre><code># False</code></pre>
+<h3>파일이 존재하는지 체크</h3>
+<p>os.path.isfile(path)</p>
+<pre><code class="language-python">print(os.path.isfile("D:\source\\test"))</code></pre>
+<pre><code># False</code></pre>
+<pre><code class="language-python">print(os.path.isfile("D:\source\\test\\os_test.py"))</code></pre>
+<pre><code># True</code></pre>
+<h3>파일의 크기</h3>
+<p>os.path.getsize(path)</p>
+<pre><code class="language-python">print(os.path.getsize(__file__))</code></pre>
+<pre><code># 558</code></pre>
+<h1>디렉토리 안의 파일/서브 디렉토리 리스트</h1>
+<p>os.listdir(path) path 하위에 있는 파일, 디렉토리 리스트를 보여줍니다.</p>
+<pre><code class="language-python">print(os.listdir("D:\source\\test"))</code></pre>
+<pre><code># ['.git', '.idea', 'beautifulsoup_test.py', 'filename.txt', 'os_test.py', 'report.xls', 'requests_test.py', 'telegram_test.py', 'venv', '__pycache__']</code></pre>
+<h1>참고문헌</h1>
+<blockquote>
+<p>[Python] 파이썬 파일과 디렉토리 경로, "<a href="https://itmining.tistory.com/122">https://itmining.tistory.com/122</a>", [IT 마이닝]</p>
+<p>[Python] os.path 모듈. 파일 경로 조작하기, "<a href="https://dololak.tistory.com/693">https://dololak.tistory.com/693</a>", [코끼리를 냉장고에 넣는 방법]</p>
+<p>점프 투 파이썬, "<a href="https://wikidocs.net/33">https://wikidocs.net/33</a>", [박응용]</p>
+<p>파이썬 os.path 모듈, "<a href="https://yeo0.github.io/pg/2018/11/21/%ED%8C%8C%EC%9D%B4%EC%8D%AC-os.path-%EB%AA%A8%EB%93%88/">https://yeo0.github.io/pg/2018/11/21/%ED%8C%8C%EC%9D%B4%EC%8D%AC-os.path-%EB%AA%A8%EB%93%88/</a>", [통계쟁이 엔지니어]</p>
+<p>os — 기타 운영 체제 인터페이스, "<a href="https://docs.python.org/ko/3.8/library/os.html">https://docs.python.org/ko/3.8/library/os.html</a>"</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EB%AA%A8%EB%93%88">모듈</a></li>
+            
+            <li><a href="/@mildsalmon/topic/document">document</a></li>
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/os">os</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88-%EB%AC%B8%EC%84%9C" class="text-decoration-none deep-dark">
+            '파이썬 모듈 문서' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/telegram?series=파이썬-모듈-문서">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Python Telegram Bot
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/beautifulsoup?series=파이썬-모듈-문서">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>beautifulsoup4
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="gLKSybZNqcvyo9fFUXZE3ag6VR5EJ2TwaJ3F5TgAgnldIAfNUNL1pnveysRMvT6q">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

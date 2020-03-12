@@ -1,46 +1,593 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="Intro 조건. 크롤링 조건 단국대 공지사항 천안 공통 분석 분석 할 html 코드 2개 &amp;lt;li&amp;gt; &amp;lt;div class=&quot;top_area&quot;&amp;gt; &amp;lt;div class=&quot;write_num&quot;&amp;gt; NO. 3584 &amp;lt;/div&amp;gt; &amp;lt;div class=&quot;num_area&quot;&amp;gt; &amp;lt;span class=&quot;table_date&quot;&amp;gt; &amp;lt;strong&amp;gt;최종수정&amp;lt;/strong&amp;gt; 2020.03.04 &amp;lt;/span&amp;gt; &amp;lt;span class=&quot;table_hit&quot;&amp;gt;&amp;lt;strong&amp;gt;조회수&amp;lt;/strong&amp;gt; 242 &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&quot;subject&quot;&amp;gt; &amp;lt;a href=&quot;http://www.dankook.ac.kr/web/kor/-390?p_p_id=Bbs_WAR_bbsportlet&amp;amp;amp;p_p_lifecycle=0&amp;amp;amp;p_p_state=normal&amp;amp;amp;p_p_mode=view&amp;amp;amp;p_p_col_id=column-2&amp;amp;amp;p_p_col_pos=1&amp;amp;amp;p_p_col_count=2&amp;amp;amp;_Bbs_WAR_bbsportlet_curPage=1&amp;amp;amp;_Bbs_WAR_bbsportlet_action=view_message&amp;amp;amp;_Bbs_WAR_bbsportlet_messageId=714800&quot;&amp;gt; &amp;lt;div class=&quot;subject_txt&quot;&amp;gt; [퇴계기념중앙도서관] 도서관 임시 휴관 기간 연장 안내(~3.22)&amp;lt;/div&amp;gt; &amp;lt;div class=&quot;ico_area&quot;&amp;gt; …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석">
+<meta property="og:description" content="Intro 조건. 크롤링 조건 단국대 공지사항 천안 공통 분석 분석 할 html 코드 2개 &amp;lt;li&amp;gt; &amp;lt;div class=&quot;top_area&quot;&amp;gt; &amp;lt;div class=&quot;write_num&quot;&amp;gt; NO. 3584 &amp;lt;/div&amp;gt; &amp;lt;div class=&quot;num_area&quot;&amp;gt; &amp;lt;span class=&quot;table_date&quot;&amp;gt; &amp;lt;strong&amp;gt;최종수정&amp;lt;/strong&amp;gt; 2020.03.04 &amp;lt;/span&amp;gt; &amp;lt;span class=&quot;table_hit&quot;&amp;gt;&amp;lt;strong&amp;gt;조회수&amp;lt;/strong&amp;gt; 242 &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&quot;subject&quot;&amp;gt; &amp;lt;a href=&quot;http://www.dankook.ac.kr/web/kor/-390?p_p_id=Bbs_WAR_bbsportlet&amp;amp;amp;p_p_lifecycle=0&amp;amp;amp;p_p_state=normal&amp;amp;amp;p_p_mode=view&amp;amp;amp;p_p_col_id=column-2&amp;amp;amp;p_p_col_pos=1&amp;amp;amp;p_p_col_count=2&amp;amp;amp;_Bbs_WAR_bbsportlet_curPage=1&amp;amp;amp;_Bbs_WAR_bbsportlet_action=view_message&amp;amp;amp;_Bbs_WAR_bbsportlet_messageId=714800&quot;&amp;gt; &amp;lt;div class=&quot;subject_txt&quot;&amp;gt; [퇴계기념중앙도서관] 도서관 임시 휴관 기간 연장 안내(~3.22)&amp;lt;/div&amp;gt; &amp;lt;div class=&quot;ico_area&quot;&amp;gt; …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/5/22gBdW.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">
+<meta name="twitter:description" content="Intro 조건. 크롤링 조건 단국대 공지사항 천안 공통 분석 분석 할 html 코드 2개 &amp;lt;li&amp;gt; &amp;lt;div class=&quot;top_area&quot;&amp;gt; &amp;lt;div class=&quot;write_num&quot;&amp;gt; NO. 3584 &amp;lt;/div&amp;gt; &amp;lt;div class=&quot;num_area&quot;&amp;gt; &amp;lt;span class=&quot;table_date&quot;&amp;gt; &amp;lt;strong&amp;gt;최종수정&amp;lt;/strong&amp;gt; 2020.03.04 &amp;lt;/span&amp;gt; &amp;lt;span class=&quot;table_hit&quot;&amp;gt;&amp;lt;strong&amp;gt;조회수&amp;lt;/strong&amp;gt; 242 &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&quot;subject&quot;&amp;gt; &amp;lt;a href=&quot;http://www.dankook.ac.kr/web/kor/-390?p_p_id=Bbs_WAR_bbsportlet&amp;amp;amp;p_p_lifecycle=0&amp;amp;amp;p_p_state=normal&amp;amp;amp;p_p_mode=view&amp;amp;amp;p_p_col_id=column-2&amp;amp;amp;p_p_col_pos=1&amp;amp;amp;p_p_col_count=2&amp;amp;amp;_Bbs_WAR_bbsportlet_curPage=1&amp;amp;amp;_Bbs_WAR_bbsportlet_action=view_message&amp;amp;amp;_Bbs_WAR_bbsportlet_messageId=714800&quot;&amp;gt; &amp;lt;div class=&quot;subject_txt&quot;&amp;gt; [퇴계기념중앙도서관] 도서관 임시 휴관 기간 연장 안내(~3.22)&amp;lt;/div&amp;gt; &amp;lt;div class=&quot;ico_area&quot;&amp;gt; …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/5/22gBdW.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석 – mildsalmon</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/5/22gBdW.jpg" alt="단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'단국대학교 공지 알림 봇 제작기' 시리즈</span>단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석</h1>
+            <p class="post-date fade-in">2020-03-05 22:05<span>(Last Update: 2020-03-05 22:08)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(413);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(413)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=단국대학교 공지 알림 봇 제작기 (2) - 데이터 분석&url=https://blex.me/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>Intro</h1>
+<h3>조건.</h3>
+<p>크롤링 조건</p>
+<ul>
+<li>단국대 공지사항<ul>
+<li>천안</li>
+<li>공통</li>
+</ul>
+</li>
+</ul>
+<h1>분석</h1>
+<h3>분석 할 html 코드 2개</h3>
+<pre><code class="language-html">&lt;li&gt;
+ &lt;div class="top_area"&gt;
+  &lt;div class="write_num"&gt;
+   NO. 3584
+  &lt;/div&gt;
+  &lt;div class="num_area"&gt;
+   &lt;span class="table_date"&gt;
+    &lt;strong&gt;최종수정&lt;/strong&gt;
+    2020.03.04
+   &lt;/span&gt;
+   &lt;span class="table_hit"&gt;&lt;strong&gt;조회수&lt;/strong&gt;
+    242
+   &lt;/span&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class="subject"&gt;
+  &lt;a href="http://www.dankook.ac.kr/web/kor/-390?p_p_id=Bbs_WAR_bbsportlet&amp;amp;p_p_lifecycle=0&amp;amp;p_p_state=normal&amp;amp;p_p_mode=view&amp;amp;p_p_col_id=column-2&amp;amp;p_p_col_pos=1&amp;amp;p_p_col_count=2&amp;amp;_Bbs_WAR_bbsportlet_curPage=1&amp;amp;_Bbs_WAR_bbsportlet_action=view_message&amp;amp;_Bbs_WAR_bbsportlet_messageId=714800"&gt; &lt;div class="subject_txt"&gt;
+   [퇴계기념중앙도서관] 도서관 임시 휴관 기간 연장 안내(~3.22)&lt;/div&gt;
+   &lt;div class="ico_area"&gt;
+    &lt;!-- &lt;img src="/bbs-portlet/images/Bbs/board/icon_mobile.gif" alt="mobile" class="ico_mobile"--&gt;
+   &lt;/div&gt;
+  &lt;/a&gt;
+ &lt;/div&gt;
+ &lt;div class="btm_area"&gt;
+  &lt;span class="table_poster "&gt;
+   &lt;strong&gt;작성자&lt;/strong&gt; 학술정보지원팀 
+  &lt;/span&gt;
+  &lt;span class="table_category"&gt;
+   &lt;strong&gt;분류&lt;/strong&gt;
+    일반 &amp;gt; 죽전
+  &lt;/span&gt;
+ &lt;/div&gt;
+&lt;/li&gt;</code></pre>
+<p>크롤링을 할 데이터 중 두번째 게시글이다.</p>
+<pre><code class="language-html">  &lt;a href="http://www.dankook.ac.kr/web/kor/-390?p_p_id=Bbs_WAR_bbsportlet&amp;amp;p_p_lifecycle=0&amp;amp;p_p_state=normal&amp;amp;p_p_mode=view&amp;amp;p_p_col_id=column-2&amp;amp;p_p_col_pos=1&amp;amp;p_p_col_count=2&amp;amp;_Bbs_WAR_bbsportlet_curPage=1&amp;amp;_Bbs_WAR_bbsportlet_action=view_message&amp;amp;_Bbs_WAR_bbsportlet_messageId=714800"&gt; &lt;div class="subject_txt"&gt;
+   [퇴계기념중앙도서관] 도서관 임시 휴관 기간 연장 안내(~3.22)&lt;/div&gt;
+   &lt;div class="ico_area"&gt;
+    &lt;!-- &lt;img src="/bbs-portlet/images/Bbs/board/icon_mobile.gif" alt="mobile" class="ico_mobile"--&gt;
+   &lt;/div&gt;
+  &lt;/a&gt;</code></pre>
+<p>게시글의 제목과 url은 <code>&lt;a&gt;</code>태그만 크롤링해도 된다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/5/FsSbkCnmH2GwFKVeQo7L.png" alt=""></p>
+<p>하지만 단국대도 공지라면서 예전에 올린 글을 맨 위에 고정시켜 놓은 글이 있다.<br>
+아쉽게도 <code>&lt;a&gt;</code> 태그에서는 어떤 것이 최신 게시글인지, 고정시켜 놓은 글인지 모른다.<br>
+그러면 첫 번째 코드블럭과 밑에 코드블럭을 메모장에 복사해보자.<br>
+밑에 코드블럭은 맨 위에 고정시켜 놓은 공지글이다.<br></p>
+<pre><code class="language-html">&lt;li&gt;
+ &lt;div class="top_area"&gt;
+  &lt;div class="write_num"&gt;
+   &lt;img src="/bbs-portlet/images/Bbs/board/lbl_bbs_notice.png" alt="상단공지" class="ico_notice"&gt;
+  &lt;/div&gt;
+   &lt;div class="num_area"&gt;
+    &lt;span class="table_date"&gt;&lt;strong&gt;최종수정&lt;/strong&gt;
+     2020.02.25
+    &lt;/span&gt;
+    &lt;span class="table_hit"&gt;&lt;strong&gt;조회수&lt;/strong&gt;
+     4,538
+    &lt;/span&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="subject"&gt;
+   &lt;a href="http://www.dankook.ac.kr/web/kor/-390?p_p_id=Bbs_WAR_bbsportlet&amp;amp;p_p_lifecycle=0&amp;amp;p_p_state=normal&amp;amp;p_p_mode=view&amp;amp;p_p_col_id=column-2&amp;amp;p_p_col_pos=1&amp;amp;p_p_col_count=2&amp;amp;_Bbs_WAR_bbsportlet_curPage=1&amp;amp;_Bbs_WAR_bbsportlet_action=view_message&amp;amp;_Bbs_WAR_bbsportlet_messageId=714314"&gt;
+   &lt;div class="subject_txt"&gt;2020학년도 1학기 재학생 추가 등록 안내&lt;/div&gt;
+  &lt;div class="ico_area"&gt;
+   &lt;!-- &lt;img src="/bbs-portlet/images/Bbs/board/icon_mobile.gif" alt="mobile" class="ico_mobile"--&gt;
+    &lt;img src="/bbs-portlet/images/Bbs/board/icon_hit.gif" alt="인기글" class="ico_hit"&gt;
+   &lt;/div&gt;
+  &lt;/a&gt;
+ &lt;/div&gt;
+ &lt;div class="btm_area"&gt;
+  &lt;span class="table_poster "&gt; &lt;strong&gt;작성자&lt;/strong&gt; 재무회계팀 &lt;/span&gt;
+  &lt;span class="table_category"&gt; &lt;strong&gt;분류&lt;/strong&gt;
+    일반 &amp;gt; 공통
+  &lt;/span&gt;
+ &lt;/div&gt;
+&lt;/li&gt;</code></pre>
+<h3>상단 공지 필터링</h3>
+<p>메모장에 붙여넣고 뭐가 다른지 한번 분석해보자.<br>
+보면.<br></p>
+<pre><code class="language-html">  &lt;div class="write_num"&gt;
+   NO. 3584
+  &lt;/div&gt;</code></pre>
+<pre><code class="language-html">  &lt;div class="write_num"&gt;
+   &lt;img src="/bbs-portlet/images/Bbs/board/lbl_bbs_notice.png" alt="상단공지" class="ico_notice"&gt;
+  &lt;/div&gt;</code></pre>
+<p>이 부분이 다르다.<br>
+맨 위에 고정 시켜 놓은 글은 상단 공지라고 적혀져있고, NO.가 없다.<br>
+이 부분을 이용해서 정크 데이터를 지우자.<br></p>
+<h3>분류 필터링</h3>
+<p>그리고 데이터를 긁어서 메모장에 붙여넣은 김에 데이터 한가지를 더 찾아보자.<br>
+죽전 / 천안 / 공통이 위치할 부분이다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/5/PLqx7o1N2qLMLGDhCAae.png" alt=""></p>
+<p>이쪽을 마우스 우클릭해서 검사를 누르고 위 코드 블럭에서 어디쯤에 있을지 찾아보자.<br>
+난 위 코드 블럭을 옮겨놓은 메모장에서 컨트롤 + f로 검색해보겠다.<br></p>
+<pre><code class="language-html"> &lt;div class="btm_area"&gt;
+  &lt;span class="table_poster "&gt;
+   &lt;strong&gt;작성자&lt;/strong&gt; 학술정보지원팀 
+  &lt;/span&gt;
+  &lt;span class="table_category"&gt;
+   &lt;strong&gt;분류&lt;/strong&gt;
+    일반 &amp;gt; 죽전
+  &lt;/span&gt;
+ &lt;/div&gt;</code></pre>
+<pre><code class="language-html"> &lt;div class="btm_area"&gt;
+  &lt;span class="table_poster "&gt; &lt;strong&gt;작성자&lt;/strong&gt; 재무회계팀 &lt;/span&gt;
+  &lt;span class="table_category"&gt; &lt;strong&gt;분류&lt;/strong&gt;
+    일반 &amp;gt; 공통
+  &lt;/span&gt;
+ &lt;/div&gt;</code></pre>
+<p>데이터가 조금 에매하다.<br>
+쓸모없는 껍데기를 제거했다.<br></p>
+<pre><code class="language-html">  &lt;span class="table_category"&gt;
+   &lt;strong&gt;분류&lt;/strong&gt;
+    일반 &amp;gt; 죽전
+  &lt;/span&gt;</code></pre>
+<pre><code class="language-html">  &lt;span class="table_category"&gt;
+   &lt;strong&gt;분류&lt;/strong&gt;
+    일반 &amp;gt; 공통
+  &lt;/span&gt;</code></pre>
+<p>최선을 다해 제거했지만 이 상태에서 <code>.text</code>태그를 사용하면 '분류 일반 &gt; 공통' 이렇게 나온다.<br>
+필요없는 데이터가 많이 들어가있다.<br>
+그리고 '일반'부분도 다른 글에서는 '채용'으로 바뀐다.<br>
+뭐 일단.<br>
+코드를 짜보자.<br></p>
+<h3>분석을 토대로 코딩</h3>
+<pre><code class="language-python"># 제목, url 데이터
+all_posts_subject = soup.select('ul &gt; li &gt; div.subject &gt; a')
+# 천안 / 죽전 / 공통 데이터
+all_posts_btm_area = soup.select('ul &gt; li &gt; div.btm_area &gt; span.table_category')
+# 상단 공지 데이터
+num = soup.find_all(alt='상단공지')                 # 상단 공지 크롤링 / num에 리스트로 들어가니까 카운트 가능</code></pre>
+<h3>상단 공지 필터링 코딩</h3>
+<p>상단 공지는 저 상태로 <code>len()</code> 사용해서 <code>del</code>로 지우면 된다.<br></p>
+<h3>분류 필터링 코딩</h3>
+<pre><code class="language-python">for i in range(len(all_posts_btm_area)):
+    all_posts_btm_area[i] = all_posts_btm_area[i].text[8:10]    # 천안 / 죽전 / 공통 단어만 뽑아내기</code></pre>
+<p>다른 방법이 떠오르지 않는다. <br>
+그냥 이렇게 해보자.<br>
+<code>.text</code>태그를 사용하면 텍스트만 뽑힌다.<br>
+그러면 뽑은 데이터를 슬라이싱할 수 있다.<br>
+다행히도 텍스트만 뽑은 데이터의 길이가 전부 일정하다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/5/jFhai3ZvWjZksHItRTCQ.png" alt=""></p>
+<p>분류는 신경 안써도 된다.<br>
+일반부분은 특강 / 행사 / 채용 / 구매/입찰로 나뉜다.<br>
+구매/입찰쪽을 클릭해봤는데.<br>
+게시글이 하나도 없다.<br>
+즉, 구매/입찰이 작성되지 않는 이상 저 부분은 두 글자일 것이다.<br></p>
+<blockquote>
+<p>더 나은 방법을 찾아야 한다.<br>
+이런식으로 어물쩡 넘어가는 건 코드를 불안정하게 만드는 요소이다.<br>
+파이썬은 슬라이싱이 뒤로도 가능하다.<br>
+[0:-2] 이런식으로 말이다.<br></p>
+</blockquote>
+<p>게시글이 앞으로도 없길 바라며 데이터를 슬라이싱하자.<br>
+죽전 / 천안 / 공통은 모두 똑같은 두 글자라서 신경안써도 된다.<br></p>
+<p>그럼 정제한 단어(천안 / 죽전 / 공통)을 기반으로 제목 / url 데이터를 가지고 있는 부분을 수정해보자.<br>
+데이터는 이런식으로 있을거다.<br>
+[~url1~제목1~,~url2~제목2~,~url3~제목3~,~url4~제목4~, ... ]<br>
+['천안','죽전','공통', ... ]<br>
+게시글의 수는 14개로 두 리스트의 크기는 똑같다.<br>
+그럼 같은 인덱스에 위치한 데이터는 같은 게시물을 가리킨다고 생각할 수 있다.<br></p>
+<pre><code class="language-python">for i, all_post_subject in enumerate(all_posts_subject):        # 뽑아낸 단어 인덱스를 기반으로
+    if all_posts_btm_area[i] != "죽전":                           # 게시글 필터링
+        CheonanCommonPosts.append(all_posts_subject[i])         # 원하는 데이터는 공통, 천안
+        CheonanCommonArea.append(all_posts_btm_area[i])</code></pre>
+<p>필요한 데이터는 천안 / 공통이다.<br>
+이 두 가지를 뽑아내는 것은 if와 elif 두개가 필요하다.<br>
+그러니 그냥 죽전만 가지고 if 한 개로 끝내자.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/5/KDs2kwcRSCruhygq9SMe.png" alt=""></p>
+<p>이런 결과물이 나온다.<br></p>
+<h3>게시물 필터링 코딩</h3>
+<p>이제 게시물이 최신 게시물인지 확인할 방법을 생각해야한다.<br>
+단국대도 한라대의 boardSeq처럼 _Bbs_WAR_bbsportlet_messageId=714769이 있다.<br>
+게시물 고유 넘버.<br>
+이 것을 이용해서 최신 게시물을 판단하자.<br></p>
+<pre><code class="language-python">       # 원하는 데이터
+       # _Bbs_WAR_bbsportlet_messageId=714769
+       # 앞 뒤에 중복되는 문자열이 없다
+       # 그래서 a href 부분을 save_url_~ 리스트에 입력하고
+       # &amp;amp;로 다시 분리한다.
+for i, CheonanCommonPost in enumerate(CheonanCommonPosts):   
+    save_url_messageld.append(str(CheonanCommonPost).split('"')[1])     
+    save_messageld.append(save_url_messageld[i].split('&amp;amp')[9])
+    use_url_messageld.append(str(CheonanCommonPost.get('href')))        
+    use_messageld.append(use_url_messageld[i].split('&amp;')[9]) 
+print(use_messageld)
+print(save_messageld)</code></pre>
+<p><code>.get</code> 태그를 사용해서 url만 뽑아서 데이터를 정제할 수도 있고,<br>
+텍스트 형식으로 뽑아서 데이터를 정제할 수 있다.<br>
+변수를 좀 많이 쓴 이유는 변수를 재사용하기 싫어서이다.<br>
+변수를 재사용하다보면 코드를 쓰는 나조차 헷갈리는 경우가 많기 때문이다.<br></p>
+<p>데이터는 print로 한번씩 찍어서 확인해주자.<br>
+그냥 맞겠지 하고 넘어가다가는 나중에 어디서 빵꾸난건지 찾는게 정말 힘들다.<br></p>
+<h1>코드</h1>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+########## 테스트 코드
+
+import requests
+from bs4 import BeautifulSoup
+import os
+import telegram
+import sys
+import time
+import re
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+my_token = '봇 토큰'
+my_chat_id = "채널 주소 / 서비스 채널은 '@***' / 테스트 채널은 '-***'"
+req = requests.get('http://www.dankook.ac.kr/web/kor/-390')     # 단국대는 일반공지 - 천안 / 죽전 / 공통
+
+client_errors = [400, 401, 403, 404, 408]
+server_errors = [500,502, 503, 504]
+
+print(time.strftime("%c", time.localtime(time.time())))
+
+if req.status_code in client_errors:
+    print(req.status_code + ": 클라이언트 에러")
+    sys.exit(1)
+elif req.status_code in server_errors:
+    print(req.status_code + ": 서버 에러")
+    sys.exit(1)
+
+bot = telegram.Bot(token=my_token)
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
+all_posts_subject = soup.select('ul &gt; li &gt; div.subject &gt; a')
+all_posts_btm_area = soup.select('ul &gt; li &gt; div.btm_area &gt; span.table_category')
+num = soup.find_all(alt='상단공지')                 # 상단 공지 크롤링 / num에 리스트로 들어가니까 카운트 가능
+save_url_messageld = []
+save_messageld = []
+use_url_messageld = []
+use_messageld = []
+
+CheonanCommonPosts = []
+CheonanCommonArea = []
+
+for i in range(len(num)):           # 공지로 위로 올라간 게시글 제외한 최신 게시글 분류
+    del all_posts_subject[0]
+    del all_posts_btm_area[0]
+
+for i in range(len(all_posts_btm_area)):
+    all_posts_btm_area[i] = all_posts_btm_area[i].text[8:10]    # 천안 / 죽전 / 공통 단어만 뽑아내기
+
+for i, all_post_subject in enumerate(all_posts_subject):        # 뽑아낸 단어 인덱스를 기반으로
+    if all_posts_btm_area[i] != "죽전":                           # 게시글 필터링
+        CheonanCommonPosts.append(all_posts_subject[i])         # 원하는 데이터는 공통, 천안
+        CheonanCommonArea.append(all_posts_btm_area[i])
+
+for i, CheonanCommonPost in enumerate(CheonanCommonPosts):          # 원하는 데이터
+    save_url_messageld.append(str(CheonanCommonPost).split('"')[1])       # _Bbs_WAR_bbsportlet_messageId=714769
+    save_messageld.append(save_url_messageld[i].split('&amp;amp')[9])   # 앞 뒤에 중복되는 문자열이 없다.
+    use_url_messageld.append(str(CheonanCommonPost.get('href')))        # 그래서 a href 부분을 save_url_~ 리스트에 입력하고
+    use_messageld.append(use_url_messageld[i].split('&amp;')[9])    # &amp;amp;로 다시 분리한다.
+print(use_messageld)                                                                    # .get을 안쓴 이유는 CheonanCommonPosts가 리스트이기 때문.
+print(save_messageld)
+save_messageld[0] = save_messageld[0].lstrip(";")               # 파일 리스트로 불러올때 ; 기준으로 나누려고 0번 앞에 ;를 제거함
+
+if not(os.path.isfile(os.path.join(BASE_DIR, 'dankook_latest.txt'))):
+    new_file = open("dankook_latest.txt", 'w+',encoding='utf-8')
+    new_file.writelines(save_messageld)
+    new_file.close()
+
+with open(os.path.join(BASE_DIR, 'dankook_latest.txt'), 'r+',encoding='utf-8') as f_read:    # DB 구현후 변경 에정
+    before = f_read.readline().split(";")
+    for i, CheonanCommonPost in enumerate(CheonanCommonPosts):                      # 기존 크롤링 한 부분과 최신 게시글 사이에 게시글이 존재하는지 확인
+        print("post = " + CheonanCommonPost.text)
+        print("new = " + use_messageld[i])
+        print("before = " + before[0])         #
+        if before[0] == use_messageld[i]:
+            print("최신글입니다.")
+            break
+        elif before[1] == use_messageld[i]:
+            print("두번째 게시글이랑 체크, 첫 게시글 삭제된거냐")
+            break
+        elif before[2] == use_messageld[i]:
+            print("게시글 2개 삭제는 에바자나")
+            break
+        else:
+            url = CheonanCommonPost.get('href')
+            print(url)
+            try:
+                if CheonanCommonPost != CheonanCommonPosts[5]:       # 10번 post 이상 넘어가는지 확인 / 텔레그램 메시지가 url 10개 이상 한번에 못보냄
+                    bot.sendMessage(chat_id=my_chat_id, text= CheonanCommonArea[i] + "공지 : " + CheonanCommonPost.text)
+                    bot.sendMessage(chat_id=my_chat_id, text=url)
+                else:
+                    break
+            except Exception as ex:
+                print("timeout")            # 짧은 시간에 message를 과도하게 보내면 timeout이 뜨는것같다.
+                break                       # message를 많이 보내서 발생한다기 보다는, 한번에 보낼 수 있는 url의 양이 10개로 제한되어 있는듯
+
+with open(os.path.join(BASE_DIR, 'dankook_latest.txt'),'w+',encoding='utf-8') as f_write:
+    f_write.writelines(save_messageld)
+
+print("\n")</code></pre>
+<h1>마치며</h1>
+<p>데이터 분석은 이것으로 끝났다.<br>
+어제저녁에 갑자기 민*이 생각나서 연락해서 만들어주겠다고 했다.<br>
+스스로 정한 취침 시간이 12시 정각이었고,<br>
+만들어주겠다고 하고 공지사항 url을 받은게 21시 44분이다.<br>
+최소 11시 30분 전까지는 만들어야겠다고 생각하고,<br>
+그냥 달렸다.<br>
+이미 한라대 공지 알림 봇을 만들면서 만든 코드가 있어서 좀 많이 빠르게 작업한 것 같다.<br>
+어차피 데이터 분석이 메인이고,<br>
+내가 가고 싶은 분야가 데이터 분석이라 한번 도전해볼 만한 가치가 있었다.<br>
+퀄리티는 그렇게 이쁘다고 생각하지 않는다.<br>
+작동만 되면 된다.라는 생각으로 만들었으니까.<br>
+23시 49분에 코드를 완성했다.<br>
+2시간쯤 걸렸다.<br>
+별 의미 없는 타임어택이긴 해도.<br>
+재밌었다.<br>
+뭐. 그럼 된 거지<br></p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>스마트 경제, <a href="http://www.dailysmart.co.kr/news/articleView.html?idxno=21924">http://www.dailysmart.co.kr/news/articleView.html?idxno=21924</a>, 사진</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90">단국대학교</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%B2%9C%EC%95%88">천안</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D">데이터분석</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none deep-dark">
+            '단국대학교 공지 알림 봇 제작기' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EB%B0%8F-%EA%B0%9C%EC%9A%94?series=단국대학교-공지-알림-봇-제작기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>단국대학교 공지 알림 봇 제작기 (1) - 개발 환경 및 개요
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="lSGILleyjmM8CfOTjpSUiHdIX9x2A9rUhPoHx2DNi9LoVak478GpoGfEfSVsDGs2">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

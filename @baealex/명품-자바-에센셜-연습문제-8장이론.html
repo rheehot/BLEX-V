@@ -1,46 +1,334 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 8장 1. 다음 중에서 스윙 컴포넌트 클래스가 아닌 것은?① Panel② JFrame③ JButton④ JLabel 2. 다음 중에서 컴포넌트가 아닌 것은?① Panel② JFrame③ …">
+<meta property="og:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="명품 자바 에센셜 연습문제 8장(이론)">
+<meta property="og:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 8장 1. 다음 중에서 스윙 컴포넌트 클래스가 아닌 것은?① Panel② JFrame③ JButton④ JLabel 2. 다음 중에서 컴포넌트가 아닌 것은?① Panel② JFrame③ …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="명품 자바 에센셜 연습문제 8장(이론)">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0">
+<meta name="twitter:description" content="문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길 바랍니다. 연습문제 8장 1. 다음 중에서 스윙 컴포넌트 클래스가 아닌 것은?① Panel② JFrame③ JButton④ JLabel 2. 다음 중에서 컴포넌트가 아닌 것은?① Panel② JFrame③ …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>명품 자바 에센셜 연습문제 8장(이론) – baealex</title>
 </head>
-
 <body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(374);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(374)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=명품 자바 에센셜 연습문제 8장(이론)&url=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-8%EC%9E%A5%EC%9D%B4%EB%A1%A0" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'명품 자바 에센셜 풀이' 시리즈</span>명품 자바 에센셜 연습문제 8장(이론)</h1>
+        <p class="post-date">
+            2018-11-03 13:20</p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><br></p>
+<div class="txc-textbox" style="border-style: solid; border-width: 1px; border-color: rgb(254, 254, 184); background-color: rgb(254, 254, 184); padding: 10px;">
+    <p>문제와 해답은 직접 작성한 것으로 오타가 있을 수도 있으며 해답역시 틀린 부분이 있을 수 있습니다. 틀린 부분에 대한 지적은 적극 수용하도록 하겠습니다. 문제를 먼저 풀어보시고 참고용으로만 봐주시길
+        바랍니다.<br></p>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 class="title">연습문제 8장</h3>
+<p>1. 다음 중에서 스윙 컴포넌트 클래스가 아닌 것은?<br><span style="color: rgb(255, 0, 0);">① Panel</span><br>② JFrame<br>③ JButton<br>④
+    JLabel</p>
+<p><br></p>
+<p>2. 다음 중에서 컴포넌트가 아닌 것은?<br>① Panel<br>② JFrame<br><span style="color: rgb(255, 0, 0);">③ Font</span><br>④ JPanel</p>
+<p><br></p>
+<p>3. 다음 코드의 빈칸에 스윙 프로그램에 필요한 문을 삽입하라.</p>
+<pre><code class="language-java">import java.awt.*;
+import javax.swing.*;
+public class MyFrame extends __________ {
+    MyFrame() {
+        _____________ // 컨텐트팬에 대한 레퍼런스 얻기
+        _____________ // 컨텐트팬에 "hello" 버튼 달기
+        _____________ // 프레임을 너비 200, 높이 400픽셀로 설정
+        setVisible(true);
+    }
+    public static void main(String [] args) {
+        _____________ // MyFrame 생성
+    }
+}</code></pre>
+<p>3행 : <span style="color: rgb(34, 116, 28);">JFrame</span><br>5행 : <span style="color: rgb(34, 116, 28);">Container c
+        = getContentPane();</span><br>6행 : <span style="color: rgb(34, 116, 28);">c.add(new JButton("hello")</span><span style="color: rgb(34, 116, 28);">);</span><br>7행 : <span style="color: rgb(34, 116, 28);">setSize(200, 400);</span><br>11행
+    : <span style="color: rgb(34, 116, 28);">new MyFrame();</span></p>
+<p><br></p>
+<p>4. 다음 프로그램을 실행하면 아무것도 출력되지 않는다. 정상적으로 작동하도록 프로그램을 수정하라.</p>
+<pre><code class="language-java">import javax.swing.*;
+public class MyFrame extends JFrame {
+    MyFrame() {
+        setSize(300,300);
+        setVisible(true);
+    }
+    public static void main(String [] args) {
+        JFrame mf = new JFrame();
+    }
+}</code></pre>
+<p>8행을 다음과 같이 수정 : <span style="color: rgb(34, 116, 28);">new MyFrame();</span></p>
+<p><br></p>
+<p>5. 컴포넌트와 컨테이너에 대해 잘못 말한 것은?<br>① JFrame은 컨테이너다.<br><span style="color: rgb(255, 0, 0);">② 컨테이너는 다른 컨테이너에 삽입될 수 없다.</span><br>③
+    배치관리자는 컨테이너에서 컴포넌트의 배치를 담당한다.<br>④ 컴포넌트나 컨테이너가 화면에 출력되려면 최상위 컨테이너에 포함되어야 한다.</p>
+<p><br></p>
+<p>6. 배치 관리자에 대해 잘못 말한 것은?<br>① 배치관리자는 컨테이너에 포함된 컴포넌트들의 위치와 크기를 설정한다.<br><span style="color: rgb(255, 0, 0);">② 배치관리자는
+        한 컨테이너에 여러 개 존재할 수 있다.</span><br>③ 배치관리자가 없는 컨테이너를 만들 수 있다.<br>④ JPanel은 배치관리자를 가지지만 JButton은 배치관리자를 가지지 않는다.</p>
+<p><br></p>
+<p>7. 다음 코드에서 컨텐트팬의 배치관리자를 아래 문항에 주어진 대로 설정하라.</p>
+<pre><code class="language-java">Container c = getComtentPane(); // 컨텐트팬 알아내기
+_______________________________________ // 배치관리자 설정</code></pre>
+<p>(1) 컴포넌트 사이의 수평 수직 간격이 각각 10, 20픽셀, BorderLayout</p>
+<p><span style="color: rgb(34, 116, 28);">c.setLayout(new BorderLayout(10, 20)</span><span style="color: rgb(34, 116, 28);">);</span></p>
+<p>(2) 컴포넌트 사이의 수평 수직 간격이 각각 10, 20픽셀, 중앙정렬, FlowLayout</p>
+<p><span style="color: rgb(34, 116, 28);">c.setLayout(new FlowLayout(FlowLayout.CENTER, </span><span style="color: rgb(34, 116, 28);">10,
+        20));</span></p>
+<p>(3) 컴포넌트 사이의 수평 수직 간격이 각각 10, 20픽셀, 행수 2, 열수 5의 GridLayout</p>
+<p><span style="color: rgb(34, 116, 28);">c.setLayout(new Grid</span><span style="color: rgb(34, 116, 28);">Layout(2,
+        5, </span><span style="color: rgb(34, 116, 28);">10, 20));</span></p>
+<p><br></p>
+<p>8. 컴포넌트를 절대 위치에 부착하고자 한다. 주석문을 참고하여 빈칸에 적절한 코드를 삽입하라.</p>
+<pre><code class="language-java">import java.awt.*;
+import javax.swing.*;
+public class MyFrame extends JFrame {
+    MyFrame() {
+        __________________________ // 컨텐트팬에 대한 레퍼런스 얻기
+        __________________________ // 컨텐트팬의 배치관리자 제거
+        JButton b = new JButton("Hello");
+        __________________________ // b의 위치를 30, 40으로 설정
+        __________________________ // b의 크기를 100x100으로 설정
+        __________________________ // 컨텐트팬에 b 삽입
+        setSize(300, 300);
+        setVisible(true);
+    }
+    public static void main(String [] args) {
+        new MyFrame();
+    }
+}</code></pre>
+<p>5행 : <span style="color: rgb(34, 116, 28);">Container c = getContentPane();</span><br>6행 : <span style="color: rgb(34, 116, 28);">c.setLayout(null);</span><br>8행
+    : <span style="color: rgb(34, 116, 28);">b.setLocation(30, 40);</span><br>9행 : <span style="color: rgb(34, 116, 28);">b.setSize(100,
+        100);</span><br>10행 : <span style="color: rgb(34, 116, 28);">c.add(b);</span></p>
+<p><br></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%BC%EC%85%9C">자바에센셜</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%ED%92%80%EC%9D%B4" class="text-decoration-none deep-dark">
+            '명품 자바 에센셜 풀이' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-7%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>명품 자바 에센셜 연습문제 7장(이론)
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EB%AA%85%ED%92%88-%EC%9E%90%EB%B0%94-%EC%97%90%EC%84%BC%EC%85%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C-9%EC%9E%A5%EC%9D%B4%EB%A1%A0?series=명품-자바-에센셜-풀이">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>명품 자바 에센셜 연습문제 9장(이론)
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="Ls4SfqghxiFLENU76XqTyYkX1nXrB8e2xoeZYx680RxPHEIC1aTqhB4sYDABgMIR">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
 </body>
 </html>

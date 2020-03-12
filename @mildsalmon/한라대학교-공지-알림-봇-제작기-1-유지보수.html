@@ -1,46 +1,394 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="Intro 내가 다시 이 시리즈를 작성할 일은 없을 줄 알았는데... 사건 설명 사건 개요 학교에서 일반공지 게시글의 제목을 바꿨다. 수정 과정 ... new_file.write(posts[0].text) ... elif before != post.text: ... 지금까지 사용한 코드는 post.text (게시글의 제목)으로 최신 게시글인지 판단했다. 게시한 공지의 제목을 바꾼다는 생각을 하지 못해서이다. 충분히 가능했으나, 에측하지 못해서 에러가 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (7) - 유지보수">
+<meta property="og:description" content="Intro 내가 다시 이 시리즈를 작성할 일은 없을 줄 알았는데... 사건 설명 사건 개요 학교에서 일반공지 게시글의 제목을 바꿨다. 수정 과정 ... new_file.write(posts[0].text) ... elif before != post.text: ... 지금까지 사용한 코드는 post.text (게시글의 제목)으로 최신 게시글인지 판단했다. 게시한 공지의 제목을 바꾼다는 생각을 하지 못해서이다. 충분히 가능했으나, 에측하지 못해서 에러가 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/2/12xqYx.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (7) - 유지보수">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">
+<meta name="twitter:description" content="Intro 내가 다시 이 시리즈를 작성할 일은 없을 줄 알았는데... 사건 설명 사건 개요 학교에서 일반공지 게시글의 제목을 바꿨다. 수정 과정 ... new_file.write(posts[0].text) ... elif before != post.text: ... 지금까지 사용한 코드는 post.text (게시글의 제목)으로 최신 게시글인지 판단했다. 게시한 공지의 제목을 바꾼다는 생각을 하지 못해서이다. 충분히 가능했으나, 에측하지 못해서 에러가 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/2/12xqYx.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>한라대학교 공지 알림 봇 제작기 (7)  - 유지보수 – mildsalmon</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/2/12xqYx.jpg" alt="한라대학교 공지 알림 봇 제작기 (7)  - 유지보수">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (7)  - 유지보수</h1>
+            <p class="post-date fade-in">2020-03-02 12:19<span>(Last Update: 2020-03-02 12:20)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(401);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(401)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=한라대학교 공지 알림 봇 제작기 (7)  - 유지보수&url=https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-1-%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>Intro</h1>
+<p>내가 다시 이 시리즈를 작성할 일은 없을 줄 알았는데...</p>
+<h1>사건 설명</h1>
+<h3>사건 개요</h3>
+<p><img src="https://static.blex.me/image/2020/3/2/bUiSlzFjBSSotJTDuRXj.png" alt=""></p>
+<p>학교에서 일반공지 게시글의 제목을 바꿨다.</p>
+<h3>수정 과정</h3>
+<pre><code class="language-python">...
+new_file.write(posts[0].text)
+...
+elif before != post.text:
+...</code></pre>
+<p>지금까지 사용한 코드는 post.text (게시글의 제목)으로 최신 게시글인지 판단했다.<br>
+게시한 공지의 제목을 바꾼다는 생각을 하지 못해서이다.<br>
+충분히 가능했으나, 에측하지 못해서 에러가 발생했다.<br></p>
+<p>그래서 학교 측에서 변경하기 힘든, 변경할리 없는 값을 찾기로 했다.<br></p>
+<pre><code>[ &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7748511&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;코로나19 원주 2번 확진자 동선 중 '이마트24원주한라대...&lt;/a&gt;,
+ &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7746112&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;코로나 19 확산 방지를 위한 도서관 운영시간 변경&lt;/a&gt;,
+ &lt;a href="view.jsp?spage=1&amp;amp;boardId=23401&amp;amp;boardSeq=7746005&amp;amp;mcategoryId=&amp;amp;id=kr_060101000000&amp;amp;column=&amp;amp;search="&gt;2019 동계방학 시내통학버스 운행시간 연장 안내&lt;/a&gt;,
+...]</code></pre>
+<p>메모장을 열고 내가 크롤링해오는 데이터를 붙여넣고 비교, 분석을 시작했다.<br>
+가능하면 내가 크롤링 한 데이터 중에서 값을 찾아야한다.<br>
+내가 크롤링해서 가지고 있는 데이터 밖에서 찾으면 크롤링할 부분이 더 늘어나기 때문이다.<br>
+이것은 용량, 속도에 영향을 끼친다. 물론 아주 미미하겠지만.<br></p>
+<p>데이터를 보면 <code>boardSeq=</code> 이 부분만 다르다.<br>
+boardnum인거같다.<br>
+boardId는 학사 공지인지 일반 공지인지 확인해주는 게시판 ID이다.<br>
+그러면 저 데이터에서 boardnum을 분리해야한다.<br></p>
+<p>posts는 리스트 형식의 <code>&lt;class 'bs4.element.Tag'&gt;</code>이고 posts[0]은 <code>&lt;class 'bs4element.Tag'&gt;</code>이다.<br>
+posts[0]이 str이 아니다.<br>
+그래서 str로 강제형변환을 해준다.<br></p>
+<pre><code class="language-python">split_posts = str(posts[0]).split("&amp;amp;")   # 가장 최신 공지랑 같은지 검사</code></pre>
+<p>str로 강제형변환을 하면, split으로 문자열을 쪼갤 수 있다.<br>
+쪼개는 지점은 <code>boardSeq=7748511</code> 앞 뒤를 분리하는게 가장 좋다.<br>
+<code>boardSeq=~</code> 앞 뒤에는 <code>&amp;amp;</code>가 있다.<br>
+이걸 기점으로 분리하자.<br></p>
+<pre><code>['&lt;a href="view.jsp?spage=1',
+ 'boardId=23401',
+ 'boardSeq=7748511',
+ 'mcategoryId=',
+ 'id=kr_060101000000',
+ 'column=',
+ 'search="&gt;코로나19 원주 2번 확진자 동선 중 \'이마트24원주한라대...&lt;/a&gt;']</code></pre>
+<p>우리가 사용할 데이터는 세번째인 2번 인덱스다.<br></p>
+<p>그리고 메시지가 한꺼번에 20개가 날라오니 많이 당황스러웠다.<br>
+더군다나 내가 알바를 하고 있을 때 저렇게 날라와서 더 당황했다.<br>
+그래서 최신 게시글을 메시지로 보내는 수를 좀 더 제한하는 것도 나쁘지 않다고 생각한다.<br>
+최대 url 10개를 보낼 수 있지만,<br>
+서버가 항상 켜져있어서 3개 혹은 5개까지면 충분히 1시간 안에 발생하는 게시글을 전부 크롤링 할 수 있다고 생각한다.<br>
+공지 게시판이 자유게시판처럼 매 분마다 게시글이 쏟아져나오는 곳이 아니기 때문이다.<br>
+그래서 일단은 최대 최신 게시글을 메시지로 보내는 수를 10개에서 5개로 제한했다.<br></p>
+<h1>유지보수 결과</h1>
+<pre><code class="language-python">import requests
+from bs4 import BeautifulSoup
+import sys
+import telegram
+import os
+import time
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+my_token = '봇 토큰'
+my_chat_id = '채널 주소 / 서비스 채널은 @*** / 테스트 체널은 -***'
+req = requests.get('http://www.halla.ac.kr/mbs/kr/jsp/board/list.jsp?boardId=23401&amp;mcategoryId=&amp;id=kr_060101000000')
+                                        # 일반 = boardId = 23401
+client_errors = [400, 401, 403, 404, 408]
+server_errors = [500,502, 503, 504]
+
+print(time.strftime("%c", time.localtime(time.time())))
+
+if req.status_code in client_errors:
+    print(req.status_code + ": 클라이언트 에러")
+    sys.exit(1)
+elif req.status_code in server_errors:
+    print(req.status_code + ": 서버 에러")
+    sys.exit(1)
+
+bot = telegram.Bot(token=my_token)
+html = req.text
+soup = BeautifulSoup(html, 'html.parser')
+posts = soup.select('td &gt; a')
+num = soup.find_all(title='공지')
+
+for i in range(len(num)):           # 공지로 위로 올라간 게시글 제외한 최신 게시글 분류
+    del posts[0]
+
+split_posts = str(posts[0]).split("&amp;amp;")[2]   # 가장 최신 공지랑 같은지 검사
+
+if not(os.path.isfile(os.path.join(BASE_DIR, 'latest.txt'))):
+    new_file = open("latest.txt", 'w+',encoding='utf-8')
+    new_file.write(split_posts)
+    new_file.close()
+
+with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+',encoding='utf-8') as f_read:    # DB 구현후 변경 에정
+    before = f_read.readline()
+
+    for post in posts:                      # 기존 크롤링 한 부분과 최신 게시글 사이에 게시글이 존재하는지 확인
+        split_post = str(post).split("&amp;amp;")[2]
+        print("post = " + post.text)
+        print("new = " + split_post)
+        print("before = " + before)         # split_posts
+        if before == split_post:
+            print("최신글입니다.")
+            break
+        elif before != split_post:
+            url = "http://www.halla.ac.kr/mbs/kr/jsp/board/" + post.get('href')
+            print(url)
+            try:
+                if post != posts[5]:       # 10번 post 이상 넘어가는지 확인 / 텔레그램 메시지가 url 10개 이상 한번에 못보냄
+                    bot.sendMessage(chat_id=my_chat_id, text="일반공지 : " + post.text)
+                    bot.sendMessage(chat_id=my_chat_id, text=url)
+                else:
+                    break
+            except Exception as ex:
+                print("timeout")            # 짧은 시간에 message를 과도하게 보내면 timeout이 뜨는것같다.
+                break                       # message를 많이 보내서 발생한다기 보다는, 한번에 보낼 수 있는 url의 양이 10개로 제한되어 있는듯
+
+with open(os.path.join(BASE_DIR, 'latest.txt'),'w+',encoding='utf-8') as f_write:
+    f_write.write(split_posts)
+
+print("\n")</code></pre>
+<h1>마치며</h1>
+<p>한라대 공지 알림 봇을 사용하는 인원 수가 두자리를 넘겼다.<br>
+더 많이 늘어나기를 바라며,<br>
+버그는 더 발생하지 않기를 바라며 마치겠다.<br></p>
+<p>감사합니다.</p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">유지보수</a></li>
+            
+            <li><a href="/@mildsalmon/topic/python">python</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0" class="text-decoration-none deep-dark">
+            '한라대학교 공지 알림 봇 제작기' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D?series=한라대학교-공지-알림-봇-제작기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (3) - 코드분석 (Requests, bs4)
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-10-%EC%A7%84%EC%A7%9C-%EC%A0%9C%EB%8C%80%EB%A1%9C%EB%90%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94?series=한라대학교-공지-알림-봇-제작기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>한라대학교 공지 알림 봇 제작기 (10) - 진짜 제대로된 클래스화
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="pKIhLltzupPkDuR9F0QwqIkkgKCcCVKqek77SfRUUD77f4b07WfbLFhFd3fc9HSm">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

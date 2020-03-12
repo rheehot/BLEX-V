@@ -1,46 +1,363 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="Component 추출하기 function Comment(props) { return ( &amp;lt;div className = &quot;Comment&quot;&amp;gt; &amp;lt;div className = &quot;UserInfo&quot;&amp;gt; &amp;lt;img className = &quot;Avatar&quot; src = {props.author.avatarUrl} alt = {props.author.name} /&amp;gt; &amp;lt;div className = &quot;UserInfo-name&quot;&amp;gt; {props.author.name} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div className = &quot;Comment-text&quot;&amp;gt; {props.text} &amp;lt;/div&amp;gt; &amp;lt;div className = &quot;Comment-date&quot;&amp;gt; {formatDate(props.date)} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; ); } 위 코드는 …">
+<meta property="og:url" content="https://blex.me/@yoyounn18/116-react-%EA%B3%B5%EB%B6%80">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[11.6] React 공부">
+<meta property="og:description" content="Component 추출하기 function Comment(props) { return ( &amp;lt;div className = &quot;Comment&quot;&amp;gt; &amp;lt;div className = &quot;UserInfo&quot;&amp;gt; &amp;lt;img className = &quot;Avatar&quot; src = {props.author.avatarUrl} alt = {props.author.name} /&amp;gt; &amp;lt;div className = &quot;UserInfo-name&quot;&amp;gt; {props.author.name} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div className = &quot;Comment-text&quot;&amp;gt; {props.text} &amp;lt;/div&amp;gt; &amp;lt;div className = &quot;Comment-date&quot;&amp;gt; {formatDate(props.date)} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; ); } 위 코드는 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="yoyounn18">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[11.6] React 공부">
+<meta name="twitter:url" content="https://blex.me/@yoyounn18/116-react-%EA%B3%B5%EB%B6%80">
+<meta name="twitter:description" content="Component 추출하기 function Comment(props) { return ( &amp;lt;div className = &quot;Comment&quot;&amp;gt; &amp;lt;div className = &quot;UserInfo&quot;&amp;gt; &amp;lt;img className = &quot;Avatar&quot; src = {props.author.avatarUrl} alt = {props.author.name} /&amp;gt; &amp;lt;div className = &quot;UserInfo-name&quot;&amp;gt; {props.author.name} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div className = &quot;Comment-text&quot;&amp;gt; {props.text} &amp;lt;/div&amp;gt; &amp;lt;div className = &quot;Comment-date&quot;&amp;gt; {formatDate(props.date)} &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; ); } 위 코드는 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>[11.6] React 공부 – yoyounn18</title>
 </head>
-
 <body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(137);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(137)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=[11.6] React 공부&url=https://blex.me/@yoyounn18/116-react-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@yoyounn18/116-react-%EA%B3%B5%EB%B6%80" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline">[11.6] React 공부</h1>
+        <p class="post-date">
+            2019-11-06 15:51</p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@yoyounn18">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/yoyounn18/BL4W.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@yoyounn18">yoyounn18</a><span class="ns ml-2"><i class="fas fa-battery-empty"></i> 0%</span></h4>
+            
+            <p class="author-description">한국어보다 자바스크립트를 더 잘 하는게 목표.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('yoyounn18')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h4>Component 추출하기</h4>
+<pre><code class="language-javascript">    function Comment(props) {
+    return (
+        &lt;div className = "Comment"&gt;
+            &lt;div className = "UserInfo"&gt;
+                &lt;img className = "Avatar"
+                    src = {props.author.avatarUrl}
+                    alt = {props.author.name}
+                    /&gt;
+                    &lt;div className = "UserInfo-name"&gt;
+                        {props.author.name}
+                    &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className = "Comment-text"&gt;
+                {props.text}
+            &lt;/div&gt;
+            &lt;div className = "Comment-date"&gt;
+                {formatDate(props.date)}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+<p>위 코드는 작성자(Avatar), 글(Comment), 날짜(Date)를 prop으로 받는다. 하지만 위 코드는 컴포넌트들이 다 짬뽕되어있기 때문에 좋은 코드라고 할 수 없다. 좋은코드가 되려면 컴포넌트를 최대한 잘게 쪼개야하고, 그 컴포넌트들의 재사용성을 높여야 한다.</p>
+<pre><code class="language-javascript">    function Avatar (props) {
+    return (
+        &lt;img className = "Avatar"
+        src = {props.author.avatarUrl}
+        alt = {props.author.name}
+        /&gt;
+    );
+}</code></pre>
+<p>쪼개진 Avatar Component</p>
+<pre><code class="language-javascript">    function UserInfo(props) {
+  return (
+    &lt;div className="UserInfo"&gt;
+      &lt;Avatar user={props.user} /&gt;
+      &lt;div className="UserInfo-name"&gt;
+        {props.user.name}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+<p>UserInfo Component</p>
+<pre><code class="language-javascript">    function Comment(props) {
+  return (
+    &lt;div className="Comment"&gt;
+      &lt;UserInfo user={props.author} /&gt;
+      &lt;div className="Comment-text"&gt;
+        {props.text}
+      &lt;/div&gt;
+      &lt;div className="Comment-date"&gt;
+        {formatDate(props.date)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+<p>UserInfo, Avatar Component가 쪼개져서 간략해진 Comment Component</p>
+<h4>Props에 관하여</h4>
+<pre><code class="language-javascript">    function sum (a, b) {
+        return a + b;
+    }</code></pre>
+<p>위의 함수는 받아온 props 값을 바꾸지 않은 <code>순수함수</code>이다. 그리고 같은 입력값에 대한 항상 같은 결과를 출력해냅니다.</p>
+<pre><code class="language-javascript">    function foo (account, amount) {
+        account.total -= amount;
+    }</code></pre>
+<p>다음과같이 props가 변하는 함수를 비순수 함수라고 합니다.</p>
+<p><strong>react는 props의 측면에서 봤을때 순수함수처럼 동작해야한다.</strong></p>
+<p>그렇다면 props가 고정된 상태에서 react는 어떻게 동적으로 움직일까? <code>state</code>가 그 답이 될 수 있다.</p>
+<h4>State</h4>
+<ul>
+<li>
+<p>state는 props와 비슷하다.</p>
+</li>
+<li>
+<p>하지만 props와는 다르게 private한 특성을 가지고 있다.</p>
+</li>
+<li>
+<p>Component에 의해 완전히 통제된다.</p>
+</li>
+</ul>
+<pre><code class="language-javascript">    class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Hello, world!&lt;/h1&gt;
+        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+ReactDOM.render(
+  &lt;Clock /&gt;,
+  document.getElementById('root')
+);</code></pre>
+<p>위 코드를 살펴보면</p>
+<ul>
+<li>
+<p>props를 state에 넘겨주는 과정이 있다.</p>
+</li>
+<li>
+<p>기존 render에 props가 들어가던 자리에 이젠 state가 들어간다.</p>
+</li>
+</ul>
+<p><strong>state를 정의 하는법</strong></p>
+<p>classfields문법을 사용한다.</p>
+<pre><code class="language-javascript">    class Counter extends Component {
+        constructor (props) {
+            super(props);
+            this.state = {
+                number : 0
+            }
+        }
+    }</code></pre>
+<p>위코드의 <code>super(props);</code>의 이유는 Component를 상속했기 때문에 기존에 있던 props를 미리 실행하고 state를 설정하기 위함이다.</p>
+<p>동적 인자인 <code>state</code>의 값을 바꾸기 위해선 <code>this.setState</code>를 무조건 거쳐야한다.</p>
+<pre><code class="language-javascript">    state = {
+        number : 0,
+        foo : 'bar'
+    }</code></pre>
+<p>위의 코드처럼 state가 선언되었다고 할 때 이를 바꿔주기 위해선 <code>this.setState({ number : 1 })</code>을 해주면 된다. </p>
+<p>그러나 객체안의 객체 </p>
+<pre><code class="language-javascript">    state = {
+        number : 0,
+        foo : {
+            bar : 0,
+            foobar : 1
+        }
+    }</code></pre>
+<p>라면 <code>this.setState({foobar : 2})</code> 로 <code>foobar</code>을 2로 바꿀 수는 없다. 따라서 <code>immutable.js</code> 또는 <code>immer.js</code>를 사용하거나 foo 객체 안에 <code>...this.state.foo</code>라고 this를 연결시켜주어야 한다.</p>
+<p><strong>state의 비구조화 할당</strong></p>
+<pre><code class="language-javascript">    const { number } = this.state;
+    this.setState({
+        number: number + 1
+    });</code></pre>
+<p>이런식으로 하면 state에 함수할당이 더 쉽게 가능하다.</p>
+<h4>이벤트 설정</h4>
+<p>react 이벤트 설정시 주의사항</p>
+<ul>
+<li>
+<p>이벤트의 이름은 무조건 camelCase로 해주어야한다.(ex onClick)</p>
+</li>
+<li>
+<p>이벤트에 전달해주는 값은 <strong>함수</strong>여야 한다. (만든 메소드가 아닌 함수여야 한다는 것)</p>
+</li>
+</ul>
+<pre><code class="language-javascript">    &lt;button onClick={this.handleIncrease}&gt;+&lt;/button&gt; // 옳은 방식
+
+    &lt;button onClick = {this.handleIncrease()}&gt;+&lt;/button&gt; // 틀린 방식 랜더링할때마다 이 함수가 호출되서 무한반복에 빠져버림.</code></pre>
+        </article>
+        <ul class="tag-list noto">
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment-close" class="comment-list noto s-shadow">
+                댓글이 닫혀 있습니다.
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
 </body>
 </html>

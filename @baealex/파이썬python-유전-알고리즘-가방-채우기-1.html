@@ -1,46 +1,386 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="유전 알고리즘을 만들때 가장 먼저 해야할 일은 항상 evoluation 함수를 만드는 것이며 evaoluation 함수는 추악한 오리와 아름다운 백조를 분리하는 작업이다. 저번에 만들었던 소스코드는 굉장히 간단한 내용이었기에 큰 어려움이 없었다. 조금더 유전 알고리즘에 익숙해지기 위해서 새로운 소스코드를 작성하고자 한다. Project2. 배낭에 가장 효율적인 물건 채우기 가방의 공간은 10으로 한정 각 물건의 …">
+<meta property="og:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-1">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬(Python) - 유전 알고리즘 - 가방 채우기 1">
+<meta property="og:description" content="유전 알고리즘을 만들때 가장 먼저 해야할 일은 항상 evoluation 함수를 만드는 것이며 evaoluation 함수는 추악한 오리와 아름다운 백조를 분리하는 작업이다. 저번에 만들었던 소스코드는 굉장히 간단한 내용이었기에 큰 어려움이 없었다. 조금더 유전 알고리즘에 익숙해지기 위해서 새로운 소스코드를 작성하고자 한다. Project2. 배낭에 가장 효율적인 물건 채우기 가방의 공간은 10으로 한정 각 물건의 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/24/20E1W0.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬(Python) - 유전 알고리즘 - 가방 채우기 1">
+<meta name="twitter:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-1">
+<meta name="twitter:description" content="유전 알고리즘을 만들때 가장 먼저 해야할 일은 항상 evoluation 함수를 만드는 것이며 evaoluation 함수는 추악한 오리와 아름다운 백조를 분리하는 작업이다. 저번에 만들었던 소스코드는 굉장히 간단한 내용이었기에 큰 어려움이 없었다. 조금더 유전 알고리즘에 익숙해지기 위해서 새로운 소스코드를 작성하고자 한다. Project2. 배낭에 가장 효율적인 물건 채우기 가방의 공간은 10으로 한정 각 물건의 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/24/20E1W0.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>파이썬(Python) - 유전 알고리즘 - 가방 채우기 1 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/2/24/20E1W0.jpg" alt="파이썬(Python) - 유전 알고리즘 - 가방 채우기 1">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'유전 알고리즘 학습' 시리즈</span>파이썬(Python) - 유전 알고리즘 - 가방 채우기 1</h1>
+            <p class="post-date fade-in">2019-03-11 20:44</p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(382);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(382)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=파이썬(Python) - 유전 알고리즘 - 가방 채우기 1&url=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-1" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-1" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <blockquote>
+<p>유전 알고리즘을 만들때 가장 먼저 해야할 일은 항상 evoluation 함수를 만드는 것이며 evaoluation 함수는 추악한 오리와 아름다운 백조를 분리하는 작업이다.</p>
+</blockquote>
+<p>저번에 만들었던 소스코드는 굉장히 간단한 내용이었기에 큰 어려움이 없었다. 조금더 유전 알고리즘에 익숙해지기 위해서 새로운 소스코드를 작성하고자 한다.</p>
+<h3>Project2.</h3>
+<p><strong>배낭에 가장 효율적인 물건 채우기</strong></p>
+<ul>
+<li>가방의 공간은 10으로 한정</li>
+<li>각 물건의 부피와 가치<ul>
+<li>3, 3</li>
+<li>5, 2</li>
+<li>2, 4</li>
+<li>1, 1</li>
+<li>4, 2</li>
+<li>5, 4</li>
+<li>3, 2</li>
+<li>3, 4</li>
+</ul>
+</li>
+<li>알고리즘 구성<ol>
+<li>최초 세대 생성</li>
+<li>적합도 평가</li>
+<li>교배 및 돌연변이</li>
+<li>적합도 평가</li>
+<li>만번반복</li>
+</ol>
+</li>
+<li>Evoluation 함수<ul>
+<li>물건의 부피당 가치를 환산</li>
+</ul>
+</li>
+</ul>
+<p>이번에는 완료조건을 따로 만들지 않으려고 한다. 사실은 귀찮아서... ㅎ</p>
+<h3>Source Code.</h3>
+<p>먼저 최초세대를 생성하였다.</p>
+<pre><code class="language-python">chromo = [[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]]]
+new_chromo = [[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0]]]
+
+#가방 무게 제한
+bag_limit = 10
+#물건의 크기와 가치
+item = [[3,3],[5,2],[2,4],[1,1],[4,2],[5,4],[3,2],[3,4]]
+
+for i in range(5):
+    limit_check = 0
+    check = False
+    for j in range(5):
+        item_select = random.randint(0,7)
+        for k in range(2):
+            if k == 0 :
+                limit_check += item[item_select][k]
+                if limit_check &gt; bag_limit :
+                    check = True
+                    break
+            chromo[i][k][j] = item[item_select][k]
+        if check == True :
+            break
+
+print chromo</code></pre>
+<p>가방의 크기는 10으로 제한을 주었고 염색체는 3차원 배열로 구성되어 크기 배열과 가치 배열을 각각 가지고 있다.</p>
+<pre><code>[[[5, 5, 0, 0, 0], [2, 4, 0, 0, 0]], [[3, 3, 3, 0, 0], [2, 4, 3, 0, 0]], [[3, 5, 0, 0, 0], [3, 4, 0, 0, 0]], [[2, 5, 3, 0, 0], [4, 4, 2, 0, 0]], [[3, 4, 3, 0, 0], [4, 2, 4, 0, 0]]]</code></pre>
+<p>아이템은 정상적으로 들어가는 것 같다. 이제 각 염색체의 부피당 가치를 환산하여 적합도를 평가하고 가장 적합한 두 염색체를 선택하여 교차시킬 것이다.</p>
+<pre><code class="language-python">while(1):
+    # 적합도 평가
+    for i in range(5):
+        for j in range(5):
+            if chromo[i][0][j] == 0 :
+                break
+            evoluation[i] += float(chromo[i][0][j]) / chromo[i][1][j]
+
+    # 우성 염색체 선택
+    for i in range(2):
+        select[i] = numpy.argsort(evoluation)[i+3]
+
+    # 교차 및 돌연변이
+    for i in range(5):
+        limit_check = 0
+        for j in range(5):
+            # 교차
+            if random.random() &gt; mutation :
+                temp = random.randint(0,1)
+                if limit_check + chromo[select[temp]][0][j] &lt; 10 :
+                    limit_check += chromo[select[temp]][0][j]
+                    new_chromo[i][0][j] = chromo[select[temp]][0][j]
+                    new_chromo[i][1][j] = chromo[select[temp]][1][j]
+                else :
+                    for k in range(j,5):
+                        new_chromo[i][0][k] = 0
+                        new_chromo[i][1][k] = 0
+                    break
+            # 돌연변이
+            else :
+                temp = random.randint(0, len(item)-1)
+                if limit_check + item[temp][0] &lt; 10 :
+                    limit_check += item[temp][0]
+                    new_chromo[i][0][j] = item[temp][0]
+                    new_chromo[i][1][j] = item[temp][1]
+                else :
+                    break
+
+    # 적합도 초기화
+    for i in range(5):
+        evoluation[i] = 0
+
+    # 염색체 복사
+    chromo = copy.deepcopy(new_chromo)
+    generation += 1
+    print("Generation",generation,chromo)
+
+    if generation &gt; 10000:
+        break</code></pre>
+<p>컴퓨터가 선정한 잇! 아이템은 다음과 같았다.</p>
+<pre><code>[1, 5, 1, 1, 1], [1, 2, 1, 1, 1]</code></pre>
+<p>하나 또 잊고 있었던게 물건을 중복되지 않게 넣게 했어야 하는데... 이건 뭐 2차원 염색체 진화에 불과하지 않은가... 또 어제 만들었던 유전자들은 좋은건 바로바로 적용하는데 얘네는 우성이 나와도 묻혀버리는 경우가 많아서 되려 퇴화하기도 했다. 교차할때 뭔가 새로운 시도를 해야할 듯... 중복되지 않는거랑 교차에 새로운 방법을 넣는건 내일 해보자!</p>
+<hr>
+<p>중복이 없는 상황이니 언뜻 봐도 부피 2에 가치 4인 애들로 가득 채워져야 하는데 저렇게 선택을 했다는게 의심스러워 적합도 평가하는 부분을 봤더니 역시나</p>
+<pre><code class="language-python">evoluation[i] += float(chromo[i][0][j]) / chromo[i][1][j]
+evoluation[i] += float(chromo[i][1][j]) / chromo[i][0][j]</code></pre>
+<p>반대로 했었다. 뭐 반대로 했어도 사실 큰 문제가 없는게 어찌됬든 가장 가치있는 물건을 찾아 넣는 것이니 그렇다만 <span class="red">조건문에서 가방을 제한한다는게 가치를 제한한 꼴이 되었다.</span> 어찌 되었든 바꾸고보니 애들이(?) 큰 문제없이 진화해 주는 듯 하다. 중복으로 선택 못하게만 만들면 될 듯! <a href="https://github.com/baealex/Algorithm/blob/master/Genetic/genetic-basic-fill-bag-1.py">소스코드 원문</a></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EC%9C%A0%EC%A0%84">유전</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5">인공지능</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%99%EC%8A%B5" class="text-decoration-none deep-dark">
+            '유전 알고리즘 학습' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EB%B3%B8?series=유전-알고리즘-학습">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>파이썬(Python) - 유전 알고리즘 - 기본
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-2?series=유전-알고리즘-학습">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>파이썬(Python) - 유전 알고리즘 - 가방 채우기 2
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="pcfFoP8orTpmWPDkgI54OSA0WnE8zUODVSXVVeqXvQCPGRH2RjSwRNycvkZvFbFz">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

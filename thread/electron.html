@@ -1,46 +1,492 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#fff">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="">
+<meta property="og:url" content="https://blex.me/thread/electron">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Electron + React">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/19/18Yfq7.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Electron + React">
+<meta name="twitter:url" content="https://blex.me/thread/electron">
+<meta name="twitter:description" content="">
+
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/19/18Yfq7.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Electron + React –
+baealex</title>
 </head>
-
 <body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-light bg-rlight fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logo.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="col-md-12 px-0">
+    
+    <img style="width: 100%;" src="https://static.blex.me/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React">
+    
+    <div class="text-center mt-5">
+        <h1 class="post-headline">Electron + React</h1>
+        <p class="post-date">3주, 2일전 생성됨</p>
+        
+    </div>
 </div>
+<div class="col-md-8 mx-auto mt-5 px-0">
+  
+
+  <div class="bg-border-purple vivid-purple noto p-3">
+    참여할 수 없는 스레드입니다.
+  </div>
+  
+  <article id="story" class="noto mt-3">
+    
+    <div id="story-118">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">React + Electron : Component에서 ipcRenderer.on</div>
+                    <div class="h7 text-muted">@baealex</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>3주, 2일 전 (edited)</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <pre><code class="language-js">class App extends Component {
+    componentDidMount = () =&gt; {
+        ipcRenderer.send('call-init');
+
+        ipcRenderer.on('data-init', (event, arg) =&gt; {
+            this.setState({
+                information: arg,
+            });
+            this.id = arg.length;
+        });
+    }
+}</code></pre>
+<p>componentDidMount에 작성해 놓으면 되고 Electron에선 기존과 똑같다!</p>
+<pre><code class="language-js">ipcMain.on('data-save', (event, arg) =&gt; {
+  fs.writeFile('save.data', JSON.stringify(arg), 'utf8', function(error) {
+    console.log('error');
+  });
+})
+
+ipcMain.on('call-init', (event, arg) =&gt; {
+  fs.readFile('save.data', function(error, data) {
+    event.sender.send('data-init', JSON.parse(data));
+  })
+})</code></pre>
+<p>이건 걍 내가 추가하는 부분이지만 JSON과 TEXT를 전환하려면 위와같이 JSON의 함수를 호출해서 사용해야 한다. </p>
+<ul>
+<li>JSON =&gt; TEXT : JSON.stringify(<em>var</em>)</li>
+<li>TEXT =&gt; JSON : JSON.parse(<em>var</em>)</li>
+</ul>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+    <div id="story-117">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">React : 데이터 추가하기</div>
+                    <div class="h7 text-muted">@baealex</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>3주, 2일 전 (edited)</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <pre><code class="language-js">class App extends Component {
+    id = 2
+    state = {
+        information: [
+            {
+                id: 0,
+                name: '배진오',
+                phone: '010-0000-0000'
+            },
+            {
+                id: 1,
+                name: '홍길동',
+                phone: '010-0000-0000'
+            },
+        ]
+    }
+    handleCreate = (data) =&gt; {
+        const { information } = this.state;
+        this.setState({
+            information: information.concat({
+                id: this.id++,
+                ...data,
+            })
+        })
+        //console.log(data)
+    }
+    render() {
+        const { information } = this.state;
+        return (
+            &lt;div&gt;
+                &lt;PhoneForm 
+                    onCreate={this.handleCreate}
+                /&gt;
+                {JSON.stringify(information)}
+            &lt;/div&gt;
+        )
+    }
+}</code></pre>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+    <div id="story-116">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">React : 상위 컴포넌트에서 하위 컴포넌트의 값을 전달 받으려면?</div>
+                    <div class="h7 text-muted">@baealex</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>3주, 2일 전 </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <pre><code class="language-js">class App extends Component {
+    handleCreate = (data) =&gt; {
+        console.log(data)
+    }
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;PhoneForm 
+                    onCreate={this.handleCreate}
+                /&gt;
+            &lt;/div&gt;
+        )
+    }
+}</code></pre>
+<p>위처럼 메서드 하나를 하위 컴포넌트의 props로 넘겨주고 하위 컴포넌트에서 해당 함수로 다음과 같이 값을 전달하면 된다.</p>
+<pre><code class="language-js">class PhoneForm extends Component {
+    state = {
+        name: '',
+        phone: '',
+    }
+    handleChange = (e) =&gt; {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+    handleSubmit = (e) =&gt; {
+        e.preventDefault();
+        this.props.onCreate(this.state);
+        this.setState({
+            name: '',
+            phone: '',
+        })
+    }
+    render() {
+        return (
+            &lt;form onSubmit={this.handleSubmit}&gt;
+                &lt;input
+                    placeholder="이름"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    name="name"
+                /&gt;
+                &lt;input
+                    placeholder="전화번호"
+                    value={this.state.phone}
+                    onChange={this.handleChange}
+                    name="phone"
+                /&gt;
+                {/*&lt;div&gt;{this.state.name} {this.state.phone}&lt;/div&gt;*/}
+                &lt;button type="submit"&gt;등록&lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}</code></pre>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+    <div id="story-114">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">React + Electron : ipcRenderer import</div>
+                    <div class="h7 text-muted">@baealex</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>3주, 3일 전 (edited)</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <pre><code class="language-js">const { ipcRenderer } = window.require("electron");
+
+class App extends Component {
+    ...
+    btnClick = () =&gt; {
+        ipcRenderer.send('button-click');
+    }
+    render() {
+        ...
+        return (
+            &lt;button onClick={this.btnClick}&gt;&lt;/button&gt;
+        )
+        ...
+    }
+}</code></pre>
+<p>Electron에서는 아래에서 작성한 스토리와 마찬가지로 이벤트를 처리해주면 된다!</p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+    <div id="story-98">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">React + Electron : Example</div>
+                    <div class="h7 text-muted">@baealex</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>4주, 1일 전 (edited)</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <p>이러한 환경을 구성한 대부분의 프로젝트가 <code>yarn</code>을 사용하고 있다. 최대한 <code>npm</code>으로 돌아가는 걸 찾아보고 싶었는데 없어서 그냥 다운받았다.</p>
+<p><a href="https://yarnpkg.com/lang/en/">https://yarnpkg.com/lang/en/</a></p>
+<pre><code class="language-js">git clone https://github.com/kitze/react-electron-example
+cd react-electron-example
+yarn
+yarn start</code></pre>
+<p>하면 다음과 같은 창을 만날 수 있다!</p>
+<p><img src="https://static.blex.kr/image/2020/2/12/enc0DVL1x04pxoRsdDPz.png" alt=""></p>
+<p>어떤 원리로 돌아가는가 보았더니</p>
+<pre><code class="language-js">mainWindow.loadURL(
+    isDev
+        ? "http://localhost:3000"
+        : `file://${path.join(__dirname, "../build/index.html")}`
+);</code></pre>
+<p>개발중에는 <code>React</code>와 마찬가지로 3000번 포트에 올려서 <code>Electron</code>도 그 화면을 보여주고 빌드시에는 <code>React</code>를 빌드하고 빌드된 화면으로 실행하는 듯</p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+    <div id="story-97">
+      <div class="card story-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    
+                </div>
+                <div>
+                    <div class="h6 noto story-title m-0">Electron : 이벤트</div>
+                    <div class="h7 text-muted">@baealex</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>4주, 1일 전 (edited)</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="article">
+            <p>커스텀 이벤트를 만들어 보기 위해서 <code>index.html</code>에 다음과 같은 버튼을 추가하고 웹사이트를 만들때 처럼 직접 <code>onclick</code>을 넣었더니 오류가 발생했다.</p>
+<pre><code class="language-html">&lt;button onclick="btnClick()"&gt;click here&lt;/button&gt;</code></pre>
+<p>무조건 다음과 같이 해야하나 보다.</p>
+<pre><code class="language-html">&lt;button id="mainButton"&gt;click here&lt;/button&gt;</code></pre>
+<pre><code class="language-js">var mainButton = document.getElementById('mainButton')
+mainButton.addEventListener('click', function() {
+    alert('btn click!')
+});</code></pre>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        
+    </div>
+</div>
+    </div>
+    
+  </article>
+</div>
+
+        </div>
+    </div>
+    
+<footer class="page-footer font-small">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+  autolink($('#story-pin'));
+</script>
+<script src="https://static.blex.me/assets/library/InfiniteScroll.js?version=1.0.56"></script>
+<script type="text/javascript">
+  var postWrapperId = 'story';
+  var paginatePath = '/thread/electron?page=';
+  var lastPage = 2;
+  new InfiniteScroll(paginatePath, postWrapperId, lastPage);
+</script>
+
+    
 </body>
 </html>

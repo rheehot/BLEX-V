@@ -1,46 +1,319 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="각 프로그래밍 언어의 특징 및 패러다임에 대해서 분석하고 컴파일러와 인터프리터의 작동 원리 및 차이점을 아직 제대로 모르는 것 같아서 다시 복습하고자 한다. 내용들은 대부분 프로그래밍 언어 개념(원유헌), 클린 아키텍처(로버트 C. 마틴)에서 참고하였다. 프로그래밍 언어 먼저 프로그래밍이란 무엇이고 프로그래밍 언어란 무엇일까? 필자가 생각하기에 프로그래밍이란 특수한 목적을 달성하기 위한 동작을 모여진 프로그램을 …">
+<meta property="og:url" content="https://blex.me/@baealex/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4%EC%97%90-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%A7%80%EC%8B%9D">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="프로그래밍 언어에 관련된 지식">
+<meta property="og:description" content="각 프로그래밍 언어의 특징 및 패러다임에 대해서 분석하고 컴파일러와 인터프리터의 작동 원리 및 차이점을 아직 제대로 모르는 것 같아서 다시 복습하고자 한다. 내용들은 대부분 프로그래밍 언어 개념(원유헌), 클린 아키텍처(로버트 C. 마틴)에서 참고하였다. 프로그래밍 언어 먼저 프로그래밍이란 무엇이고 프로그래밍 언어란 무엇일까? 필자가 생각하기에 프로그래밍이란 특수한 목적을 달성하기 위한 동작을 모여진 프로그램을 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/1/20ltS9.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="프로그래밍 언어에 관련된 지식">
+<meta name="twitter:url" content="https://blex.me/@baealex/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4%EC%97%90-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%A7%80%EC%8B%9D">
+<meta name="twitter:description" content="각 프로그래밍 언어의 특징 및 패러다임에 대해서 분석하고 컴파일러와 인터프리터의 작동 원리 및 차이점을 아직 제대로 모르는 것 같아서 다시 복습하고자 한다. 내용들은 대부분 프로그래밍 언어 개념(원유헌), 클린 아키텍처(로버트 C. 마틴)에서 참고하였다. 프로그래밍 언어 먼저 프로그래밍이란 무엇이고 프로그래밍 언어란 무엇일까? 필자가 생각하기에 프로그래밍이란 특수한 목적을 달성하기 위한 동작을 모여진 프로그램을 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/1/20ltS9.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>프로그래밍 언어에 관련된 지식 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/3/1/20ltS9.jpg" alt="프로그래밍 언어에 관련된 지식">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in">프로그래밍 언어에 관련된 지식</h1>
+            <p class="post-date fade-in">2019-10-23 20:29<span>(Last Update: 2020-03-01 20:33)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(400);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(400)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=프로그래밍 언어에 관련된 지식&url=https://blex.me/@baealex/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4%EC%97%90-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%A7%80%EC%8B%9D" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4%EC%97%90-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%A7%80%EC%8B%9D" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>각 프로그래밍 언어의 특징 및 패러다임에 대해서 분석하고 컴파일러와 인터프리터의 작동 원리 및 차이점을 아직 제대로 모르는 것 같아서 다시 복습하고자 한다. 내용들은 대부분 <a href="http://www.yes24.com/Product/Goods/4744920">프로그래밍 언어 개념(원유헌)</a>, <a href="http://www.yes24.com/Product/Goods/77283734">클린 아키텍처(로버트 C. 마틴)</a>에서 참고하였다.</p>
+<p><br></p>
+<h2>프로그래밍 언어</h2>
+<p>먼저 프로그래밍이란 무엇이고 프로그래밍 언어란 무엇일까? 필자가 생각하기에 프로그래밍이란 특수한 목적을 달성하기 위한 동작을 모여진 프로그램을 만드는 것이라 생각한다. 너무 거창한가? 게임도 계산기도 웹서비스도 모두 목적을 달성하기 위한 동작이 구현된 프로그램이고 이를 만드는 것이 프로그래밍이라 생각했다.</p>
+<p>그렇다면 컴퓨터에서 어떻게 이러한 동작들을 표현할 것인가? 이전에는 컴퓨터의 전선을 바꾸며 동작을 바꿨으나 이를 보다 못한 폰노이만 선생님이 중앙처리 장치에게 명령을 내리는 방식을 제안한다 그 명령을 구현하는 것은 저수준과 고수준으로 나눠지지만 여하지간 궁극적으로 프로그래밍 언어다. 프로그래밍 언어론에서 정의하는 프로그래밍 언어란 아래와 같다.</p>
+<blockquote>
+<p>프로그래밍 언어란 기계가 읽을 수 있고 사람이 읽을 수 있는 형식으로 계산을 기술하는 표현 체계다.</p>
+</blockquote>
+<p>위와같은 특징을 명확하게 표현하면 기계에서 효율적인 번역이 가능한 구조를 가지도록 단순하게 만들어야 한다는 것과 기계적 특징에 무지한 사람도 충분히 이해하기 쉽도록 추상화 해야 한다는 목적을 가지고 있어야 한다. 또한 프로그래밍 언어가 필연적으로 가져야 하는 특성은 아래와 같은데</p>
+<ul>
+<li>일반성 : 상식적이고 일관적인 디자인</li>
+<li>직교성 : 구성자가 문맥이 다르다고 자신의 성질 잃으면 안됨</li>
+<li>획일성 : 유사한 것들은 유사하게 유사하지 않은 것들은 유사하지 않게</li>
+</ul>
+<p>모든 프로그래밍 언어가 위와같은 속성을 모두 만족하는 것은 아니다. 어떠한 언어는 일반성이 부족하지만 직교성이 뛰어나고 어떠한 언어는 획일성은 떨어지지만 일반성이 뛰어난 언어도 있다. 프로그래밍의 관점이 변화함에 따라서 언어의 설계도 변화하고 있지만 근본적으로 기계가 읽을 수 있고 사람이 읽을 수 있으며 일반성, 직교성, 획일성을 갖춘 언어를 만드는 것이 컴퓨터 과학자들의 목표다.</p>
+<p><br></p>
+<h4>변수란 무엇인가?</h4>
+<p>변수란 이름(식별자)을 가진 가장 기본적인 추상화 메커니즘이며 속성의 집합, 하나 이상의 주소, 값을 가지고 있다. 변수의 위치는 메모리 상의 위치지만 추상적인 의미로 생각되기도 한다. 이름의 의미는 이름에 연결된 속성들에 의해서 결정된다. 이름에 속성을 연결하는 것을 바인딩이라고 하는데 어떤 언어에서는 이름에 값을 연결 시키는 생성을 선언보다는 바인딩이라 부르기도 한다. 대부분의 바인딩은 프로그램 실행 시간에 이루어지는 동적 바인딩을 한다.</p>
+<p><br></p>
+<h4>언어 구현 기법</h4>
+<h6>번역 기법</h6>
+<p>고급 언어로 쓰여진 프로그램을 특정한 컴퓨터에서 직접 실행이 가능한 형태의 프로그램으로 번역해 주는 기법이다.</p>
+<p>컴파일러는 고급 언어로 쓰여진 프로그램을 어떤 특정한 컴퓨터에서 직접 실행 가능한 형태의 프로그램으로 번역해 주는 컴퓨터 프로그램이다. 컴파일러의 구조는 크게 전단부와 후단부로 나눌 수 있다. 전단부는 소스 언어에 관계되는 부분으로 소스 프로그램을 분석하고 중간 코드를 생성하는 부분이다. 이에 비해 후단부는 소스 언어보다는 목적 기계에 의존적이며 전단부에서 생성한 중간 코드를 특정 기계를 위한 목적 코드로 번역하는 부분이다.</p>
+<ul>
+<li>컴파일러 : 원시 언어가 고급 언어이고 목적 언어가 저급 언어(어셈블리 언어가 이에 속함)인 번역기</li>
+<li>어셈블러 : 원시 언어가 어셈블리 언어이고 목적 언어가 준기계어 형태인 번역기</li>
+<li>링커 : 기계어로 된 여러 개의 프로그램을 묶어서 로드 모듈 이라는 어느정도 실행 가능한 나의 기계어로 번역해주는 번역기</li>
+<li>로더 : 로드 모듈로 된 프로그램을 실행시가능한 기계어로 번역해서 주기억 장치에 적재</li>
+<li>프리프로세서 : 원시 언어와 목적 언어가 모두 고금 언어인 번역기 주로 확장된 언어(C → C++)에서 사용하며 번역을 한던 더 한다는 단점을 가짐</li>
+</ul>
+<p><img src="https://static.blex.me/image/2020/3/1/KNctfifZFOrMh4IA5diX.png" alt="그림으로 정리" title="그림으로 정리"></p>
+<p><br></p>
+<h6>인터프리터 기법</h6>
+<p>'고급 언어를 기계어로 취급하는 컴퓨터'를 주어진 컴퓨터에서 시뮬레이션하여 실행시키는 방법이므로 구동하는 컴퓨터가 바뀌어도 상관없으므로 접근성이 매우 높다.</p>
+<p><br></p>
+<h6>두 기법의 장단점</h6>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>장점</th>
+<th>단점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>번역 기법</td>
+<td>한번 디코딩하는 정도의 시간으로 번역을 하고나면 다음부터 빠르게 실행이 가능하므로 전체 실행 시간에 효율적</td>
+<td>입출력을 위한 많은 버퍼와 기계 상태 파악이 필요할 수 있음</td>
+</tr>
+<tr>
+<td>인터프리터 기법</td>
+<td>프로그램이 실행할때까지 원시 언어와 유사하기 때문에 추가 기억장소가 필요없음</td>
+<td>매 실행마다 형 검사와 같은 많은 작업을 수행하며 시뮬레이션하기 때문에 실행시간이 길어짐</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h6>두 기법의 차이</h6>
+<p>두 기법은 어떤 차이점을 가지고 있을까? 번역 기법은 입력 프로그램과 동일한 목적 언어로 프로그램을 출력만 하는데 인터프리터는 직접 입력 프로그램을 실행시킨다. 두 기법 모두 위 장단점을 충분히 인지하고 있기 때문에 많은 경우 컴파일러 언어에서도 인터프리터 기법을 응용하고 인터프리터 언어도 번역 기법을 응용한다. 가령 인터프리터 언어의 경우 컴퓨터에서 실행시키기 편리한 형태의 중간 코드로 번역하고 번역한 프로그램을 디코드하여 시뮬레이션한다. 주로 인터프리터 기법에 속하지만 하이브리드 구현 기법이라고도 한다.</p>
+<p>규모가 큰 상용 소프트웨어의 경우 <code>C++</code>와 같은 컴파일러 언어를 사용했으며 <code>HTML</code>안에 삽입되는 <code>JavaScript</code>와 같은 성능이 크게 중요하지 않은 경우 인터프리터 기법을 사용되었다. 이후 <code>Java</code>와 <code>Perl</code>에서 하이브리드 기법을 사용하며 폭넓게 사용되었다. 예전에는 하이브리드 언어가 컴파일러 언어보다 훨씬 느렸지만 <code>JIT</code> 컴파일러의 사용으로 실행시간 효율이 좋아졌다.</p>
+<p>컴파일러 언어와 인터프리터 언어의 구별은 언어 자체에 있는 것이 아니라 구현시키는 방법에 따라서 구분된다. <code>C</code>도 인터프리터로 <code>Python</code>도 번역 기법으로 구현할 수 있다. 궁극적으로 두 기법의 차이는 컴퓨터를 시뮬레이션하여 실행시키는가 아닌가이다.</p>
+<p><br></p>
+<h4>프로그래밍 패러다임</h4>
+<h6>절차적 프로그래밍 패러다임</h6>
+<p>프로그래밍 언어는 컴퓨터의 연산을 모방하고 추상화하는 데서 비롯되었다. 따라서 컴퓨터의 구조가 언어 설계의 영향을 미친 것은 당연하다. 즉 프로그래밍 언어는 명령의 순차적 실행, 기억장소 위치를 표현하는 변수의 사용, 변수의 값을 변경하기 위한 배정문의 사용으로 특정지을 수 있다. 이러한 언어를 명령형 언어 또는 절차 언어라고 한다.</p>
+<p>오늘날 대부분의 언어는 명령형 언어이지만 계산을 반드시 순차적으로 기술할 필요는 없다. 실제로 순차적 명령에 의해서 실행되는 것은 폰노이만 병목 현상을 불러일으킨다.</p>
+<blockquote>
+<p>폰노이만 병목 현상이란? 일반적으로 자료경로의 병목현상 또는 기억장소의 지연 현상을 이르는데, 이는 나열된 명령을 순차적으로 수행하고, 그 명령은 일정한 기억장소의 값을 변경하는 작업으로 구성되는 폰 노이만 구조에서 기인한다.</p>
+</blockquote>
+<p><br></p>
+<h6>논리적 프로그래밍 패러다임</h6>
+<p>논리형 언어는 기호 논리학에 근거를 두고 있다. 논리형 언어에서는 계산을 실행하기 위한 순서를 기술하는 대신에 무엇을 하려고 하는가를 기술함으로써 프로그램 하게 된다. 순수한 논리형 프로그램은 반복이나 선택문을 필요로 하지 않는다. 논리형 언어에서는 계산의 내용만을 선언하듯이 기술한다. 따라서 논리형 언어는 선언적 언어라고도 부른다.</p>
+<pre><code class="language-lisp">(define (gcd u v)
+    (if(=v 0) u(gcd v (remainder u v))))</code></pre>
+<p>그럼 LISP과 같은 논리형 언어에서는 폰노이만 병목 현상이 발생하지 않나? 그렇다. LISP은 폰노이만 구조와는 다른 연산 방식을 사용하므로 기존 컴퓨터에서 효율적으로 실행시키기 어려워 새로운 구조가 고안되기도 하였다.</p>
+<p><br></p>
+<h6>객체지향 프로그래밍 패러다임</h6>
+<p>객체는 기억장소와 이 기억장소의 값을 변경할 수 있는 연산의 집합 클래스가 정의되면 객체를 선언할 수 있다. 많은 객체 지향 언어에서 객체는 클래스로 그룹화 된다. 생성된 클래스로 객체의 특정 예를 생성하는데 이를 인스턴스라고 부른다. 가장 최초로 객체 지향을 소개한 언어는 Simula 67이다.</p>
+<pre><code class="language-python">class Person:
+    def Person(name):
+        this.name = name</code></pre>
+<p>위와같은 클래스가 존재할 때</p>
+<pre><code class="language-java">Person m_person;</code></pre>
+<p>위와같이 객체를 선언할 수 있으나 위 경우에는 자바(Java)를 예로들어 참조형으로 선언된 것으로 실질적으로 객체가 생성된 것이 아니다. 객체를 생성하기 위해선 new와 함께 생성자(constructor)를 명시하는 형태로 기술한다.</p>
+<p>클린 아키텍쳐라는 책에서는 객체지향을 아래와 같이 설명하고 있다.</p>
+<blockquote>
+<p>절차지향은 오로지 컴퓨터 관점에서의 프로그래밍 패러다임이라면 객체지향은 인간이 구분할 수 있는 요소를 객체로 표현한 인간 중심적 프로그래밍 패러다임이다.</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="MOFK0D9MgNBK08JsV9L9OddbcsvV58wmfRJRNqQJtP0lPoVZZWUYltLa00zIQ1c2">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

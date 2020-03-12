@@ -1,46 +1,274 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="드롭박스 페이퍼나 구글 독스와 같은 문서 중간에 댓글을 다는 기능을 추가하고 싶었다. 다만 이 기능을 어떻게 구현해야 할지 감이 잡히지 않는다. 고려해 본 방법은 다음과 같은데 확신이 들지 않는다. 사용자가 댓글을 달았던 지점의 높이를 기억한다. 사용자가 댓글을 달았던 키워드를 기억한다. 일단 첫번째 방식의 문제점은 곂치는 댓글이 존재할 수 있다는 것이다. …">
+<meta property="og:url" content="https://blex.me/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="중간 댓글 알고리즘">
+<meta property="og:description" content="드롭박스 페이퍼나 구글 독스와 같은 문서 중간에 댓글을 다는 기능을 추가하고 싶었다. 다만 이 기능을 어떻게 구현해야 할지 감이 잡히지 않는다. 고려해 본 방법은 다음과 같은데 확신이 들지 않는다. 사용자가 댓글을 달았던 지점의 높이를 기억한다. 사용자가 댓글을 달았던 키워드를 기억한다. 일단 첫번째 방식의 문제점은 곂치는 댓글이 존재할 수 있다는 것이다. …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/1/10/1XmX5.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="중간 댓글 알고리즘">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
+<meta name="twitter:description" content="드롭박스 페이퍼나 구글 독스와 같은 문서 중간에 댓글을 다는 기능을 추가하고 싶었다. 다만 이 기능을 어떻게 구현해야 할지 감이 잡히지 않는다. 고려해 본 방법은 다음과 같은데 확신이 들지 않는다. 사용자가 댓글을 달았던 지점의 높이를 기억한다. 사용자가 댓글을 달았던 키워드를 기억한다. 일단 첫번째 방식의 문제점은 곂치는 댓글이 존재할 수 있다는 것이다. …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/1/10/1XmX5.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>중간 댓글 알고리즘 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/1/10/1XmX5.png" alt="중간 댓글 알고리즘">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'블렉스 이야기' 시리즈</span>중간 댓글 알고리즘</h1>
+            <p class="post-date fade-in">2019-12-31 09:50<span>(Last Update: 2020-01-10 01:35)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(272);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(272)">1<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=중간 댓글 알고리즘&url=https://blex.me/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>드롭박스 페이퍼나 구글 독스와 같은 문서 중간에 댓글을 다는 기능을 추가하고 싶었다. 다만 이 기능을 어떻게 구현해야 할지 감이 잡히지 않는다. 고려해 본 방법은 다음과 같은데 확신이 들지 않는다.</p>
+<ul>
+<li>사용자가 댓글을 달았던 지점의 높이를 기억한다.</li>
+<li>사용자가 댓글을 달았던 키워드를 기억한다.</li>
+</ul>
+<p>일단 첫번째 방식의 문제점은 곂치는 댓글이 존재할 수 있다는 것이다. 굉장히 방해요소가 될 가능성이 크다. 두번째 방식의 문제점은 몇번째 키워드인지 저장해야하는데 해당 글이 수정된다면 해당 댓글은 의도하지 않은 위치에 달리게 된다.</p>
+<ul>
+<li>사용자가 댓글을 달았던 키워드 주변에 태그를 임의로 삽입한다.</li>
+</ul>
+<p>친구가 같이 고민해 준 방법인데 이 방법의 문제는 해당 글이 수정된다면 댓글이 전부다 삭제된다는 점이다. (해당 댓글들이 삭제된다면 일반 댓글로 전환시키는 건 어떨까? 괜찮은 방법인 것 같다.) 그렇다면 만약 해당 키워드에 댓글이 달리고 또 댓글이 달린 건 어떻게 저장하며 표한할 것인가... 하...</p>
+<p>우선 걍 높이를 기억하는 방식을 사용하여 임시로 구현하되 프리미엄 전용으로 하던 글에 방해가 되지 않도록 해야겠다.</p>
+<p><img src="https://static.blex.me/image/2019/12/28/jfBPD62SkyG9P69eKYEf.png" alt=""></p>
+<p><img src="https://static.blex.me/image/2019/12/28/ysauHilbMQ7KWf9zQPwX.png" alt=""></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EA%B0%9C%EB%B0%9C%EB%85%B8%ED%8A%B8">개발노트</a></li>
+            
+            <li><a href="/@baealex/topic/%EB%B8%94%EB%A0%89%EC%8A%A4">블렉스</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%B8%94%EB%A0%89%EC%8A%A4-%EC%9D%B4%EC%95%BC%EA%B8%B0" class="text-decoration-none deep-dark">
+            '블렉스 이야기' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%80%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B3%A0%EC%95%88?series=블렉스-이야기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>팀블로그 고안
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%B0%B0%ED%84%B0%EB%A6%AC-%EC%B6%94%EA%B0%80?series=블렉스-이야기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>사용자 배터리 추가
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="cBQBNm5r5Jl8bKtsoiICwuIdfJcsCyksMKnZqU05BrvOWuuPU9iK2tM06vaVMNXb">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

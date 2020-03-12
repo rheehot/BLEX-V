@@ -1,46 +1,405 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="스택... 지난번에 백준에서 현욱은 괄호왕이야!!!문제를 풀려고 했을때 지금 나올 스택을 활용하여 해결하고자 했으나, 역시 응용이 안됐다. 기본기의 부족때문일까... 스택 미로에서 길을 찾는 문제와 같이 삽입 순서와 삭제 순서를 역순으로 하여 풀어야 하는 문제들이 있는데, 이럴때 쓰는 자료 구조가 스택입니다. 스택의 예로는 대부분 팬케이크와 연탄에 빗대어 표현하곤 한다. 팬케이크는 아래로부터 차곡차곡 …">
+<meta property="og:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬으로 구현한 자료구조 - 스택">
+<meta property="og:description" content="스택... 지난번에 백준에서 현욱은 괄호왕이야!!!문제를 풀려고 했을때 지금 나올 스택을 활용하여 해결하고자 했으나, 역시 응용이 안됐다. 기본기의 부족때문일까... 스택 미로에서 길을 찾는 문제와 같이 삽입 순서와 삭제 순서를 역순으로 하여 풀어야 하는 문제들이 있는데, 이럴때 쓰는 자료 구조가 스택입니다. 스택의 예로는 대부분 팬케이크와 연탄에 빗대어 표현하곤 한다. 팬케이크는 아래로부터 차곡차곡 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/17/231VUy.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬으로 구현한 자료구조 - 스택">
+<meta name="twitter:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D">
+<meta name="twitter:description" content="스택... 지난번에 백준에서 현욱은 괄호왕이야!!!문제를 풀려고 했을때 지금 나올 스택을 활용하여 해결하고자 했으나, 역시 응용이 안됐다. 기본기의 부족때문일까... 스택 미로에서 길을 찾는 문제와 같이 삽입 순서와 삭제 순서를 역순으로 하여 풀어야 하는 문제들이 있는데, 이럴때 쓰는 자료 구조가 스택입니다. 스택의 예로는 대부분 팬케이크와 연탄에 빗대어 표현하곤 한다. 팬케이크는 아래로부터 차곡차곡 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/17/231VUy.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>파이썬으로 구현한 자료구조 - 스택 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/2/17/231VUy.jpg" alt="파이썬으로 구현한 자료구조 - 스택">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'파이썬으로 구현한 자료구조' 시리즈</span>파이썬으로 구현한 자료구조 - 스택</h1>
+            <p class="post-date fade-in">2019-09-02 09:34<span>(Last Update: 2020-02-17 23:33)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(352);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(352)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=파이썬으로 구현한 자료구조 - 스택&url=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>스택... 지난번에 백준에서 <a href="https://www.acmicpc.net/problem/15926">현욱은 괄호왕이야!!!</a>문제를 풀려고 했을때 지금 나올 스택을 활용하여 해결하고자 했으나, 역시 응용이 안됐다. 기본기의 부족때문일까...</p>
+<p><br></p>
+<h2>스택</h2>
+<blockquote>
+<p>미로에서 길을 찾는 문제와 같이 삽입 순서와 삭제 순서를 역순으로 하여 풀어야 하는 문제들이 있는데, 이럴때 쓰는 자료 구조가 스택입니다.</p>
+</blockquote>
+<p>스택의 예로는 대부분 팬케이크와 연탄에 빗대어 표현하곤 한다. 팬케이크는 아래로부터 차곡차곡 쌓이며 위에서부터 차근차근 먹는다. 이를 후입선출(나중에 들어온 요소가 먼저 나가는 방식), LIFO(Last in first out)라고 부른다.</p>
+<p>스택은 배열로 간단하게 구현할 수 있지만 배열로 구현할 경우 이후에 크기를 변경하는게 어렵다. 언제나 그렇듯 파이썬은 예외다. C에서 스택을 구현할 경우 가장 이상적인 모델은 앞서 익힌 연결 리스트 방식을 사용하는 것이라고 한다.</p>
+<p>스택에서는 삽입과 삭제를 <code>push</code>, <code>pop</code>이라고 부르는데 <code>push</code>는 팬케이크를 쌓는 것, <code>pop</code>은 팬케이크를 먹는 것이라고 생각하면 된다.</p>
+<p><br></p>
+<p>C 언어에서 스택을 구현할 때는 <code>top</code>과 배열을 이용해서 간단하게 구현했었다. 다만 파이썬으로 작업하면서 굳이 <code>top</code>이 필요한지 의문이 들었고 이 페이지의 소스코드에선 top이 등장하지 않는다.</p>
+<p>이유는 간단하다 단순 연결 리스트를 활용해서 구현할 것이기 때문이다. <code>head</code>가 <code>top</code>이 되면 된다. (결국 그게 탑인가?) 필자의 말에서 <code>top</code>의 의미는 숫자형의 변수를 의미하며 물론 <code>size</code>를 기억하려면 <code>top</code>은 있는게 좋겠다. 스택에 쌓여질 노드의 구조는 아래와 같다.</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+
+    def __str__(self):
+        return str(self.data)</code></pre>
+<p>단순 연결 리스트와 동일한 구조의 노드이지만 이번엔 <code>next</code>가 아니라 <code>prev</code>를 사용하였다. 스택의 경우 앞서 말했듯 후입선출의 구조이므로 나중에 들어온 개체가 무조건 헤드가 될 예정이다.</p>
+<p><strong>PUSH</strong></p>
+<pre><code class="language-python">def push(self, data):
+    new_node = Node(data)
+    if self.head == None:
+        # 헤드가 없는 경우(최초 PUSH)
+        self.head = new_node
+        return
+    # 새 노드의 이전 링크 저장
+    new_node.prev = self.head
+    # 헤드 교체
+    self.head = new_node</code></pre>
+<p><strong>POP</strong></p>
+<pre><code class="language-python">def pop(self):
+    node = self.head
+    try:
+        # 스택이 비어있는 경우 대비
+        value = node.data ; del node
+        self.top -= 1
+        self.head = self.head.prev
+    except:
+        # 스택이 비어있는 경우
+        value = None
+    return value</code></pre>
+<p><br></p>
+<h5>스택 전체 소스코드</h5>
+<pre><code class="language-python">class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+
+    def __str__(self):
+        return str(self.data)
+
+class Stack:
+    def __init__(self):
+        self.head = None
+        self.top = 0
+
+    def __str__(self):
+        print_stack = '&lt;=&gt; [ '
+        node = self.head
+        while True:
+            try:
+                print_stack += str(node)
+                if node.prev == None:
+                    break
+                node = node.prev
+                print_stack += ', '
+            except:
+                break
+        print_stack += ' ]'
+        return print_stack
+
+    def push(self, data):
+        new_node = Node(data)
+        if self.head == None:
+            self.head = new_node
+            return
+        new_node.prev = self.head
+        self.head = new_node
+        self.top += 1
+
+    def pop(self):
+        node = self.head
+        try:
+            value = node.data ; del node
+            self.top -= 1
+            self.head = self.head.prev
+        except:
+            value = None
+        return value
+
+if __name__=="__main__":
+    m_stack = Stack()
+    m_stack.push(5)
+    m_stack.push(4)
+    m_stack.push(3)
+    print(m_stack)
+    print('Stack pop :', m_stack.pop())
+    print(m_stack)
+    print('Stack pop :', m_stack.pop())
+    print('Stack pop :', m_stack.pop())
+    print(m_stack)</code></pre>
+<pre><code>&lt;=&gt; [ 3, 4, 5 ]
+Stack pop : 3
+&lt;=&gt; [ 4, 5 ]
+Stack pop : 4
+Stack pop : 5
+&lt;=&gt; [ None ]</code></pre>
+<p><br></p>
+<h5>스택 응용하기</h5>
+<p>아까 서두에서 잠시 등장했지만 스택을 어떻게 활용할 수 있을까? 참고하는 책에서도 괄호의 수식을 검사하는데 아주 적합하다고 평가한다. 여기서는 언급했던 백준 문제를 다루진 않지만 응용한다면 해결이 충분해 보인다.</p>
+<p>여는 괄호가 등장하면 스택에 <code>push</code>해주고 닫는 괄호가 등장하면 스택에서 <code>pop</code>을 해주고 닫는 괄호와 일치한지 검사한다. 같으면 아직까지는 올바른 수식이고 다르면 틀린 수식이다. 올바른 수식인 상태로 성공적으로 끝나면 정말로 올바른 수식인 것이다.</p>
+<p><img src="https://static.blex.me/image/2020/2/17/oKWU96Sc1CD8du33LFPq.png" alt=""></p>
+<pre><code class="language-python">if __name__=="__main__":
+    m_stack = Stack()
+
+    calcul1 = '[(A+B)*(A+C)]/(B-C)'
+    calcul2 = '[(A+B)*(A+C]/B-C)'
+    is_pair = False
+    for cal in calcul2:
+        if cal == '(' or cal == '[':
+            m_stack.push(cal)
+            print(m_stack)
+        if cal == ')':
+            if m_stack.pop() == '(':
+                is_pair = True
+            else:
+                is_pair = False
+        if cal == ']':
+            if m_stack.pop() == '[':
+                is_pair = True
+            else:
+                is_pair = False
+
+    if is_pair:
+        print('calcul2 :',calcul2,'은 올바른 수식 입니다.')
+    else:
+        print('calcul2 :',calcul2,'은 잘못된 수식 입니다.')</code></pre>
+<p>파이썬에선 별도의 스택을 구현하지 않아도 리스트를 스택처럼 활용할 수 있다. 아래는 간단한 예제 코드이다.</p>
+<pre><code class="language-python">m_stack = []
+m_stack.append(4)
+m_stack.append(7)
+print(m_stack)
+print("POP Element :", m_stack.pop())
+print(m_stack)
+print("POP Element :", m_stack.pop())
+print(m_stack)</code></pre>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="text-decoration-none deep-dark">
+            '파이썬으로 구현한 자료구조' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90?series=파이썬으로-구현한-자료구조">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>파이썬으로 구현한 자료구조 - 큐
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="f93UDmMPLn5nvqrGyJeyFvLAH9ivAKYTA7zo3xOTOkNTIzVV8qbRhkicIKqsFR0m">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

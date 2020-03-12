@@ -1,46 +1,609 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="최근 사고력의 향상을 위해서 꾸준하게 알고리즘 문제를 풀어보고 있다. 당연 필자가 가장 자신있는 언어라고 생각하는 파이썬을 응용하고 있는데 시간초과가 생각보다 많이 발생했다. O(1)로 접근할 수 있는 요소를 O(n)으로 접근하는 등 기본기의 부족으로 인함으로 보였다. 그리하여 파이썬의 각 자료형의 연산에 대한 복잡도를 어지간하면 숙지해 놓으려고 한다. 출처 : https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt 리스트 자료형 …">
+<meta property="og:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EB%B3%84-%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%EB%B3%B5%EC%9E%A1%EB%8F%84">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬 자료형별 연산자의 시간복잡도">
+<meta property="og:description" content="최근 사고력의 향상을 위해서 꾸준하게 알고리즘 문제를 풀어보고 있다. 당연 필자가 가장 자신있는 언어라고 생각하는 파이썬을 응용하고 있는데 시간초과가 생각보다 많이 발생했다. O(1)로 접근할 수 있는 요소를 O(n)으로 접근하는 등 기본기의 부족으로 인함으로 보였다. 그리하여 파이썬의 각 자료형의 연산에 대한 복잡도를 어지간하면 숙지해 놓으려고 한다. 출처 : https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt 리스트 자료형 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/4/9Jsif.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬 자료형별 연산자의 시간복잡도">
+<meta name="twitter:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EB%B3%84-%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%EB%B3%B5%EC%9E%A1%EB%8F%84">
+<meta name="twitter:description" content="최근 사고력의 향상을 위해서 꾸준하게 알고리즘 문제를 풀어보고 있다. 당연 필자가 가장 자신있는 언어라고 생각하는 파이썬을 응용하고 있는데 시간초과가 생각보다 많이 발생했다. O(1)로 접근할 수 있는 요소를 O(n)으로 접근하는 등 기본기의 부족으로 인함으로 보였다. 그리하여 파이썬의 각 자료형의 연산에 대한 복잡도를 어지간하면 숙지해 놓으려고 한다. 출처 : https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt 리스트 자료형 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/4/9Jsif.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>파이썬 자료형별 연산자의 시간복잡도 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/3/4/9Jsif.jpg" alt="파이썬 자료형별 연산자의 시간복잡도">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in">파이썬 자료형별 연산자의 시간복잡도</h1>
+            <p class="post-date fade-in">2020-03-04 09:26<span>(Last Update: 2020-03-05 23:15)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(406);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(406)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=파이썬 자료형별 연산자의 시간복잡도&url=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EB%B3%84-%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%EB%B3%B5%EC%9E%A1%EB%8F%84" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%90%EB%A3%8C%ED%98%95%EB%B3%84-%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%EB%B3%B5%EC%9E%A1%EB%8F%84" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>최근 사고력의 향상을 위해서 꾸준하게 알고리즘 문제를 풀어보고 있다. 당연 필자가 가장 자신있는 언어라고 생각하는 파이썬을 응용하고 있는데 시간초과가 생각보다 많이 발생했다. <code>O(1)</code>로 접근할 수 있는 요소를 <code>O(n)</code>으로 접근하는 등 기본기의 부족으로 인함으로 보였다. 그리하여 파이썬의 각 자료형의 연산에 대한 복잡도를 어지간하면 숙지해 놓으려고 한다.</p>
+<p>출처 : <a href="https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt">https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt</a></p>
+<p><br></p>
+<h4>리스트</h4>
+<p>자료형 리스트의 각 연산별 복잡도</p>
+<h6>O(1)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Index</td>
+<td>my_list[i]</td>
+<td>연결 리스트라 당연히 O(1)이 아닐거라 생각했다. 그래서 일부러 딕셔너리로 해결한적도 많았는데... 파이썬을 너무 얕본 듯 하다.</td>
+</tr>
+<tr>
+<td>Store</td>
+<td>my_list[i] = 0</td>
+<td>이하 동문...</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>len(my_list)</td>
+<td>아마도 내부적으로 길이 변수를 가지고 있는 듯 하다.</td>
+</tr>
+<tr>
+<td>Append</td>
+<td>my_list.append(x)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pop</td>
+<td>my_list.pop()</td>
+<td>스택으로 문제를 해결할 방안을 찾을 수 있다면 좋은 성능으로 해결할 수 있을 듯 보인다.</td>
+</tr>
+<tr>
+<td>Clear</td>
+<td>my_list.clear()</td>
+<td>my_list = [] 으로 빈 리스트를 생성하는 것도 동일한 복잡도를 가진다.</td>
+</tr>
+</tbody>
+</table>
+<h6>O(N)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check</td>
+<td>my_list1 == my_list2</td>
+<td>이것은 충분히 이정도의 복잡도가 걸릴걸 예상하고 있었다. 😀</td>
+</tr>
+<tr>
+<td>Insert</td>
+<td>my_list[a:b] = ...</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>del my_list[x]</td>
+<td>잠깐 del이 O(N) 이었다고? 리스트를 그간 연결 리스트라고 생각했는데 순차 리스트였나? 인덱스 교체를 위한 작업때문인 것으로 생각되는데... 여하지간 문제풀때 del을 남발하는 경우도 많았는데 주의해야 겠다.</td>
+</tr>
+<tr>
+<td>Containment</td>
+<td>x in my_list</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>my_list.copy()</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>my_list.remove(x)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pop</td>
+<td>my_list.pop(x)</td>
+<td>x라는 값을 pop하기 위해서는 정확히 N-x 만큼의 복잡도가 걸린다.</td>
+</tr>
+<tr>
+<td>Extream value</td>
+<td>my_list.reverse()</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Iteration</td>
+<td>for x in my_list</td>
+<td><code>break</code>나 <code>return</code>이 없는 경우 최악</td>
+</tr>
+</tbody>
+</table>
+<h6>O(?)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>복잡도</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slice</td>
+<td>my_list[a:b]</td>
+<td>O(b-a)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Extend</td>
+<td>my_list.extend(...)</td>
+<td>O(len(...))</td>
+<td>my_list1 + my_list2도 동일한 복잡도를 가질 것으로 생각된다. 배열의 길이만큼 append가 발생한다고 생각하면 기억하기 쉬울 것 같다.</td>
+</tr>
+<tr>
+<td>Construction</td>
+<td>list(...)</td>
+<td>O(len(...))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Sort</td>
+<td>my_list.sort()</td>
+<td>O(N Log N)</td>
+<td>키/역순은 영향을 주지 않는다. 파이썬의 정렬은 각 자료의 상태에 따라서 적절한 정렬 알고리즘을 사용한다고 들었는데 자세한 내용은 모르겠다! (당당)</td>
+</tr>
+<tr>
+<td>Multiply</td>
+<td>x*my_list</td>
+<td>O(k N)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4>집합</h4>
+<p>자료형 집합의 각 연산별 복잡도</p>
+<h6>O(1)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Length</td>
+<td>len(my_set)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Add</td>
+<td>my_set.add(5)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Containment</td>
+<td>x in my_set</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>my_set.remove(...)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Discard</td>
+<td>my_set.discard(...)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pop</td>
+<td>my_set.pop()</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Clear</td>
+<td>my_set.clear()</td>
+<td>my_set = set() 로 빈 집합을 생성해도 동일한 복잡도를 가진다.</td>
+</tr>
+</tbody>
+</table>
+<h6>O(N)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Iteration</td>
+<td>for x in my_list</td>
+<td><code>break</code>나 <code>return</code>이 없는 경우 최악의 복잡도를 가진다.</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>my_list.copy()</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h6>O(?)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>복잡도</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construction</td>
+<td>set(...)</td>
+<td>O(len(...))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Check</td>
+<td>s != t</td>
+<td>O(len(s))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>&lt;= / &lt;</td>
+<td>s &lt;= t</td>
+<td>O(len(s))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>&gt;= / &gt;</td>
+<td>s &gt;= t</td>
+<td>O(len(t))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Union</td>
+<td>s | t</td>
+<td>O(len(s)+len(t))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Intersection</td>
+<td>s &amp; t</td>
+<td>O(len(s)+len(t))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Difference</td>
+<td>s - t</td>
+<td>O(len(s)+len(t))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Symmetric Diff</td>
+<td>s ^ t</td>
+<td>O(len(s)+len(t))</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4>딕셔너리</h4>
+<p>자료형 딕셔너리의 각 연산별 복잡도</p>
+<h6>O(1)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Index</td>
+<td>my_dict[k]</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Store</td>
+<td>my_dict[k] = v</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>len(my_dict[k])</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>del my_dict[k]</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Get / Set</td>
+<td>my_dict.get(k)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pop</td>
+<td>my_dict.pop(k)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Pop item</td>
+<td>my_dict.popitem()</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Celar</td>
+<td>my_dict.clear()</td>
+<td>my_dict = dict() 로 비어있는 딕셔너리를 생성해도 동일한 복잡도를 가진다.</td>
+</tr>
+<tr>
+<td>View</td>
+<td>my_dict.keys()</td>
+<td>my_dict.values()도 동일한 복잡도를 가진다.</td>
+</tr>
+</tbody>
+</table>
+<h6>O(N)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Iteration</td>
+<td>for key in my_dict</td>
+<td>all forms: keys, values, items</td>
+</tr>
+</tbody>
+</table>
+<h6>O(?)</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>예시</th>
+<th>복잡도</th>
+<th>주석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construction</td>
+<td>dict(...)</td>
+<td>O(len(...))</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>앞으로 문제를 풀때는 최대한 이 표를 기억하며 <code>O(1)</code>의 연산자로 풀이할 방안을 찾도록 해야겠다. 😅</p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="krUYxepSIfXqas5AGyFRTXYn7EEstl3yyWAvNpWsWHN3Eg2BqaAmG6uKdd2WlV37">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

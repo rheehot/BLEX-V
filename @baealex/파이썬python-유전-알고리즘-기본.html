@@ -1,46 +1,440 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="이 블로그에서 이론을 참고했다. 책에 나와있는 것과 유사한 내용인데 좀 더 정리가 잘 된 내용인 것 같다. 간단하게 정리하면 이렇다. 용어 염색체 : 유전 정보를 담은 문자열 유전자 : 문자열의 유전 정보 교차 : 두 개의 염색체를 조합 돌연변이 : 확률적으로 유전자의 정보가 바뀜 자손 : 교차와 돌연변이로 생성된 염색체 …">
+<meta property="og:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EB%B3%B8">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="파이썬(Python) - 유전 알고리즘 - 기본">
+<meta property="og:description" content="이 블로그에서 이론을 참고했다. 책에 나와있는 것과 유사한 내용인데 좀 더 정리가 잘 된 내용인 것 같다. 간단하게 정리하면 이렇다. 용어 염색체 : 유전 정보를 담은 문자열 유전자 : 문자열의 유전 정보 교차 : 두 개의 염색체를 조합 돌연변이 : 확률적으로 유전자의 정보가 바뀜 자손 : 교차와 돌연변이로 생성된 염색체 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/24/207Vjq.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="파이썬(Python) - 유전 알고리즘 - 기본">
+<meta name="twitter:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EB%B3%B8">
+<meta name="twitter:description" content="이 블로그에서 이론을 참고했다. 책에 나와있는 것과 유사한 내용인데 좀 더 정리가 잘 된 내용인 것 같다. 간단하게 정리하면 이렇다. 용어 염색체 : 유전 정보를 담은 문자열 유전자 : 문자열의 유전 정보 교차 : 두 개의 염색체를 조합 돌연변이 : 확률적으로 유전자의 정보가 바뀜 자손 : 교차와 돌연변이로 생성된 염색체 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/24/207Vjq.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>파이썬(Python) - 유전 알고리즘 - 기본 – baealex</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/2/24/207Vjq.jpg" alt="파이썬(Python) - 유전 알고리즘 - 기본">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'유전 알고리즘 학습' 시리즈</span>파이썬(Python) - 유전 알고리즘 - 기본</h1>
+            <p class="post-date fade-in">2019-03-10 20:44<span>(Last Update: 2020-02-25 20:50)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(381);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(381)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=파이썬(Python) - 유전 알고리즘 - 기본&url=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EB%B3%B8" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EB%B3%B8" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p><a href="https://twinw.tistory.com/1">이 블로그</a>에서 이론을 참고했다. 책에 나와있는 것과 유사한 내용인데 좀 더 정리가 잘 된 내용인 것 같다. 간단하게 정리하면 이렇다.</p>
+<p><strong>용어</strong></p>
+<ul>
+<li>염색체 : 유전 정보를 담은 문자열</li>
+<li>유전자 : 문자열의 유전 정보</li>
+<li>교차 : 두 개의 염색체를 조합</li>
+<li>돌연변이 : 확률적으로 유전자의 정보가 바뀜</li>
+<li>자손 : 교차와 돌연변이로 생성된 염색체</li>
+</ul>
+<p><strong>알고리즘</strong></p>
+<ol>
+<li>최초 염색체 생성</li>
+<li>세대 적합도 평가</li>
+<li>세대 교차 및 돌연변이</li>
+<li>다음 세대 적합도 평가</li>
+</ol>
+<ul>
+<li>목표 적합도 미달성(2번으로)</li>
+<li>목표 적합도 달성(종료)</li>
+</ul>
+<p><span class="red">단, 어려운 문제는 목표치를 선정하기 어려우므로 반복횟수를 제한하는게 일반적</span></p>
+<p>일단 유전 알고리즘의 이론은 알겠는데 솔직히 이걸 어떻게 적용해야할까 싶은 생각이 든다. 그래서 일단 할 수 있는 일부터 해보기로 했다. 최초 목표는 0-9까지의 유전자가 존재하는 염색체에서 단지 1 유전자만을 가진 염색체를 생성하는 것을 목표로 하였다.</p>
+<p><img src="https://static.blex.me/image/2020/2/25/QXt4TrDvwDQchi5JdXA6.jpg" alt=""></p>
+<h4>최초 소스코드</h4>
+<pre><code class="language-python">import random
+import numpy
+
+chromo = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0]]
+new_chromo = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
+
+# 각 염색체의 적합도 평가
+evalution = [0,0,0,0,0]
+# 우성 유전자
+dominant = 1
+# 선택된 우성 염색체
+select = [0,0] 
+# 세대
+gene = 0
+
+# 최초의 세대 생성
+for i in range(5) :
+    for j in range(10) :
+        chromo[i][j] = random.randint(0,9)
+
+print(gene,"Gen : ",chromo)
+gene+=1
+
+# 완전체가 나올때까지 반복
+while(1) :
+    # 적합도 평가
+    for i in range(5) :
+        m_sum = 0
+        for j in range(10) :
+            if chromo[i][j] &gt; dominant :
+                m_sum += chromo[i][j] - dominant
+            else :
+                m_sum += dominant - chromo[i][j]
+        evalution[i] = m_sum
+
+    # 목표 적합도가 있으면 종료
+    for i in range(5) :
+        if evalution[i] == 0 :
+            break
+
+    # 우성 염색체 2쌍 선택
+    for i in range(2) :
+        select[i] = numpy.argsort(evalution)[i]
+
+    # 염색체 교차
+    for i in range(5) :
+        for j in range(10) :
+            new_chromo[i][j] = chromo[select[random.randint(0,1)]][j]
+
+    chromo = new_chromo
+    print(gene,"Gen : ",chromo)
+    gene+=1
+
+    # 1000세대 넘으면 종료
+    if gene &gt; 1000 :
+        break</code></pre>
+<p>먼저 위처럼 작성했더니 초기에는 정상적으로 동작했다. 하지만 5세대가 지나면 비슷한 염색체끼리 합쳐져 나중에는 똑같은 염색체만 남아 계속해서 똑같은 염색체만 만들어진다. 지역최적화라는 용어가 떠올랐는데 내가 한가지 간과하고 있던건 돌연변이에 대한 설정이다.</p>
+<pre><code class="language-python">mutation = 0.01 
+...
+    for i in range(5) :
+        for j in range(10) :
+            if random.random() &lt; mutation :
+                new_chromo[i][j] = random.randint(0,9)
+            else :
+                new_chromo[i][j] = chromo[select[random.randint(0,1)]][j]
+...</code></pre>
+<p>돌연변이를 추가했다. 0.01로 설정하니 아까처럼 비슷한 염색체가 남았을때 좀 더 괜찮은 염색체가 생성되면 그 염색체처럼 변화했다. 좀 더 급격하게 변할 수 있도록 0.1로 설정했더니 염색체가 너무 과도하게 변하여 결국 랜덤으로 숫자가 생성되는 수준이었다.</p>
+<p><span class="red">단, 여기서 확률은 실제 알고리즘에서 사용되는 확률과 상이할 수 있다.</span></p>
+<pre><code>(0, 'Gen : ', [[7, 1, 3, 0, 7, 9, 1, 8, 8, 1], [1, 4, 8, 4, 5, 9, 0, 4, 6, 0], [7, 7, 7, 5, 5, 7, 3, 2, 7, 2], [7, 1, 2, 1, 9, 4, 9, 8, 4, 9], [3, 1, 3, 5, 4, 9, 7, 0, 3, 5, 0]])
+(1, 'Gen : ', [[1, 4, 8, 4, 4, 9, 0, 0, 3, 0], [1, 4, 3, 4, 5, 9, 7, 0, 6, 0], [3, 4, 8, 4, 4, 9, 0, 4, 3, 5], [1, 1, 3, 4, 4, 9, 7, 4, 6, 0], [1, 1, 3, 4, 5, 9, 0, 4, 3, 5]])
+(100, 'Gen : ', [[0, 2, 1, 1, 1, 0, 2, 2, 2, 2], [0, 2, 1, 1, 1, 0, 2, 2, 2, 2], [0, 2, 1, 1, 1, 0, 2, 2, 2, 2], [0, 2, 1, 1, 1, 0, 2, 2, 2, 2], [0, 2, 1, 1, 1, 0, 2, 2, 2, 2]])
+(1000, 'Gen : ', [[1, 0, 1, 1, 2, 1, 1, 2, 1, 1], [7, 0, 1, 1, 2, 1, 1, 2, 1, 1], [7, 0, 1, 1, 2, 1, 1, 2, 1, 1], [7, 0, 1, 1, 2, 1, 1, 2, 1, 1], [7, 0, 1, 1, 2, 1, 1, 2, 1, 1]])</code></pre>
+<p>1에는 근접하고 있지만 절대 1만 나오는 경우가 없다. 갑자기 이상하게 적합도가 깡충 올라가기도하고... 10000세대까지 돌리면 어떻게든 나올 것 같지만 그건 결국 랜덤으로 때려맞추는 수준이다. 뭐가 문제일까...</p>
+<hr>
+<p>알고리즘엔 문제가 없었으나 가장 큰 문제가 되었던건 파이썬 대한 이해 부족이다. 파이썬에는 메모리를 참조하여 같은 값을 가지는 얇은 복사와 다른 메모리를 참조하는 깊은 복사가 있는데, 나는 얇은 복사를 사용하여 변이가 일어났을 경우 그게 다음 세대에게 큰 영향을 주고 있었다.</p>
+<p>따라서 <code>copy</code> 라이브러리를 이용하여 염색체 복사를 깊은 복사로 변경하였더니 성공적으로 동작하였다.</p>
+<h4>최종 소스코드</h4>
+<pre><code class="language-python">import random
+import numpy
+import copy
+
+chromo = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0]]
+new_chromo = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
+
+# 각 염색체의 적합도 평가
+evalution = [0,0,0,0,0]
+# 우성 유전자
+dominant = 1
+# 돌연변이가 나타날 확률
+mutation = 0.01
+# 선택된 우성 염색체
+select = [0,0] 
+# 세대
+gene = 0
+
+# 최초 새대 생성
+for i in range(5) :
+    for j in range(10) :
+        chromo[i][j] = random.randint(0,9)
+
+print(gene,"Gen : ",chromo)
+gene+=1
+
+# 완전체가 나올때까지 반복
+while(1) :
+    # 적합도 평가
+    for i in range(5) :
+        m_sum = 0
+        for j in range(10) :
+            if chromo[i][j] &gt; dominant :
+                m_sum += chromo[i][j] - dominant
+            else :
+                m_sum += dominant - chromo[i][j]
+        evalution[i] = m_sum
+
+    # 목표 적합도가 있으면 종료
+    done = False
+    for i in range(5) :
+        if evalution[i] == 0 :
+            done = True
+            break
+    if done == True :
+        break
+
+    # 적합도 출력
+    print evalution
+
+    # 우성 염색체 2쌍 선택
+    for i in range(2) :
+        select[i] = numpy.argsort(evalution)[i]
+
+    # 우성 염색체 출력
+    print select
+
+    # 염색체 교차 및 돌연변이
+    for i in range(5) :
+        for j in range(10) :
+            # 돌연변이 발생
+            if random.random() &lt; mutation :
+                new_chromo[i][j] = random.randint(0,9)
+            else :
+                new_chromo[i][j] = chromo[select[random.randint(0,1)]][j]
+
+    # 리스트 깊은 복사
+    chromo = copy.deepcopy(new_chromo)
+    print(gene,"Gen : ",chromo)
+    gene+=1
+
+    if gene &gt; 1000 :
+        break
+
+print("Done!!!")</code></pre>
+<pre><code>(750, 'Gen : ', [[1, 1, 1, 1, 1, 1, 1, 1, 1, 2], [1, 1, 1, 1, 1, 1, 1, 1, 1, 2], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2], [1, 1, 1, 1, 1, 1, 1, 1, 1, 2]])
+Done!!!</code></pre>
+<p>750세대에서 목표한 염색체가 생성되었다. 변이율을 0.05로 증가시켰더니 좀 더 빠르게 완전체(?)가 등장하는 듯 하다. <a href="https://github.com/baealex/Algorithm/blob/master/Genetic/genetic-basic.py">소스코드 원문</a></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EC%9C%A0%EC%A0%84">유전</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5">인공지능</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC">파이썬</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%99%EC%8A%B5" class="text-decoration-none deep-dark">
+            '유전 알고리즘 학습' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%ACpython-%EC%9C%A0%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%80%EB%B0%A9-%EC%B1%84%EC%9A%B0%EA%B8%B0-1?series=유전-알고리즘-학습">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>파이썬(Python) - 유전 알고리즘 - 가방 채우기 1
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="uZdpEewKLryNnYOhoJZ7Q3zJCrBXX5r3bP2dj2vI1VBJmOcZNjUE0LxtvjN2bC8a">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>

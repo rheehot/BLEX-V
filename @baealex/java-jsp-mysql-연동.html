@@ -1,46 +1,277 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="윈도우에서 드라이버 연동은 굉장히 쉬웠다. 그냥 WEB-INF/lib에 드라이버를 넣어주니 잘 작동했으나 리눅스는 작업을 거쳐줘야 정상적인 사용이 가능했다. 우선 MySQL에서 제공하는 Connector/J를 다운받자. 필자의 경우에는 Platform Independent로 받았다. 압축파일이 받아지는데 압축해제 후 jar 파일만 사용할 것이다. 데이터 베이스 연동에서 사용되는 주요 클래스는 다음과 같다. Connection, PreparedStatement, ResultSet 첫번째의 경우에는 데이터 베이스를 …">
+<meta property="og:url" content="https://blex.me/@baealex/java-jsp-mysql-%EC%97%B0%EB%8F%99">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="JAVA JSP + MySQL 연동">
+<meta property="og:description" content="윈도우에서 드라이버 연동은 굉장히 쉬웠다. 그냥 WEB-INF/lib에 드라이버를 넣어주니 잘 작동했으나 리눅스는 작업을 거쳐줘야 정상적인 사용이 가능했다. 우선 MySQL에서 제공하는 Connector/J를 다운받자. 필자의 경우에는 Platform Independent로 받았다. 압축파일이 받아지는데 압축해제 후 jar 파일만 사용할 것이다. 데이터 베이스 연동에서 사용되는 주요 클래스는 다음과 같다. Connection, PreparedStatement, ResultSet 첫번째의 경우에는 데이터 베이스를 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA JSP + MySQL 연동">
+<meta name="twitter:url" content="https://blex.me/@baealex/java-jsp-mysql-%EC%97%B0%EB%8F%99">
+<meta name="twitter:description" content="윈도우에서 드라이버 연동은 굉장히 쉬웠다. 그냥 WEB-INF/lib에 드라이버를 넣어주니 잘 작동했으나 리눅스는 작업을 거쳐줘야 정상적인 사용이 가능했다. 우선 MySQL에서 제공하는 Connector/J를 다운받자. 필자의 경우에는 Platform Independent로 받았다. 압축파일이 받아지는데 압축해제 후 jar 파일만 사용할 것이다. 데이터 베이스 연동에서 사용되는 주요 클래스는 다음과 같다. Connection, PreparedStatement, ResultSet 첫번째의 경우에는 데이터 베이스를 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>JAVA JSP + MySQL 연동 – baealex</title>
 </head>
-
 <body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(147);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(147)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=JAVA JSP + MySQL 연동&url=https://blex.me/@baealex/java-jsp-mysql-%EC%97%B0%EB%8F%99" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/java-jsp-mysql-%EC%97%B0%EB%8F%99" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline">JAVA JSP + MySQL 연동</h1>
+        <p class="post-date">
+            2019-11-14 23:21
+            <span>(Last Update: 2019-12-06 17:39)<span></span></span></p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>윈도우에서 드라이버 연동은 굉장히 쉬웠다. 그냥 <code>WEB-INF/lib</code>에 드라이버를 넣어주니 잘 작동했으나 리눅스는 작업을 거쳐줘야 정상적인 사용이 가능했다. 우선 MySQL에서 제공하는 <a href="https://dev.mysql.com/downloads/connector/j/">Connector/J</a>를 다운받자. 필자의 경우에는 Platform Independent로 받았다. 압축파일이 받아지는데 압축해제 후 <code>jar</code> 파일만 사용할 것이다.</p>
+<p><br></p>
+<p>데이터 베이스 연동에서 사용되는 주요 클래스는 다음과 같다. <code>Connection</code>, <code>PreparedStatement</code>, <code>ResultSet</code> 첫번째의 경우에는 데이터 베이스를 연결하거나 해제할때, 두번째는 쿼리문을 실행할때, 세번째는 <code>SELECT</code>등을 사용한 경우 쿼리문을 받기 위해서 사용된다.</p>
+<p><br></p>
+<p>먼저 압축파일을 다운받고 풀어준뒤 해당 디렉터리로 들어가자.</p>
+<pre><code>sudo cp mysql-connector-java-8.0.17.jar $JAVA_HOME/lib/</code></pre>
+<p>그리고 위 경로로 <code>jar</code> 파일을 배치시켜야 한다. 다음은 <code>profile</code>에서 다음 내용을 추가한다.</p>
+<pre><code>sudo vi /etc/profile</code></pre>
+<pre><code>export CLASSPATH=.:$JAVA_HOME/lib/mysql-connector-java-8.0.17.jar</code></pre>
+<pre><code>source /etc/profile</code></pre>
+<p>필자의 경우에는 위 과정을 거치고 잘 됐지만 가끔 실패하는 경우도 있었다. 발생하는 오류는 <code>WEB-INF/lib</code>에 드라이버가 없다는 것이었다. 왜 그런진 모르겠지만 드라이버를 넣어주고 진행하였다. 여하지간 이제 드라이버가 정상적으로 인식되는지 확인하자.</p>
+<p><br></p>
+<h3>Programing</h3>
+<pre><code class="language-java">&lt;%@ page import="java.sql.*"%&gt;
+&lt;%
+String DB_URL = "jdbc:mysql://127.0.0.1:3306/testcase?serverTimezone=UTC";
+String DB_USER = "baealex";
+String DB_PW = "1234";
+Connection conn;
+PreparedStatement ps;
+ResultSet rs;
+
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PW);
+
+    StringBuffer sb = new StringBuffer();
+    sb.append(" SELECT * FROM GUEST ");
+    ps = conn.prepareStatement(sb.toString());
+
+    rs = ps.executeQuery();
+
+    while(rs.next()){
+        out.println(rs.getString(1)+"&amp;nbsp"+rs.getString(2)+"&amp;nbsp"+rs.getString(3)+"&lt;br /&gt;");
+    }
+
+    conn.close();
+    out.println("MySQL JDBC Driver Connection Test Done.");
+} catch(Exception e) {
+    out.println(e.getMessage());
+}
+%&gt;</code></pre>
+<p>JSP와 함께 주로 언급되는 오라클과 연결하는 방식은 비슷하지만 다르게 설정해 주어야 하는 부분이 <code>DB_URL</code>과 <code>Class.forName</code> 부분을 다르게 변경해야 한다. 또 MySQL URL 경로의 하단에 <code>?serverTimezone=UTC</code>라고 붙어있는데 처음 MySQL을 사용할때 계속 시간과 관련된 오류가 발생해서 당황했으나 해당 문구를 붙이고 문제를 해결할 수 있었다.</p>
+<p>또 쿼리를 실행시키는 함수는 <code>executeQuery()</code>와 <code>updateQuery()</code>가 있는데 <code>SELECT</code> 구분이 포함되었으면 <code>execute</code>로 그외의 경우에는 <code>update</code>로 실행하면 된다. <code>execute</code>의 경우에는 <code>ResultSet</code>이라는 형식으로 모든 속성의 값을 반환해주고 <code>update</code>는 <code>int</code>형으로 반환해 준다.</p>
+<p><br></p>
+<h3>Result</h3>
+<pre><code>1 baealex Hi
+2 endy nice
+3 aram good!
+4 baealex Hi
+MySQL JDBC Driver Connection Test Done.</code></pre>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터베이스</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94">자바</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="Aoi2REa53gWtM91v6ppR5pTDLdAzTPXAH8f5pppaeY4bxgLb4b18cjgf5HeokYUv">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
 </body>
 </html>

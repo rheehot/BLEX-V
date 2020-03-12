@@ -1,46 +1,466 @@
-<!doctype html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>Example Domain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="저장소에 저장된 버전 확인 (git log) 방금 커밋한 버전에 대한 설명이 나온다. git log 커밋 히스토리(log) 설명 지금까지 커밋했던 기록을 살펴보기 위한 명령. git log를 입력하면, 지금까지 만든 버전이 화면에 나타나고, 각 버전마다 설명이 나온다. commit이라는 노란색 항목 옆에 숫자와 영문이 섞인 문자열은 커밋 해시(commit hash), 깃 해시(git hash)라고 부른다. …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-log">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Git 정리 - 버전 관리 - log">
+<meta property="og:description" content="저장소에 저장된 버전 확인 (git log) 방금 커밋한 버전에 대한 설명이 나온다. git log 커밋 히스토리(log) 설명 지금까지 커밋했던 기록을 살펴보기 위한 명령. git log를 입력하면, 지금까지 만든 버전이 화면에 나타나고, 각 버전마다 설명이 나온다. commit이라는 노란색 항목 옆에 숫자와 영문이 섞인 문자열은 커밋 해시(commit hash), 깃 해시(git hash)라고 부른다. …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/5/10jeuP.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 정리 - 버전 관리 - log">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-log">
+<meta name="twitter:description" content="저장소에 저장된 버전 확인 (git log) 방금 커밋한 버전에 대한 설명이 나온다. git log 커밋 히스토리(log) 설명 지금까지 커밋했던 기록을 살펴보기 위한 명령. git log를 입력하면, 지금까지 만든 버전이 화면에 나타나고, 각 버전마다 설명이 나온다. commit이라는 노란색 항목 옆에 숫자와 영문이 섞인 문자열은 커밋 해시(commit hash), 깃 해시(git hash)라고 부른다. …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/5/10jeuP.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Git 정리 - 버전 관리 - log – mildsalmon</title>
 </head>
-
 <body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/5/10jeuP.jpg" alt="Git 정리 - 버전 관리 - log">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - log</h1>
+            <p class="post-date fade-in">2020-03-05 10:43<span>(Last Update: 2020-03-06 14:43)<span></span></span></p>
+        </div>
+    </picture>
 </div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(409);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(409)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - log&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-log" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-log" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>저장소에 저장된 버전 확인 (git log)</h1>
+<p>방금 커밋한 버전에 대한 설명이 나온다.</p>
+<pre><code>git log</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/2/tICrXkejnJeCazR9ivvw.png" alt=""></p>
+<h3>커밋 히스토리(log) 설명</h3>
+<p><img src="https://static.blex.me/image/2020/3/2/LqolZzcP8qUPCj9XlKMg.png" alt=""></p>
+<p>지금까지 커밋했던 기록을 살펴보기 위한 명령.<br>
+git log를 입력하면,<br>
+지금까지 만든 버전이 화면에 나타나고, 각 버전마다 설명이 나온다.<br></p>
+<p>commit이라는 노란색 항목 옆에 숫자와 영문이 섞인 문자열은 커밋 해시(commit hash), 깃 해시(git hash)라고 부른다.<br>
+커밋을 구별하는 ID라고 생각하면 된다.<br></p>
+<p>commit 옆에 (HEAD -&gt; master)는 이 버전이 가장 최신이라는 표시이다.<br>
+HEAD는 현재 작업 트리가 어떤 버전을 기반으로 작업 중인지를 가리키는 포인터이다.<br>
+HEAD는 기본적으로 master 브랜치를 가리킨다.<br>
+브랜치는 기본적으로 브랜치에 담긴 커밋 중에서 가장 최근의 커밋을 가리킨다.<br></p>
+<p>Author은 버전을 누가 만들었는지.<br></p>
+<p>Date는 버전이 언제 만들어 졌는지.<br></p>
+<p>그 아래에는 작성자가 기록한 커밋 메시지가 나온다.<br></p>
+<h1>옵션</h1>
+<table>
+<thead>
+<tr>
+<th>옵션</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>각 커밋에 적용된 패치를 보여준다.</td>
+</tr>
+<tr>
+<td>--stat</td>
+<td>각 커밋에서 수정된 파일의 통계정보를 보여준다.</td>
+</tr>
+<tr>
+<td>--shortstat</td>
+<td>--stat 명령의 결과 중에서 수정한 파일, 추가된 라인, 삭제된 라인만 보여준다.</td>
+</tr>
+<tr>
+<td>--name-only</td>
+<td>커밋 정보중에서 수정된 파일의 목록만 보여준다.</td>
+</tr>
+<tr>
+<td>--name-status</td>
+<td>수정된 파일의 목록을 보여줄 뿐만 아니라 파일을 추가한 것인지, 수정한 것인지, 삭제한 것인지도 보여준다.</td>
+</tr>
+<tr>
+<td>--abbrev-commit</td>
+<td>40자 짜리 SHA-1 체크섬을 전부 보여주는 것이 아니라 처음 몇 자만 보여준다.</td>
+</tr>
+<tr>
+<td>--relative-date</td>
+<td>정확한 시간을 보여주는 것이 아니라 “2 weeks ago” 처럼 상대적인 형식으로 보여준다.</td>
+</tr>
+<tr>
+<td>--graph</td>
+<td>브랜치와 머지 히스토리 정보까지 아스키 그래프로 보여준다.</td>
+</tr>
+<tr>
+<td>--pretty</td>
+<td>지정한 형식으로 보여준다. 이 옵션에는 oneline, short, full, fuller, format이 있다. format은 원하는 형식으로 출력하고자 할 때 사용한다.</td>
+</tr>
+<tr>
+<td>--oneline</td>
+<td>--pretty=oneline --abbrev-commit 두 옵션을 함께 사용한 것과 같다.</td>
+</tr>
+</tbody>
+</table>
+<h3>각 커밋의 diff 결과 보기 (--patch)</h3>
+<p><code>-p</code>, <code>--patch</code>는 각 커밋의 diff 결과를 보여준다.<br>
+직접 diff를 실행한 것과 같은 결과를 출력한다.<br>
+동료의 커밋을 리뷰하고 빨리 조회하는데 유용하다<br></p>
+<pre><code>git log -p -(커밋 갯수)
+git log --patch -(커밋 갯수)</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/YHDsxXde0TmrM0zmiaoM.png" alt=""></p>
+<h3>각 커밋의 통계 정보 조회 (--stat)</h3>
+<p>각 커밋의 통계 정보를 조회할 수 있다.<br>
+어떤 파일이 수정되었는지, 얼마나 많은 파일이 변경되었는지, 얼마나 많은 라인을 추가하거나 삭제했는지 보여준다.<br>
+요약정보는 가장 뒤쪽에 보여준다.<br></p>
+<pre><code>git log --stat -(커밋 갯수)</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/kvG57RMerhkHiU0d2IsW.png" alt=""></p>
+<h3>커밋 히스토리 형식 변경 (--pretty)</h3>
+<p>히스토리 내용을 보여줄 때 기본 형식 외에 여러 가지 중에 하나를 선택할 수 있다.<br>
+옵션은 아래에 작성했다.<br></p>
+<h5>oneline</h5>
+<p>각 커밋을 한 줄로 보여준다.</p>
+<pre><code>git log --pretty=oneline</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/2VrZHwpJP3hvPKk89XYp.png" alt=""></p>
+<h5>short</h5>
+<p>커밋의 최소 정보만 보여준다.<br>
+커밋 해시, 작성자, 커밋 내용<br></p>
+<pre><code>git log --pretty=short</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/AG7L5Dcq5j7uS5O2ThlK.png" alt=""></p>
+<h5>full</h5>
+<p>short보다 많은 정보를 보여준다.<br>
+short + 커밋 작성자<br></p>
+<pre><code>git log --pretty=full</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/t8ZhfMRElhJgI760Qs52.png" alt=""></p>
+<h5>fuller</h5>
+<p>가장 많은 정보를 보여준자.<br>
+full + 커밋 날짜, 작성 날짜<br></p>
+<pre><code>git log --pretty=fuller</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/9qWm4qtA7C75S9eIvhm1.png" alt=""></p>
+<h5>format</h5>
+<p>내가 원하는 포맷으로 커밋 히스토리 결과를 출력할 수 있다.</p>
+<pre><code>git log --pretty="%T - % an, %ad, '%cn' [%s]" -(커밋 갯수)</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/dLqDZA7cbeLM1kCDAGJe.png" alt=""></p>
+<p><strong>포멧 옵션</strong></p>
+<table>
+<thead>
+<tr>
+<th>옵션</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%H</td>
+<td>커밋 해시</td>
+</tr>
+<tr>
+<td>%h</td>
+<td>잛은 길이 커밋 해시</td>
+</tr>
+<tr>
+<td>%T</td>
+<td>트리 해시</td>
+</tr>
+<tr>
+<td>%t</td>
+<td>잛은 길이 트리 해시</td>
+</tr>
+<tr>
+<td>%P</td>
+<td>부모 해시</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>짧은 길이 부모 해시</td>
+</tr>
+<tr>
+<td>%an</td>
+<td>저자 이름</td>
+</tr>
+<tr>
+<td>%ae</td>
+<td>저자 메일</td>
+</tr>
+<tr>
+<td>%ad</td>
+<td>저자 시각</td>
+</tr>
+<tr>
+<td>%ar</td>
+<td>저자 상대적 시각</td>
+</tr>
+<tr>
+<td>%cn</td>
+<td>커미터 이름</td>
+</tr>
+<tr>
+<td>%ce</td>
+<td>커미터 메일</td>
+</tr>
+<tr>
+<td>%cd</td>
+<td>커미터 시각</td>
+</tr>
+<tr>
+<td>%cr</td>
+<td>커미터 상대적 시각</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>요약</td>
+</tr>
+</tbody>
+</table>
+<h3>--oneline</h3>
+<p>--pretty = oneline --abbrev-commit 두 옵션을 같이 사용한 것과 같다.</p>
+<pre><code>git log --oneline</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/5/9sgKuXh6ETgLApA0UQms.png" alt=""></p>
+<h3>각 브랜치의 커밋 함께 보기</h3>
+<p>각 브랜치의 커밋을 같이 볼 수 있다.</p>
+<pre><code>git log --oneline --branches</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/k0FAAJ1OFHYVvNg9XDRD.png" alt=""></p>
+<h3>그래프로 보기</h3>
+<p>각 브랜치와 커밋의 관계를 그래프 형태로 볼 수 있다.</p>
+<pre><code>git log --oneline --branches --graph</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/APLg4eWfTSmefYAxaoYy.png" alt=""></p>
+<h3>브랜치 사이의 차이점 알아보기</h3>
+<p>브랜치 이름 사이에 마침표 두개(..)를 넣으면 브랜치 간의 차이점을 쉽게 확인할 수 있다.<br>
+마침표 왼쪽에 있는 브랜치를 기준으로 오른쪽 브랜치와 비교한다.<br></p>
+<pre><code>git log master..show</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/pu0toeVTFKoXRHJFpZen.png" alt=""></p>
+<p>이러면 master 브랜치에는 없고 show 브랜치에만 있는 커밋을 보여준다.</p>
+<h1>마치며</h1>
+<p>다음에는 diff에 대해 포스팅하겠습니다.</p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
+<p>Git의 기초 - 커밋 히스토리 조회하기, "<a href="https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0">https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0</a>"</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/git">git</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
+            
+            <li><a href="/@mildsalmon/topic/log">log</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
+            'Git' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC-add-commit?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - add , commit
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-diff?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>Git 정리 - 버전 관리 - diff
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="N9RZIOoBRPiHl3iIIJOVehz0pQS5EqIQqIyakjEoVrRS9srG6mL7OGFKkcBfY1Te">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+
+
+    
 </body>
 </html>
