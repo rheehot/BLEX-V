@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="배열, 트리, 그래프, 힙, BST, 스택, 큐 DFS, BFS, 정렬, 백트래킹, DP, 분할정복, 최단거리 초급 완전 탐색, DP 초급, 큐, 스택, DFS, BFS, 탐욕법 중급 분할 정복, 이분 탐색, DP 중급, 최단거리(다익스트라, 벨만 포드, 플로이드), 최소 스패닝 트리, 구간트리(세그먼트 트리(탑-다운), 인덱스 트리(바텀-업), 팬윅트리(BIT)), LCA, 비트마스크, 서로소 집합. 고급 ... 기초적인 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80%ED%95%A0-%EA%B1%B0-%EB%AA%A8%EC%9D%8C">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="자료구조 / 알고리즘 공부할 거 모음">
+<meta property="og:description" content="배열, 트리, 그래프, 힙, BST, 스택, 큐 DFS, BFS, 정렬, 백트래킹, DP, 분할정복, 최단거리 초급 완전 탐색, DP 초급, 큐, 스택, DFS, BFS, 탐욕법 중급 분할 정복, 이분 탐색, DP 중급, 최단거리(다익스트라, 벨만 포드, 플로이드), 최소 스패닝 트리, 구간트리(세그먼트 트리(탑-다운), 인덱스 트리(바텀-업), 팬윅트리(BIT)), LCA, 비트마스크, 서로소 집합. 고급 ... 기초적인 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/22RXoS.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자료구조 / 알고리즘 공부할 거 모음">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80%ED%95%A0-%EA%B1%B0-%EB%AA%A8%EC%9D%8C">
+<meta name="twitter:description" content="배열, 트리, 그래프, 힙, BST, 스택, 큐 DFS, BFS, 정렬, 백트래킹, DP, 분할정복, 최단거리 초급 완전 탐색, DP 초급, 큐, 스택, DFS, BFS, 탐욕법 중급 분할 정복, 이분 탐색, DP 중급, 최단거리(다익스트라, 벨만 포드, 플로이드), 최소 스패닝 트리, 구간트리(세그먼트 트리(탑-다운), 인덱스 트리(바텀-업), 팬윅트리(BIT)), LCA, 비트마스크, 서로소 집합. 고급 ... 기초적인 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/22RXoS.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>자료구조 / 알고리즘 공부할 거 모음 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/13/22RXoS.jpg" alt="자료구조 / 알고리즘 공부할 거 모음">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'알고리즘 / 자료구조' 시리즈</span>자료구조 / 알고리즘 공부할 거 모음</h1>
+            <p class="post-date fade-in">2020-03-13 22:24</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(441);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(441)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=자료구조 / 알고리즘 공부할 거 모음&url=https://blex.me/@mildsalmon/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80%ED%95%A0-%EA%B1%B0-%EB%AA%A8%EC%9D%8C" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80%ED%95%A0-%EA%B1%B0-%EB%AA%A8%EC%9D%8C" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <p>배열, 트리, 그래프, 힙, BST, 스택, 큐</p>
+<p>DFS, BFS, 정렬, 백트래킹, DP, 분할정복, 최단거리</p>
+<p>초급</p>
+<p>완전 탐색, DP 초급, 큐, 스택, DFS, BFS, 탐욕법</p>
+<p>중급</p>
+<p>분할 정복, 이분 탐색, DP 중급, 최단거리(다익스트라, 벨만 포드, 플로이드), 최소 스패닝 트리, 구간트리(세그먼트 트리(탑-다운), 인덱스 트리(바텀-업), 팬윅트리(BIT)), LCA, 비트마스크, 서로소 집합.</p>
+<p>고급</p>
+<p>...</p>
+<hr>
+<p>기초적인 배경지식, 구현력</p>
+<p>시간복잡도 / 공간복잡도
+자료구조</p>
+<ul>
+<li>선형 자료구조</li>
+<li>랜덤 접근 가능<ul>
+<li>배열</li>
+<li>해시</li>
+</ul>
+</li>
+<li>랜덤 접근 불가능<ul>
+<li>스택</li>
+<li>큐</li>
+<li>데크</li>
+<li>링크드 리스트</li>
+</ul>
+</li>
+<li>선형구조 자료 탐색법<ul>
+<li>순차 탐색</li>
+<li>이분 탐색</li>
+</ul>
+</li>
+<li>비선형 자료구조</li>
+<li>그래프<ul>
+<li>그래프 관련 용어</li>
+<li>그래프의 종류</li>
+<li>그래프 순회 알고리즘<ul>
+<li>깊이 우선 탐색</li>
+<li>너비 우선 탐색</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>트리<ul>
+<li>트리 관련 용어</li>
+<li>트리의 종류</li>
+<li>트리 순회 알고리즘<ul>
+<li>전위 순회</li>
+<li>중위 순회</li>
+<li>후위 순회</li>
+<li>레벨 순서 순회</li>
+</ul>
+</li>
+<li>이진 검색 트리<ul>
+<li>이진 검색</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>문자열
+기초 정렬 알고리즘</li>
+<li>거품 정렬</li>
+<li>선택 정렬</li>
+<li>삽입 정렬</li>
+</ul>
+<hr>
+<p><img src="https://static.blex.kr/image/2020/3/13/wrot3UDkeOOIamOb2UVp.png" alt=""></p>
+<hr>
+<h1>목적</h1>
+<ol>
+<li>프로그래밍 실력 향상</li>
+<li>취업 (대학원 진학을 희망하지만.)
+2-1. 기업 코딩 테스트</li>
+<li>
+</li>
+</ol>
+<h1>결론</h1>
+<ol>
+<li>집에 죽어있는 자료구조 전공책을 꺼내서 다시 한번 완독을 하자.</li>
+<li>자료구조를 코드로 한번 짜보자.</li>
+<li>죽은 기억을 잘 살려보자.</li>
+</ol>
+<h1>참고자료</h1>
+<blockquote>
+<p>[Algorithm] 알고리즘 공부 시작 방법 및 순서,  <a href="https://blog.yena.io/studynote/2018/11/14/Algorithm-Basic.html">https://blog.yena.io/studynote/2018/11/14/Algorithm-Basic.html</a></p>
+<p>알고리즘 공부 방법/순서, <a href="https://baactree.tistory.com/14">https://baactree.tistory.com/14</a></p>
+<p>알고리즘 공부, 어떻게 해야하나요?, <a href="https://baactree.tistory.com/52">https://baactree.tistory.com/52</a></p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="text-decoration-none deep-dark">
+            '알고리즘 / 자료구조' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="UytwsUtwiFM87uiRdPUsVOu5zY1BsSq7ydn7RN5ImrRRZnrhaguc5TR2ujk3CdKX">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+
+
+    
+</body>
+</html>

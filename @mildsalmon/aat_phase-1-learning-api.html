@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="공부를 통해 새로 알게된 부분 connect 이벤트와 이벤트 처리 메서드를 연결 dynamicCall OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다. dynamicCall 메서드의 인자로 호출하려는 메서드를 전달 인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다. Kiwoom Open API는 고유 CLSID와 ProgID를 가진다 QAxWidget …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-learning-api">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AAT_Phase 1. learning api">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 connect 이벤트와 이벤트 처리 메서드를 연결 dynamicCall OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다. dynamicCall 메서드의 인자로 호출하려는 메서드를 전달 인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다. Kiwoom Open API는 고유 CLSID와 ProgID를 가진다 QAxWidget …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/20Ihn2.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AAT_Phase 1. learning api">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-learning-api">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 connect 이벤트와 이벤트 처리 메서드를 연결 dynamicCall OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다. dynamicCall 메서드의 인자로 호출하려는 메서드를 전달 인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다. Kiwoom Open API는 고유 CLSID와 ProgID를 가진다 QAxWidget …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/20Ihn2.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>AAT_Phase 1. learning api – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/13/20Ihn2.png" alt="AAT_Phase 1. learning api">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. learning api</h1>
+            <p class="post-date fade-in">2020-03-13 20:03</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(439);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(439)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. learning api&url=https://blex.me/@mildsalmon/aat_phase-1-learning-api" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-learning-api" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>공부를 통해 새로 알게된 부분</h1>
+<ul>
+<li>connect<ul>
+<li>이벤트와 이벤트 처리 메서드를 연결</li>
+</ul>
+</li>
+<li>dynamicCall<ul>
+<li>OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다.</li>
+<li>dynamicCall 메서드의 인자로 호출하려는 메서드를 전달</li>
+<li>인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다.</li>
+</ul>
+</li>
+<li>Kiwoom Open API는 고유 CLSID와 ProgID를 가진다<ul>
+<li>QAxWidget 클래스의 생성자로 전달해야 사용할 수 있는 인스턴스가 생긴다.</li>
+<li>ProgID = KHOPENAPI.KHOpenAPICtrl.1</li>
+<li>CLSID = {A1574A0D-6BFA-4BD7-9020-DED88711818D}</li>
+</ul>
+</li>
+<li>키움에서 제공하는 OPEN API 메서드, 이벤트는 정말 다양하다.<ul>
+<li>책에 나온 일부 메서드(CommGetData)는 Kiwoom 개발 가이드에서 사용을 자제하라고 한다.  해당 메서드는 GetCommData, GetCommRealData, GetChejanData를 사용하라고 권고한다. → <strong>즉 책에 나온 정보를 무조건 맹신하지 말고 오피셜 자료를 계속 보면서 비교하고 학습하는 것이 중요하다.</strong></li>
+</ul>
+</li>
+<li>PyQt</li>
+<li>Open API+의 TR 처리 순서<ol>
+<li>SetInputValue 메서드를 사용해 TR 입력 값을 설정.</li>
+<li>CommRqData 메서드를 사용해 TR을 서버로 송신</li>
+<li>서버로부터 이벤트가 발생할 때까지 이벤트 루프를 사용해 대기</li>
+<li>CommGetData 메서드를 사용해 수신 데이터를 가져온다.</li>
+</ol>
+</li>
+</ul>
+<h1>좀 더 공부해야하는 부분</h1>
+<ul>
+<li>PyQt<ul>
+<li>기본적인 Qt가 조금 부족하다.</li>
+<li>블로그를 통해 정리를 해보자.</li>
+</ul>
+</li>
+<li>OPEN API 메서드 &amp; 이벤트<ul>
+<li>전부 알 필요는 없다, 하지만 적제 적소에 필요한 기능을 생각할 정도의 기능 인지와 상상력 필요.</li>
+</ul>
+</li>
+</ul>
+<h1>한줄평</h1>
+<p>입대하기 전에 코드를 작성할 때는 Kiwoom OPEN API의 동작 원리조차 이해하지 못하고 진행했는데, 한줄 한줄 분석하고 이해하면서 작성하니까 처음에는 어려웠지만, 오히려 더 쉬워지는 느낌을 받았다. 빠르게 전체 내용을 작성하고 졸업작품 제작에 들어가자. 아무리 어렵고 처음 보는 것이라도 포기하지 말자.</p>
+<h1>오늘 작성한 코드</h1>
+<p><a href="https://github.com/mildsalmon/AAT/commit/0c37b6f80686e130e76a9137fcf0d840e452a088">Learned the base api. · mildsalmon/AAT@0c37b6f</a></p>
+<h1>참고자료</h1>
+<p><a href="https://download.kiwoom.com/web/openapi/kiwoom_openapi_plus_devguide_ver_1.5.pdf">Kiwoom OPEN API 개발가이드</a></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-aat" class="text-decoration-none deep-dark">
+            '졸업작품 (AAT)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-pyqt?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1. PyQt
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-learning-pandas?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>AAT_Phase 1. learning pandas
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="j81p9b6oXaBuLZtg03pNZ2C4bVCvLYMkm02w1AgVJrg0n3FkFgD1uTbvYlfHPe1Q">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+
+
+    
+</body>
+</html>

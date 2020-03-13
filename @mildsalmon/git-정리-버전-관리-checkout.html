@@ -21,11 +21,11 @@
     gtag('config', 'UA-113864080-4');
     </script>
     
-<meta name="description" content="git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 사이 이동하기 master 브랜치에서 test3.txt 파일을 새로 만들고 커밋을 했다. 로그에 master 브랜치는 최신 커밋을 가리킨다. 하지만 …">
+<meta name="description" content="git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 만들기 체크아웃으로 브랜치 생성과 이동을 동시에 할 수 있다. git checkout -b (브랜치 이름) 브랜치 사이 이동하기 …">
 <meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Git 정리 - 버전 관리 - checkout">
-<meta property="og:description" content="git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 사이 이동하기 master 브랜치에서 test3.txt 파일을 새로 만들고 커밋을 했다. 로그에 master 브랜치는 최신 커밋을 가리킨다. 하지만 …">
+<meta property="og:description" content="git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 만들기 체크아웃으로 브랜치 생성과 이동을 동시에 할 수 있다. git checkout -b (브랜치 이름) 브랜치 사이 이동하기 …">
 <meta property="og:site_name" content="BLEX">
 <meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/9/12zuST.jpg">
 <meta property="og:locale" content="ko_KR">
@@ -33,13 +33,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 정리 - 버전 관리 - checkout">
 <meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout">
-<meta name="twitter:description" content="git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 사이 이동하기 master 브랜치에서 test3.txt 파일을 새로 만들고 커밋을 했다. 로그에 master 브랜치는 최신 커밋을 가리킨다. 하지만 …">
+<meta name="twitter:description" content="git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 만들기 체크아웃으로 브랜치 생성과 이동을 동시에 할 수 있다. git checkout -b (브랜치 이름) 브랜치 사이 이동하기 …">
 <meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/9/12zuST.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Git 정리 - 버전 관리 - checkout – mildsalmon</title>
@@ -53,7 +53,7 @@
         <img src="https://static.blex.me/title/mildsalmon/2020/3/9/12zuST.jpg" alt="Git 정리 - 버전 관리 - checkout">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - checkout</h1>
-            <p class="post-date fade-in">2020-03-09 10:38<span>(Last Update: 2020-03-10 13:11)<span></span></span></p>
+            <p class="post-date fade-in">2020-03-09 10:38<span>(Last Update: 2020-03-13 09:27)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -130,7 +130,7 @@
         
     </a>
     <div class="author-info">
-        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 100%</span></h4>
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
             
             <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
             
@@ -167,6 +167,12 @@ git restore 파일명</p>
 <p>git checkout master</p>
 </blockquote>
 <p><img src="https://static.blex.me/image/2020/3/4/4QxcZtFNdMciVAOGXOwF.png" alt=""></p>
+<h3>브랜치 만들기</h3>
+<p>체크아웃으로 브랜치 생성과 이동을 동시에 할 수 있다.</p>
+<blockquote>
+<p>git checkout -b (브랜치 이름)</p>
+</blockquote>
+<p><img src="https://static.blex.kr/image/2020/3/13/UOOGVNa3Rx02KebQiSTT.png" alt=""></p>
 <h3>브랜치 사이 이동하기</h3>
 <p><img src="https://static.blex.me/image/2020/3/4/csh6JcGo1sFqOq3zy1xW.png" alt=""></p>
 <p><img src="https://static.blex.me/image/2020/3/4/vkCFlokTSiuYubNkBeHW.png" alt=""></p>
@@ -186,11 +192,11 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
         </article>
         <ul class="tag-list noto">
             
+            <li><a href="/@mildsalmon/topic/checkout">checkout</a></li>
+            
             <li><a href="/@mildsalmon/topic/git">git</a></li>
             
             <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
-            
-            <li><a href="/@mildsalmon/topic/checkout">checkout</a></li>
             
         </ul>
         
@@ -245,7 +251,7 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="T1XzzC13UHSYHn0NiatCQtHgQ9ZjOlbqZ2VbjtJ1fQBQzdTl3HmSSVSsKxbU7Q5o">
+            <input type="hidden" name="csrfmiddlewaretoken" value="LVFofuO4GC7sMPD70ZLEsZGCbMkNw71UN7WvQEZMyF6UMxePG9iIygIH2rotNad1">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -265,10 +271,10 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -288,7 +294,7 @@ master commit에서 만든 test3.txt 파일도 없다.<br></p>
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.56"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
 
 
     

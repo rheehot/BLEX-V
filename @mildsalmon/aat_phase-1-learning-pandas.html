@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="공부를 통해 새로 알게된 부분 Pandas Series는 1차원 데이터를 다루는데 효과적인 자료구조 값, 값과 연결된 인덱스 값을 저장 데이터가 1차원으로 저장되어 있지만 딕셔너리와 유사하게 값과 대응되는 인덱스 값이 서로 연결됨. 인덱스의 순서가 서로 다른 경우에도 같은 인덱스끼리 덧셈 연산 가능 DataFrame은 행과 열로 구성된 2차원 데이터를 다루는데 효과적인 자료구조 여러개의 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-learning-pandas">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AAT_Phase 1. learning pandas">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 Pandas Series는 1차원 데이터를 다루는데 효과적인 자료구조 값, 값과 연결된 인덱스 값을 저장 데이터가 1차원으로 저장되어 있지만 딕셔너리와 유사하게 값과 대응되는 인덱스 값이 서로 연결됨. 인덱스의 순서가 서로 다른 경우에도 같은 인덱스끼리 덧셈 연산 가능 DataFrame은 행과 열로 구성된 2차원 데이터를 다루는데 효과적인 자료구조 여러개의 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/205ckZ.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AAT_Phase 1. learning pandas">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-learning-pandas">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 Pandas Series는 1차원 데이터를 다루는데 효과적인 자료구조 값, 값과 연결된 인덱스 값을 저장 데이터가 1차원으로 저장되어 있지만 딕셔너리와 유사하게 값과 대응되는 인덱스 값이 서로 연결됨. 인덱스의 순서가 서로 다른 경우에도 같은 인덱스끼리 덧셈 연산 가능 DataFrame은 행과 열로 구성된 2차원 데이터를 다루는데 효과적인 자료구조 여러개의 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/205ckZ.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>AAT_Phase 1. learning pandas – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/13/205ckZ.png" alt="AAT_Phase 1. learning pandas">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. learning pandas</h1>
+            <p class="post-date fade-in">2020-03-13 20:14</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(440);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(440)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. learning pandas&url=https://blex.me/@mildsalmon/aat_phase-1-learning-pandas" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-learning-pandas" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>공부를 통해 새로 알게된 부분</h1>
+<ul>
+<li>Pandas<ul>
+<li>Series는 1차원 데이터를 다루는데 효과적인 자료구조<ul>
+<li>값, 값과 연결된 인덱스 값을 저장</li>
+<li>데이터가 1차원으로 저장되어 있지만 딕셔너리와 유사하게 값과 대응되는 인덱스 값이 서로 연결됨.</li>
+<li>인덱스의 순서가 서로 다른 경우에도 같은 인덱스끼리 덧셈 연산 가능</li>
+</ul>
+</li>
+<li>DataFrame은 행과 열로 구성된 2차원 데이터를 다루는데 효과적인 자료구조<ul>
+<li>여러개의 칼럼으로 구성된 2차원 형태의 자료구조</li>
+<li>딕셔너리로 객체 생성 가능</li>
+<li>각 칼럼은 Series 객체</li>
+<li>인덱스가 같은 여러개의 Series 객체로 구성된 자료구조</li>
+<li>Series와 마찬가지로 인덱스 값 지정 가능</li>
+<li>loc 메서드를 통해 인자값(인덱스 값)을 가진 로우 데이터를 가져 올 수 있다.</li>
+<li>칼럼에 접근하려면 .columns</li>
+<li>로우에 접근하려면 .index</li>
+<li>.info() 메서드로 객체를 요약해서 볼 수 있음</li>
+<li>insert 메서드로 칼럼을 추가</li>
+<li>리스트와 딕셔너리의 특징을 혼합</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pandas_datareader<ul>
+<li>DataReader 함수<ul>
+<li>종목 정보를 가져올 수 있음,  (고가, 저가, 시가, 종가, 거래량, 수정 종가(야후))</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>matplotlib 패키지의 pyplot 모듈<ul>
+<li>plot 함수<ul>
+<li>파이썬에서 그래프를 그릴 때 사용</li>
+<li>인자값 = 그래프로 표현하려는 데이터</li>
+</ul>
+</li>
+<li>legend 함수<ul>
+<li>범례를 표시하기 위해 사용</li>
+<li>loc 인자를 통해 범례 표시 위치 지정 (best = 자동)</li>
+</ul>
+</li>
+<li>grid 함수<ul>
+<li>격자줄 표시</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>빅 데이터의 정의<ul>
+<li>Volume, Velocity, Variety 세 가지 V를 가진 데이터</li>
+</ul>
+</li>
+<li>이동평균선<ul>
+<li>일정 기간 동안의 주가를 산술 평균한 값인 주가이동평균을 차례로 연결해 만든 선</li>
+</ul>
+</li>
+</ul>
+<h1>좀 더 공부해야하는 부분</h1>
+<ul>
+<li>Pandas<ul>
+<li>정리를 하긴 했지만 처음 보는 모듈이라 좀 더 공부를 해야 자유롭게 사용할 수 있을듯</li>
+</ul>
+</li>
+<li>matplotlib 패키지<ul>
+<li>이 패키지로 차트를 만들어야 할텐데, 유용하게 사용 가능할듯</li>
+</ul>
+</li>
+<li>주식 단어 / 주식 분석 기법 (기본적 분석 / 기술적 분석)<ul>
+<li>이평선은 기본적인거라 알고 있었는데, 다음에 또 어떤 생소한 단어가 나올지 모르니 나올때마다 공부. 그리고 여러 알고리즘 기법을 적용하려면 주식 단어는 기본적으로 숙지해야함.</li>
+</ul>
+</li>
+</ul>
+<h1>한줄평</h1>
+<p>오늘은 솔직히 허리도 좀 아프고 해서 집중을 잘 못했다. Pandas같은 처음보는 개념이 나오는 것도 이유인 것 같다. 내일은 오후 1시쯤에 시작하도록 노력해보자. 조금 늦게 시작하니 시간 관리가 잘 안된다. 그래서 이후 일정도 겨우 끝내는 것 같다. (한라대 공지 알림 봇 클래스화)</p>
+<h1>오늘 작성한 코드</h1>
+<p><a href="https://github.com/mildsalmon/AAT/commit/52920a181d5c46584cb9baa20fff4693664a0eab">Learned the pandas · mildsalmon/AAT@52920a1</a></p>
+<h1>참고자료</h1>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+            
+            <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-aat" class="text-decoration-none deep-dark">
+            '졸업작품 (AAT)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-learning-api?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1. learning api
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="nC3iFdnscWbFWHk7eCksf0qYSOnqQFF0W0Cz3NLagkABimcM3uGvyC6s06VoOJfM">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+
+
+    
+</body>
+</html>

@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.56">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>mildsalmon – 'Git' 시리즈</title>
@@ -86,6 +86,15 @@
         <a class="post-series deep-dark serif font-weight-bold mb-3" href="/@mildsalmon">Created by mildsalmon</a>
         
         
+        <div class="series-desc mb-4">
+            <blockquote class="noto">
+                Git에 대해 공부하고, 정리한 시리즈
+            </blockquote>
+            <div class="author">
+                <img src="https://static.blex.me/avatar/u/mildsalmon/WgGq.png">
+            </div>
+        </div>
+        
         
         <div class="mb-5">
             <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EC%9A%94">1. Git 정리 - 기초, 개요</a></h5>
@@ -114,7 +123,7 @@
         
         <div class="mb-5">
             <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout">6. Git 정리 - 버전 관리 - checkout</a></h5>
-            <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout">git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 사이 이동하기 master 브랜치에서 test3.txt 파일을 새로 만들고 커밋을 했다. 로그에 master 브랜치는 최신 커밋을 가리킨다. 하지만 …</a></p>
+            <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-checkout">git checkout 작업 트리에서 변경사항을 취소하는 방법 git checkout -- 파일명 git restore 파일명 커밋 이동하기 원하는 커밋으로 이동해서 브랜치를 만들어 작업할 수도 있겠다. git checkout (이동하려는 커밋 해시) git checkout master 브랜치 만들기 체크아웃으로 브랜치 생성과 이동을 동시에 할 수 있다. git checkout -b (브랜치 이름) 브랜치 사이 이동하기 …</a></p>
         </div>
         
         <div class="mb-5">
@@ -125,6 +134,16 @@
         <div class="mb-5">
             <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C">8. Git 정리 - 버전 관리 - 버전별 파일 상태</a></h5>
             <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B2%84%EC%A0%84%EB%B3%84-%ED%8C%8C%EC%9D%BC-%EC%83%81%ED%83%9C">각 단계별 버전 상태 표시 깃은 버전을 만드는 각 단계마다 파일 상태를 다르게 표시한다. tracked 파일과 untracked 파일 작업 트레이 있는 파일은 tracked 상태와 untracked 상태로 나뉜다. Tracked files Changes not staged for commit: 변경된 파일이 아직 스테이지에 올라가지 않았다. 깃은 한번이라도 커밋을 한 파일의 수정 여부를 계속 추척한다. tracked …</a></p>
+        </div>
+        
+        <div class="mb-5">
+            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-gitignore">9. Git 정리 - 버전 관리 - gitignore</a></h5>
+            <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-gitignore">.gitignore 버전 관리 중인 디렉터리 안에 버전 관리를 하지 않을 특정 파일 또는 디렉터리가 있다면 .gitignore 파일을 만들어 목록을 지정할 수 있다. 이미 저장소에 올라간 파일은 제외되지 않는다. vim .gitignore ~ mybokk.txt .bin hi/ mybokk.txt 파일과 .bin 파일, hi 디렉터리는 버전 관리에서 제외된다. 주의 .gitignore 파일은 .gitignore.txt 파일이 아닌 .gitignore로 …</a></p>
+        </div>
+        
+        <div class="mb-5">
+            <h5 class="card-title serif font-weight-bold"><a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EA%B8%B0%EC%B4%88">10. Git 정리 - 버전 관리 - Branch - 기초</a></h5>
+            <p><a class="shallow-dark noto" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EA%B8%B0%EC%B4%88">브랜치(Branch) 버전 관리 시스템에서는 나무가 가지에서 새 줄기를 뻗듯이 여러 갈래로 퍼지는 데이터 흐름을 가리키는 말로 사용. 분기점이라고 생각하면 된다. 브랜치 기능 깃으로 버전 관리를 시작하면 기본적으로 master라는 브랜치가 만들어진다. 사용자가 커밋할 때마다 master 브랜치는 최신 커밋을 가리킨다. 브랜치는 커밋을 가리키는 포인터와 비슷하다고 생각. 새 브랜치를 만들면 기존에 저장한 파일을 …</a></p>
         </div>
         
     </div>
@@ -145,10 +164,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.56"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.56"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.56"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.56"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

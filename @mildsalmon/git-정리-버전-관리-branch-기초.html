@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="브랜치(Branch) 버전 관리 시스템에서는 나무가 가지에서 새 줄기를 뻗듯이 여러 갈래로 퍼지는 데이터 흐름을 가리키는 말로 사용. 분기점이라고 생각하면 된다. 브랜치 기능 깃으로 버전 관리를 시작하면 기본적으로 master라는 브랜치가 만들어진다. 사용자가 커밋할 때마다 master 브랜치는 최신 커밋을 가리킨다. 브랜치는 커밋을 가리키는 포인터와 비슷하다고 생각. 새 브랜치를 만들면 기존에 저장한 파일을 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EA%B8%B0%EC%B4%88">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Git 정리 - 버전 관리 - Branch - 기초">
+<meta property="og:description" content="브랜치(Branch) 버전 관리 시스템에서는 나무가 가지에서 새 줄기를 뻗듯이 여러 갈래로 퍼지는 데이터 흐름을 가리키는 말로 사용. 분기점이라고 생각하면 된다. 브랜치 기능 깃으로 버전 관리를 시작하면 기본적으로 master라는 브랜치가 만들어진다. 사용자가 커밋할 때마다 master 브랜치는 최신 커밋을 가리킨다. 브랜치는 커밋을 가리키는 포인터와 비슷하다고 생각. 새 브랜치를 만들면 기존에 저장한 파일을 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/8Ejch.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 정리 - 버전 관리 - Branch - 기초">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EA%B8%B0%EC%B4%88">
+<meta name="twitter:description" content="브랜치(Branch) 버전 관리 시스템에서는 나무가 가지에서 새 줄기를 뻗듯이 여러 갈래로 퍼지는 데이터 흐름을 가리키는 말로 사용. 분기점이라고 생각하면 된다. 브랜치 기능 깃으로 버전 관리를 시작하면 기본적으로 master라는 브랜치가 만들어진다. 사용자가 커밋할 때마다 master 브랜치는 최신 커밋을 가리킨다. 브랜치는 커밋을 가리키는 포인터와 비슷하다고 생각. 새 브랜치를 만들면 기존에 저장한 파일을 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/8Ejch.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Git 정리 - 버전 관리 - Branch - 기초 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/13/8Ejch.jpg" alt="Git 정리 - 버전 관리 - Branch - 기초">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - Branch - 기초</h1>
+            <p class="post-date fade-in">2020-03-13 08:57<span>(Last Update: 2020-03-13 08:58)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(437);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(437)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - Branch - 기초&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EA%B8%B0%EC%B4%88" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EA%B8%B0%EC%B4%88" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>브랜치(Branch)</h1>
+<p>버전 관리 시스템에서는 나무가 가지에서 새 줄기를 뻗듯이 여러 갈래로 퍼지는 데이터 흐름을 가리키는 말로 사용.<br>
+분기점이라고 생각하면 된다.<br></p>
+<h3>브랜치 기능</h3>
+<p>깃으로 버전 관리를 시작하면 기본적으로 master라는 브랜치가 만들어진다.<br>
+사용자가 커밋할 때마다 master 브랜치는 최신 커밋을 가리킨다.<br>
+브랜치는 커밋을 가리키는 포인터와 비슷하다고 생각.<br></p>
+<p>새 브랜치를 만들면 기존에 저장한 파일을 master 브랜치에 그대로 유지하면서 기존 파일 내용을 수정하거나 새로운 기능을 구현할 파일을 만들 수 있다.<br>
+이렇게 master 브랜치에서 뻗어 나오는 새 브랜치를 만드는 것을 분기(branch)라고 한다.<br></p>
+<p>새 브랜치에 있던 파일을 원래 master 브랜치에 합칠 수 있다.<br>
+분기했던 브랜치를 master 브랜치에 합치는 것을 병합(merge)한다고 한다.<br></p>
+<p><img src="https://static.blex.me/image/2020/3/4/mCtDTbeENisAMgRrrB80.png" alt=""></p>
+<h3>브랜치 활용</h3>
+<p>아래는 깃 플로우를 설명하는 사진이다.<br>
+브랜치는 이렇게 사용하는구나 하고 넘어가자.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/gkDopuiousR9YsPDTGMo.png" alt=""></p>
+<h3>브랜치 만들기</h3>
+<h5>브랜치 확인하기</h5>
+<pre><code>git branch</code></pre>
+<p>master 브랜치는 저장소를 만들 때 기본적으로 만들어진다.<br></p>
+<h5>새로운 브랜치 만들기</h5>
+<pre><code>git branch "브랜치 이름"</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/ZsLneg30V6JBbIpPoLUM.png" alt=""></p>
+<p>master 앞의 *는 master 브랜치에서 작업하고 있다는 뜻이다.</p>
+<p><img src="https://static.blex.me/image/2020/3/4/5qbyR3qOTjrrOeSuGfkr.png" alt=""></p>
+<p>커밋 로그를 확인해보면,<br>
+(HEAD -&gt; master, show)로 바뀌었다.<br>
+저장소에 master, show 2개의 브랜치가 있고,<br>
+HEAD -&gt; master이므로 현재 작업 중인 브랜치는 master 브랜치라는 의미이다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/cKMP7bxGl6OghPsJ8KP7.png" alt=""></p>
+<p>이런 모습이다.</p>
+<h5>브랜치 사이 이동하기(git checkout)</h5>
+<p><img src="https://static.blex.me/image/2020/3/4/csh6JcGo1sFqOq3zy1xW.png" alt=""></p>
+<p><img src="https://static.blex.me/image/2020/3/4/vkCFlokTSiuYubNkBeHW.png" alt=""></p>
+<p>master 브랜치에서 test3.txt 파일을 새로 만들고 커밋을 했다.<br>
+로그에 master 브랜치는 최신 커밋을 가리킨다.<br>
+하지만 show2 브랜치와 show 브랜치는 이전 커밋인 a"를 가리킨다.<br></p>
+<pre><code>git checkout (이동할 브랜치 이름)</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/HGQ9d8FaGsljUV7d1hB8.png" alt=""></p>
+<p><img src="https://static.blex.me/image/2020/3/4/o1TOK8fZLMMkE4PMhC93.png" alt=""></p>
+<p>git checkout을 사용하면 master 브랜치에서 만든 master commit은 사라지고 a" 커밋을 최신 커밋으로 가리킨다.<br>
+master commit에서 만든 test3.txt 파일도 없다.<br></p>
+<h5>새 브런치에서 커밋하기</h5>
+<p><img src="https://static.blex.me/image/2020/3/4/NrHfoAW6RggYTL8X2XM2.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/FhqyaqnVxenYIohePPqc.png" alt=""></p>
+<h5>각 브랜치의 커밋 함께 보기</h5>
+<pre><code>git log --oneline --branches</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/k0FAAJ1OFHYVvNg9XDRD.png" alt=""></p>
+<p>각 브랜치의 커밋을 같이 볼 수 있다.</p>
+<pre><code>git log --oneline --branches --graph</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/APLg4eWfTSmefYAxaoYy.png" alt=""></p>
+<p>각 브랜치와 커밋의 관계를 그래프 형태로 볼 수 있다.</p>
+<h5>브랜치 사이의 차이점 알아보기</h5>
+<p>브랜치 이름 사이에 마침표 두개(..)를 넣으면 브랜치 간의 차이점을 쉽게 확인할 수 있다.<br>
+마침표 왼쪽에 있는 브랜치를 기준으로 오른쪽 브랜치와 비교한다.<br></p>
+<pre><code>git log master..show</code></pre>
+<p><img src="https://static.blex.me/image/2020/3/4/pu0toeVTFKoXRHJFpZen.png" alt=""></p>
+<p>이러면 master 브랜치에는 없고 show 브랜치에만 있는 커밋을 보여준다.</p>
+<h1>마치며</h1>
+<p>다음은 브랜치 병합에 대해 포스팅하겠습니다.</p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/branch">branch</a></li>
+            
+            <li><a href="/@mildsalmon/topic/modified">modified</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
+            'Git' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-gitignore?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - gitignore
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="r1Ph6zm8ayRsCl0eMCq0xSvGrnQXLXMzeXqrXcnw378txPPGcF9s6pwmGfDzwV68">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="공부를 통해 새로 알게된 부분 PyQt 사용자 정의 시그널 / 슬롯 함수는 argument 없이 함수 자체가 인자 값이 될 수 있다. 함수를 다른 함수의 argument로 사용할 수 있다. 콜백 함수 좀 더 공부해야하는 부분 파이썬 함수는 일급 함수이다. 일급 함수 부분 참고자료 PyQt 시그널 슬롯 (추가) 위키독스 PySide에서의 시그널과 슬롯 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-pyqt">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AAT_Phase 1. PyQt">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 PyQt 사용자 정의 시그널 / 슬롯 함수는 argument 없이 함수 자체가 인자 값이 될 수 있다. 함수를 다른 함수의 argument로 사용할 수 있다. 콜백 함수 좀 더 공부해야하는 부분 파이썬 함수는 일급 함수이다. 일급 함수 부분 참고자료 PyQt 시그널 슬롯 (추가) 위키독스 PySide에서의 시그널과 슬롯 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/20SCi4.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AAT_Phase 1. PyQt">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-pyqt">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 PyQt 사용자 정의 시그널 / 슬롯 함수는 argument 없이 함수 자체가 인자 값이 될 수 있다. 함수를 다른 함수의 argument로 사용할 수 있다. 콜백 함수 좀 더 공부해야하는 부분 파이썬 함수는 일급 함수이다. 일급 함수 부분 참고자료 PyQt 시그널 슬롯 (추가) 위키독스 PySide에서의 시그널과 슬롯 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/20SCi4.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>AAT_Phase 1. PyQt – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/13/20SCi4.png" alt="AAT_Phase 1. PyQt">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. PyQt</h1>
+            <p class="post-date fade-in">2020-03-13 20:00</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(438);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(438)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. PyQt&url=https://blex.me/@mildsalmon/aat_phase-1-pyqt" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-pyqt" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h2>공부를 통해 새로 알게된 부분</h2>
+<ul>
+<li>PyQt 사용자 정의 시그널 / 슬롯</li>
+<li>함수는 argument 없이 함수 자체가 인자 값이 될 수 있다.<ul>
+<li>함수를 다른 함수의 argument로 사용할 수 있다.</li>
+</ul>
+</li>
+<li>콜백 함수</li>
+</ul>
+<h2>좀 더 공부해야하는 부분</h2>
+<ul>
+<li>파이썬 함수는 일급 함수이다.<ul>
+<li>일급 함수 부분</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://static.blex.kr/image/2020/3/9/xweeQJpfXHdZJmekBvzx.png" alt=""></p>
+<h1>참고자료</h1>
+<p>PyQt 시그널 슬롯 (추가)</p>
+<p><a href="https://wikidocs.net/21876">위키독스</a></p>
+<p>PySide에서의 시그널과 슬롯</p>
+<p><a href="https://wiki.qt.io/Signals_and_Slots_in_PySide/ko">Signals and Slots in PySide/ko</a></p>
+<p>PyQt5 Tutorial - 파이썬으로 만드는 나만의 GUI 프로그램</p>
+<p><a href="http://codetorial.net/pyqt5/index.html">PyQt5 Tutorial - 파이썬으로 만드는 나만의 GUI 프로그램 - Codetorial</a></p>
+<p>[python] signal의 connect시 lambda 사용, callback함수,</p>
+<p><a href="http://blog.naver.com/PostView.nhn?blogId=21ahn&amp;logNo=221388594129&amp;from=search&amp;redirect=Log&amp;widgetTypeCall=true&amp;directAccess=false">[python] signal의 connect시 lambda 사용, callback함수,</a></p>
+<p>Callback(콜백 함수)에 대해서</p>
+<p><a href="https://guslabview.tistory.com/214">Callback(콜백 함수)에 대해서</a></p>
+<p>파이썬의 함수는? 이급이 아니라 일급</p>
+<p><a href="https://devdoggo.netlify.com/post/python/first_class_function/">DevDoggo</a></p>
+<p>[Python] 함수를 변수에 담아 사용하기</p>
+<p><a href="https://brownbears.tistory.com/107">[Python] 함수를 변수에 담아 사용하기</a></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-aat" class="text-decoration-none deep-dark">
+            '졸업작품 (AAT)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-learning-api?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>AAT_Phase 1. learning api
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="M608fXfohCS0Zm27BpUO4oqLcmMGelpaUd552jRDZpN0PhNFPkvJDPeoe3IvcYkq">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+
+
+    
+</body>
+</html>
