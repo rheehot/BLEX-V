@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="공부를 통해 새로 알게된 부분 PyQt GUI 프로그래밍을 할 때 사용하는 대표적인 패키지 / anaconda에 PyQt5 버전이 기본 패키지 구성요소 UI → 위젯 클래스의 객체를 생성해 만듬 이벤트 루프 → QApplication 객체에서 exec_ 메서드를 호출해 이벤트 루프 생성 사용자가 프로그램을 종료한다는 시그널을 보내기 전까지 시그널과 연결된 슬롯을 호출함으로써 이벤트 처리. …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-1">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AAT_Phase 1. GUI Programming using PyQt (1)">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 PyQt GUI 프로그래밍을 할 때 사용하는 대표적인 패키지 / anaconda에 PyQt5 버전이 기본 패키지 구성요소 UI → 위젯 클래스의 객체를 생성해 만듬 이벤트 루프 → QApplication 객체에서 exec_ 메서드를 호출해 이벤트 루프 생성 사용자가 프로그램을 종료한다는 시그널을 보내기 전까지 시그널과 연결된 슬롯을 호출함으로써 이벤트 처리. …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/14/23jeEo.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AAT_Phase 1. GUI Programming using PyQt (1)">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-1">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 PyQt GUI 프로그래밍을 할 때 사용하는 대표적인 패키지 / anaconda에 PyQt5 버전이 기본 패키지 구성요소 UI → 위젯 클래스의 객체를 생성해 만듬 이벤트 루프 → QApplication 객체에서 exec_ 메서드를 호출해 이벤트 루프 생성 사용자가 프로그램을 종료한다는 시그널을 보내기 전까지 시그널과 연결된 슬롯을 호출함으로써 이벤트 처리. …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/14/23jeEo.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>AAT_Phase 1. GUI Programming using PyQt (1) – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/14/23jeEo.png" alt="AAT_Phase 1. GUI Programming using PyQt (1)">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. GUI Programming using PyQt (1)</h1>
+            <p class="post-date fade-in">2020-03-14 23:13</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(446);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(446)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. GUI Programming using PyQt (1)&url=https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-1" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-1" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>공부를 통해 새로 알게된 부분</h1>
+<ul>
+<li>
+<p>PyQt</p>
+<ul>
+<li>GUI 프로그래밍을 할 때 사용하는 대표적인 패키지 / anaconda에 PyQt5 버전이 기본 패키지</li>
+<li>구성요소<ul>
+<li>UI → 위젯 클래스의 객체를 생성해 만듬</li>
+<li>이벤트 루프 → QApplication 객체에서 exec_ 메서드를 호출해 이벤트 루프 생성<ul>
+<li>사용자가 프로그램을 종료한다는 시그널을 보내기 전까지 시그널과 연결된 슬롯을 호출함으로써 이벤트 처리.</li>
+</ul>
+</li>
+<li>이벤트를 처리할 함수 / 메서드 구현 → (시그널 → 슬롯)<ul>
+<li>버튼 위젯을 클릭 → clicked 시그널(signal) 발생 → 슬롯(시그널이 발생했을 때 호출되는 함수 또는 메서드 / 콜백 함수(callback function)라고도 부름)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>위젯에서 발생하는 시그널에 대해 어떤 슬롯으로 처리할지에 대해 미리 등록 → 특정 위젯에서 시그널이 발생했을 때 이벤트 루프가 미리 연결된 슬롯을 자동으로 호출함.</li>
+<li>MyWindow 객체 생성, UI 구성, 슬롯의 구현, 시그널 - 슬롯 연결 모두 이벤트 루프를 생성하는 .exec_() 메서드 호출보다 먼저 수행되야함.</li>
+</ul>
+<p><img src="https://static.blex.kr/image/2020/3/13/qZf9GCYBHzpxriq2Rx8l.png" alt=""></p>
+<ul>
+<li>위젯의 종류에 따라 발생 가능한 기본 시그널이 정의.</li>
+<li>위젯은 UI를 구성하는 핵심 요소.</li>
+<li>모든 위젯이 최상위 위젯을 의미하는 윈도우가 될 수 있다. (but, 대부분의 프로그램은 QMainWindow, QDialog 클래스를 사용해 윈도우 생성.</li>
+<li>QPushButton과 같은 객체 생성 코드를 모두 MyWindow 클래스의 생성자에 넣을 수도 있지만, 따로 메서드로 구성해서 코드의 가독성을 높인다.</li>
+<li>btn1.clicked.connect(self.btn1_clicked)는 clicked(시그널)과 self.btn1_clicked(슬롯)을 연결하는 코드</li>
+<li>위젯<ul>
+<li>QPushButton<ul>
+<li>UI 구성시 가장 기본이 되는 위젯 / Y,N 같은 이벤트를 받는데 사용</li>
+<li>시그널<ul>
+<li>.clicked</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QCoreApplication.instance()<ul>
+<li>app 변수가 바인딩하고 있는 동일한 객체(QApplication 클래스의 인스턴스)를 얻어옴.</li>
+<li>메서드<ul>
+<li>.quit (종료)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QLabel<ul>
+<li>텍스트나 이미지 출력시 사용.</li>
+<li>인자값 = 1. 텍스트, 2. 부모</li>
+<li>메서드<ul>
+<li>.move(x,y) (객체가 출력되는 위치 조정), .resize(w,h) (크기 조정)</li>
+<li>.setText (QLabel 객체에 텍스트 출력)</li>
+<li>.clear (객체 텍스트 지우기)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QLineEdit<ul>
+<li>사용자로부터 간단한 텍스트(한 줄)를 입력받을 때 사용.</li>
+<li>인자값 = 1. 텍스트, 2. 부모</li>
+<li>시그널<ul>
+<li>.textChanged (객체에서 텍스트가 변경될 때마다 발생)</li>
+<li>.returnPressed (객체를 통해 사용자가 엔터를 눌렀을 때 발생)</li>
+</ul>
+</li>
+<li>메서드<ul>
+<li>.text (사용자가 입력한 문자열을 얻는다)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QStatusBar<ul>
+<li>어플리케이션의 상태를 알려주기 위해 어플리케이션의 하단에 위치하는 위젯</li>
+<li>self.setStatusBar(self.statusBar)로 활성화.</li>
+<li>메서드<ul>
+<li>.showMessage (텍스트 출력)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QGroupBox<ul>
+<li>제목이 있는 네모 박스 형태의 경계선을 만드는 데 사용</li>
+<li>메서드<ul>
+<li>.move(x,y) (객체가 출력되는 위치 조정), .resize(w,h) (크기 조정)</li>
+</ul>
+</li>
+<li>인자값 = 1. 출력될 문자열, 2.위젯이 출력될 부모 위젯</li>
+</ul>
+</li>
+<li>QRadioButton<ul>
+<li>사용자로부터 여러 가지 옵션 중 하나를 입력 받을 때 사용</li>
+<li>인자값 = 1. 출력될 문자열, 2.위젯이 출력될 부모 위젯</li>
+<li>메서드<ul>
+<li>.setChecked(True) (라디오 버튼의 초기 상태 설정)</li>
+<li>.isChecked (버튼이 체크 되었는지 확인)</li>
+</ul>
+</li>
+<li>시그널<ul>
+<li>.clicked</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QCheckBox<ul>
+<li>여러 옵션을 동시에 선택 가능.</li>
+<li>인자값 = 1. 표시될 텍스트, 2. 부모 위젯</li>
+<li>.move(x,y) (객체가 출력되는 위치 조정), .resize(w,h) (크기 조정)</li>
+<li>시그널<ul>
+<li>.stateChanged (선택이 변경되는 경우 발생)</li>
+</ul>
+</li>
+<li>메서드<ul>
+<li>.isChecked (위젯 객체가 선택된 상태인지 확인할 수 있음)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QSpinBox (정수값)<ul>
+<li>화살표로 값을 증가 / 감소, 출력하는 부분으로 구성</li>
+<li>인자값 = 1. 부모</li>
+<li>메서드<ul>
+<li>.move(x,y) (객체가 출력되는 위치 조정), .resize(w,h) (크기 조정)</li>
+<li>.setValue (초기값 설정)</li>
+<li>.setSingleStep (증가 / 감소하는 값의 양 설정)</li>
+<li>.setMinimum (값의 범위 지정 (최솟값))</li>
+<li>.setMaximum ( '' (최댓값))</li>
+</ul>
+</li>
+<li>시그널<ul>
+<li>.valueChanged (QSpinBox의 값이 변경될 때 자동으로 발생)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QTableWidget<ul>
+<li>데이터를 행과 열로 표시해서 쉽게 파악할 수 있음.</li>
+<li>인자값 = 1. 부모</li>
+<li>메서드<ul>
+<li>.resize(w,h) (크기 조정)</li>
+<li>.setRowCount (행의 갯수 지정)</li>
+<li>.setColumnCount (열의 갯수 지정)</li>
+<li>.setItem (QTableWidgetItem 객체 삽입)<ul>
+<li>인자값 = 1. 행에 대한 인덱스, 2. 열에 대한 인덱스, 3. QTableWidgetItem 객체</li>
+</ul>
+</li>
+<li>.setEditTriggers ( QTableWidget의 아이템 항목을 수정할 수 없도록 설정) → self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)</li>
+<li>.setHorizontalHeaderLabels(컬럼 라벨) (column에 대한 라벨 설정)</li>
+<li>.setVerticalHeaderLabels(로우 라벨) (Row에 대한 라벨 설정)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QTableWidgetItem<ul>
+<li>QTableWidget에 아이템으로 삽입하려면, 데이터를 QTableWidgetItem 객체로 만들어야함.</li>
+<li>메서드<ul>
+<li>.setTextAlignment(Qt.AlignVCenter | Qt.AlignRight) (우측 정렬)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Qt Designer</p>
+<ul>
+<li>Qt의 컴포넌트를 이용해 GUI를 설계하는 전용 툴</li>
+<li>ui(XML) → py<ul>
+<li>anaconda3\lib\site-packages\PyQt5\uic → 명령창 → python -m PyQt5.uic.pyioc -x name.ui -o name.py<ul>
+<li>ui 변경시마다 일일히 변환해야하고, 수정이 불편</li>
+</ul>
+</li>
+<li>파이썬 코드 안에 ui파일을 파이썬 코드로 변환하는 모듈 추가해서 컨트롤 (MyWindow는 다중 상속)<ul>
+<li>from PyQt5 import uic / form_class = uic.loadUiType('name.ui')[0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>이벤트 처리 → Qt Designer → Property Editor → objectName ⇒ 파이썬 코드에서 objectName으로 해당 객체에 접근.</li>
+</ul>
+</li>
+<li>
+<p>Col 열 / Row 행</p>
+</li>
+<li>
+<p>메소드 = 클래스 내부에 위치한 함수, 함수 = 클래스 외부에 위치한 함수.</p>
+</li>
+</ul>
+<h1>좀 더 공부해야하는 부분</h1>
+<ul>
+<li>PyQt 위젯 → 시그널, 메서드</li>
+</ul>
+<h1>한줄평</h1>
+<ul>
+<li>PyQt의 다양한 위젯에 당황했다. 시그널은 많이 알수록 활용도가 높아질 듯 하다. 일단 기초적으로 필기한거 위주로 사용해보고 Document를 보면서 시그널만 따로 블로그에 정리하는 것도 좋은 방법일 것 같다.</li>
+</ul>
+<h1>오늘 작성한 코드</h1>
+<p><a href="https://github.com/mildsalmon/AAT/commit/a896a52cc9d3cbb2c34028b298fc7af46a568e67">learning signal of PyQt · mildsalmon/AAT@a896a52</a></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-aat" class="text-decoration-none deep-dark">
+            '졸업작품 (AAT)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1visualization-of-data-using-matplotlib?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1.Visualization of data using matplotlib
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="ao0mIlMM5UVws8Uhqz1Uw2RJlAW6gfOvuXSBo0vGtLBh52ayWnDGpsIYdjS8C7Lc">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+
+
+    
+</body>
+</html>

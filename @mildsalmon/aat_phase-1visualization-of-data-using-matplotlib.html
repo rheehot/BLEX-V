@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="공부를 통해 새로 알게된 부분 matplotlib은 파이썬에서 2차원 그래프를 그릴 때 사용. pyplot 모듈은 매트랩과 비슷한 형태로 그래프를 그리는 기능 제공 plot → 라인 플룻을 그리는 함수 문자 색상 b blue(파란색) g green(녹색) r red(빨간색) c cyan(청록색) m magenta(마젠타색) y yellow(노란색) k black(검은색) w white(흰색) 마커 의미 o circle(원) v …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1visualization-of-data-using-matplotlib">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AAT_Phase 1.Visualization of data using matplotlib">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 matplotlib은 파이썬에서 2차원 그래프를 그릴 때 사용. pyplot 모듈은 매트랩과 비슷한 형태로 그래프를 그리는 기능 제공 plot → 라인 플룻을 그리는 함수 문자 색상 b blue(파란색) g green(녹색) r red(빨간색) c cyan(청록색) m magenta(마젠타색) y yellow(노란색) k black(검은색) w white(흰색) 마커 의미 o circle(원) v …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/14/23om9j.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AAT_Phase 1.Visualization of data using matplotlib">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1visualization-of-data-using-matplotlib">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 matplotlib은 파이썬에서 2차원 그래프를 그릴 때 사용. pyplot 모듈은 매트랩과 비슷한 형태로 그래프를 그리는 기능 제공 plot → 라인 플룻을 그리는 함수 문자 색상 b blue(파란색) g green(녹색) r red(빨간색) c cyan(청록색) m magenta(마젠타색) y yellow(노란색) k black(검은색) w white(흰색) 마커 의미 o circle(원) v …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/14/23om9j.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>AAT_Phase 1.Visualization of data using matplotlib – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/14/23om9j.png" alt="AAT_Phase 1.Visualization of data using matplotlib">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1.Visualization of data using matplotlib</h1>
+            <p class="post-date fade-in">2020-03-14 23:11</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(445);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(445)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1.Visualization of data using matplotlib&url=https://blex.me/@mildsalmon/aat_phase-1visualization-of-data-using-matplotlib" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1visualization-of-data-using-matplotlib" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>공부를 통해 새로 알게된 부분</h1>
+<ul>
+<li>
+<p>matplotlib은 파이썬에서 2차원 그래프를 그릴 때 사용.</p>
+<ul>
+<li>
+<p>pyplot 모듈은 매트랩과 비슷한 형태로 그래프를 그리는 기능 제공</p>
+<ul>
+<li>
+<p>plot → 라인 플룻을 그리는 함수</p>
+<pre><code>  문자  색상
+  b  blue(파란색)
+  g  green(녹색)
+  r  red(빨간색)
+  c  cyan(청록색)
+  m  magenta(마젠타색)
+  y  yellow(노란색)
+  k  black(검은색)
+  w  white(흰색)
+
+  마커  의미
+  o  circle(원)
+  v  triangle_down(역 삼각형)
+  ^  triangle_up(삼각형)
+  s  square(네모)
+  +  plus(플러스)
+  .  point(점)</code></pre>
+<ul>
+<li>
+<p>label 인자를 통해 라벨 지정 → label을 통해 전달하는 문자열이 범례에 표시</p>
+</li>
+<li>
+<p>범례는 legend 함수를 통해 추가</p>
+</li>
+<li>
+<p>loc 인자로 범례 표시 위치 지정.</p>
+<p>Location String Location Code
+‘best’ 0
+‘upper right’  1
+‘upper left’   2
+‘lower left’   3
+‘lower right’  4
+‘right’    5
+‘center left’  6
+‘center right’ 7
+‘lower center’ 8
+‘upper center’ 9
+‘center’   10</p>
+</li>
+</ul>
+</li>
+<li>
+<p>.show() → 출력함수</p>
+<ul>
+<li>한 객체당 show는 한번</li>
+</ul>
+</li>
+<li>
+<p>add_subplot → 한 화면에 여러 개의 그래프 그리기 (ax = fig.add_subplot(2,1,1))</p>
+<ul>
+<li>figure 함수로 Figure 객체 만들어야함.</li>
+<li>subplot의 개수 = add_subplot 메서드의 인자를 통해 조정<ul>
+<li>(2, 1, 1)은 2x1행렬 중 1번 subplot</li>
+</ul>
+</li>
+<li>add_subplot 메서드 호출하면 AxesSubplot 객체 생성<ul>
+<li>Axes는 하나의 subplot과 유사한 개념</li>
+</ul>
+</li>
+<li>ax.plot(x,y) , <a href="http://ax.bar">ax.bar</a>(x,y) → plot 함수 (선) , bar 함수 (막대) 를 호출해서 그래프를 그림</li>
+<li>Axes 객체는 set_xlabel, set_ylabel 메서드를 통해 x축과 y축에 라벨 설정</li>
+</ul>
+</li>
+<li>
+<p>matplotlib의 Figure 객체의 구성</p>
+<p><img src="https://static.blex.kr/image/2020/3/12/KG3h77KsbhdbkTjLNZo0.png" alt=""></p>
+<ul>
+<li>matplotlib로 그래프를 그리려면 Figure 객체와 하나 이상의 subplot(Axes) 객체 필요<ul>
+<li>Axes 객체는 두 개의 Axis 객체 포함<ul>
+<li>Axis 객체는 x축, y축</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>인자값 → figsize=(12,8)로 Figure 객체의 크기 조정</li>
+</ul>
+</li>
+<li>
+<p>Figure 객체 생성, 이 객체에 여러 개의 AxesSubplot 객체 생성을 한번에 하려면. → plt.subplots 사용 / fig, ax_list = plt.subplots(2,2)  → Figure 객체와 2x2 그리드 형태의 AxesSubplot 객체 생성</p>
+</li>
+<li>
+<p>Figure 객체나 AxesSubplot 객체를 명시적으로 생성하지 않고 그래프 그릴 수 있음.</p>
+<ul>
+<li>plt.plot 함수가 자동으로 가장 최근에 생성된 Figure 객체를 찾고 해당 객체 내의 AxesSubplot에 그래프를 그리기 때문 / Figure, AxesSubplot 객체가 없다면 새로 생성</li>
+</ul>
+</li>
+<li>
+<p>subplot2grid 함수</p>
+<ul>
+<li>크기가 서로 다른 두 개의 AxesSubplot 객체 생성<ul>
+<li>주식 데이터는 높이보다 너비를 길게 설정하는 것이 보기 편리함.</li>
+</ul>
+</li>
+<li>subplot의 위치나 크기를 조절할 때 사용</li>
+<li>인자값 / 1. 4x4 grid 모양, 2. grid에서 (0, 0) 위치하는 grid를 의미, 3. grid가 행 방향으로 3개만큼 걸침, 4. grid가 열 방향으로 4개만큼 걸침  / top_axes = plt.subplot2grid((4,4), (0,0), rowspan=3, colspan=4)</li>
+</ul>
+</li>
+<li>
+<p>AxesSubplot 객체</p>
+<ul>
+<li>bottom_axes.get_yaxis().get_major_formatter().set_scientific(False) → 큰 거래량 값이 발생할 때 그 값을 오일러 상수의 지수 형태로 표현되지 않게 해줌</li>
+<li>.text 함수 → bar 차트의 각 bar에 등락률 데이터 출력<ul>
+<li>인자값 → 1. text가 출력되는 x축 위치, 2. text가 출력되는 y축 위치, 3. 실제로 표시될 값, ha = 수평 방향으로 정렬, va = 수직 방향으로 정렬</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>.tight_layout() → subplot 들이 Figure 객체의 영역 내에서 자동으로 최대 크기로 출력하게 해주는 함수</p>
+</li>
+<li>
+<p>bar 함수 → 수직 방향 bar 차트</p>
+</li>
+<li>
+<p>barh 함수 → 수평 방향의 bar 차트 (rects)</p>
+<ul>
+<li>인자값 → 1. bar가 그려질 위치, 2. 각 bar에 대한 수치, ← 1,2 번은 리스트 형식으로 전달, align = bar 차트에서 bar의 정렬 위치, height = 수평 bar 차트의 높이</li>
+<li>rect<ul>
+<li>.get_width() = 각 bar의 너비(길이)</li>
+<li>.get_y() = bar가 출력된 y축 위치</li>
+<li>.get_height() = bar 높이(세로 길이)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>yticks(위치, 출력값), xticks(위치, 출력값) 함수로 ticker 표시 가능</p>
+</li>
+<li>
+<p>pie 함수 → pie 차트</p>
+<ul>
+<li>인자값 → 1. 각 범주가 데이터에서 차지하는 비율, 2. 범주, shadow = 그림자 설정, startangle = 첫 번째 pie의 시작 각도 / pie 차트를 4사분면으로 나눠서 +x축이 0도, explode = 각 범주에 확대 값 리스트, colors = 지정 색 리스트, autopct = 각 범주가 데이터에서 차지하는 비율 출력.</li>
+<li>특정 pie 확대 → 각 범주에 확대 값을 리스트로 전달</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ticker 모듈 → matplotlib.ticker</p>
+<ul>
+<li>
+<p>x축과 y축에 표시되는 값을 ticker라 부름</p>
+</li>
+<li>
+<p>ticker를 설정하려면 ticker의 위치, 위치에서 출력될 값이 필요</p>
+</li>
+<li>
+<p>x축은 날짜를 의미 → x축 ticker</p>
+<ul>
+<li>
+<p>set_major_locator → 위치(일정하게 증가하는 정수값)를 설정하는 함수 / set_major_formatter → 출력되는 값(수정할 값 : 날짜)을 설정하는 함수</p>
+</li>
+<li>
+<p>ticker.FixedLocator, ticker.FixedFormatter 은 고정 위치, 고정 포매팅을 의미</p>
+<p>ax.xaxis.set_major_locator(ticker.FixedLocator(day_list))
+ax.xaxis.set_major_formatter(ticker.FixedFormatter(name_list))</p>
+</li>
+</ul>
+</li>
+<li>
+<p>pyplot 모듈의 yticks(위치, 출력값), xticks(위치, 출력값) 함수로 대체 가능</p>
+</li>
+</ul>
+</li>
+<li>
+<p>font_manager, rc 모듈 → 그래프를 그릴 때 한글 폰트 설정시 사용.</p>
+</li>
+<li>
+<p>style 모듈 → 스타일 변경시 사용</p>
+<ul>
+<li>수치 값이 bar 차트에 출력되도록 설정</li>
+<li>그래프의 style을 변경하는 코드는 그래프를 출력(.show())하기 전에 수행해야함.</li>
+<li>스타일은 ggplot 말고 많음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>mpl_finance 모듈 —최신—&gt; mplfinance</p>
+<ul>
+<li>candlestick2_ohlc 함수 → 봉차트</li>
+<li>Figure 객체, AxesSubplot 객체를 만들고 candlestick2_ohlc 함수 호출</li>
+<li>인자값 / 1. AxesSubplot 객체, 2~5. 시가, 고가, 저가, 종가, width = 봉 몸통의 너비 조절, colorup = 양봉 색, colordown = 음봉 색</li>
+<li>mpl_finance 모듈은 20년 중순쯤 지원이 중단.</li>
+<li>최신 버전은 mplfinance는 matplotlib.pyplot이 동시에 지원.</li>
+<li>기존 봉 차트를 만들려면 from mplfinance.original_flavor import candlestick2_ohlc</li>
+</ul>
+</li>
+<li>
+<p>Matlab</p>
+<ul>
+<li>Mathworks에서 개발</li>
+<li>공학 및 과학 문제 해결에 최적화된 프로그래밍 환경으로서 다양한 분야에서 사용</li>
+<li>공학이나 과학 분야에서 주로 사용되는 프로그래밍 언어</li>
+</ul>
+</li>
+<li>
+<p>sin, cos 그래프의 값의 범위는 실수라서 range 대신 numpy 모듈의 arange 사용</p>
+</li>
+<li>
+<p>주식 차트</p>
+<ul>
+<li>캔들 스틱 차트 (봉 차트)</li>
+<li>bar 차트 (막대 그래프)</li>
+<li>pie 차트 (원형 차트)</li>
+</ul>
+</li>
+<li>
+<p>pandas_datareader.data의 Datareader 함수를 통해 얻어온 DataFrame 객체에는 날짜 정보가 저장.</p>
+<ul>
+<li>.index는 DataFrame 객체 날짜 정보 저장. —type—&gt; <code>&lt;class 'pandas.core.indexes.datetimes.DatetimeIndex'&gt;</code></li>
+<li>.index[0]은 디테일한 날짜, 시간정보 저장 —type—&gt; <code>&lt;class 'pandas._libs.tslibs.timestamps.Timestamp'&gt;</code><ul>
+<li>Pandas의 Timestamp 객체<ul>
+<li>strtime 메서드에 출력 포멧 전달해서 문자열로 변환 가능</li>
+<li>dayofweek 속성으로 요일을 받아올 수 있음, 0 - 6 → 월 - 일</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>좀 더 공부해야하는 부분</h1>
+<ul>
+<li>pandas_datareader</li>
+<li>matplotlib<ul>
+<li>차트는 꼭 필요한 부분이다. 최소한이라도 공부해서 활용할 줄 알아야 한다.</li>
+</ul>
+</li>
+</ul>
+<h1>한줄평</h1>
+<p>오늘은 모듈 설치하고 실행하는 부분에서 에러가 진짜 많이 발생했다. 책에 나온 모듈이 중단되고 최신 모듈이 나오니 최신 모듈로 사용하라거나. 잘 작동하던 pandas_datareader가 warning을 뱉어내질 않나.. 어찌저찌 해결은 다 했다. mpl_finance 모듈은 최신 버전인 mplfinance를 document를 읽으면서 공부해야 할 듯 하고, pandas_datareader가 뱉어내는 warning은 제작사 측에서 수정을 해줘야한다. 그렇다고 무작정 경고 메세지를 보면서 기다리는건 찝찝해서 임시 방편으로나마 코드를 수정했다. 영어를 진짜 할줄 알아야 한다는 걸 느꼈다. 갑자기 뱉어내는 최신 에러들은 한국어로도 자료가 없다.</p>
+<h1>오늘 작성한 코드</h1>
+<p><a href="https://github.com/mildsalmon/AAT/commit/5e880290d1d71be7d51c0fbe17f2a712bdb8b6e1">Learned the matplotlib · mildsalmon/AAT@5e88029</a></p>
+<h1>참고자료</h1>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-aat" class="text-decoration-none deep-dark">
+            '졸업작품 (AAT)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/200311_back-testing-with-pandas-and-zipline?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1. Back-testing with pandas and zipline
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-1?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>AAT_Phase 1. GUI Programming using PyQt (1)
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="gaOlDDzAOQH5fgWYeiEQWMMKi1xMVfOwFZp9fTc76iEADHzmbS16ZPvFZPGUNzIK">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+
+
+    
+</body>
+</html>
