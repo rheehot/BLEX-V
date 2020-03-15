@@ -21,11 +21,11 @@
     gtag('config', 'UA-113864080-4');
     </script>
     
-<meta name="description" content="브랜치 병합 (merge) 브랜치 작업이 마무리되면 기존 브랜치와 합해야 한다. 빨간 박스는 Vim 편집기 화면이다. 빨리 감기 병합 master 브랜치에서 브랜치를 분기한 후에 master 브랜치에 아무 변화가 없다면, 분기한 브랜치에서 만든 최신 커밋을 master 브랜치가 가리키게만 하면 되기 때문에 브랜치 병합이 간단하다. Fast-forward라는 메시지가 나와서 빨리 감기 병합(fast-forward merge)라고 부른다. …">
+<meta name="description" content="브랜치 병합 (merge) 브랜치 작업이 마무리되면 기존 브랜치와 합해야 한다. git merge (브랜치 이름) 빨간 박스는 Vim 편집기 화면이다. 빨리 감기 병합 master 브랜치에서 브랜치를 분기한 후에 master 브랜치에 아무 변화가 없다면, 분기한 브랜치에서 만든 최신 커밋을 master 브랜치가 가리키게만 하면 되기 때문에 브랜치 병합이 간단하다. Fast-forward라는 메시지가 나와서 빨리 …">
 <meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EB%B3%91%ED%95%A9">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Git 정리 - 버전 관리 - Branch - 병합">
-<meta property="og:description" content="브랜치 병합 (merge) 브랜치 작업이 마무리되면 기존 브랜치와 합해야 한다. 빨간 박스는 Vim 편집기 화면이다. 빨리 감기 병합 master 브랜치에서 브랜치를 분기한 후에 master 브랜치에 아무 변화가 없다면, 분기한 브랜치에서 만든 최신 커밋을 master 브랜치가 가리키게만 하면 되기 때문에 브랜치 병합이 간단하다. Fast-forward라는 메시지가 나와서 빨리 감기 병합(fast-forward merge)라고 부른다. …">
+<meta property="og:description" content="브랜치 병합 (merge) 브랜치 작업이 마무리되면 기존 브랜치와 합해야 한다. git merge (브랜치 이름) 빨간 박스는 Vim 편집기 화면이다. 빨리 감기 병합 master 브랜치에서 브랜치를 분기한 후에 master 브랜치에 아무 변화가 없다면, 분기한 브랜치에서 만든 최신 커밋을 master 브랜치가 가리키게만 하면 되기 때문에 브랜치 병합이 간단하다. Fast-forward라는 메시지가 나와서 빨리 …">
 <meta property="og:site_name" content="BLEX">
 <meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/14/21NQPQ.jpg">
 <meta property="og:locale" content="ko_KR">
@@ -33,13 +33,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 정리 - 버전 관리 - Branch - 병합">
 <meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-branch-%EB%B3%91%ED%95%A9">
-<meta name="twitter:description" content="브랜치 병합 (merge) 브랜치 작업이 마무리되면 기존 브랜치와 합해야 한다. 빨간 박스는 Vim 편집기 화면이다. 빨리 감기 병합 master 브랜치에서 브랜치를 분기한 후에 master 브랜치에 아무 변화가 없다면, 분기한 브랜치에서 만든 최신 커밋을 master 브랜치가 가리키게만 하면 되기 때문에 브랜치 병합이 간단하다. Fast-forward라는 메시지가 나와서 빨리 감기 병합(fast-forward merge)라고 부른다. …">
+<meta name="twitter:description" content="브랜치 병합 (merge) 브랜치 작업이 마무리되면 기존 브랜치와 합해야 한다. git merge (브랜치 이름) 빨간 박스는 Vim 편집기 화면이다. 빨리 감기 병합 master 브랜치에서 브랜치를 분기한 후에 master 브랜치에 아무 변화가 없다면, 분기한 브랜치에서 만든 최신 커밋을 master 브랜치가 가리키게만 하면 되기 때문에 브랜치 병합이 간단하다. Fast-forward라는 메시지가 나와서 빨리 …">
 <meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/14/21NQPQ.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Git 정리 - 버전 관리 - Branch - 병합 – mildsalmon</title>
@@ -53,7 +53,7 @@
         <img src="https://static.blex.me/title/mildsalmon/2020/3/14/21NQPQ.jpg" alt="Git 정리 - 버전 관리 - Branch - 병합">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - Branch - 병합</h1>
-            <p class="post-date fade-in">2020-03-14 21:28<span>(Last Update: 2020-03-14 21:30)<span></span></span></p>
+            <p class="post-date fade-in">2020-03-14 21:28<span>(Last Update: 2020-03-15 09:38)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -151,6 +151,7 @@
         <article class="article noto">
             <h1>브랜치 병합 (merge)</h1>
 <p>브랜치 작업이 마무리되면 기존 브랜치와 합해야 한다.</p>
+<pre><code>git merge (브랜치 이름)</code></pre>
 <p><img src="https://static.blex.me/image/2020/3/5/Ca6znWMCe5RJsbPYqjGr.png" alt=""></p>
 <p>빨간 박스는 Vim 편집기 화면이다.</p>
 <p><img src="https://static.blex.me/image/2020/3/5/9boSV2QwG0I8NvR4jWix.png" alt=""></p>
@@ -255,13 +256,11 @@ show6<br>
         </article>
         <ul class="tag-list noto">
             
-            <li><a href="/@mildsalmon/topic/branch">branch</a></li>
-            
-            <li><a href="/@mildsalmon/topic/%EB%B3%91%ED%95%A9">병합</a></li>
+            <li><a href="/@mildsalmon/topic/merge">merge</a></li>
             
             <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
             
-            <li><a href="/@mildsalmon/topic/modified">modified</a></li>
+            <li><a href="/@mildsalmon/topic/branch">branch</a></li>
             
         </ul>
         
@@ -310,7 +309,7 @@ show6<br>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="9HTBop72stQPr8SEijulXTiT9P6Hy8mdXsIplfzE3kdZzcb4ZyFL9nuH6d2yZWaP">
+            <input type="hidden" name="csrfmiddlewaretoken" value="r7J6YqNSdbrdL02IojD5JfAkClXo4K1c3QEsn8vNcfMTppknPSHLZ2fd66ALvucP">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -330,10 +329,10 @@ show6<br>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=2"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -353,7 +352,7 @@ show6<br>
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?version=1.0.57"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=2"></script>
 
 
     

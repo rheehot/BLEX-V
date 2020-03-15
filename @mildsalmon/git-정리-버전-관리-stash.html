@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git statsh save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-stash">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Git 정리 - 버전 관리 - stash">
+<meta property="og:description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git statsh save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/15/9VB8S.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 정리 - 버전 관리 - stash">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-stash">
+<meta name="twitter:description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git statsh save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/15/9VB8S.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=2">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Git 정리 - 버전 관리 - stash – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/15/9VB8S.jpg" alt="Git 정리 - 버전 관리 - stash">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in">Git 정리 - 버전 관리 - stash</h1>
+            <p class="post-date fade-in">2020-03-15 09:36<span>(Last Update: 2020-03-15 09:37)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(447);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(447)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 버전 관리 - stash&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-stash" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-stash" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>수정 중인 파일 감추기 및 되돌리기 git stash</h1>
+<p>브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다.<br>
+커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다.<br></p>
+<pre><code>git statsh save
+git stash</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/YbrS6ennHixZwn7RC17C.png" alt=""></p>
+<h3>git stash list</h3>
+<p>stash를 사용하면 stash@{} 스택에 저장된다.<br>
+stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 데이터가 밑으로 가고 0번에 새로운 데이터가 쌓인다.<br></p>
+<pre><code>git stash list</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/d1L5tdMEdaqk41jKx6h5.png" alt=""></p>
+<h3>파일 꺼내오기</h3>
+<p>파일을 계속 수정하거나 커밋하려면 파일을 꺼내야한다.</p>
+<pre><code>git stash pop</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/pLRaSYyqdzt6JCjtswJS.png" alt=""></p>
+<p>다른 브랜치의 파일은 꺼낼 수 없다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/6/G9glHBSjUYuMFpv2evHF.png" alt=""></p>
+<h3>수정된 파일을 그대로 두고 pop</h3>
+<p>stash 목록에 저장된 수정 내용을 나중에 또 사용할지도 모를때 사용.<br>
+stash 목록에서 가장 최근 항목을 되돌리지만 저장했던 내용은 그대로 남긴다.<br></p>
+<pre><code>git stash apply</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/NfTcmluH43vG0F7I5vYA.png" alt=""></p>
+<p>t1.txt 파일을 커밋하고<br>
+pop을 하면 t1.txt 파일은 병합된다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/6/6d4e2MB5MYzAa4mD0S4A.png" alt=""></p>
+<h3>drop</h3>
+<p>stash 목록에서 가장 최근 파일을 삭제할 수 있다.</p>
+<pre><code>git stash drop</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/6/0bdP19nWaWlUjxnvkNn2.png" alt=""></p>
+<h1>마치며</h1>
+<p>다음은 백업에 대해 포스팅하겠습니다.</p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/stash">stash</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
+            
+            <li><a href="/@mildsalmon/topic/branch">branch</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="90JAnexKvc1Qq9hbVYBfhw3U4FGv0AKxvqnS7Wgrk7cOBLPE4xGijPDltbrWGZvk">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=2"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=2"></script>
+
+
+    
+</body>
+</html>

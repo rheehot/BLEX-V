@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?version=1.0.57">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>BLEX - Join us</title>
@@ -59,24 +59,25 @@
     <div class="container">
         <div class="content">
         
-<div class="p-3 col-lg-5 mx-auto s-shadow rounded">
+<video class="login-video" autoplay loop muted src="https://static.blex.me/assets/images/login.mp4"></video>
+<div class="p-3 col-lg-5 col-md-8 mx-auto login-cover">
     <div class="text-center">
-        <div class="account-title">BLOG EXPRESS ME</div>
-        <div class="account-subtitle">— Join Us —</div>
+        <div class="login-title">Join Us</div>
+        <div class="login-desc">BLOG EXPRESS ME</div>
     </div>
     
     <form method="post">
-        <input type="hidden" name="csrfmiddlewaretoken" value="X9VzI2oONT8jSBMK7H2FQnO8NJBvhkIVTKmggvlkE0Cs3eG3HSLoBqYCm4AWqtuz">
-        <p><input type="text" name="username" class="form-control" id="id_username" maxlength="150" placeholder="아이디(필명)" required></p>
-        <div id="idCheck" role="alert"></div>
-        <p><input type="password" name="password" class="form-control" id="id_password" maxlength="128" placeholder="비밀번호" required></p>
-        <p><input type="password" name="password_check" class="form-control" id="id_password_check" maxlength="200" placeholder="비밀번호 확인" required></p>
-        <p><input type="text" name="first_name" class="form-control" id="id_first_name" maxlength="30" placeholder="이름"></p>
-        <p><input type="text" name="email" class="form-control" id="id_email" maxlength="254" placeholder="이메일 주소"></p>
-        <div class="alert alert-warning" role="alert">
+        <input type="hidden" name="csrfmiddlewaretoken" value="VbD2zHsF5M8qXJdxbdbX2oTUVbFKiKh1omxRQ8C40BuI8aeAqp8o95cRhXJqk0D9">
+        <p><input type="text" name="username" id="id_username" required placeholder="아이디(필명)" class="login-form" maxlength="150"></p>
+        <div id="idCheck" class="noto" role="alert"></div>
+        <p><input type="password" name="password" id="id_password" required placeholder="비밀번호" class="login-form" maxlength="128"></p>
+        <p><input type="password" name="password_check" id="id_password_check" required placeholder="비밀번호 확인" class="login-form" maxlength="200"></p>
+        <p><input type="text" name="first_name" id="id_first_name" placeholder="이름" maxlength="30" class="login-form" required></p>
+        <p><input type="email" name="email" id="id_email" placeholder="이메일 주소" maxlength="254" class="login-form" required></p>
+        <div class="alert alert-warning noto" role="alert">
             입력한 메일로 인증 메일을 발송합니다.
         </div>
-        <button type="submit" class="btn btn-dark btn-block">회원가입</button>
+        <button type="submit" class="login-button">회원가입</button>
     </form>
 </div>
 
@@ -92,10 +93,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?version=1.0.57"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?version=1.0.57"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?version=1.0.57"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?version=1.0.57"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=2"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
