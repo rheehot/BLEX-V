@@ -21,20 +21,20 @@
     gtag('config', 'UA-113864080-4');
     </script>
     
-<meta name="description" content="공부를 통해 새로 알게된 부분 connect 이벤트와 이벤트 처리 메서드를 연결 dynamicCall OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다. dynamicCall 메서드의 인자로 호출하려는 메서드를 전달 인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다. Kiwoom Open API는 고유 CLSID와 ProgID를 가진다 QAxWidget …">
-<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-learning-api">
+<meta name="description" content="공부를 통해 새로 알게된 부분 레이아웃 (GUI 프로그램에서 위젯을 배치하는 것) resize, move, setGeometry 메서드를 이용해 위젯의 출력 위치를 설정(명시적 설정) → 윈도우 크기 변경시 문제가 있음. 레이아웃 매니저 위젯 만들기 (self.pushButton = QPushButton(&quot;&quot;)) , 2. 레이아웃 매니저 만들기 (layout = 레이아웃 매니저()), 3. addWidget 메서드를 이용한 위젯 등록 (layout.addWidget(self.pushButton)), …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-2">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="AAT_Phase 1. learning api">
-<meta property="og:description" content="공부를 통해 새로 알게된 부분 connect 이벤트와 이벤트 처리 메서드를 연결 dynamicCall OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다. dynamicCall 메서드의 인자로 호출하려는 메서드를 전달 인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다. Kiwoom Open API는 고유 CLSID와 ProgID를 가진다 QAxWidget …">
+<meta property="og:title" content="AAT_Phase 1. GUI Programming using PyQt (2)">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 레이아웃 (GUI 프로그램에서 위젯을 배치하는 것) resize, move, setGeometry 메서드를 이용해 위젯의 출력 위치를 설정(명시적 설정) → 윈도우 크기 변경시 문제가 있음. 레이아웃 매니저 위젯 만들기 (self.pushButton = QPushButton(&quot;&quot;)) , 2. 레이아웃 매니저 만들기 (layout = 레이아웃 매니저()), 3. addWidget 메서드를 이용한 위젯 등록 (layout.addWidget(self.pushButton)), …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/20Ihn2.png">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/16/22aIRt.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="mildsalmon">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AAT_Phase 1. learning api">
-<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-learning-api">
-<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 connect 이벤트와 이벤트 처리 메서드를 연결 dynamicCall OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다. dynamicCall 메서드의 인자로 호출하려는 메서드를 전달 인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다. Kiwoom Open API는 고유 CLSID와 ProgID를 가진다 QAxWidget …">
-<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/13/20Ihn2.png">
+<meta name="twitter:title" content="AAT_Phase 1. GUI Programming using PyQt (2)">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-2">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 레이아웃 (GUI 프로그램에서 위젯을 배치하는 것) resize, move, setGeometry 메서드를 이용해 위젯의 출력 위치를 설정(명시적 설정) → 윈도우 크기 변경시 문제가 있음. 레이아웃 매니저 위젯 만들기 (self.pushButton = QPushButton(&quot;&quot;)) , 2. 레이아웃 매니저 만들기 (layout = 레이아웃 매니저()), 3. addWidget 메서드를 이용한 위젯 등록 (layout.addWidget(self.pushButton)), …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/16/22aIRt.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
-    <title>AAT_Phase 1. learning api – mildsalmon</title>
+    <title>AAT_Phase 1. GUI Programming using PyQt (2) – mildsalmon</title>
 </head>
 <body>
     
@@ -50,10 +50,10 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/3/13/20Ihn2.png" alt="AAT_Phase 1. learning api">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/16/22aIRt.png" alt="AAT_Phase 1. GUI Programming using PyQt (2)">
         <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. learning api</h1>
-            <p class="post-date fade-in">2020-03-13 20:03</p>
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. GUI Programming using PyQt (2)</h1>
+            <p class="post-date fade-in">2020-03-16 22:49</p>
         </div>
     </picture>
 </div>
@@ -93,10 +93,10 @@
     <div class="share">
         <ul class="px-3">
             <li class="mx-4">
-                <a id="heart" href="javascript:void(0);" onclick="Posts.like(439);">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(450);">
                     <i class="far fa-heart"></i>
                 </a>
-                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(439)">0<a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(450)">0<a>
             </a></a></li>
             
             <li class="mx-4">
@@ -107,12 +107,12 @@
             </li>
             
             <li class="mx-4">
-                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. learning api&url=https://blex.me/@mildsalmon/aat_phase-1-learning-api" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. GUI Programming using PyQt (2)&url=https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-2" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fab fa-twitter"></i>
                 </a>
             </li>
             <li class="mx-4">
-                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-learning-api" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-2" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                     <i class="fab fa-facebook"></i>
                 </a>
             </li>
@@ -151,53 +151,96 @@
         <article class="article noto">
             <h1>공부를 통해 새로 알게된 부분</h1>
 <ul>
-<li>connect<ul>
-<li>이벤트와 이벤트 처리 메서드를 연결</li>
+<li>레이아웃 (GUI 프로그램에서 위젯을 배치하는 것)<ul>
+<li>resize, move, setGeometry 메서드를 이용해 위젯의 출력 위치를 설정(명시적 설정) → 윈도우 크기 변경시 문제가 있음.</li>
 </ul>
 </li>
-<li>dynamicCall<ul>
-<li>OPEN API+가 제공하는 메서드를 사용하려면 self.kiwoom 객체를 통해 dynamicCall 메서드를 호출해야 한다.</li>
-<li>dynamicCall 메서드의 인자로 호출하려는 메서드를 전달</li>
-<li>인자로 함수만 줄 수 있는 것이 아니라, 인자 값도 줄 수 있다.</li>
-</ul>
-</li>
-<li>Kiwoom Open API는 고유 CLSID와 ProgID를 가진다<ul>
-<li>QAxWidget 클래스의 생성자로 전달해야 사용할 수 있는 인스턴스가 생긴다.</li>
-<li>ProgID = KHOPENAPI.KHOpenAPICtrl.1</li>
-<li>CLSID = {A1574A0D-6BFA-4BD7-9020-DED88711818D}</li>
-</ul>
-</li>
-<li>키움에서 제공하는 OPEN API 메서드, 이벤트는 정말 다양하다.<ul>
-<li>책에 나온 일부 메서드(CommGetData)는 Kiwoom 개발 가이드에서 사용을 자제하라고 한다.  해당 메서드는 GetCommData, GetCommRealData, GetChejanData를 사용하라고 권고한다. → <strong>즉 책에 나온 정보를 무조건 맹신하지 말고 오피셜 자료를 계속 보면서 비교하고 학습하는 것이 중요하다.</strong></li>
-</ul>
-</li>
-<li>PyQt</li>
-<li>Open API+의 TR 처리 순서<ol>
-<li>SetInputValue 메서드를 사용해 TR 입력 값을 설정.</li>
-<li>CommRqData 메서드를 사용해 TR을 서버로 송신</li>
-<li>서버로부터 이벤트가 발생할 때까지 이벤트 루프를 사용해 대기</li>
-<li>CommGetData 메서드를 사용해 수신 데이터를 가져온다.</li>
+<li>레이아웃 매니저<ul>
+<li>
+<ol>
+<li>위젯 만들기 (self.pushButton = QPushButton("")) , 2. 레이아웃 매니저 만들기 (layout = 레이아웃 매니저()), 3. addWidget 메서드를 이용한 위젯 등록 (layout.addWidget(self.pushButton)), 4. 레이아웃 매니저 등록 (self.setLayout(layout))</li>
 </ol>
+</li>
+<li>레이아웃 매니저에 추가되는 위젯에는 인자값으로 부모 위젯을 지정할 필요가 없다.</li>
+<li>위젯의 크기나 위치를 명시적으로 설정하면 안됨.</li>
+<li>윈도우의 크기를 자유롭게 변경해도 내부 위젯이 일정한 비율을 가지며 크기가 자동으로 바뀐다.</li>
+<li>QVBoxLayout 클래스 (위젯을 수직 방향으로 나열)</li>
+<li>QHBoxLayout 클래스 (위젯을 행 방향으로 배치)<ul>
+<li>.addStrestch 메서드 (사용 방법에 따라 객체를 상단에 고정할 수 있음)<ul>
+<li>인자값 1. 비율 ( 해당 수평 / 수직 박스 레이아웃의 비율 조정 )</li>
+</ul>
+</li>
+<li>.setStretchFactor 메서드<ul>
+<li>인자값 1. 레이아웃, 2. 비율 (이 레이아웃 안의 인자 레이아웃의 비율 조정)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QGridLayout 클래스 (격자 형태의 UI를 구성하는 데 사용)<ul>
+<li>격자에서 위젯을 배치할 좌표를 입력 받음.</li>
+<li>addWidget 메서드에서 행과 열의 인덱스를 차례로 입력 받는다.</li>
+<li>각 행과 열에 대해 0부터 시작하는 정숫값을 통해 인덱싱</li>
+</ul>
+</li>
+<li>레이아웃 매니저 중첩<ul>
+<li>레이아웃 매니저 클래스에서 addWidget 메서드를 통해 레이아웃에 위젯을 추가하듯이 addLayout 메서드를 호출하면 레이아웃 매니저를 추가할 수 있음.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>다이얼로그<ul>
+<li>QFileDialog 클래스 (파일 열기 창)<ul>
+<li>메서드 → .getOpenFileName() → 인자값 1. 부모<ul>
+<li>변환된 파일 경로는 튜플 타입</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QInputDialog 클래스 (사용자로부터 간단한 텍스트, 정수, 실수를 받을 때 사용)<ul>
+<li>메서드<ul>
+<li>.getInt() → 정수 입력시<ul>
+<li>인자값 1. 부모, 2. 타이틀 텍스트, 3. 내부 텍스트</li>
+<li>값 → (text, ok) 튜플 형태로 값을 반환 (사용자 입력 값, True &amp; False)</li>
+</ul>
+</li>
+<li>.getDouble() → 실수 입력시</li>
+<li>.getText() → 문자열 입력시</li>
+<li>.getItem() → 개발자가 생성한 옵션 중 하나를 선택하고자 할 때<ul>
+<li>인자값 1. 부모, 2. 타이틀 텍스트, 3. 내부 텍스트, 4. 선택할 아이템 리스트, 5. 초기 아이템 인덱스, 6. 아이템 수정 가능 여부(boolean)</li>
+</ul>
+</li>
+<li>다이얼로그 창은 .close() 메서드로 종료 가능 → PyQt는 다 그런듯</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>exec_ 메서드 → 다이얼로그 창을 Modal 형태로 출력 (Modal 다이얼로그는 해당 다이얼로그 창을 닫을 때까지 부모 윈도우로 이동할 수 없다.)</li>
+</ul>
+</li>
+<li>matplotlib을 이용해 PyQt 내부에 그래프 그리기<ul>
+<li>FigureCanvasQTAgg 클래스<ul>
+<li>인자값 1. plt.Figure()</li>
+<li>메서드<ul>
+<li>.draw() → FigureCanvas 객체에 그래프를 그리기 위해 사용.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 <h1>좀 더 공부해야하는 부분</h1>
 <ul>
-<li>PyQt<ul>
-<li>기본적인 Qt가 조금 부족하다.</li>
-<li>블로그를 통해 정리를 해보자.</li>
-</ul>
-</li>
-<li>OPEN API 메서드 &amp; 이벤트<ul>
-<li>전부 알 필요는 없다, 하지만 적제 적소에 필요한 기능을 생각할 정도의 기능 인지와 상상력 필요.</li>
-</ul>
-</li>
+<li>레이아웃 매니저 (이건 만들어보면서 학습해야 할듯)</li>
 </ul>
 <h1>한줄평</h1>
-<p>입대하기 전에 코드를 작성할 때는 Kiwoom OPEN API의 동작 원리조차 이해하지 못하고 진행했는데, 한줄 한줄 분석하고 이해하면서 작성하니까 처음에는 어려웠지만, 오히려 더 쉬워지는 느낌을 받았다. 빠르게 전체 내용을 작성하고 졸업작품 제작에 들어가자. 아무리 어렵고 처음 보는 것이라도 포기하지 말자.</p>
+<p>이번 파트는 양이 많아서 한 챕터를 2일동안 공부했다. 그래도 시간적 여유가 있을 때 해서 이정도 밖에 안걸렸다고 생각해야지.</p>
 <h1>오늘 작성한 코드</h1>
-<p><a href="https://github.com/mildsalmon/AAT/commit/0c37b6f80686e130e76a9137fcf0d840e452a088">Learned the base api. · mildsalmon/AAT@0c37b6f</a></p>
+<p><a href="https://github.com/mildsalmon/AAT/commit/ca16d247f5a0fa76aa7a0522eadf09613679a626">learning layout · mildsalmon/AAT@ca16d24</a></p>
+<p><a href="https://github.com/mildsalmon/AAT/commit/c1ef0087286442ccd227be3194712bbaba460c9b">learning layout 2 · mildsalmon/AAT@c1ef008</a></p>
 <h1>참고자료</h1>
-<p><a href="https://download.kiwoom.com/web/openapi/kiwoom_openapi_plus_devguide_ver_1.5.pdf">Kiwoom OPEN API 개발가이드</a></p>
+<p><a href="http://codetorial.net/pyqt5/layout/box_layout.html">박스 레이아웃 - Codetorial</a></p>
+<p><a href="http://blog.bluekyu.me/2010/08/pyqt-%EB%82%98%EC%95%84%EA%B0%80%EA%B8%B0-5-1.html">PyQt 예제 쉬어가기 - 레이아웃 여백 조절</a></p>
         </article>
         <ul class="tag-list noto">
             
@@ -217,20 +260,14 @@
     <div class="row justify-content-between">
         <div class="col-md-6">
         
-            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-pyqt?series=졸업작품-aat">
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-gui-programming-using-pyqt-1?series=졸업작품-aat">
                 <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1. PyQt
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1. GUI Programming using PyQt (1)
                 </div>
             </a>
         
         </div>
         <div class="col-md-6">
-        
-            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-learning-pandas?series=졸업작품-aat">
-                <div class="col-md-12 rounded p-3 mt-3 bg-light">
-                    <i class="fas fa-arrow-circle-right vivid-purple"></i><br>AAT_Phase 1. learning pandas
-                </div>
-            </a>
         
         </div>
     </div>
@@ -258,7 +295,7 @@
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="8VgEzevbQbPCVVGbzyhubIJhAv98fUZWcraAWE0HsJbhVzuDcDMXC5TLLlXRqOia">
+            <input type="hidden" name="csrfmiddlewaretoken" value="ko8wvgxgYgKjZ5spCC8Z67CNDAdeCDMluVZ0RNZtxPrseZ4IIr97y95sMxF0A25j">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         

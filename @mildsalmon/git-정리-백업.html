@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="백업 (Backup) 컴퓨터는 두가지로 나뉜다 확실한 것 내 컴퓨터가 언젠가 고장 난다. 불확실한 것 내 컴퓨터가 언제 고장 날지 모른다. 파일은 외장 하드 디스크, USB 디스크 등 별도의 저장 장치 또는 드롭박스, 구글 드라이브같은 인터넷 서비스를 통해 백업 가능 깃 파일은 깃허브를 통해 가능 지금까지는 자신의 컴퓨터에서 작업한 뒤 그 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B0%B1%EC%97%85">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Git 정리 - 백업">
+<meta property="og:description" content="백업 (Backup) 컴퓨터는 두가지로 나뉜다 확실한 것 내 컴퓨터가 언젠가 고장 난다. 불확실한 것 내 컴퓨터가 언제 고장 날지 모른다. 파일은 외장 하드 디스크, USB 디스크 등 별도의 저장 장치 또는 드롭박스, 구글 드라이브같은 인터넷 서비스를 통해 백업 가능 깃 파일은 깃허브를 통해 가능 지금까지는 자신의 컴퓨터에서 작업한 뒤 그 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/16/14PnrX.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 정리 - 백업">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B0%B1%EC%97%85">
+<meta name="twitter:description" content="백업 (Backup) 컴퓨터는 두가지로 나뉜다 확실한 것 내 컴퓨터가 언젠가 고장 난다. 불확실한 것 내 컴퓨터가 언제 고장 날지 모른다. 파일은 외장 하드 디스크, USB 디스크 등 별도의 저장 장치 또는 드롭박스, 구글 드라이브같은 인터넷 서비스를 통해 백업 가능 깃 파일은 깃허브를 통해 가능 지금까지는 자신의 컴퓨터에서 작업한 뒤 그 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/16/14PnrX.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=2">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Git 정리 - 백업 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/16/14PnrX.jpg" alt="Git 정리 - 백업">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 백업</h1>
+            <p class="post-date fade-in">2020-03-16 14:53</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(448);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(448)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 백업&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B0%B1%EC%97%85" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B0%B1%EC%97%85" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>백업 (Backup)</h1>
+<p>컴퓨터는 두가지로 나뉜다</p>
+<ol>
+<li>확실한 것</li>
+</ol>
+<ul>
+<li>내 컴퓨터가 언젠가 고장 난다.</li>
+</ul>
+<ol start="2">
+<li>불확실한 것</li>
+</ol>
+<ul>
+<li>내 컴퓨터가 언제 고장 날지 모른다.</li>
+</ul>
+<p>파일은 외장 하드 디스크, USB 디스크 등 별도의 저장 장치<br>
+또는 드롭박스, 구글 드라이브같은 인터넷 서비스를 통해 백업 가능<br></p>
+<p>깃 파일은 깃허브를 통해 가능</p>
+<p>지금까지는 자신의 컴퓨터에서 작업한 뒤 그 컴퓨터 안에 커밋을 저장했다.<br>
+이 저장소를 지역 저장소(local repository)라고 부른다.<br>
+지역 저장소에서만 파일을 관리하는 것은 안전하지 않다.<br>
+그래서 원격 저장소(remote repository)에도 저장하는 것을 추천한다.<br></p>
+<p>깃에서는 지역 저장소와 원격 저장소를 연결해서 버전 관리 파일을 쉽게 백업할 수 있다.<br>
+원격 저장소를 이용해 '백업'과 '협업'을 수행할 수 있다.<br>
+원격 저장소는 GitHub, GitLab이 있다.<br>
+깃허브의 장점은 여러 오픈 소스를 무료로 볼 수 있다는 점이다.<br></p>
+<p>깃허브로 할 수 있는 일들은.<br>
+원격 저장소에서 깃을 사용할 수 있다.<br>
+지역 저장소를 백업할 수 있다.<br>
+협업 프로젝트에 사용할 수 있다.<br>
+자신의 개발 이력을 남길 수 있다.<br>
+다른 사람의 소스를 살펴보고, 오픈 소스에 참여할 수 있다.<br></p>
+<p>깃에서 저장소를 만들었다면.<br>
+<a href="https://github.com/아이디/저장소명">https://github.com/아이디/저장소명</a> 으로 접속할 수 있다.<br></p>
+<h3>지역 저장소를 원격 저장소에 연결하기</h3>
+<h5>지역 저장소 만들기</h5>
+<p>local git name 폴더를 만들어서 저장소로 초기화</p>
+<pre><code>git init (local git name)</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/16/oxCxv59RtyEChKrFGCwA.png" alt=""></p>
+<h5>원격 저장소에 연결하기</h5>
+<p>사용자 컴퓨터에 있는 지역 저장소를 깃허브에 있는 원격 저장소와 연결.<br>
+원격 저장소(remote)에 origin을 추가하겠다는 의미이다.<br>
+지역 저장소를 특정 원격 저장소에 연결하는 것은 한 번만 하면 된다.<br></p>
+<p>깃에서 기본 브랜치를 master라고 한다.<br>
+기본 원격 저장소에서는 origin이라고 한다.<br></p>
+<pre><code>git remote add origin (원격 저장소 https 주소)</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/16/nbq59NuUVqXp25YFOQGw.png" alt=""></p>
+<h5>원격 저장소에 제대로 연결됐는지 확인</h5>
+<p>지역 저장소와 연결된 원격 저장소를 확인한다.</p>
+<pre><code>git remote -v</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/16/QVt95HvALiXSXrxpevOA.png" alt=""></p>
+<h3>원격 저장소에 올리기 &amp; 내려받기</h3>
+<p>push : 지역 저장소의 소스를 원격 저장소로 올리는 것<br>
+pull : 원격 저장소에서 지역 저장소로 내려 받는 것<br></p>
+<h5>원격 저장소에 파일 올리기 (git push)</h5>
+<p>지역 저장소의 브랜치를 origin(원격 저장소의 master 브랜치)으로 푸시하라는 명령이다.<br>
+-u 옵션은 지역 저장소의 브랜치를 원격 저장소의 master 브랜치에 연결하기 위한 것으로 처음 한 번만 사용하면 된다.<br></p>
+<pre><code>git push -u origin master</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/16/DlwG78Z07WvOZg8fFeus.png" alt=""></p>
+<p>한 번 -u 옵션으로 원격 저장소의 브랜치와 지역 저장소의 브랜치를 연결했기 때문에 다시 push할 때는 git push만 입력하면 된다.</p>
+<pre><code>git push</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/16/nchi6yBIg7bnYKVZQcK9.png" alt=""></p>
+<h5>원격 저장소에서 파일 내려받기 (git pull)</h5>
+<p>원격 저장소에 있는 소스 파일을 다른 사용자가 수정했거나, 깃허브 사이트에서 직접 커밋하면 지역 저장소와 차이가 생긴다.<br>
+원격 저장소와 지역 저장소의 상태를 같게 만들기 위해 원격 저장소의 소스를 지역 저장소로 가져와야 한다.<br></p>
+<p>origin의 내용을 master로 가져온다는 뜻이다.</p>
+<pre><code>git pull origin master</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/16/vYeARGlZtHRh4fiVXJ6o.png" alt=""></p>
+<h3>깃허브에 SSH 원격 접속하기</h3>
+<p>SSH는 Secure Shell의 줄임말로 보안이 강화된 안전한 방법으로 정보를 교환하는 방식.<br>
+SSH = private key와 public key를 한 쌍으로 묶어서 컴퓨터를 인증한다.<br>
+private은 비공개키로 사용자 컴퓨터에 저장되는 키<br>
+public은 외부에 공개되는 키<br></p>
+<p>SSH 원격 접속은 프라이빗 키와 퍼블륵 키를 사용해 현재 사용하고 있는 기기를 깃허브에 인증하는 방식.<br>
+장점 = 언제 어디서든 깃허브에 접속 가능, 자동 로그인기능 가능.<br></p>
+<pre><code>ssh-keygen</code></pre>
+<p>빨간 박스는 ssh key가 저장될 위치</p>
+<p><img src="https://static.blex.kr/image/2020/3/10/1i1EzYrDUPZnqcokywi3.png" alt=""></p>
+<p>id_rsa = 프라이빗 키
+id_rsa.pub = 퍼블릭 키</p>
+<p><img src="https://static.blex.kr/image/2020/3/10/44rmvCVkVUjwgT3DBJDG.png" alt=""></p>
+<p>이제 퍼블릭 키를 깃허브 서버에 등록하면 SSH로 접속 할 수 있다.</p>
+<p>퍼블릭 키 값을 복사해서 깃허브 세팅의 SSH에 붙여넣기 하자.</p>
+<p><img src="https://static.blex.kr/image/2020/3/10/bl4NW0olrJtL8Mlv54Mk.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/10/wE8yOp57IZykDYfjNkwR.png" alt=""></p>
+<p>이제 SSH 키를 만든 컴퓨터는 깃허브 저장소의 SSH 주소만 알고 있으면 로그인 정보를 입력하지 않고도 즉시 그 저장소에 접속할 수 있다.</p>
+<p>SSH 주소로 접속하는 방법은 아래와 같다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/10/PRD6InnhF4wX4kz8UIMU.png" alt=""></p>
+<p>기존에 사용중이던 레포지터리인 경우</p>
+<pre><code>git clone (SSH 주소) (디렉터리 이름) </code></pre>
+<p>새로 만든 레포지터리인 경우</p>
+<pre><code>git remote add origin (SSH 주소)</code></pre>
+<h1>마치며</h1>
+<p>다음은 협업에 대해 포스팅하겠습니다.</p>
+<h1>참고문헌</h1>
+<blockquote>
+<p>이고잉, 고경희, 『Do it! 깃&amp;깃허브 입문』 이지스퍼블리싱(2019)</p>
+</blockquote>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EB%B0%B1%EC%97%85">백업</a></li>
+            
+            <li><a href="/@mildsalmon/topic/git">git</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B9%83">깃</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
+            'Git' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-stash?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 버전 관리 - stash
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="PkRS3wJ0zZQtmN8yFBHe039ckCEHgVgYF83a8G4Uuz00R88fRktgHPVgiz7C1ksb">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=2"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=2"></script>
+
+
+    
+</body>
+</html>
