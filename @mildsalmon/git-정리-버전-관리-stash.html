@@ -21,11 +21,11 @@
     gtag('config', 'UA-113864080-4');
     </script>
     
-<meta name="description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git statsh save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
+<meta name="description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git stash save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
 <meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-stash">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Git 정리 - 버전 관리 - stash">
-<meta property="og:description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git statsh save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
+<meta property="og:description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git stash save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
 <meta property="og:site_name" content="BLEX">
 <meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/15/9VB8S.jpg">
 <meta property="og:locale" content="ko_KR">
@@ -33,7 +33,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 정리 - 버전 관리 - stash">
 <meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-stash">
-<meta name="twitter:description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git statsh save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
+<meta name="twitter:description" content="수정 중인 파일 감추기 및 되돌리기 git stash 브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다. 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다. git stash save git stash git stash list stash를 사용하면 stash@{} 스택에 저장된다. stash@{}는 스택 구조라서 새로운 파일이 들어오면 기존 …">
 <meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/15/9VB8S.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -53,7 +53,7 @@
         <img src="https://static.blex.me/title/mildsalmon/2020/3/15/9VB8S.jpg" alt="Git 정리 - 버전 관리 - stash">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 버전 관리 - stash</h1>
-            <p class="post-date fade-in">2020-03-15 09:36<span>(Last Update: 2020-03-15 09:37)<span></span></span></p>
+            <p class="post-date fade-in">2020-03-15 09:36<span>(Last Update: 2020-03-17 22:27)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -152,7 +152,7 @@
             <h1>수정 중인 파일 감추기 및 되돌리기 git stash</h1>
 <p>브랜치에서 파일을 수정하고 커밋하지 않은 상태에서 급하게 다른 파일을 커밋해야 할 경우가 있다.<br>
 커밋할 예정이 없고 작업중인 파일들은 잠시 감춰둘 수 있다.<br></p>
-<pre><code>git statsh save
+<pre><code>git stash save
 git stash</code></pre>
 <p><img src="https://static.blex.kr/image/2020/3/6/YbrS6ennHixZwn7RC17C.png" alt=""></p>
 <h3>git stash list</h3>
@@ -187,13 +187,13 @@ pop을 하면 t1.txt 파일은 병합된다.<br></p>
         </article>
         <ul class="tag-list noto">
             
-            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
-            
-            <li><a href="/@mildsalmon/topic/stash">stash</a></li>
-            
             <li><a href="/@mildsalmon/topic/git">git</a></li>
             
+            <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리</a></li>
+            
             <li><a href="/@mildsalmon/topic/%EA%B9%83">깃</a></li>
+            
+            <li><a href="/@mildsalmon/topic/stash">stash</a></li>
             
         </ul>
         
@@ -248,7 +248,7 @@ pop을 하면 t1.txt 파일은 병합된다.<br></p>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="Ubblz9Z9PQgk58MSvukdZDdqDqV0tNklMrYo9DXA7xkqDBBsIa06ZKkNk3ju9U7K">
+            <input type="hidden" name="csrfmiddlewaretoken" value="8KRSPcTpgpSS7teXgdoaCT5DQlMBDf34TOm4VMlYT6OkSHb9hFVU2cdKFoJrgIzU">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
