@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="임베디드 시스템 Any device that includes a programmable computer but is not itself a general-purpose computer 프로그램 가능한 컴퓨터를 포함하지만, 그 자체가 범용 컴퓨터가 아닌 모든 장치 컴퓨터 하드웨어와 소프트웨어가 조합되어 특정한 목적을 수행하는 시스템 구성 H/W : 마이크로 프로세서/컨트롤러, 메모리, 센서, 구동기,I/O 장치, 네트워크 장치 S/W : OS, 시스템 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%9A%94%EC%95%BD">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="임베디드 1주차 강의 요약">
+<meta property="og:description" content="임베디드 시스템 Any device that includes a programmable computer but is not itself a general-purpose computer 프로그램 가능한 컴퓨터를 포함하지만, 그 자체가 범용 컴퓨터가 아닌 모든 장치 컴퓨터 하드웨어와 소프트웨어가 조합되어 특정한 목적을 수행하는 시스템 구성 H/W : 마이크로 프로세서/컨트롤러, 메모리, 센서, 구동기,I/O 장치, 네트워크 장치 S/W : OS, 시스템 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="임베디드 1주차 강의 요약">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%9A%94%EC%95%BD">
+<meta name="twitter:description" content="임베디드 시스템 Any device that includes a programmable computer but is not itself a general-purpose computer 프로그램 가능한 컴퓨터를 포함하지만, 그 자체가 범용 컴퓨터가 아닌 모든 장치 컴퓨터 하드웨어와 소프트웨어가 조합되어 특정한 목적을 수행하는 시스템 구성 H/W : 마이크로 프로세서/컨트롤러, 메모리, 센서, 구동기,I/O 장치, 네트워크 장치 S/W : OS, 시스템 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=3">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>임베디드 1주차 강의 요약 – mildsalmon</title>
+</head>
+<body>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(454);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(454)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">2</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=임베디드 1주차 강의 요약&url=https://blex.me/@mildsalmon/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%9A%94%EC%95%BD" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%9A%94%EC%95%BD" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'임베디드시스템' 시리즈</span>임베디드 1주차 강의 요약</h1>
+        <p class="post-date">
+            2020-03-18 22:42</p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>임베디드 시스템</h1>
+<blockquote>
+<p>Any device that includes a programmable computer  but is not itself a general-purpose computer</p>
+</blockquote>
+<blockquote>
+<p>프로그램 가능한 컴퓨터를 포함하지만, 그 자체가 범용 컴퓨터가 아닌 모든 장치</p>
+</blockquote>
+<blockquote>
+<p>컴퓨터 하드웨어와 소프트웨어가 조합되어 특정한 목적을 수행하는 시스템</p>
+</blockquote>
+<h3>구성</h3>
+<ul>
+<li>H/W : 마이크로 프로세서/컨트롤러, 메모리, 센서, 구동기,I/O 장치, 네트워크 장치</li>
+<li>S/W : OS, 시스템 S/W, 응용 프로그램</li>
+</ul>
+<p><img src="https://static.blex.kr/image/2020/3/18/Ihi8ZTFvIJjxzTFPr2q2.png" alt=""></p>
+<p>OS (Operating System) - 컴퓨터 시스템의 자원들을 효율적으로 관리하며 사용자가 컴퓨터를 편리하고, 효과적으로 사용할 수 있도록 환경을 제공하는 프로그램의 모임
+커널 (kernel) - 운영 체제의 핵심 부분이므로, 커널의 역할 역시 운영 체제의 핵심 역할이라 할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th>하드웨어 항목</th>
+<th>개인용 컴퓨터</th>
+<th>임베디드 시스템</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>프로세서</td>
+<td>고성능</td>
+<td>최소한의 성능</td>
+</tr>
+<tr>
+<td>메모리</td>
+<td>대용량</td>
+<td>최소한의 용량</td>
+</tr>
+<tr>
+<td>보조기억장치</td>
+<td>다양 : HDD, DVD, ODD</td>
+<td>거의 비사용, 플래쉬 메모리</td>
+</tr>
+<tr>
+<td>주변장치</td>
+<td>다양 : 키보드, 마우스</td>
+<td>필요한 장치만 사용</td>
+</tr>
+<tr>
+<td>운영체제</td>
+<td>Windows</td>
+<td>RTOS, Linux</td>
+</tr>
+<tr>
+<td>시스템 소프트웨어</td>
+<td>Windows API</td>
+<td>Real Time OS &amp; Linux API</td>
+</tr>
+<tr>
+<td>응용 소프트웨어</td>
+<td>HDD에서 Read</td>
+<td>Memory에서 Read</td>
+</tr>
+<tr>
+<td>개발환경</td>
+<td>Visual Studio .NET</td>
+<td>교차개발환경</td>
+</tr>
+</tbody>
+</table>
+<p>개인용 컴퓨터 - 범용 목적, PC에서 개발한 프로그램은 PC 환경에서 사용한다.
+임베디드 시스템 - 특정 목적, 개발은 PC에서 사용은 리눅스에서</p>
+<p>API (Application Programming Interface / 응용 프로그램 프로그래밍 인터페이스) - 응용프로그램에서 사용할 수 있도록, 운영체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스. </p>
+<h3>특징</h3>
+<p>Application-specific functionality (응용 프로그램별 기능)</p>
+<ul>
+<li>특정한 기능에 부합하는 최적화 설계가 가능</li>
+<li>소형, 경량</li>
+<li>저전력
+Real-time Operation</li>
+<li>Must finish operations by deadlines
+Extreme Cost Sensitivity (극한의 비용 민감도)</li>
+<li>Limited memory, microprocessor power, etc.</li>
+</ul>
+<p>Real Time System (실시간 시스템)
+결과 산출에 걸리는 시간에도 적시성을 가지며 외부 자극에도 예측 가능한 방식으로 반응</p>
+<ul>
+<li>적시성<ul>
+<li>열악한 환경에서도 데드라인 이내에 논리적으로도 정확한 출력 값을 산출해 내는 것.</li>
+</ul>
+</li>
+<li>deadline <ul>
+<li>반응에 요구되는 시간의 합계
+분류</li>
+</ul>
+</li>
+<li>Hard real-time 시스템<ul>
+<li>deadline을 어기는 경우 심각한 위험이 발생.</li>
+</ul>
+</li>
+<li>Soft real-time 시스템<ul>
+<li>오차(오류)가 존재.</li>
+</ul>
+</li>
+</ul>
+<h3>활용 분야</h3>
+<p>가정 자동화 (HA)
+OCF (Open Connectivity Foundation) - 시장을 리드하는 디바이스 및 소프트웨어 분야의 글로벌 기업들이 합의하에 디바이스의 통신을 아우를 수 있는 통신체계를 정립하기로 하여  결성한 단체</p>
+<ul>
+<li>IOT 간의 연결 표준을 정립.
+공장 자동화 (FA) / 스마트 팩토리</li>
+</ul>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C">임베디드</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B0%95%EC%9D%98%EC%9A%94%EC%95%BD">강의요약</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%EC%8B%9C%EC%8A%A4%ED%85%9C" class="text-decoration-none deep-dark">
+            '임베디드시스템' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                    <div>
+    <div class="comment-list s-shadow">
+        <a href="/@baealex">
+            
+            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+            
+        </a>
+        <a class="font-weight-bold deep-dark" href="/@baealex">baealex</a>
+        <br>
+        <small>1시간, 7분전</small>
+        <ul class="none-list">
+        
+            
+        
+        </ul>
+        <div class="mt-3 noto"><p>간만에 복습 핵이득;</p></div>
+        <ul class="none-list">
+            <li>
+                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(228)">
+                    <i class="fas fa-angle-up"></i> <span id="clc228">0</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+                
+                    <div>
+    <div class="comment-list s-shadow">
+        <a href="/@mildsalmon">
+            
+            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+            
+        </a>
+        <a class="font-weight-bold deep-dark" href="/@mildsalmon">mildsalmon</a>
+        <br>
+        <small>1시간, 6분전</small>
+        <ul class="none-list">
+        
+            
+        
+        </ul>
+        <div class="mt-3 noto"><p>@baealex 이제 모든 강의가 요약본으로 올라올껍니다 ㅎㅎ</p></div>
+        <ul class="none-list">
+            <li>
+                <a class="shallow-dark" href="javascript:void(0);" onclick="Comment.like(229)">
+                    <i class="fas fa-angle-up"></i> <span id="clc229">1</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="gMsijGXx15cWbT4rinSqYM0DJzpFzZHKLF1LXCqqVcAvvIG5PbZt74ZkUHSAYck2">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=3"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
+</body>
+</html>

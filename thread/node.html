@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=2">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=3">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Node.js –
@@ -77,17 +77,20 @@ BLEX</title>
     <div class="container">
         <div class="content">
         
-<div class="col-md-12 px-0">
+<div class="col-lg-12 px-0">
     
     <img style="width: 100%;" src="https://static.blex.me/title/baealex/2020/2/13/21gvYY.jpg" alt="Node.js">
     
     <div class="text-center mt-5">
+        <a id="thread-bookmark" href="javascript:void(0)" onclick="Thread.bookmark(10)">
+            <i class="far fa-bookmark"></i>
+        </a>
         <h1 class="post-headline">Node.js</h1>
-        <p class="post-date">1개월전 생성됨</p>
+        <p class="post-date">1개월전 새로운 스토리가 추가됨</p>
         
     </div>
 </div>
-<div class="col-md-8 mx-auto mt-5 px-0">
+<div class="col-lg-8 mx-auto mt-5 px-0">
   
 
   
@@ -105,7 +108,7 @@ BLEX</title>
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     
-                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
                     
                 </div>
                 <div>
@@ -114,7 +117,7 @@ BLEX</title>
                 </div>
             </div>
             <div>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> 1개월 전 (edited)</div>
+                <div class="text-muted h7 mb-2"><i class="far fa-clock"></i> 1개월 전 (edited)</div>
             </div>
         </div>
     </div>
@@ -147,7 +150,12 @@ http.listen(3000, () =&gt; {
         </div>
     </div>
     <div class="card-footer">
-        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        <a class="card-link shallow-dark agree" href="javascript:void(0)" onclick="Story.agree(101)">
+            <i class="far fa-thumbs-up"></i> <span>0</span>
+        </a>
+        <a class="card-link shallow-dark disagree" href="javascript:void(0)" onclick="Story.disagree(101)">
+            <i class="far fa-thumbs-up fa-rotate-180"></i> <span>0</span>
+        </a>
         
     </div>
 </div>
@@ -168,10 +176,10 @@ http.listen(3000, () =&gt; {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=2"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=2"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=2"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=3"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -190,7 +198,7 @@ http.listen(3000, () =&gt; {
 <script>
   autolink($('#story-pin'));
 </script>
-<script src="https://static.blex.me/assets/library/InfiniteScroll.js?v=2"></script>
+<script src="https://static.blex.me/assets/library/InfiniteScroll.js?v=3"></script>
 <script type="text/javascript">
   var postWrapperId = 'story';
   var paginatePath = '/thread/node?page=';

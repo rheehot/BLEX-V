@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="원격 브랜치 정보 가져오기 (git fetch) 페치(fetch)는 &#39;불러오다, 가져오다&#39; git fetch는 원격 저장소의 정보를 가져오는 기능이 있다. pull이 원격 저장소의 커밋을 가져와서 무조건 지역 저장소와 합친다면, fetch는 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다. 깃허브에서 파일을 하나 추가했다. fetch 명령으로 원격 저장소의 정보를 가져오자. git fetch git checkout FETCH_HEAD …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-fetch-pull-request">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Git 정리 - 협업 - fetch, pull request">
+<meta property="og:description" content="원격 브랜치 정보 가져오기 (git fetch) 페치(fetch)는 &#39;불러오다, 가져오다&#39; git fetch는 원격 저장소의 정보를 가져오는 기능이 있다. pull이 원격 저장소의 커밋을 가져와서 무조건 지역 저장소와 합친다면, fetch는 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다. 깃허브에서 파일을 하나 추가했다. fetch 명령으로 원격 저장소의 정보를 가져오자. git fetch git checkout FETCH_HEAD …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/18/9yj3E.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 정리 - 협업 - fetch, pull request">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-fetch-pull-request">
+<meta name="twitter:description" content="원격 브랜치 정보 가져오기 (git fetch) 페치(fetch)는 &#39;불러오다, 가져오다&#39; git fetch는 원격 저장소의 정보를 가져오는 기능이 있다. pull이 원격 저장소의 커밋을 가져와서 무조건 지역 저장소와 합친다면, fetch는 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다. 깃허브에서 파일을 하나 추가했다. fetch 명령으로 원격 저장소의 정보를 가져오자. git fetch git checkout FETCH_HEAD …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/18/9yj3E.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=3">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Git 정리 - 협업 - fetch, pull request – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/18/9yj3E.jpg" alt="Git 정리 - 협업 - fetch, pull request">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 협업 - fetch, pull request</h1>
+            <p class="post-date fade-in">2020-03-18 09:28</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(452);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(452)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Git 정리 - 협업 - fetch, pull request&url=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-fetch-pull-request" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-fetch-pull-request" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-blogger-gray">
+                </li>
+                <li onclick="User.follow('mildsalmon')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h1>원격 브랜치 정보 가져오기 (git fetch)</h1>
+<p>페치(fetch)는 '불러오다, 가져오다'<br>
+git fetch는 원격 저장소의 정보를 가져오는 기능이 있다.<br>
+pull이 원격 저장소의 커밋을 가져와서 무조건 지역 저장소와 합친다면,<br>
+fetch는 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다.<br></p>
+<p>깃허브에서 파일을 하나 추가했다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/11/6kritfASsA4bsxq2z0dB.png" alt=""></p>
+<p>fetch 명령으로 원격 저장소의 정보를 가져오자.</p>
+<pre><code>git fetch
+git checkout FETCH_HEAD</code></pre>
+<p>위 명령어를 입력하고 FETCH_HEAD 브랜치로 이동해서,<br>
+변경된 파일을 찾아서 확인하고 merge하면 된다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/11/TWHxPIIqmZODvdnKfGhK.png" alt=""></p>
+<p>즉.
+git pull 명령은 git fetch 명령과 git merge FETCH_HEAD 명령 두 개를 합친 것과 같다.</p>
+<h1>협업의 기본</h1>
+<h3>공동 작업자 추가하기</h3>
+<p>공동 작업을 한다면 공동 작업자에게 커밋을 올릴 권한을 줘야한다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/13/QIjB1j4sEcWYE8UZal75.png" alt=""></p>
+<p>협업을 한다면 반드시 작업하기 전에 원격 저장소의 최신 커밋을 pull한 다음에 자신의 커밋을 push해야한다.<br>
+깃 허브에 저장된 최신 커밋이 로컬 저장소에 없을 경우 아래와 같은 에러가 뜬다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/Ac6mvmRNOrsmAaFWDB8x.png" alt=""></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/aaiZ6Um0h7BsEe10gkpc.png" alt=""></p>
+<h3>브랜치 푸시</h3>
+<p>체크아웃으로 브랜치 생성과 이동을 동시에 할 수 있다.</p>
+<pre><code>git checkout -b (브랜치 이름)</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/13/UOOGVNa3Rx02KebQiSTT.png" alt=""></p>
+<pre><code>git push --set-upstream origin (브랜치 이름)
+git push origin (브랜치 이름)</code></pre>
+<p><img src="https://static.blex.kr/image/2020/3/13/M6znoArKDJB635VUVwOQ.png" alt=""></p>
+<h3>풀 리퀘스트로 푸시한 브랜치 병합</h3>
+<p>푸시한 브랜치는 풀 리퀘스트(pull request)를 통해 병합해야 원격 저장소에 반영된다.</p>
+<p>아래 create pull request를 누른다.<br>
+그리고 풀 리퀘스트 메시지를 작성하고 create pull request를 누르면 협업 중인 저장소에 풀 리퀘스트가 전송된다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/RsAfOM2VELVh5GeY4pYT.png" alt=""></p>
+<p>협업 중인 원격 저장소에 등록된 풀 리퀘스트는 공동 작업자 중 누구나 살펴보고 병합할 수 있다.<br>
+저장소 위쪽에 Pull requests를 누르면 등록된 풀 리퀘스트 목록이 나온다.<br>
+등록된 풀 리퀘스트를 누르면 아래와 같이 나온다.<br>
+여기서 풀 리퀘스트를 남긴 사람과 메시지를 주고 받을 수 있다.<br>
+Merge pull request를 누르면 병합된다.<br>
+Confirm merge를 누르면 브랜치 병합이 끝난다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/U5tk2oTq8Z1A3bynhUYI.png" alt=""></p>
+<p>브랜치가 병합되면 브랜치에 있던 파일이 마스터 브랜치에 나온다.</p>
+<p><img src="https://static.blex.kr/image/2020/3/13/qaZyvNcmSNFZ1ZMoBU92.png" alt=""></p>
+<p>브랜치가 병합된 상태라면 merged라고 표시되어 있다.<br>
+공동 작업자 중 누가 브랜치를 병합했는지도 알 수 있다.<br></p>
+<p><img src="https://static.blex.kr/image/2020/3/13/ogvgUThjAjL9jzqKf1Nq.png" alt=""></p>
+<p>깃허브에서 협업할 때는 보통 작업자마다 브랜치를 만들어서 진행한다.<br>
+작업 중간 중간 풀 리퀘스트를 보내서 master 브랜치에 병합한다.<br>
+그래서 깃허브로 협업할 때는 다른 작업자의 변경 내용을 바로 반영하기 위해 항상 풀(pull)부터 한 다음 자신의 작업을 진행하는 것이 좋다.<br></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/git">git</a></li>
+            
+            <li><a href="/@mildsalmon/topic/pullrequest">pullrequest</a></li>
+            
+            <li><a href="/@mildsalmon/topic/fetch">fetch</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%ED%98%91%EC%97%85">협업</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EA%B9%83">깃</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/git" class="text-decoration-none deep-dark">
+            'Git' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-clone?series=git">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Git 정리 - 협업 - clone
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="riacXjsvbcCrxE3CzXTNGq6r6Ha7IuRKSbQ4iOmU7XQIILXWYKdVhBivCMRPch9Z">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=3"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=3"></script>
+
+
+    
+</body>
+</html>

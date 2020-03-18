@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=2">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=3">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Electron + React –
@@ -77,17 +77,20 @@ baealex</title>
     <div class="container">
         <div class="content">
         
-<div class="col-md-12 px-0">
+<div class="col-lg-12 px-0">
     
     <img style="width: 100%;" src="https://static.blex.me/title/baealex/2020/2/19/18Yfq7.png" alt="Electron + React">
     
     <div class="text-center mt-5">
+        <a id="thread-bookmark" href="javascript:void(0)" onclick="Thread.bookmark(6)">
+            <i class="far fa-bookmark"></i>
+        </a>
         <h1 class="post-headline">Electron + React</h1>
-        <p class="post-date">4주전 생성됨</p>
+        <p class="post-date">4주, 1일전 새로운 스토리가 추가됨</p>
         
     </div>
 </div>
-<div class="col-md-8 mx-auto mt-5 px-0">
+<div class="col-lg-8 mx-auto mt-5 px-0">
   
   <div id="story-pin" class="card story-card noto">
     <div class="card-header">
@@ -95,7 +98,7 @@ baealex</title>
         <div class="d-flex justify-content-between align-items-center">
           <div>
             
-            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
             
           </div>
           <div>
@@ -129,7 +132,7 @@ baealex</title>
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     
-                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
                     
                 </div>
                 <div>
@@ -138,7 +141,7 @@ baealex</title>
                 </div>
             </div>
             <div>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> 4주 전 (edited)</div>
+                <div class="text-muted h7 mb-2"><i class="far fa-clock"></i> 4주, 1일 전 (edited)</div>
             </div>
         </div>
     </div>
@@ -176,7 +179,12 @@ ipcMain.on('call-init', (event, arg) =&gt; {
         </div>
     </div>
     <div class="card-footer">
-        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        <a class="card-link shallow-dark agree" href="javascript:void(0)" onclick="Story.agree(118)">
+            <i class="far fa-thumbs-up"></i> <span>0</span>
+        </a>
+        <a class="card-link shallow-dark disagree" href="javascript:void(0)" onclick="Story.disagree(118)">
+            <i class="far fa-thumbs-up fa-rotate-180"></i> <span>0</span>
+        </a>
         
     </div>
 </div>
@@ -189,7 +197,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     
-                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
                     
                 </div>
                 <div>
@@ -198,7 +206,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
                 </div>
             </div>
             <div>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> 4주 전 (edited)</div>
+                <div class="text-muted h7 mb-2"><i class="far fa-clock"></i> 4주, 1일 전 (edited)</div>
             </div>
         </div>
     </div>
@@ -245,7 +253,12 @@ ipcMain.on('call-init', (event, arg) =&gt; {
         </div>
     </div>
     <div class="card-footer">
-        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        <a class="card-link shallow-dark agree" href="javascript:void(0)" onclick="Story.agree(117)">
+            <i class="far fa-thumbs-up"></i> <span>0</span>
+        </a>
+        <a class="card-link shallow-dark disagree" href="javascript:void(0)" onclick="Story.disagree(117)">
+            <i class="far fa-thumbs-up fa-rotate-180"></i> <span>0</span>
+        </a>
         
     </div>
 </div>
@@ -258,7 +271,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     
-                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
                     
                 </div>
                 <div>
@@ -267,7 +280,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
                 </div>
             </div>
             <div>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> 4주 전 </div>
+                <div class="text-muted h7 mb-2"><i class="far fa-clock"></i> 4주, 1일 전 </div>
             </div>
         </div>
     </div>
@@ -330,7 +343,12 @@ ipcMain.on('call-init', (event, arg) =&gt; {
         </div>
     </div>
     <div class="card-footer">
-        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        <a class="card-link shallow-dark agree" href="javascript:void(0)" onclick="Story.agree(116)">
+            <i class="far fa-thumbs-up"></i> <span>0</span>
+        </a>
+        <a class="card-link shallow-dark disagree" href="javascript:void(0)" onclick="Story.disagree(116)">
+            <i class="far fa-thumbs-up fa-rotate-180"></i> <span>0</span>
+        </a>
         
     </div>
 </div>
@@ -343,7 +361,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     
-                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
                     
                 </div>
                 <div>
@@ -352,7 +370,7 @@ ipcMain.on('call-init', (event, arg) =&gt; {
                 </div>
             </div>
             <div>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> 4주, 1일 전 (edited)</div>
+                <div class="text-muted h7 mb-2"><i class="far fa-clock"></i> 1개월 전 (edited)</div>
             </div>
         </div>
     </div>
@@ -377,7 +395,12 @@ class App extends Component {
         </div>
     </div>
     <div class="card-footer">
-        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        <a class="card-link shallow-dark agree" href="javascript:void(0)" onclick="Story.agree(114)">
+            <i class="far fa-thumbs-up"></i> <span>0</span>
+        </a>
+        <a class="card-link shallow-dark disagree" href="javascript:void(0)" onclick="Story.disagree(114)">
+            <i class="far fa-thumbs-up fa-rotate-180"></i> <span>0</span>
+        </a>
         
     </div>
 </div>
@@ -390,7 +413,7 @@ class App extends Component {
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     
-                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
                     
                 </div>
                 <div>
@@ -399,7 +422,7 @@ class App extends Component {
                 </div>
             </div>
             <div>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> 1개월 전 (edited)</div>
+                <div class="text-muted h7 mb-2"><i class="far fa-clock"></i> 1개월 전 (edited)</div>
             </div>
         </div>
     </div>
@@ -423,7 +446,12 @@ yarn start</code></pre>
         </div>
     </div>
     <div class="card-footer">
-        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        <a class="card-link shallow-dark agree" href="javascript:void(0)" onclick="Story.agree(98)">
+            <i class="far fa-thumbs-up"></i> <span>0</span>
+        </a>
+        <a class="card-link shallow-dark disagree" href="javascript:void(0)" onclick="Story.disagree(98)">
+            <i class="far fa-thumbs-up fa-rotate-180"></i> <span>0</span>
+        </a>
         
     </div>
 </div>
@@ -436,7 +464,7 @@ yarn start</code></pre>
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     
-                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/nJBQ.png)"></div>
+                    <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
                     
                 </div>
                 <div>
@@ -445,7 +473,7 @@ yarn start</code></pre>
                 </div>
             </div>
             <div>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> 1개월 전 (edited)</div>
+                <div class="text-muted h7 mb-2"><i class="far fa-clock"></i> 1개월 전 (edited)</div>
             </div>
         </div>
     </div>
@@ -462,7 +490,12 @@ mainButton.addEventListener('click', function() {
         </div>
     </div>
     <div class="card-footer">
-        <a class="card-link shallow-dark" href="#"><i class="fas fa-chevron-down"></i></a>
+        <a class="card-link shallow-dark agree" href="javascript:void(0)" onclick="Story.agree(97)">
+            <i class="far fa-thumbs-up"></i> <span>0</span>
+        </a>
+        <a class="card-link shallow-dark disagree" href="javascript:void(0)" onclick="Story.disagree(97)">
+            <i class="far fa-thumbs-up fa-rotate-180"></i> <span>0</span>
+        </a>
         
     </div>
 </div>
@@ -483,10 +516,10 @@ mainButton.addEventListener('click', function() {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=2"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=2"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=2"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=2"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=3"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=3"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -505,7 +538,7 @@ mainButton.addEventListener('click', function() {
 <script>
   autolink($('#story-pin'));
 </script>
-<script src="https://static.blex.me/assets/library/InfiniteScroll.js?v=2"></script>
+<script src="https://static.blex.me/assets/library/InfiniteScroll.js?v=3"></script>
 <script type="text/javascript">
   var postWrapperId = 'story';
   var paginatePath = '/thread/electron?page=';
