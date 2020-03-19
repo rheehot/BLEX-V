@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 …">
+<meta property="og:url" content="https://blex.me/@baealex/rust-lang%EC%9D%98-cargo">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Rust-Lang의 Cargo">
+<meta property="og:description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/19/23ah9E.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rust-Lang의 Cargo">
+<meta name="twitter:url" content="https://blex.me/@baealex/rust-lang%EC%9D%98-cargo">
+<meta name="twitter:description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 …">
+<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/19/23ah9E.jpg">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>Rust-Lang의 Cargo – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/baealex/2020/3/19/23ah9E.jpg" alt="Rust-Lang의 Cargo">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in">Rust-Lang의 Cargo</h1>
+            <p class="post-date fade-in">2020-03-19 23:59</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(459);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(459)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=Rust-Lang의 Cargo&url=https://blex.me/@baealex/rust-lang%EC%9D%98-cargo" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/rust-lang%EC%9D%98-cargo" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
+            
+            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+            
+            <ul class="author-state">
+                <li>
+                    <img src="https://img.shields.io/badge/-master-purple">
+                </li>
+                <li onclick="User.follow('baealex')">
+                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+                </li>
+            </ul>
+            
+            <a class="author-email d-block" href="/login">Sign in to view email</a>
+            
+        <p></p>
+    </div>
+</div>
+        <article class="article noto">
+            <h2>Cargo</h2>
+<p>Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 <code>source.rs</code>를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다.</p>
+<p><br></p>
+<h4>새로운 프로젝트</h4>
+<pre><code>cargo new project_name</code></pre>
+<p>위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 아래와 같이 생성할 수 있다.</p>
+<pre><code>cargo new --lib library_name</code></pre>
+<p>프로젝트를 생성하면 아래와 같은 계층으로 생성된다.</p>
+<pre><code>project_name
+├── Cargo.toml
+└── src
+    └── main.rs</code></pre>
+<h6>Cargo.toml</h6>
+<pre><code>[package]
+name = "project"
+version = "0.1.0"
+authors = ["baealex &lt;im@baejino.com&gt;"]
+edition = "2018"
+
+[dependencies]
+clap = "2.27.1" # from crates.io
+rand = { git = "https://github.com/rust-lang-nursery/rand" } # from online repo
+bar = { path = "../bar" } # from a path in the local filesystem</code></pre>
+<p><code>Cargo.toml</code>파일은 프로젝트의 전체적인 내용을 관리해주는 파일이다.</p>
+<ul>
+<li>[package] : Node의 package.json과 유사하다. 프로젝트의 이름과 생성자 그리고 버전을 작성할 수 있다.</li>
+<li>[dependencies] : 라이브러리를 기록하여 프로젝트를 의존성을 관리할 수 있는데 버전을 나열하면 crates.io에서 설치한다 기본 저장소는 물론 online repo와 local path로 작성해둘 수 있다.</li>
+</ul>
+<p><br></p>
+<h4>크레이트 설치</h4>
+<p>크레이트는 러스트 코드의 묶음이라고 공식적으로 설명하고 있다. 만일 rand라는 크레이트를 설치하려면 위처럼 dependencies에 아래와 같은 내용을 추가한다.</p>
+<pre><code>[dependencies]
+rand = "0.3.14"</code></pre>
+<p>위와같이 수정하면 별도의 설치 작업을 해주지 않아도 된다. 아래 빌드 명령을 실행하면 Cargo가 변화된 크레이트를 감지하여 알아서 설치한다. 설치후 Cargo.lock이 생성되는데 차후에 다시 프로젝트를 빌드할 때 Cargo.lock이 존재하는 경우 Cargo.lock에 적혀진 크레이트와 동일한 버전을 설치한다.</p>
+<p><br></p>
+<h4>프로젝트 빌드 &amp; 실행</h4>
+<p>러스트를 단일 소스코드로 생성한 경우 <code>rustc</code>라는 명령어로 컴파일을 실행해주어야 하는데 Cargo를 사용하여 프로젝트를 생성한 경우</p>
+<pre><code>cargo build</code></pre>
+<p>위 명령어를 통해서 빌드할 수 있다. 그럼 <code>target/debug</code>에 윈도우는 <code>exe</code>로 다른 리눅스의 경우에는 확장자 없는 실행파일로 생성된다. 바로 실행하려면</p>
+<pre><code>cargo run</code></pre>
+<p>릴리즈로 빌드하려면 위 빌드 명령어에서 <code>--release</code> 옵션을 붙여주면 된다.</p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%EB%9F%AC%EC%8A%A4%ED%8A%B8">러스트</a></li>
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="4wPJFDdifOZGcDgNy72EZMr7HzCdy8kN3ElAd7K4HdB1ThuBGHmUHJ6NpyvtoDtU">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=4"></script>
+
+
+    
+</body>
+</html>
