@@ -21,11 +21,11 @@
     gtag('config', 'UA-113864080-4');
     </script>
     
-<meta name="description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 …">
+<meta name="description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 아래와 같이 …">
 <meta property="og:url" content="https://blex.me/@baealex/rust-lang%EC%9D%98-cargo">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Rust-Lang의 Cargo">
-<meta property="og:description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 …">
+<meta property="og:description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 아래와 같이 …">
 <meta property="og:site_name" content="BLEX">
 <meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/19/23ah9E.jpg">
 <meta property="og:locale" content="ko_KR">
@@ -33,13 +33,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rust-Lang의 Cargo">
 <meta name="twitter:url" content="https://blex.me/@baealex/rust-lang%EC%9D%98-cargo">
-<meta name="twitter:description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 …">
+<meta name="twitter:description" content="Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 아래와 같이 …">
 <meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/19/23ah9E.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Rust-Lang의 Cargo – baealex</title>
@@ -52,8 +52,8 @@
     <picture class="post-title-image">
         <img src="https://static.blex.me/title/baealex/2020/3/19/23ah9E.jpg" alt="Rust-Lang의 Cargo">
         <div class="post-image-mask mask-off">
-            <h1 class="post-headline fade-in">Rust-Lang의 Cargo</h1>
-            <p class="post-date fade-in">2020-03-19 23:59</p>
+            <h1 class="post-headline fade-in"><span class="post-series">'러스트 박살내기(?)' 시리즈</span>Rust-Lang의 Cargo</h1>
+            <p class="post-date fade-in">2020-03-19 23:59<span>(Last Update: 2020-03-20 08:48)<span></span></span></p>
         </div>
     </picture>
 </div>
@@ -130,28 +130,25 @@
         
     </a>
     <div class="author-info">
-        <h4><a href="/@baealex">baealex</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+        <h4><a class="text-decoration-none" href="/@baealex">baealex</a></h4>
+        <ul class="author-state">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('baealex')">
+                <i class="fas fa-users"></i> <span id="user-follow">2</span>
+            </li>
+        </ul>
+        
+        <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
 좋아하는 일을 잘하고 싶어합니다 😀</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-master-purple">
-                </li>
-                <li onclick="User.follow('baealex')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
+        
+        
+        <a class="author-email d-block text-decoration-none" href="/login">Sign in to view email</a>
+        
     </div>
 </div>
         <article class="article noto">
             <h2>Cargo</h2>
-<p>Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 <code>source.rs</code>를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다.</p>
+<p>Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 <code>source.rs</code>를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다.</p>
 <p><br></p>
 <h4>새로운 프로젝트</h4>
 <pre><code>cargo new project_name</code></pre>
@@ -175,22 +172,22 @@ rand = { git = "https://github.com/rust-lang-nursery/rand" } # from online repo
 bar = { path = "../bar" } # from a path in the local filesystem</code></pre>
 <p><code>Cargo.toml</code>파일은 프로젝트의 전체적인 내용을 관리해주는 파일이다.</p>
 <ul>
-<li>[package] : Node의 package.json과 유사하다. 프로젝트의 이름과 생성자 그리고 버전을 작성할 수 있다.</li>
-<li>[dependencies] : 라이브러리를 기록하여 프로젝트를 의존성을 관리할 수 있는데 버전을 나열하면 crates.io에서 설치한다 기본 저장소는 물론 online repo와 local path로 작성해둘 수 있다.</li>
+<li><code>[package]</code> : 프로젝트의 이름과 생성자가 자동으로 생성되며 프로젝트의 버전을 명시적으로 관리할 수 있다.</li>
+<li><code>[dependencies]</code> : 라이브러리를 기록하여 프로젝트를 의존성을 관리할 수 있다. 버전을 나열하면 <code>crates.io</code>에서 설치하며 online repo와 local path로 작성해둘 수도 있다.</li>
 </ul>
 <p><br></p>
 <h4>크레이트 설치</h4>
-<p>크레이트는 러스트 코드의 묶음이라고 공식적으로 설명하고 있다. 만일 rand라는 크레이트를 설치하려면 위처럼 dependencies에 아래와 같은 내용을 추가한다.</p>
+<p>크레이트는 러스트 코드의 묶음인데 만일 <code>rand</code>라는 크레이트를 설치하려면 <code>Cargo.toml</code>의 <code>dependencies</code>에 아래 내용을 추가한다.</p>
 <pre><code>[dependencies]
 rand = "0.3.14"</code></pre>
-<p>위와같이 수정하면 별도의 설치 작업을 해주지 않아도 된다. 아래 빌드 명령을 실행하면 Cargo가 변화된 크레이트를 감지하여 알아서 설치한다. 설치후 Cargo.lock이 생성되는데 차후에 다시 프로젝트를 빌드할 때 Cargo.lock이 존재하는 경우 Cargo.lock에 적혀진 크레이트와 동일한 버전을 설치한다.</p>
+<p>위와같이 수정하면 별도의 설치 작업을 해주지 않아도 된다. 아래 빌드 명령을 실행하면 Cargo가 변화된 크레이트를 감지하여 알아서 설치한다. 설치후 Cargo.lock이 생성되는데 차후에 다시 프로젝트를 빌드할 때 Cargo.lock이 존재하는 경우 Cargo.lock에 적혀진 크레이트와 동일한 버전을 설치하게 된다.</p>
 <p><br></p>
 <h4>프로젝트 빌드 &amp; 실행</h4>
 <p>러스트를 단일 소스코드로 생성한 경우 <code>rustc</code>라는 명령어로 컴파일을 실행해주어야 하는데 Cargo를 사용하여 프로젝트를 생성한 경우</p>
 <pre><code>cargo build</code></pre>
-<p>위 명령어를 통해서 빌드할 수 있다. 그럼 <code>target/debug</code>에 윈도우는 <code>exe</code>로 다른 리눅스의 경우에는 확장자 없는 실행파일로 생성된다. 바로 실행하려면</p>
+<p>위 명령어를 통해서 빌드할 수 있다. 그럼 <code>target/debug</code>에 윈도우의 경우 <code>exe</code>, 리눅스의 경우에는 확장자 없는 실행파일로 생성되어 있는 것을 확인할 수 있다. 릴리즈로 빌드하려면 위 빌드 명령어에서 <code>--release</code> 옵션을 붙여주면 된다.</p>
+<p>곧바로 실행한 결과를 확인하려면 아래 명령어를 사용하면 된다.</p>
 <pre><code>cargo run</code></pre>
-<p>릴리즈로 빌드하려면 위 빌드 명령어에서 <code>--release</code> 옵션을 붙여주면 된다.</p>
         </article>
         <ul class="tag-list noto">
             
@@ -199,6 +196,29 @@ rand = "0.3.14"</code></pre>
             <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
             
         </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@baealex/series/%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%B0%95%EC%82%B4%EB%82%B4%EA%B8%B0" class="text-decoration-none deep-dark">
+            '러스트 박살내기(?)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@baealex/rust-lang%EC%9D%98-%EC%86%8C%EC%9C%A0%EA%B6%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0?series=러스트-박살내기">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>Rust-Lang의 소유권 이해하기
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
         
     </div>
     <div class="col-lg-2 mobile-disable">
@@ -222,7 +242,7 @@ rand = "0.3.14"</code></pre>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="4wPJFDdifOZGcDgNy72EZMr7HzCdy8kN3ElAd7K4HdB1ThuBGHmUHJ6NpyvtoDtU">
+            <input type="hidden" name="csrfmiddlewaretoken" value="LWpIz2BSc94TNUA6VwZMhhtAQ55t9vGjem5b7TiKfRVBfqTMRD0AUd4oQ2TCTAac">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -242,10 +262,10 @@ rand = "0.3.14"</code></pre>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -265,7 +285,7 @@ rand = "0.3.14"</code></pre>
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=4"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
 
 
     

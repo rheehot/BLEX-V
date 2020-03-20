@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>baealex (배진오) — 소개</title>
@@ -90,11 +90,9 @@
         <h5 class="serif">@baealex</h5>
         <a class="vivid-purple" href="https://im.baejino.com">https://im.baejino.com</a>
         <ul class="author-state">
-            <li>
-                <img src="https://img.shields.io/badge/-master-purple">
-            </li>
-            <li onclick="User.follow('baealex')">
-                <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('baealex')">
+                <i class="fas fa-users"></i> <span id="user-follow">2</span>
             </li>
         </ul>
         <p class="user-profile-desc mt-5">
@@ -102,7 +100,7 @@
                 소비적인 일보단 생산적인 일을 추구하며,<br>좋아하는 일을 잘하고 싶어합니다 😀<br>
             
             
-            <a class="vivid-purple" href="/login">Sign in to view email</a>
+            <a class="vivid-purple text-decoration-none" href="/login">Sign in to view email</a>
             
         </p>
         <ul class="social-link">
@@ -140,7 +138,7 @@
         <article class="article noto">
             
                 <h4>배진오 (baealex)</h4>
-<p>개발하는 것을 좋아하는 개발자입니다. 개발하다 막히면 코인 노래방으로 뛰어가 멘탈을 회복하고 돌아옵니다. 파이써닉하고 읽기 쉬운 코드를 만드는 것을 추구하며 착한 마음과 자세로 살아야 한다고 믿습니다. 기록하는 것을 좋아하여 블로그에 많은 관심을 가지고 있습니다. 어제보다 발전한 스스로를 만들기 위해 항상 노력합니다.</p>
+<p>개발하는 것을 좋아하는 개발자입니다. 좋은 음악을 찾아드는 것도 좋아합니다. 그래서 좋은 음악을 찾아놓고 코딩하는 것을 가장 좋아하지요. 파이써닉하고 읽기 쉬운 코드를 만드는 것을 추구하며 착한 마음과 자세로 살아야 한다고 믿습니다. 기록하는 것을 좋아하여 블로그에 많은 관심을 가지고 있습니다. 어제보다 발전한 스스로를 만들기 위해 노력합니다.</p>
 <p><br></p>
 <h2>기술</h2>
 <h6>Frontend</h6>
@@ -171,8 +169,17 @@
 <h6>BLEX : BLOG EXPRESS ME <a href="https://blex.kr">#</a></h6>
 <ul>
 <li>2019.06 ~</li>
-<li>스스로 풀사이클로 개발중인 처음으로 서비스해보는 프로젝트입니다. 기록은 자신을 표현하기 가장 훌륭한 수단이며 블로그는 기록을 남기기 위한 완벽한 플랫폼입니다. 기존 블로그들의 장점을 조합하여 블로그 본연의 기능에 충실한 서비스를 만들고 있습니다.</li>
-<li>Python, Django, SQLite, PHP, jQuery, FFMpeg</li>
+<li>일인으로 개발중이며 난생 처음으로 서비스를 시작한 프로젝트이기도 합니다. 기록은 자신을 표현하기 가장 훌륭한 수단이며 블로그는 기록을 남기기 위한 완벽한 플랫폼입니다. 기존 블로그들의 장점을 조합하여 블로그 본연의 기능에 충실한 서비스를 만들고 있습니다.</li>
+<li>기술스택<ul>
+<li>Python</li>
+<li>Django</li>
+<li>SQLite(곧 바껴버릴 예정)</li>
+<li>PHP(곧 없애버릴 예정)</li>
+<li>jQuery(곧 없애버릴 예정)</li>
+<li>Bootstrap(곧 없애버릴 예정)</li>
+<li>FFMpeg</li>
+</ul>
+</li>
 </ul>
                 
             
@@ -195,10 +202,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

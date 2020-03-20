@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>mildsalmon (김학진)</title>
@@ -92,11 +92,9 @@
         <h5 class="serif">@mildsalmon</h5>
         
         <ul class="author-state">
-            <li>
-                <img src="https://img.shields.io/badge/-blogger-gray">
-            </li>
-            <li onclick="User.follow('mildsalmon')">
-                <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('mildsalmon')">
+                <i class="fas fa-users"></i> <span id="user-follow">0</span>
             </li>
         </ul>
         <p class="user-profile-desc mt-5">
@@ -104,7 +102,7 @@
                 작은 불편함을 해소하기 위해 개발하는 연구원.<br>
             
             
-            <a class="vivid-purple" href="/login">Sign in to view email</a>
+            <a class="vivid-purple text-decoration-none" href="/login">Sign in to view email</a>
             
         </p>
         <ul class="social-link">
@@ -137,7 +135,7 @@
             
             <ul class="mt-4 noto">
                 <h5 class="serif">카테고리</h5>
-                <li><a class="active" href="/@mildsalmon">전체<span class="ns">(47)</span></a></li>
+                <li><a class="active" href="/@mildsalmon">전체<span class="ns">(51)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EA%B9%83">깃<span class="ns">(16)</span></a></li>
                 
@@ -145,17 +143,17 @@
                 
                 <li><a href="/@mildsalmon/topic/python">python<span class="ns">(15)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇<span class="ns">(11)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇<span class="ns">(11)</span></a></li>
-                
                 <li><a href="/@mildsalmon/topic/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81">웹크롤링<span class="ns">(11)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품<span class="ns">(11)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87">텔레그램봇<span class="ns">(11)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">버전관리<span class="ns">(11)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품<span class="ns">(10)</span></a></li>
+                <li><a href="/@mildsalmon/topic/aat">aat<span class="ns">(11)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/aat">aat<span class="ns">(10)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%EA%B3%B5%EC%A7%80%EC%95%8C%EB%A6%BC%EB%B4%87">공지알림봇<span class="ns">(11)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90">한라대학교<span class="ns">(9)</span></a></li>
                 
@@ -163,123 +161,201 @@
                 
                 <li><a href="/@mildsalmon/topic/%EB%AA%A8%EB%93%88">모듈<span class="ns">(4)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/%ED%98%91%EC%97%85">협업<span class="ns">(3)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%EA%B0%95%EC%9D%98%EC%A0%95%EB%A6%AC">강의정리<span class="ns">(4)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EA%B0%9C%EC%9A%94">개요<span class="ns">(3)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/branch">branch<span class="ns">(2)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">코드분석<span class="ns">(2)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%B2%9C%EC%95%88">천안<span class="ns">(2)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">유지보수<span class="ns">(2)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/modified">modified<span class="ns">(2)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EA%B0%95%EC%9D%98%EC%A0%95%EB%A6%AC">강의정리<span class="ns">(2)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90">단국대학교<span class="ns">(2)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%ED%98%91%EC%97%85">협업<span class="ns">(3)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">개발환경<span class="ns">(2)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/pullrequest">pullrequest<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%EB%8B%A8%EA%B5%AD%EB%8C%80%ED%95%99%EA%B5%90">단국대학교<span class="ns">(2)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/add">add<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%EC%9C%A0%EC%A7%80%EB%B3%B4%EC%88%98">유지보수<span class="ns">(2)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/diff">diff<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%EC%B2%9C%EC%95%88">천안<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%84%9C%ED%8F%89">서평<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D">코드분석<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/modified">modified<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/branch">branch<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0%EC%9D%98%EC%9D%B4%ED%95%B4">문화예술의이해<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8">텔레그램<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/untracked">untracked<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/beautifulsoup">beautifulsoup<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/fetch">fetch<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D">데이터분석<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/staged">staged<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EB%82%98">나<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/fork">fork<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/merge">merge<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/beautifulsoup4">beautifulsoup4<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/reset">reset<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/checkout">checkout<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/requests">requests<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/crond">crond<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EB%AA%A8%EB%93%88">파이썬모듈<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/crontab">crontab<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/log">log<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/revert">revert<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/reflog">reflog<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EB%A7%88%EC%B9%98%EB%A9%B0">마치며<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/os">os<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/gitignore">gitignore<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%B4%88%EC%BD%9C%EB%A6%BF%ED%95%98%ED%8A%B8%EB%93%9C%EB%9E%98%EA%B3%A4">초콜릿하트드래곤<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/tracked">tracked<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">자바프로그래밍<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%84%9C%EB%B2%84%EC%9E%91%EC%97%85">서버작업<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/init">init<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/stash">stash<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%84%9C%ED%8F%89">서평<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EA%B8%B0%EC%B4%88">기초<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C">임베디드<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/%EB%B0%B1%EC%97%85">백업<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/coding">coding<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@mildsalmon/topic/statut">statut<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/beautifulsoup4">beautifulsoup4<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/commit">commit<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/pythontelegrambot">pythontelegrambot<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">클래스화<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/%EC%84%9C%EB%B2%84%EC%9E%91%EC%97%85">서버작업<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/init">init<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/reflog">reflog<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/untracked">untracked<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/checkout">checkout<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/fetch">fetch<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/statut">statut<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/fork">fork<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/pullrequest">pullrequest<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0">정보보호이론<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/merge">merge<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D">데이터분석<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/log">log<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EB%A7%88%EC%B9%98%EB%A9%B0">마치며<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/coding">coding<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/add">add<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/os">os<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/clone">clone<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/crontab">crontab<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/reset">reset<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/unmodified">unmodified<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@mildsalmon/topic/requests">requests<span class="ns">(1)</span></a></li>
+                <li><a href="/@mildsalmon/topic/tracked">tracked<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/diff">diff<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EB%B0%B1%EC%97%85">백업<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/revert">revert<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%ED%81%B4%EB%9E%98%EC%8A%A4%ED%99%94">클래스화<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@mildsalmon/topic/linux">linux<span class="ns">(1)</span></a></li>
                 
+                <li><a href="/@mildsalmon/topic/staged">staged<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/beautifulsoup">beautifulsoup<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%9E%90%EB%B0%94%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">자바프로그래밍<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/gitignore">gitignore<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EA%B8%B0%EC%B4%88">기초<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EB%82%98">나<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C">임베디드<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EB%AA%A8%EB%93%88">파이썬모듈<span class="ns">(1)</span></a></li>
+                
                 <li><a href="/@mildsalmon/topic/%EC%9D%B8%ED%8A%B8%EB%A1%9C">인트로<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EB%91%90%EB%91%90">두두<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%B4%88%EC%BD%9C%EB%A6%BF%ED%95%98%ED%8A%B8%EB%93%9C%EB%9E%98%EA%B3%A4">초콜릿하트드래곤<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@mildsalmon/topic/stash">stash<span class="ns">(1)</span></a></li>
                 
             </ul>
             
         </div>
         <div class="col-lg-8 mt-4">
         <div id="wrapper">
+        
+            <div class="profile-post">
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@mildsalmon/%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0%EC%9D%98-%EC%9D%B4%ED%95%B4-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%A0%95%EB%A6%AC">문화예술의 이해 1주차 강의 정리</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0%EC%9D%98-%EC%9D%B4%ED%95%B4-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%A0%95%EB%A6%AC">문화란 무엇인가? 문화의 정의 문화를 간단히 정의하면 인간의 사상이나 행동양식 학문의 영역에서 사용하는 2가지 개념. 학문, 예술, 종교, 도덕과 같이 주로 정신적 활동에서 직접 나오는 것을 문화라고 함. 이념의로서의 인간을 충실하게 향상시키는 새로운 가치를 창조한다고 하는 뜻이 들어있다. 지성, 교양 독일의 사상을 이어받음. 모든 인간 집단이 저마다 가지고 있는 독특한 …</a></p>
+                <ul class="tag-list noto">
+                    
+                    <li><a href="/@mildsalmon/topic/%EA%B0%95%EC%9D%98%EC%A0%95%EB%A6%AC">강의정리</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0%EC%9D%98%EC%9D%B4%ED%95%B4">문화예술의이해</a></li>
+                    
+                </ul>
+            </div>
+        
+            <div class="profile-post">
+                
+                <a href="/@mildsalmon/aat_phase-1-development-day-2">
+                    <picture>
+                        <img src="https://static.blex.me/title/mildsalmon/2020/3/20/14Fkna.png" alt="AAT_Phase 1. Development Day 2" loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@mildsalmon/aat_phase-1-development-day-2">AAT_Phase 1. Development Day 2</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/aat_phase-1-development-day-2">공부를 통해 새로 알게된 부분 Kiwoom OPEN API+ 메서드 SendOrder 증권사 서버에 주문 요청을 했다고, 즉시 체결되는 것이 아니므로 이벤트 루프를 사용해 대기 → 주문이 체결되면 증권사 서버는 OnReceiveChejanData 이벤트 발생. OnReceiveTrData 이벤트 → CommGetData 메서드 호출 / OnReceiveChejanData 이벤트 → GetChejanData 메서드 호출 / / 체결 잔고 데이터를 얻어오면 …</a></p>
+                <ul class="tag-list noto">
+                    
+                    <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+                    
+                </ul>
+            </div>
+        
+            <div class="profile-post">
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@mildsalmon/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC">정보보호이론 1주차 강의 정리</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC">해킹과 보안의 역사 해킹 다른 사람의 컴퓨터 시스템에 무단으로 침입하여 데이터와 프로그램을 없애거나 망치는 일 -국어사전 Hacking is about finding inventive solutions using the properties and laws of a system in ways not intended by its designer 해킹은 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것 …</a></p>
+                <ul class="tag-list noto">
+                    
+                    <li><a href="/@mildsalmon/topic/%EA%B0%95%EC%9D%98%EC%A0%95%EB%A6%AC">강의정리</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0">정보보호이론</a></li>
+                    
+                </ul>
+            </div>
+        
+            <div class="profile-post">
+                
+                <a href="/@mildsalmon/%EC%82%B6%EC%9D%80-%EB%A7%88%EB%9D%BC%ED%86%A4%EC%9D%B4%EB%9D%BC%EA%B8%B0%EB%B3%B4%EB%8B%A4-%EC%97%AC%ED%96%89%EC%9E%85%EB%8B%88%EB%8B%A4">
+                    <picture>
+                        <img src="https://static.blex.me/title/mildsalmon/2020/3/20/0pWO8.jpg" alt="삶은 마라톤이라기보다, 여행입니다." loading="lazy">
+                    </picture>
+                </a>
+                
+                <h4 class="card-title serif font-weight-bold mt-3">
+                    <a class="deep-dark" href="/@mildsalmon/%EC%82%B6%EC%9D%80-%EB%A7%88%EB%9D%BC%ED%86%A4%EC%9D%B4%EB%9D%BC%EA%B8%B0%EB%B3%B4%EB%8B%A4-%EC%97%AC%ED%96%89%EC%9E%85%EB%8B%88%EB%8B%A4">삶은 마라톤이라기보다, 여행입니다.</a>
+                </h4>
+                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/%EC%82%B6%EC%9D%80-%EB%A7%88%EB%9D%BC%ED%86%A4%EC%9D%B4%EB%9D%BC%EA%B8%B0%EB%B3%B4%EB%8B%A4-%EC%97%AC%ED%96%89%EC%9E%85%EB%8B%88%EB%8B%A4">제목 삶은 마라톤이라기보다, 여행입니다. (마음대로 되지 않는 삶을 바라보는 관점); 두두의 마음 편지 인상 깊은 핵심 문구 누군가에게 그럴듯 해 보일 필요 없고, 꼭 이루어야할 무언가가 있는 것도 아닙니다. 남은 내 삶에서 내일은 어떤 여정이 시작될까, 어느 방향으로 나아가 볼까. 이 글을 어떻게 읽게 되었는지 정말 오랜만에 브런치에 들어갔다. 추천 …</a></p>
+                <ul class="tag-list noto">
+                    
+                    <li><a href="/@mildsalmon/topic/%EB%91%90%EB%91%90">두두</a></li>
+                    
+                    <li><a href="/@mildsalmon/topic/%EC%84%9C%ED%8F%89">서평</a></li>
+                    
+                </ul>
+            </div>
         
             <div class="profile-post">
                 
@@ -317,94 +393,6 @@
                 </ul>
             </div>
         
-            <div class="profile-post">
-                
-                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%EC%97%90-%EA%B8%B0%EC%97%AC%ED%95%98%EA%B8%B0-fork">
-                    <picture>
-                        <img src="https://static.blex.me/title/mildsalmon/2020/3/19/9TLtf.jpg" alt="Git 정리 - 협업 - 오픈소스에 기여하기 - fork" loading="lazy">
-                    </picture>
-                </a>
-                
-                <h4 class="card-title serif font-weight-bold mt-3">
-                    <a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%EC%97%90-%EA%B8%B0%EC%97%AC%ED%95%98%EA%B8%B0-fork">Git 정리 - 협업 - 오픈소스에 기여하기 - fork</a>
-                </h4>
-                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%EC%97%90-%EA%B8%B0%EC%97%AC%ED%95%98%EA%B8%B0-fork">오픈 소스 저장소 복제하기 (fork) 오픈 소스 저장소를 자신의 저장소로 복제하는 것을 fork라고 한다. 복제하고 싶은 저장소로 이동해서 Fork를 누르면 내 저장소에 저장소가 복제된 것을 확인할 수 있다. Fork부터 Pull requests까지 오픈 소스를 수정하고 수정 내역을 제작자에게 알려주는 방법은 아래와 같다. 수정을 할때 브런치를 만들어서 수정을 하는 것도 좋은 방법이다. …</a></p>
-                <ul class="tag-list noto">
-                    
-                    <li><a href="/@mildsalmon/topic/%ED%98%91%EC%97%85">협업</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EA%B9%83">깃</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/fork">fork</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/git">git</a></li>
-                    
-                </ul>
-            </div>
-        
-            <div class="profile-post">
-                
-                <h4 class="card-title serif font-weight-bold mt-3">
-                    <a class="deep-dark" href="/@mildsalmon/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%9A%94%EC%95%BD">임베디드 1주차 강의 정리</a>
-                </h4>
-                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-1%EC%A3%BC%EC%B0%A8-%EA%B0%95%EC%9D%98-%EC%9A%94%EC%95%BD">임베디드 시스템 Any device that includes a programmable computer but is not itself a general-purpose computer 프로그램 가능한 컴퓨터를 포함하지만, 그 자체가 범용 컴퓨터가 아닌 모든 장치 컴퓨터 하드웨어와 소프트웨어가 조합되어 특정한 목적을 수행하는 시스템 구성 H/W : 마이크로 프로세서/컨트롤러, 메모리, 센서, 구동기,I/O 장치, 네트워크 장치 S/W : OS, 시스템 …</a></p>
-                <ul class="tag-list noto">
-                    
-                    <li><a href="/@mildsalmon/topic/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C">임베디드</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EA%B0%95%EC%9D%98%EC%A0%95%EB%A6%AC">강의정리</a></li>
-                    
-                </ul>
-            </div>
-        
-            <div class="profile-post">
-                
-                <a href="/@mildsalmon/aat_phase-1-store-stock-price-data">
-                    <picture>
-                        <img src="https://static.blex.me/title/mildsalmon/2020/3/18/20OUHA.png" alt="AAT_Phase 1. Store stock price data" loading="lazy">
-                    </picture>
-                </a>
-                
-                <h4 class="card-title serif font-weight-bold mt-3">
-                    <a class="deep-dark" href="/@mildsalmon/aat_phase-1-store-stock-price-data">AAT_Phase 1. Store stock price data</a>
-                </h4>
-                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/aat_phase-1-store-stock-price-data">공부를 통해 새로 알게된 부분 sqlite3 - 파이썬 표준 라이브러리 - DB를 쉽게 이용할 수 있다. .version - sqlite3 모듈의 버전 .sqlite_version - sqlite 버전 데이터 베이스 생성 connect 함수 - Connection 객체 생성 인자값 1. 생성할 데이터베이스 파일의 경로 및 이름. Connection 객체 Cursor 객체 - SQL 구문을 호출하려면 …</a></p>
-                <ul class="tag-list noto">
-                    
-                    <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/aat">aat</a></li>
-                    
-                </ul>
-            </div>
-        
-            <div class="profile-post">
-                
-                <a href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-fetch-pull-request">
-                    <picture>
-                        <img src="https://static.blex.me/title/mildsalmon/2020/3/18/9yj3E.jpg" alt="Git 정리 - 협업 - fetch, pull request" loading="lazy">
-                    </picture>
-                </a>
-                
-                <h4 class="card-title serif font-weight-bold mt-3">
-                    <a class="deep-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-fetch-pull-request">Git 정리 - 협업 - fetch, pull request</a>
-                </h4>
-                <p class="noto"><a class="shallow-dark" href="/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-fetch-pull-request">원격 브랜치 정보 가져오기 (git fetch) 페치(fetch)는 &#39;불러오다, 가져오다&#39; git fetch는 원격 저장소의 정보를 가져오는 기능이 있다. pull이 원격 저장소의 커밋을 가져와서 무조건 지역 저장소와 합친다면, fetch는 원격 브랜치에 어떤 변화가 있는지 그 정보만 가져온다. 깃허브에서 파일을 하나 추가했다. fetch 명령으로 원격 저장소의 정보를 가져오자. git fetch git checkout FETCH_HEAD …</a></p>
-                <ul class="tag-list noto">
-                    
-                    <li><a href="/@mildsalmon/topic/git">git</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/pullrequest">pullrequest</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/fetch">fetch</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%ED%98%91%EC%97%85">협업</a></li>
-                    
-                    <li><a href="/@mildsalmon/topic/%EA%B9%83">깃</a></li>
-                    
-                </ul>
-            </div>
-        
         </div>
         <nav class="pgnav noto" aria-label="Page navigation"><ul class="pg none-list"><li class="pi disabled"><a class="pl" href="#" tabindex="-1"><i class="fas fa-arrow-left"></i></a></li><li class="pi disabled"><a class="pl pl" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li><li class="pi active"><a class="pl" href="/@mildsalmon">
                 1
@@ -416,7 +404,7 @@
                 4
             </a></li><li class="pi"><a class="pl" href="?page=5">
                 5
-            </a></li><li class="pi"><a class="pl" href="?page=8"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li><li class="pi"><a class="pl" href="?page=2"><i class="fas fa-arrow-right"></i></a></li></ul><ul class="ps none-list mobile-disable"><form onsubmit="return false"><span class="vs shallow-dark mr-2">Go to page</span><input class="pn" name="page" type="number" min="1" max="8"><button class="gp">Go <i class="fas fa-chevron-right"></i></button></form></ul></nav>
+            </a></li><li class="pi"><a class="pl" href="?page=9"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li><li class="pi"><a class="pl" href="?page=2"><i class="fas fa-arrow-right"></i></a></li></ul><ul class="ps none-list mobile-disable"><form onsubmit="return false"><span class="vs shallow-dark mr-2">Go to page</span><input class="pn" name="page" type="number" min="1" max="9"><button class="gp">Go <i class="fas fa-chevron-right"></i></button></form></ul></nav>
     </div>
 </div>
 
@@ -440,10 +428,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

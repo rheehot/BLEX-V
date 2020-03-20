@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>korean529 (Korean529)</title>
@@ -95,11 +95,9 @@
         <h5 class="serif">@korean529</h5>
         
         <ul class="author-state">
-            <li>
-                <img src="https://img.shields.io/badge/-blogger-gray">
-            </li>
-            <li onclick="User.follow('korean529')">
-                <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+            <li><i class="fas fa-battery-empty"></i> 0%</li>
+            <li class="c-pointer" onclick="User.follow('korean529')">
+                <i class="fas fa-users"></i> <span id="user-follow">0</span>
             </li>
         </ul>
         <p class="user-profile-desc mt-5">
@@ -107,7 +105,7 @@
                 까먹음 방지/지식공유/Knowledge positioning system<br>초전도 / 극저온 / DIY시스템구축<br>
             
             
-            <a class="vivid-purple" href="/login">Sign in to view email</a>
+            <a class="vivid-purple text-decoration-none" href="/login">Sign in to view email</a>
             
         </p>
         <ul class="social-link">
@@ -142,15 +140,15 @@
                 <h5 class="serif">카테고리</h5>
                 <li><a class="active" href="/@korean529">전체<span class="ns">(5)</span></a></li>
                 
-                <li><a href="/@korean529/topic/%EC%B4%88%EC%A0%84%EB%8F%84_%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90">초전도_기본개념<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@korean529/topic/%ED%9D%A1%EC%B0%A9%EC%A0%9C_%EB%B6%84%EC%9E%90%EC%B2%B4">흡착제_분자체<span class="ns">(1)</span></a></li>
-                
                 <li><a href="/@korean529/topic/%ED%9D%A1%EC%B0%A9%EC%A0%9C_%ED%99%9C%EC%84%B1%EC%8B%A4%EB%A6%AC%EC%B9%B4">흡착제_활성실리카<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@korean529/topic/%EC%B4%88%EC%A0%84%EB%8F%84_%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90">초전도_기본개념<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@korean529/topic/%ED%9D%A1%EC%B0%A9%EC%A0%9C_%ED%99%9C%EC%84%B1%EC%95%8C%EB%A3%A8%EB%AF%B8%EB%82%98">흡착제_활성알루미나<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@korean529/topic/%ED%9D%A1%EC%B0%A9%EC%A0%9C_%ED%99%9C%EC%84%B1%ED%83%84">흡착제_활성탄<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@korean529/topic/%ED%9D%A1%EC%B0%A9%EC%A0%9C_%EB%B6%84%EC%9E%90%EC%B2%B4">흡착제_분자체<span class="ns">(1)</span></a></li>
                 
             </ul>
             
@@ -256,10 +254,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>baealex (배진오)</title>
@@ -95,11 +95,9 @@
         <h5 class="serif">@baealex</h5>
         <a class="vivid-purple" href="https://im.baejino.com">https://im.baejino.com</a>
         <ul class="author-state">
-            <li>
-                <img src="https://img.shields.io/badge/-master-purple">
-            </li>
-            <li onclick="User.follow('baealex')">
-                <img class="follow-badge" src="https://img.shields.io/badge/subscriber-2-red?style=social">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('baealex')">
+                <i class="fas fa-users"></i> <span id="user-follow">2</span>
             </li>
         </ul>
         <p class="user-profile-desc mt-5">
@@ -107,7 +105,7 @@
                 소비적인 일보단 생산적인 일을 추구하며,<br>좋아하는 일을 잘하고 싶어합니다 😀<br>
             
             
-            <a class="vivid-purple" href="/login">Sign in to view email</a>
+            <a class="vivid-purple text-decoration-none" href="/login">Sign in to view email</a>
             
         </p>
         <ul class="social-link">
@@ -164,15 +162,15 @@
                 
                 <li><a href="/@baealex/topic/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD">공지사항<span class="ns">(3)</span></a></li>
                 
-                <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트<span class="ns">(3)</span></a></li>
-                
-                <li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기<span class="ns">(3)</span></a></li>
+                <li><a href="/@baealex/topic/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">튜토리얼<span class="ns">(3)</span></a></li>
                 
                 <li><a href="/@baealex/topic/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5">인공지능<span class="ns">(3)</span></a></li>
                 
-                <li><a href="/@baealex/topic/%EC%9C%A0%EC%A0%84">유전<span class="ns">(3)</span></a></li>
+                <li><a href="/@baealex/topic/%EC%9D%BC%EA%B8%B0">일기<span class="ns">(3)</span></a></li>
                 
-                <li><a href="/@baealex/topic/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC">튜토리얼<span class="ns">(3)</span></a></li>
+                <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트<span class="ns">(3)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%9C%A0%EC%A0%84">유전<span class="ns">(3)</span></a></li>
                 
                 <li><a href="/@baealex/topic/%EB%A6%AC%EC%95%A1%ED%8A%B8">리액트<span class="ns">(2)</span></a></li>
                 
@@ -182,25 +180,25 @@
                 
                 <li><a href="/@baealex/topic/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC">정보처리기사<span class="ns">(2)</span></a></li>
                 
-                <li><a href="/@baealex/topic/%EC%9A%B4%EC%98%81">운영<span class="ns">(2)</span></a></li>
-                
                 <li><a href="/@baealex/topic/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터베이스<span class="ns">(2)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%9A%B4%EC%98%81">운영<span class="ns">(2)</span></a></li>
                 
                 <li><a href="/@baealex/topic/%EC%9D%8C%EC%95%85">음악<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@baealex/topic/%EC%8A%A4%ED%94%84%EB%A7%81">스프링<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@baealex/topic/%EA%B3%B5%EB%B6%80">공부<span class="ns">(1)</span></a></li>
-                
-                <li><a href="/@baealex/topic/%EC%9E%A5%EA%B3%A0">장고<span class="ns">(1)</span></a></li>
+                <li><a href="/@baealex/topic/%EC%95%84%ED%82%A4%ED%83%9D%EC%B3%90">아키택쳐<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@baealex/topic/%EC%9D%BC%EB%A0%89%ED%8A%B8%EB%A1%A0">일렉트론<span class="ns">(1)</span></a></li>
                 
-                <li><a href="/@baealex/topic/%EC%95%84%ED%82%A4%ED%83%9D%EC%B3%90">아키택쳐<span class="ns">(1)</span></a></li>
+                <li><a href="/@baealex/topic/%EC%9E%A5%EA%B3%A0">장고<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EC%8A%A4%ED%94%84%EB%A7%81">스프링<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@baealex/topic/%EB%A6%AC%EB%88%85%EC%8A%A4">리눅스<span class="ns">(1)</span></a></li>
                 
                 <li><a href="/@baealex/topic/%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B1%97">스카이챗<span class="ns">(1)</span></a></li>
+                
+                <li><a href="/@baealex/topic/%EA%B3%B5%EB%B6%80">공부<span class="ns">(1)</span></a></li>
                 
             </ul>
             
@@ -219,7 +217,7 @@
                 <h4 class="card-title serif font-weight-bold mt-3">
                     <a class="deep-dark" href="/@baealex/rust-lang%EC%9D%98-cargo">Rust-Lang의 Cargo</a>
                 </h4>
-                <p class="noto"><a class="shallow-dark" href="/@baealex/rust-lang%EC%9D%98-cargo">Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용해서 코드를 작성하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 …</a></p>
+                <p class="noto"><a class="shallow-dark" href="/@baealex/rust-lang%EC%9D%98-cargo">Cargo Rust-Lang은 Node의 NPM처럼 Cargo라는 공식 패키지 관리자를 제공하고 있다. 러스트 공식 문서에서는 source.rs를 생성하여 코드를 작성하는 것 보다는 Cargo를 이용하는 것을 추천하고 있다. Cargo를 사용하면 소스코드의 라이브러리 의존성을 간단하게 관리할 수 있다. 새로운 프로젝트 cargo new project_name 위 명령어를 사용하여 프로젝트를 생성할 수 있다. 라이브러리를 생성하는 거라면 아래와 같이 …</a></p>
                 <ul class="tag-list noto">
                     
                     <li><a href="/@baealex/topic/%EB%9F%AC%EC%8A%A4%ED%8A%B8">러스트</a></li>
@@ -306,9 +304,9 @@
                 <p class="noto"><a class="shallow-dark" href="/@baealex/rust-lang%EC%9C%BC%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-k%EB%B2%88%EC%A7%B8-%EC%86%8C%EC%88%98">저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) &quot;개발자 능력 실화?&quot; K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 이 코드를 변환하는 이유는 필자의 궁금증을 해결하기 위함이다. 파이썬이기 때문에 25점을 받은건지, …</a></p>
                 <ul class="tag-list noto">
                     
-                    <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
-                    
                     <li><a href="/@baealex/topic/%EB%9F%AC%EC%8A%A4%ED%8A%B8">러스트</a></li>
+                    
+                    <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
                     
                 </ul>
             </div>
@@ -321,9 +319,9 @@
                 <p class="noto"><a class="shallow-dark" href="/@baealex/%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-%EB%B0%B1%EC%A4%80-1330-5543-1">2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다. 맨날 &#39;해야지 해야지&#39; 하면서 &#39;해야지&#39;만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 해야지! 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 …</a></p>
                 <ul class="tag-list noto">
                     
-                    <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
-                    
                     <li><a href="/@baealex/topic/%EB%9F%AC%EC%8A%A4%ED%8A%B8">러스트</a></li>
+                    
+                    <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
                     
                 </ul>
             </div>
@@ -363,10 +361,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

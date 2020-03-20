@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="공부를 통해 새로 알게된 부분 Kiwoom OPEN API+ 메서드 SendOrder 증권사 서버에 주문 요청을 했다고, 즉시 체결되는 것이 아니므로 이벤트 루프를 사용해 대기 → 주문이 체결되면 증권사 서버는 OnReceiveChejanData 이벤트 발생. OnReceiveTrData 이벤트 → CommGetData 메서드 호출 / OnReceiveChejanData 이벤트 → GetChejanData 메서드 호출 / / 체결 잔고 데이터를 얻어오면 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-development-day-2">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AAT_Phase 1. Development Day 2">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 Kiwoom OPEN API+ 메서드 SendOrder 증권사 서버에 주문 요청을 했다고, 즉시 체결되는 것이 아니므로 이벤트 루프를 사용해 대기 → 주문이 체결되면 증권사 서버는 OnReceiveChejanData 이벤트 발생. OnReceiveTrData 이벤트 → CommGetData 메서드 호출 / OnReceiveChejanData 이벤트 → GetChejanData 메서드 호출 / / 체결 잔고 데이터를 얻어오면 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/20/14Fkna.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AAT_Phase 1. Development Day 2">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-development-day-2">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 Kiwoom OPEN API+ 메서드 SendOrder 증권사 서버에 주문 요청을 했다고, 즉시 체결되는 것이 아니므로 이벤트 루프를 사용해 대기 → 주문이 체결되면 증권사 서버는 OnReceiveChejanData 이벤트 발생. OnReceiveTrData 이벤트 → CommGetData 메서드 호출 / OnReceiveChejanData 이벤트 → GetChejanData 메서드 호출 / / 체결 잔고 데이터를 얻어오면 …">
+<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/20/14Fkna.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>AAT_Phase 1. Development Day 2 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/title/mildsalmon/2020/3/20/14Fkna.png" alt="AAT_Phase 1. Development Day 2">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. Development Day 2</h1>
+            <p class="post-date fade-in">2020-03-20 14:14<span>(Last Update: 2020-03-20 14:15)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(463);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(463)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. Development Day 2&url=https://blex.me/@mildsalmon/aat_phase-1-development-day-2" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-development-day-2" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a class="text-decoration-none" href="/@mildsalmon">mildsalmon</a></h4>
+        <ul class="author-state">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('mildsalmon')">
+                <i class="fas fa-users"></i> <span id="user-follow">0</span>
+            </li>
+        </ul>
+        
+        <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+        
+        
+        <a class="author-email d-block text-decoration-none" href="/login">Sign in to view email</a>
+        
+    </div>
+</div>
+        <article class="article noto">
+            <h1>공부를 통해 새로 알게된 부분</h1>
+<p><img src="https://static.blex.kr/image/2020/3/20/WzeQIg48CS4jcC1zWBHV.png" alt=""></p>
+<ul>
+<li>
+<p>Kiwoom OPEN API+</p>
+<ul>
+<li>
+<p>메서드</p>
+<ul>
+<li>
+<p>SendOrder</p>
+<ul>
+<li>증권사 서버에 주문 요청을 했다고, 즉시 체결되는 것이 아니므로 이벤트 루프를 사용해 대기 → 주문이 체결되면 증권사 서버는 OnReceiveChejanData 이벤트 발생.</li>
+<li>OnReceiveTrData 이벤트 → CommGetData 메서드 호출 / OnReceiveChejanData 이벤트 → GetChejanData 메서드 호출 /  / 체결 잔고 데이터를 얻어오면 된다.</li>
+</ul>
+<p>원형
+LONG SendOrder( BSTR sRQName,BSTR sScreenNo,BSTR sAccNo,LONG nOrderType,BSTR sCode,LONG nQty,LONG nPrice,BSTR sHogaGb,BSTR sOrgOrderNo)
+설명
+주식 주문을 서버로 전송한다.
+입력값
+sRQName -사용자 구분 요청 명sScreenNo -화면번호[4]sAccNo -계좌번호[10]nOrderType -주문유형(1:신규매수, 2:신규매도, 3:매수취소, 4:매도취소, 5:매수정정, 6:매도정정)sCode, -주식종목코드nQty –주문수량nPrice –주문단가sHogaGb -거래구분sOrgOrderNo –원주문번호
+반환값
+에러코드&lt;4.에러코드표 참고&gt;
+비고
+sHogaGb – 00:지정가, 03:시장가, 05:조건부지정가, 06:최유리지정가, 07:최우선지정가, 10:지정가IOC,13:시장가IOC, 16:최유리IOC, 20:지정가FOK, 23:시장가FOK, 26:최유리FOK, 61:장전시간외종가,62:시간외단일가, 81:장후시간외종가※ 시장가,최유리지정가,최우선지정가,시장가IOC,최유리IOC,시장가FOK,최유리FOK,장전시간외,장후시간외 주문시 주문가격을 입력하지 않습니다.
+ex)
+지정가 매수- openApi.SendOrder(“RQ_1”, “0101”, “5015123410”, 1, “000660”, 10,48500, “00”, “”);시장가 매수- openApi.SendOrder(“RQ_1”, “0101”, “5015123410”, 1, “000660”, 10, 0,“03”, “”);매수 정정- openApi.SendOrder(“RQ_1”,“0101”, “5015123410”, 5, “000660”, 10, 49500,“00”, “1”);매수 취소- openApi.SendOrder(“RQ_1”, “0101”, “5015123410”, 3, “000660”, 10, 0, “00”,“2”);</p>
+</li>
+<li>
+<p>GetChejanData</p>
+<p>GetChejanData 메서드
+원형
+BSTR GetChjanData(long nFid)
+설명
+체결잔고 데이터를 반환한다.
+입력값
+nFid –체결잔고 아이템
+반환값 
+수신 데이터
+비고
+Ex)현재가출력– openApi.GetChejanData(10);</p>
+<p>주문체결 FID설명</p>
+<p>9201계좌번호
+9203주문번호
+9205관리자사번
+9001종목코드,업종코드
+912주문업무분류(JJ:주식주문, FJ:선물옵션, JG:주식잔고, FG:선물옵션잔고)
+913주문상태(접수,확인,체결)
+302종목명
+900주문수량
+901주문가격
+902미체결수량
+903체결누계금액
+904원주문번호
+905주문구분(+현금내수,-현금매도…)
+906매매구분(보통,시장가…)
+907매도수구분(1:매도,2:매수)
+908주문/체결시간(HHMMSSMS)
+909체결번호
+910체결가
+911체결량
+10현재가,체결가,실시간종가
+27 (최우선)매도호가
+28 (최우선)매수호가
+914단위체결가
+915단위체결량
+938당일매매 수수료
+939당일매매세금</p>
+</li>
+<li>
+<p>GetLoginInfo - Open API+에서 계좌 정보 및 로그인 사용자 정보를 얻어오는 메서드</p>
+<p>원형
+BSTR GetLoginInfo(BSTR sTag)
+설명
+로그인한 사용자 정보를 반환한다.
+입력값
+BSTR sTag :사용자 정보 구분TAG값(비고)
+반환값
+TAG값에 따른 데이터 반환
+비고
+BSTR sTag에 들어 갈 수 있는 값은 아래와 같음
+“ACCOUNT_CNT” –전체 계좌 개수를 반환한다.
+"ACCNO" –전체 계좌를 반환한다.계좌별 구분은‘;’이다.
+“USER_ID” -사용자ID를 반환한다.
+“USER_NAME” –사용자명을 반환한다.
+“KEY_BSECGB” –키보드보안 해지여부. 0:정상, 1:해지
+“FIREW_SECGB” –방화벽 설정 여부. 0:미설정, 1:설정, 2:해지
+Ex) openApi.GetLoginInfo(“ACCOUNT_CNT”);</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Qt Designer</p>
+<ul>
+<li>위젯 컨트롤 (Qt Designer → 위젯 → 속성 편집기 → objectName 항목의 이름으로 컨트롤)</li>
+</ul>
+</li>
+</ul>
+<h1>좀 더 공부해야하는 부분</h1>
+<ul>
+<li>Open API +</li>
+</ul>
+<h1>한줄평</h1>
+<p>확실히 Open API는 알면 알수록 활용도가 높아지는 것 같다. Open API로 매수를 해봤는데 잘 작동해서 만족했다.</p>
+<h1>오늘 작성한 코드</h1>
+<p><a href="https://github.com/mildsalmon/AAT/commit/d2bcec91c713e6e8da80db3a32b71898861cd658">Development Day 2 · mildsalmon/AAT@d2bcec9</a></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-aat" class="text-decoration-none deep-dark">
+            '졸업작품 (AAT)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-development-day-1?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1. Development day 1
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="zS9c9d8YJfsKN5ymua95o8VkSatJumtj0U74m9sjG8aGHARfzEFiiR0QJdnMr3oW">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+
+
+    
+</body>
+</html>

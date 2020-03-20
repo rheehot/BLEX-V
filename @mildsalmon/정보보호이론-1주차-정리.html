@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="해킹과 보안의 역사 해킹 다른 사람의 컴퓨터 시스템에 무단으로 침입하여 데이터와 프로그램을 없애거나 망치는 일 -국어사전 Hacking is about finding inventive solutions using the properties and laws of a system in ways not intended by its designer 해킹은 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="정보보호이론 1주차 강의 정리">
+<meta property="og:description" content="해킹과 보안의 역사 해킹 다른 사람의 컴퓨터 시스템에 무단으로 침입하여 데이터와 프로그램을 없애거나 망치는 일 -국어사전 Hacking is about finding inventive solutions using the properties and laws of a system in ways not intended by its designer 해킹은 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것 …">
+<meta property="og:site_name" content="BLEX">
+
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="정보보호이론 1주차 강의 정리">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC">
+<meta name="twitter:description" content="해킹과 보안의 역사 해킹 다른 사람의 컴퓨터 시스템에 무단으로 침입하여 데이터와 프로그램을 없애거나 망치는 일 -국어사전 Hacking is about finding inventive solutions using the properties and laws of a system in ways not intended by its designer 해킹은 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것 …">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>정보보호이론 1주차 강의 정리 – mildsalmon</title>
+</head>
+<body>
+    
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(462);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(462)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=정보보호이론 1주차 강의 정리&url=https://blex.me/@mildsalmon/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0-1%EC%A3%BC%EC%B0%A8-%EC%A0%95%EB%A6%AC" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        <h1 class="post-headline"><span class="post-series">'정보보호이론' 시리즈</span>정보보호이론 1주차 강의 정리</h1>
+        <p class="post-date">
+            2020-03-20 09:45
+            <span>(Last Update: 2020-03-20 09:46)<span></span></span></p>
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a class="text-decoration-none" href="/@mildsalmon">mildsalmon</a></h4>
+        <ul class="author-state">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('mildsalmon')">
+                <i class="fas fa-users"></i> <span id="user-follow">0</span>
+            </li>
+        </ul>
+        
+        <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+        
+        
+        <a class="author-email d-block text-decoration-none" href="/login">Sign in to view email</a>
+        
+    </div>
+</div>
+        <article class="article noto">
+            <h1>해킹과 보안의 역사</h1>
+<h3>해킹</h3>
+<blockquote>
+<p>다른 사람의 컴퓨터 시스템에 무단으로 침입하여 데이터와 프로그램을 없애거나 망치는 일 -국어사전</p>
+<p>Hacking is about finding inventive solutions using the properties and laws of a system in ways not intended by its designer
+해킹은 디자이너가 의도하지 않았던 방법으로 시스템의 특성이나 규칙을 이용한 창조적인 사용법을 찾는 것 -영영사전</p>
+</blockquote>
+<h3>1950년대 이전</h3>
+<h5>애니그마</h5>
+<p>1918년 폴란드의 암호보안 전문가들이 암호화 기께 에니그마(Enigma)를 개발.</p>
+<h5>콜로서스</h5>
+<p>1943년 12월 앨런튜링(Alan Turing)이 애니그마 해독기인 콜로서스를 개발</p>
+<h5>hack의 의미</h5>
+<p>창조성을 적용하는 사람</p>
+<h3>1960년대</h3>
+<h5>ARPA</h5>
+<p>1967년 미국 국방부.
+ARPA(The Advanced Research Project Agency) 프로젝트를 통해 컴퓨터 연동망을 개발.
+IMPS(Interface Message Processors) 네트워크라고 불린 이 연동망은 인터넷의 뿌리.</p>
+<h5>유닉스 운영체제</h5>
+<p>1969년 켄 톰프슨(Ken Thompson)과 데니스 리치(Dennis Ritchi)가 운영체제인 유닉스(UNIX)를 개발</p>
+<p>해커 친화적인(hacker-friendly) 운영체제</p>
+<ul>
+<li>개발자 툴 및 컴파일러에 접근하기 쉬움</li>
+<li>여러 사용자가 동시에 사용할 수 있다는 특성.</li>
+</ul>
+<h5>무료 전화 해킹</h5>
+<p>1969년 조 앙그레시아(Joe Engressia)는 2600Hz의 휘파람을 불면 장거리 전화를 무료로 쓸 수 있다는 사실을 알아냈다.</p>
+<h3>1970년대</h3>
+<h5>GNU</h5>
+<p>1983년 9월 27일 리처드 스톨먼(Richard Stallman)이 발표.
+GNU(Gnu's Not Unix)는 유닉스와 완벽하게 호환되는 소프트웨어 시스템.
+모든 사람이 무료로 사용하도록 작성하는 것이 목표.</p>
+<p>Copyleft 독점적인 의미의 저작권(Copyright)와 반대되는 개념.
+지식과 정보를 소수가 독점해서는 안 되며 모든 사람에게 열려 있어야 한다.</p>
+<p>GNU - 자유 소프트웨어에 대한 네 가지 자유</p>
+<ul>
+<li>자유 0 : 어떠한 목적을 위해서건 프로그램을 실행할 자유</li>
+<li>자유 1 : 프로그램의 작동 원리를 연구하고 이를 자신의 필요에 맞게 변경할 수 있는 자유</li>
+<li>자유 2 : 이웃을 돕기 위해 프로그램을 복제하고 배포할 수 있는 자유</li>
+<li>자유 3 : 프로그램을 향상하고 공동체 전체의 이익을 위해 다시 환원할 수 있는 자유</li>
+</ul>
+<p>1988년 미국 국방부는 카네기멜론대학에 CERT(Computer Emergency Response Team)을 설립</p>
+<p>해킹을 위한 해킹을 하는 것은 옳지 못하다.</p>
+<h3>1990년대</h3>
+<p>1990년 라스베이거스에서 최초의 해킹 대회인 데프콘(Defcon)이 개최.
+1991년 리누스 토르발스(Linus Torvalds)가 리눅스 0.01 버전 공개
+1997년 아메리카온라인 침입만을 목적으로 고안된 무료 해킹 툴 AOHell이 공개. AOHell은 초보 해커와 스크립트 키드가 사용하도록 개발</p>
+<h3>2000년대</h3>
+<p>컴퓨터가 대중화된 중요한 시기</p>
+<p>2000년 2월 특정 사이트에 분산 서비스 거부(Distributed Denial of Service. DDoS)공격.
+정해진 시간에 목표사이트에 수많은 패킷을 전송함으로써 사이트가 다운되도록 하는 공격.
+2005년 11월 은행 피싱 사이트를 만들어서 해킹.
+2008년 APT(Advanced Persistent Threat(지능적 지속 위협))공격. 오랜 시간을 들여 사이트를 분석하고 취약점을 찾아내어 해킹하는 경우를 말함.</p>
+<h1>정보 보안의 이해</h1>
+<h3>보안의 3대 요소</h3>
+<p>C : 기밀성(confidentiality) - 비밀
+당사자 외에 사람은 통신 내용을 몰라야 한다.</p>
+<p>I : 무결성(integrity) - 결함 x
+적절한 권한을 가진 사용자가 인가한 방법으로만 정보를 변경할 수 있다.</p>
+<p>A : 가용성(availability) - 인가된 사용자
+인가된 사용자만 이용 가능해야 한다.</p>
+<h3>보안 전문가의 자격 요건</h3>
+<h5>기본 소양(윤리 의식)</h5>
+<p>올바른 윤리 의식을 가지고 있어야 한다.</p>
+<h5>지식 소양(다양한 분야의 전문성)</h5>
+<p>시스템, 네트워크, 인터넷 등 다양한 분야에 관한 깊이 있는 지식을 갖춰야 한다.</p>
+<ul>
+<li>
+<p>운영체제
+운영체제는 정보를 저장하고 처리하는 하나의 틀</p>
+</li>
+<li>
+<p>네트워크
+네트워크는 하나의 시스템에서 데이터를 처리한 뒤 다른 시스템으로 전달하는 일종의 '길'같은 역할</p>
+</li>
+<li>
+<p>프로그래밍
+기본적인 C 프로그래밍, 객체지향 프로그래밍에 대한 이해, HTML에 대한 이해.
+웹 해킹의 경우 자바스크립트와 HTML을 정확히 이해하는 것이 도움이 됨.
+리버스 엔지니어링은 어셈블리어를 깊이 이해할 필요가 있다.</p>
+</li>
+<li>
+<p>서버
+웹, DB, WAS, FTP, SSH, Telnet 등의 서비스 프로그램을 뜻함.</p>
+</li>
+<li>
+<p>보안 시스템
+방화벽, 침입 탐지 시스템, 침입 방지 시스템, 단일 사용자 승인(SSO), 네트워크 접근 제어 시스템(NAC) 등.</p>
+</li>
+<li>
+<p>모니터링 시스템
+네트워크 관리 시스템(NMS), 네트워크 트래픽 모니터링 시스템(MRTG)</p>
+</li>
+<li>
+<p>암호
+암호화 해시의 차이, 대칭키 알고리즘 및 비대칭키 알고리즘의 종류와 강도, 공개 키 기반 구조.</p>
+</li>
+</ul>
+<h3>법</h3>
+<ul>
+<li>정보통신망 이용촉진 및 정보보호 등에 관한 법률<ul>
+<li>안전한 정보통신망 환경을 조성하는 것을 목적으로 제정된 법</li>
+</ul>
+</li>
+<li>정보통신기반 보호법<ul>
+<li>주요 국가 정보통신 기반 시설의 안전을 위한 법</li>
+</ul>
+</li>
+<li>개인정보 보호법<ul>
+<li>여러 법령에서 규정되었던 개인 정보 보호와 관련된 사항을 하나로 모아 만든 법(개인 정보의 수집, 이용, 제공 등에 대한 내용 포함)</li>
+</ul>
+</li>
+<li>통신비밀보호법<ul>
+<li>음성 통화 및 데이터 통신 관련 비밀 보호법</li>
+</ul>
+</li>
+<li>저작권법<ul>
+<li>저작자의 권리와 이에 인접하는 권리의 보호 및 저작물의 공정한 이용을 목적으로 제정된 법</li>
+</ul>
+</li>
+</ul>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EA%B0%95%EC%9D%98%EC%A0%95%EB%A6%AC">강의정리</a></li>
+            
+            <li><a href="/@mildsalmon/topic/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0">정보보호이론</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EC%9D%B4%EB%A1%A0" class="text-decoration-none deep-dark">
+            '정보보호이론' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="kiSzX1bfJqBpwYQOoJ1RtVM6rzG10MvgYA8xAKBO6UowUuitiSdKtjZGax228AyX">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+
+    
+</body>
+</html>

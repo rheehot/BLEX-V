@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>webjjel (김갑훈) — 소개</title>
@@ -87,17 +87,15 @@
         <h5 class="serif">@webjjel</h5>
         
         <ul class="author-state">
-            <li>
-                <img src="https://img.shields.io/badge/-blogger-gray">
-            </li>
-            <li onclick="User.follow('webjjel')">
-                <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
+            <li><i class="fas fa-battery-empty"></i> 0%</li>
+            <li class="c-pointer" onclick="User.follow('webjjel')">
+                <i class="fas fa-users"></i> <span id="user-follow">0</span>
             </li>
         </ul>
         <p class="user-profile-desc mt-5">
             
             
-            <a class="vivid-purple" href="/login">Sign in to view email</a>
+            <a class="vivid-purple text-decoration-none" href="/login">Sign in to view email</a>
             
         </p>
         <ul class="social-link">
@@ -160,10 +158,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

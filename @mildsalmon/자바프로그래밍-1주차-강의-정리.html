@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=4">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>자바프로그래밍 1주차 강의 정리 – mildsalmon</title>
@@ -114,7 +114,7 @@
         <h1 class="post-headline"><span class="post-series">'자바프로그래밍' 시리즈</span>자바프로그래밍 1주차 강의 정리</h1>
         <p class="post-date">
             2020-03-19 16:41
-            <span>(Last Update: 2020-03-19 16:42)<span></span></span></p>
+            <span>(Last Update: 2020-03-20 19:07)<span></span></span></p>
         
         
         <div class="row post-top-meta">
@@ -124,22 +124,19 @@
         
     </a>
     <div class="author-info">
-        <h4><a href="/@mildsalmon">mildsalmon</a><span class="ns ml-2"><i class="fas fa-battery-full"></i> 95%</span></h4>
-            
-            <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
-            
-            <ul class="author-state">
-                <li>
-                    <img src="https://img.shields.io/badge/-blogger-gray">
-                </li>
-                <li onclick="User.follow('mildsalmon')">
-                    <img class="follow-badge" src="https://img.shields.io/badge/subscriber-0-red?style=social">
-                </li>
-            </ul>
-            
-            <a class="author-email d-block" href="/login">Sign in to view email</a>
-            
-        <p></p>
+        <h4><a class="text-decoration-none" href="/@mildsalmon">mildsalmon</a></h4>
+        <ul class="author-state">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('mildsalmon')">
+                <i class="fas fa-users"></i> <span id="user-follow">0</span>
+            </li>
+        </ul>
+        
+        <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+        
+        
+        <a class="author-email d-block text-decoration-none" href="/login">Sign in to view email</a>
+        
     </div>
 </div>
         <article class="article noto">
@@ -262,11 +259,13 @@ JVM이 클래스 파일(.class)의 바이트 코드 실행</p>
 <li>JVM은 필요할 때 클래스 파일 로딩, 적은 메모리로 실행가능.</li>
 </ul>
 <h3>다른 언어와 실행 차이</h3>
-<p>자바
-소스 파일(.java) -&gt; 컴파일러 -&gt; 바이트 코드(.class) -&gt; 프로그램 실행(JVM)</p>
-<p>C/C++
-소스 파일(.cpp) -&gt; 컴파일러 / 링커 -&gt; 바이너리 실행 파일(.exe) -&gt; 프로그램 실행</p>
-<p>속도는 C/C++이 더 빠름</p>
+<p>자바<br>
+소스 파일(.java) -&gt; 컴파일러 -&gt; 바이트 코드(.class) -&gt; 프로그램 실행(JVM)
+<br>
+C/C++<br>
+소스 파일(.cpp) -&gt; 컴파일러 / 링커 -&gt; 바이너리 실행 파일(.exe) -&gt; 프로그램 실행
+<br>
+속도는 C/C++이 더 빠름<br></p>
 <h3>Java SE 구성</h3>
 <p>JDK (Java Development Kit)</p>
 <ul>
@@ -282,7 +281,7 @@ JVM이 클래스 파일(.class)의 바이트 코드 실행</p>
 <p><img src="https://static.blex.kr/image/2020/3/19/NaeevA11kdiQc7tYuN10.png" alt=""></p>
 <h3>디렉터리 구조</h3>
 <ul>
-<li>Java
+<li>Java<br>
 |-- jdk-10<br>
 |-- bin - 자바 개발, 실행에 필요한 도구와 유틸리티 명령<br>
 |-- conf - 여러 종류의 배치 파일<br>
@@ -404,7 +403,7 @@ JVM이 클래스 파일(.class)의 바이트 코드 실행</p>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="qPkhrFk50al2RDZGzWld2MbeIomIyYgjiNGoLv6kRXld31f6WJ34ShJ8udMSKgeM">
+            <input type="hidden" name="csrfmiddlewaretoken" value="RwL538uY3Yz31riQaXcZKhl3Xrupmo4arTxZ8mmvOMUsAwq6soC3M9HDHS5621ms">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -424,10 +423,10 @@ JVM이 클래스 파일(.class)의 바이트 코드 실행</p>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=4"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=4"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
