@@ -27,19 +27,19 @@
 <meta property="og:title" content="파이썬으로 구현한 자료구조 - 스택">
 <meta property="og:description" content="스택... 지난번에 백준에서 현욱은 괄호왕이야!!!문제를 풀려고 했을때 지금 나올 스택을 활용하여 해결하고자 했으나, 역시 응용이 안됐다. 기본기의 부족때문일까... 스택 미로에서 길을 찾는 문제와 같이 삽입 순서와 삭제 순서를 역순으로 하여 풀어야 하는 문제들이 있는데, 이럴때 쓰는 자료 구조가 스택입니다. 스택의 예로는 대부분 팬케이크와 연탄에 빗대어 표현하곤 한다. 팬케이크는 아래로부터 차곡차곡 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/17/231VUy.jpg">
+<meta property="og:image" content="https://static.blex.me/images/title/baealex/2020/2/17/231VUy.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="파이썬으로 구현한 자료구조 - 스택">
 <meta name="twitter:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D">
 <meta name="twitter:description" content="스택... 지난번에 백준에서 현욱은 괄호왕이야!!!문제를 풀려고 했을때 지금 나올 스택을 활용하여 해결하고자 했으나, 역시 응용이 안됐다. 기본기의 부족때문일까... 스택 미로에서 길을 찾는 문제와 같이 삽입 순서와 삭제 순서를 역순으로 하여 풀어야 하는 문제들이 있는데, 이럴때 쓰는 자료 구조가 스택입니다. 스택의 예로는 대부분 팬케이크와 연탄에 빗대어 표현하곤 한다. 팬케이크는 아래로부터 차곡차곡 …">
-<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/17/231VUy.jpg">
+<meta name="twitter:image" content="https://static.blex.me/images/title/baealex/2020/2/17/231VUy.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>파이썬으로 구현한 자료구조 - 스택 – baealex</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/baealex/2020/2/17/231VUy.jpg" alt="파이썬으로 구현한 자료구조 - 스택">
+        <img src="https://static.blex.me/images/title/baealex/2020/2/17/231VUy.jpg" alt="파이썬으로 구현한 자료구조 - 스택">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'파이썬으로 구현한 자료구조' 시리즈</span>파이썬으로 구현한 자료구조 - 스택</h1>
             <p class="post-date fade-in">2019-09-02 09:34<span>(Last Update: 2020-02-17 23:33)<span></span></span></p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/baealex/OUJM.jpg)"></div>
         
     </a>
     <div class="author-info">
@@ -260,7 +260,7 @@ Stack pop : 5
 <h5>스택 응용하기</h5>
 <p>아까 서두에서 잠시 등장했지만 스택을 어떻게 활용할 수 있을까? 참고하는 책에서도 괄호의 수식을 검사하는데 아주 적합하다고 평가한다. 여기서는 언급했던 백준 문제를 다루진 않지만 응용한다면 해결이 충분해 보인다.</p>
 <p>여는 괄호가 등장하면 스택에 <code>push</code>해주고 닫는 괄호가 등장하면 스택에서 <code>pop</code>을 해주고 닫는 괄호와 일치한지 검사한다. 같으면 아직까지는 올바른 수식이고 다르면 틀린 수식이다. 올바른 수식인 상태로 성공적으로 끝나면 정말로 올바른 수식인 것이다.</p>
-<p><img src="https://static.blex.me/image/2020/2/17/oKWU96Sc1CD8du33LFPq.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/17/oKWU96Sc1CD8du33LFPq.png" alt=""></p>
 <pre><code class="language-python">if __name__=="__main__":
     m_stack = Stack()
 
@@ -357,7 +357,7 @@ print(m_stack)</code></pre>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="Xsfn6O7G6P6pysbkXZQNE9bmovDTRbgceMTmv2pKnnk9lKJQb94EEdCYSkSX7pX9">
+            <input type="hidden" name="csrfmiddlewaretoken" value="fS6s40vOrySUOHdqYTrvlJlO8OKSFWxXIXjs255PmkgRKhnSdKPXJenqkWmhuWMd">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -377,10 +377,10 @@ print(m_stack)</code></pre>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -400,7 +400,7 @@ print(m_stack)</code></pre>
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

@@ -27,19 +27,19 @@
 <meta property="og:title" content="#컴파일러의 이해">
 <meta property="og:description" content="컴파일러 1.렉시컬 분석(lexical analysis) Token 생성 및 테이블 정의를 한다. 코드를 읽을 때 하나 하나 예약어인지 함수인지 변수인지 판단한다. 보통 어휘소를 Token으로 만들어 전달한다. 2.구문 분석(syntax analysis) 파싱을 하여 생성된 Token으로 구성된 Syntax tree를 만든다. 파싱시 에러가 나면 해당 루틴을 제거하고 계속 진행한다. 예를 들어 Java에서 &#39;c != b !@^ …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/2019/10/23/kimdongho/13_22_59.jpg">
+<meta property="og:image" content="https://static.blex.me/images/title/2019/10/23/kimdongho/13_22_59.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="turtle">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="#컴파일러의 이해">
 <meta name="twitter:url" content="https://blex.me/@turtle/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EC%9D%98-%EC%9D%B4%ED%95%B4">
 <meta name="twitter:description" content="컴파일러 1.렉시컬 분석(lexical analysis) Token 생성 및 테이블 정의를 한다. 코드를 읽을 때 하나 하나 예약어인지 함수인지 변수인지 판단한다. 보통 어휘소를 Token으로 만들어 전달한다. 2.구문 분석(syntax analysis) 파싱을 하여 생성된 Token으로 구성된 Syntax tree를 만든다. 파싱시 에러가 나면 해당 루틴을 제거하고 계속 진행한다. 예를 들어 Java에서 &#39;c != b !@^ …">
-<meta name="twitter:image" content="https://static.blex.me/title/2019/10/23/kimdongho/13_22_59.jpg">
+<meta name="twitter:image" content="https://static.blex.me/images/title/2019/10/23/kimdongho/13_22_59.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>#컴파일러의 이해 – turtle</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/2019/10/23/kimdongho/13_22_59.jpg" alt="#컴파일러의 이해">
+        <img src="https://static.blex.me/images/title/2019/10/23/kimdongho/13_22_59.jpg" alt="#컴파일러의 이해">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in">#컴파일러의 이해</h1>
             <p class="post-date fade-in">2019-10-23 13:22<span>(Last Update: 2019-10-23 14:21)<span></span></span></p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@turtle">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/kimdongho/8PIm.jpg)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/kimdongho/8PIm.jpg)"></div>
         
     </a>
     <div class="author-info">
@@ -150,12 +150,12 @@
 <h2>1.렉시컬 분석(lexical analysis)</h2>
 <p>Token 생성 및 테이블 정의를 한다. 코드를 읽을 때 하나 하나 예약어인지 함수인지 변수인지 판단한다.</p>
 <p>보통 어휘소를 Token으로 만들어 전달한다.</p>
-<p><img src="https://static.blex.me/image/2019/10/23/1_ygHk1eQkDYYcq4S.png" alt="사진1" title="사진1"></p>
+<p><img src="https://static.blex.me/images/content/2019/10/23/1_ygHk1eQkDYYcq4S.png" alt="사진1" title="사진1"></p>
 <h2>2.구문 분석(syntax analysis)</h2>
 <p>파싱을 하여 생성된 Token으로 구성된 Syntax tree를 만든다. 파싱시 에러가 나면 해당 루틴을 제거하고 계속 진행한다.</p>
 <p>예를 들어 Java에서 'c != b !@^ a' 라는 코드는 생성 규칙에 맞지 않아 트리 구조를 만들지 못하여 Syntactic 에러가 발생한다.</p>
 <p>추가로 파싱을 하면서 symbol table에 저장된 것들의 자료형을 매칭 시킨다.</p>
-<p><img src="https://static.blex.me/image/2019/10/23/2_iPkzv55UAEXZ8h7.png" alt="사진2" title="사진2"></p>
+<p><img src="https://static.blex.me/images/content/2019/10/23/2_iPkzv55UAEXZ8h7.png" alt="사진2" title="사진2"></p>
 <p>(이 부분은 따로 설명하겠다.)</p>
 <h2>3. 의미 해석(semantic analysis)</h2>
 <p>만들어진 구문 트리를 읽으면서 추상 구문 트리(Abstract Syntax Tree) 데이터 구조를 만든다.</p>
@@ -180,7 +180,7 @@
 <h2>4.중간 코드 생성(intermediate code generation)</h2>
 <p>추상 구문 트리가 완성되면, 컴파일러 내부에서만 사용 되는 중간 표현(IR, Intermediate Representation)구조로 추상 구문 트리를 변환한다. </p>
 <p>중간 표현을 생성하는 이유는 여러 종류의 프로그래밍 언어를 생산지가 여러 구조의 CPU의 기계어와 대응 시키기 위해서이다.</p>
-<p><img src="https://static.blex.me/image/2019/10/23/3_jfxieYdjZv2CZ7n.png" alt="사진3" title="사진3"></p>
+<p><img src="https://static.blex.me/images/content/2019/10/23/3_jfxieYdjZv2CZ7n.png" alt="사진3" title="사진3"></p>
 <h2>5.코드 최적화(optimization)</h2>
 <p>컴파일의 4단계에는 들어가지 않지만 실제 컴파일러 과정에는 코드 최적화를 하는 단계가 존재한다.</p>
         </article>
@@ -208,12 +208,12 @@
     <div class="comment-list s-shadow">
         <a href="/@DeCrazy">
             
-            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/avatar/u/DeCrazy/J5kg.jpg)"></div>
+            <div class="back-image thumb comment-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/DeCrazy/J5kg.jpg)"></div>
             
         </a>
         <a class="font-weight-bold deep-dark" href="/@DeCrazy">DeCrazy</a>
         <br>
-        <small>4개월, 4주전</small>
+        <small>5개월전</small>
         <ul class="none-list">
         
             
@@ -235,7 +235,7 @@
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="vm5ceumhZLvHNRcaRKaqq4or1VJfJZV7iksnwH6bTtnmMjitEloQalYSf1JZCbub">
+            <input type="hidden" name="csrfmiddlewaretoken" value="GI5IzdqFYrsDy8QYQ8NnzV1h7BJD2FeucVTWVtV0nUetIV5Ql3fv7C0nYgmm194b">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -255,10 +255,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -278,7 +278,7 @@
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

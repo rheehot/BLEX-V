@@ -27,19 +27,19 @@
 <meta property="og:title" content="Git 정리 - 협업 - clone">
 <meta property="og:description" content="협업 (Collavoration) 여러 사람이 함께 일할 수 있다는 강력한 장점이 생긴다. 누가 어느 부분을 어떻게 수정했는지 기록에 남기 때문에 오류가 생겼을때도 파악하기 쉽다. 원격 저장소 복제하기 (git clone) 복제한다. / 클론(clone) / 클로닝(cloning) 원격 저장소를 기존에 연결된 지역 저장소 외에 다른 지역 저장소에서 사용하려면 원격 저장소를 지역 저장소로 가져와야한다. git …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/3/17/13bVWF.jpg">
+<meta property="og:image" content="https://static.blex.me/images/title/mildsalmon/2020/3/17/13bVWF.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="mildsalmon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 정리 - 협업 - clone">
 <meta name="twitter:url" content="https://blex.me/@mildsalmon/git-%EC%A0%95%EB%A6%AC-%ED%98%91%EC%97%85-clone">
 <meta name="twitter:description" content="협업 (Collavoration) 여러 사람이 함께 일할 수 있다는 강력한 장점이 생긴다. 누가 어느 부분을 어떻게 수정했는지 기록에 남기 때문에 오류가 생겼을때도 파악하기 쉽다. 원격 저장소 복제하기 (git clone) 복제한다. / 클론(clone) / 클로닝(cloning) 원격 저장소를 기존에 연결된 지역 저장소 외에 다른 지역 저장소에서 사용하려면 원격 저장소를 지역 저장소로 가져와야한다. git …">
-<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/3/17/13bVWF.jpg">
+<meta name="twitter:image" content="https://static.blex.me/images/title/mildsalmon/2020/3/17/13bVWF.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Git 정리 - 협업 - clone – mildsalmon</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/3/17/13bVWF.jpg" alt="Git 정리 - 협업 - clone">
+        <img src="https://static.blex.me/images/title/mildsalmon/2020/3/17/13bVWF.jpg" alt="Git 정리 - 협업 - clone">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'Git' 시리즈</span>Git 정리 - 협업 - clone</h1>
             <p class="post-date fade-in">2020-03-17 13:46<span>(Last Update: 2020-03-17 13:47)<span></span></span></p>
@@ -126,15 +126,15 @@
         <div class="row post-top-meta">
     <a href="/@mildsalmon">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/mildsalmon/WgGq.png)"></div>
         
     </a>
     <div class="author-info">
         <h4><a class="text-decoration-none" href="/@mildsalmon">mildsalmon</a></h4>
         <ul class="author-state">
-            <li><i class="fas fa-battery-full"></i> 90%</li>
+            <li><i class="fas fa-battery-full"></i> 85%</li>
             <li class="c-pointer" onclick="User.follow('mildsalmon')">
-                <i class="fas fa-users"></i> <span id="user-follow">0</span>
+                <i class="fas fa-users"></i> <span id="user-follow">1</span>
             </li>
         </ul>
         
@@ -156,7 +156,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://static.blex.kr/image/2020/3/11/In9GTt2u1WWEfidrOMAW.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/In9GTt2u1WWEfidrOMAW.png" alt=""></p>
 <pre><code>git clone (깃 허브에서 복사한 주소) (로컬에 저장될 위치)</code></pre>
 <p>현재 위치에 클론</p>
 <pre><code>git clone (깃 허브에서 복사한 주소) .</code></pre>
@@ -164,30 +164,30 @@
 <pre><code>git clone (깃 허브에서 복사한 주소) git_home</code></pre>
 <p>git_home 디렉터리를 만들고, 디렉터리 안에 클론한다.</p>
 <p>이런 느낌?</p>
-<p><img src="https://static.blex.kr/image/2020/3/11/cTgHnRLMSwa7g0bY1PCa.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/cTgHnRLMSwa7g0bY1PCa.png" alt=""></p>
 <h5>notebook에서 작업하고 push</h5>
 <p>notebook에서 파일 note.txt를 만들고 깃허브로 푸시한다.</p>
 <pre><code>git push</code></pre>
 <p>push가 정상적으로 실행되면 깃허브와 notebook은 note.txt를 커밋한 최신 상태로 업데이트된다.</p>
-<p><img src="https://static.blex.kr/image/2020/3/11/0QGszMLrCUuQ1Rnty34a.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/0QGszMLrCUuQ1Rnty34a.png" alt=""></p>
 <h5>desktop에서 다운받기 pull</h5>
 <p>desktop에서 깃허브에 push하기 위해서는 깃허브의 최신 커밋을 pull 해야한다.</p>
 <pre><code>git pull</code></pre>
-<p><img src="https://static.blex.kr/image/2020/3/11/Qad00tvgMWxLf1akT8jP.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/11/nb7E7rGkHjOryfP0iPBW.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/11/RMx9Q2DBfQfsGnWP9oyw.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/Qad00tvgMWxLf1akT8jP.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/nb7E7rGkHjOryfP0iPBW.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/RMx9Q2DBfQfsGnWP9oyw.png" alt=""></p>
 <h3>원격 master 브랜치와 지역 master 브랜치</h3>
 <p>깃허브에 push를 했다면.</p>
-<p><img src="https://static.blex.kr/image/2020/3/11/L2wmsq82bIm2sgppqBdi.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/L2wmsq82bIm2sgppqBdi.png" alt=""></p>
 <p>이 상태이다.</p>
-<p><img src="https://static.blex.kr/image/2020/3/11/mpKCDIHnNkHvahlYNlIr.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/mpKCDIHnNkHvahlYNlIr.png" alt=""></p>
 <p>로컬 저장소에서 파일을 하나 만들고 "냠"으로 커밋하면.<br>
 원격 master 브랜치 (origin/master)와 지역 master 브랜치 (master)가 가리키는 커밋이 서로 달라진다.</p>
-<p><img src="https://static.blex.kr/image/2020/3/11/HXjqOzF67VA5UDnYOroQ.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/11/XlnBA0zg5JXwKWahxmNZ.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/HXjqOzF67VA5UDnYOroQ.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/XlnBA0zg5JXwKWahxmNZ.png" alt=""></p>
 <p>push로 origin/master 브랜치가 가리키는 커밋을 master 브랜치가 가리키는 커밋으로 바꿔준다.</p>
-<p><img src="https://static.blex.kr/image/2020/3/11/owFvraRaTq5NvqQ9gRne.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/11/rqCQ2N03mnx6e53mvSx5.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/owFvraRaTq5NvqQ9gRne.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/11/rqCQ2N03mnx6e53mvSx5.png" alt=""></p>
         </article>
         <ul class="tag-list noto">
             
@@ -252,7 +252,7 @@
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="k67Ygu1TzMzRZy2yj11fKWfaTIPQOab4fc3VlhVAsiKTPmo97XbYOrGbzD6UYLvO">
+            <input type="hidden" name="csrfmiddlewaretoken" value="HXZmOyiVZPxPjvC1ZA3WAfAoKDYSzYvRy3ar2K67Em3DPEv3sE0jGDj34MowqsyP">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -272,10 +272,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -295,7 +295,7 @@
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

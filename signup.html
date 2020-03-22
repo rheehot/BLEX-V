@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>BLEX - Join us</title>
@@ -67,13 +67,13 @@
     </div>
     
     <form method="post">
-        <input type="hidden" name="csrfmiddlewaretoken" value="fUPKbLyLBq119nHJ6A32Skg5cTK6o3r9ZsgtRksZzGOULPjvlwxQf3fE4inW5as3">
-        <p><input type="text" name="username" maxlength="150" id="id_username" placeholder="아이디(필명)" required class="login-form"></p>
+        <input type="hidden" name="csrfmiddlewaretoken" value="0q5gGOyutlxKaQOyWrchKuOlkTFupVOKUJpwMr2to6uwXSbcgZWyATuDOJlwVZUg">
+        <p><input type="text" name="username" placeholder="아이디(필명)" required maxlength="150" class="login-form" id="id_username"></p>
         <div id="idCheck" class="noto" role="alert"></div>
-        <p><input type="password" name="password" maxlength="128" id="id_password" placeholder="비밀번호" required class="login-form"></p>
-        <p><input type="password" name="password_check" maxlength="200" id="id_password_check" placeholder="비밀번호 확인" required class="login-form"></p>
-        <p><input type="text" name="first_name" maxlength="30" id="id_first_name" placeholder="이름" class="login-form" required></p>
-        <p><input type="email" name="email" maxlength="254" id="id_email" class="login-form" required placeholder="이메일 주소"></p>
+        <p><input type="password" name="password" placeholder="비밀번호" required maxlength="128" class="login-form" id="id_password"></p>
+        <p><input type="password" name="password_check" placeholder="비밀번호 확인" required maxlength="200" class="login-form" id="id_password_check"></p>
+        <p><input type="text" name="first_name" placeholder="이름" required maxlength="30" class="login-form" id="id_first_name"></p>
+        <p><input type="email" name="email" placeholder="이메일 주소" required maxlength="254" class="login-form" id="id_email"></p>
         <div class="alert alert-warning noto" role="alert">
             입력한 메일로 인증 메일을 발송합니다.
         </div>
@@ -93,10 +93,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

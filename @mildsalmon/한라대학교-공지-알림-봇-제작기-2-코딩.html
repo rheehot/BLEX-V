@@ -27,19 +27,19 @@
 <meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (2) - 코딩">
 <meta property="og:description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/2/18/19bt8C.png">
+<meta property="og:image" content="https://static.blex.me/images/title/mildsalmon/2020/2/18/19bt8C.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="mildsalmon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (2) - 코딩">
 <meta name="twitter:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-2-%EC%BD%94%EB%94%A9">
 <meta name="twitter:description" content="A. 개괄적 도식화 개괄적으로 도식화를 하면 저런 모습이다. 나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다 위 목적을 해결하기 위해서는 학교 공지사항이 최신화 되면 알람오기를 원한다 (나에게) 위 두가지 사항을 만족시켜야 한다. 그러므로 나는 학교 공지사항이 최신화 되는지 지속적으로 확인하는 부분과 알람을 보내주는 부분을 만들것이다. 때문에 알람을 보내주는 부분은 텔레그램과 카카오톡을 …">
-<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/2/18/19bt8C.png">
+<meta name="twitter:image" content="https://static.blex.me/images/title/mildsalmon/2020/2/18/19bt8C.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>한라대학교 공지 알림 봇 제작기 (2) - 코딩 – mildsalmon</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/2/18/19bt8C.png" alt="한라대학교 공지 알림 봇 제작기 (2) - 코딩">
+        <img src="https://static.blex.me/images/title/mildsalmon/2020/2/18/19bt8C.png" alt="한라대학교 공지 알림 봇 제작기 (2) - 코딩">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (2) - 코딩</h1>
             <p class="post-date fade-in">2020-02-12 16:20<span>(Last Update: 2020-02-20 15:24)<span></span></span></p>
@@ -126,15 +126,15 @@
         <div class="row post-top-meta">
     <a href="/@mildsalmon">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/mildsalmon/WgGq.png)"></div>
         
     </a>
     <div class="author-info">
         <h4><a class="text-decoration-none" href="/@mildsalmon">mildsalmon</a></h4>
         <ul class="author-state">
-            <li><i class="fas fa-battery-full"></i> 90%</li>
+            <li><i class="fas fa-battery-full"></i> 85%</li>
             <li class="c-pointer" onclick="User.follow('mildsalmon')">
-                <i class="fas fa-users"></i> <span id="user-follow">0</span>
+                <i class="fas fa-users"></i> <span id="user-follow">1</span>
             </li>
         </ul>
         
@@ -147,7 +147,7 @@
 </div>
         <article class="article noto">
             <h2>A. 개괄적 도식화</h2>
-<p><img src="https://static.blex.me/image/2020/2/12/vedouYk3FTg9x2lRH7Cy.png" alt="개괄적 도식화" title="개괄적 도식화"></p>
+<p><img src="https://static.blex.me/images/content/2020/2/12/vedouYk3FTg9x2lRH7Cy.png" alt="개괄적 도식화" title="개괄적 도식화"></p>
 <p>개괄적으로 도식화를 하면 저런 모습이다.</p>
 <blockquote>
 <p>나(client)는 학교 공지사항이 최신화 되면 알람받기를 원한다</p>
@@ -213,22 +213,22 @@ while True:
 </blockquote>
 <h3>a. 모듈</h3>
 <h4>1. requests</h4>
-<p><a href="https://blex.kr/@mildsalmon/requests">Requests Document 정리본</a></p>
+<p><a href="https://blex.me/@mildsalmon/requests">Requests Document 정리본</a></p>
 <p>세션부분은 미완성이다.
 Requests는 웹에 요청을 하면 서버에서 응답을 하는 형식이다.
 Requests를 통해 알 수 있는 정보는 웹 서버의 응답 코드, header, encoding, text, json 등이 있다.<br>
 주제가 웹 크롤링이다 보니까 꼭 사용해야 하는 모듈이다.</p>
 <h4>2. beautifulsoup4</h4>
-<p><a href="https://blex.kr/@mildsalmon/beautifulsoup">BeautifulSoup4 Document 정리본</a></p>
+<p><a href="https://blex.me/@mildsalmon/beautifulsoup">BeautifulSoup4 Document 정리본</a></p>
 <p>BeautifulSoup는 문서를 (분해, 분석, 검색)하는 역할을 한다.
 requests에서 웹를 읽어온다면 이 웹에서 나에게 필요한 정보를 뽑아내는 작업을 해야한다.</p>
 <p>직접 손으로 골라내도 상관은 없지만,
 지금 이 코드의 자동화를 위해, 좀 더 간편하게 작성하기 위해 등등의 이유로 널리 배포되어 있는 BeautifulSoup 모듈를 사용하게 되었다.</p>
 <h4>3. python-telegram-bot</h4>
-<p><a href="https://blex.kr/@mildsalmon/telegram">python-telegram-bot 정리본</a></p>
+<p><a href="https://blex.me/@mildsalmon/telegram">python-telegram-bot 정리본</a></p>
 <p>이건 텔레그램 봇을 컨트롤하기 위해서 필요한 부분이다.</p>
 <h4>4. os</h4>
-<p><a href="https://blex.kr/@mildsalmon/os">os 정리본</a></p>
+<p><a href="https://blex.me/@mildsalmon/os">os 정리본</a></p>
 <p>OS 모듈은 환경 변수나 디렉토리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈이다.</p>
 <h2>C. 코딩 (수정후)</h2>
 <pre><code class="language-python">import requests
@@ -298,10 +298,10 @@ cron을 통해 작업 예약 설정을 할것임.</p>
 <p>python으로 telegram bot 활용하기 - 1 기본 설정편, "<a href="https://blog.psangwoo.com/coding/2016/12/08/python-telegram-bot-1.html">https://blog.psangwoo.com/coding/2016/12/08/python-telegram-bot-1.html</a>", [Bill-Park]</p>
 <p>[Python] BeautifulSoup4 라이브러리와 기초 (멜론차트 크롤링), "<a href="https://rednooby.tistory.com/98">https://rednooby.tistory.com/98</a>" [개발자의 취미생활]</p>
 <p>Telegram bot 개발, "<a href="https://idlecomputer.tistory.com/122">https://idlecomputer.tistory.com/122</a>", [백곳]</p>
-<p>beautifulsoup4, "<a href="https://blex.kr/@mildsalmon/beautifulsoup">https://blex.kr/@mildsalmon/beautifulsoup</a>", [mildsalmon]</p>
-<p>Requests, "<a href="https://blex.kr/@mildsalmon/requests">https://blex.kr/@mildsalmon/requests</a>", [mildsalmon]</p>
-<p>python Telegram Bot, "<a href="https://blex.kr/@mildsalmon/telegram">https://blex.kr/@mildsalmon/telegram</a>", [mildsalmon]</p>
-<p>OS, "<a href="https://blex.kr/@mildsalmon/os">https://blex.kr/@mildsalmon/os</a>", [mildsalmon]</p>
+<p>beautifulsoup4, "<a href="https://blex.me/@mildsalmon/beautifulsoup">https://blex.me/@mildsalmon/beautifulsoup</a>", [mildsalmon]</p>
+<p>Requests, "<a href="https://blex.me/@mildsalmon/requests">https://blex.me/@mildsalmon/requests</a>", [mildsalmon]</p>
+<p>python Telegram Bot, "<a href="https://blex.me/@mildsalmon/telegram">https://blex.me/@mildsalmon/telegram</a>", [mildsalmon]</p>
+<p>OS, "<a href="https://blex.me/@mildsalmon/os">https://blex.me/@mildsalmon/os</a>", [mildsalmon]</p>
 <p>notice_alarm, "<a href="https://github.com/mildsalmon/notice_alarm">https://github.com/mildsalmon/notice_alarm</a>", [mildsalmon]</p>
 </blockquote>
         </article>
@@ -374,7 +374,7 @@ cron을 통해 작업 예약 설정을 할것임.</p>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="FIP016C1IzkYDZCHlqcr5qR1P8SZdrXgGuchmE2uitG8iC07ULAmA2bPzzaJn5lg">
+            <input type="hidden" name="csrfmiddlewaretoken" value="BIyH4YeqaJ2RhemmDfntioXEh25SRbPzxlBeiQmrJFmL3lusVZZzp9T9pxj8zOyi">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -394,10 +394,10 @@ cron을 통해 작업 예약 설정을 할것임.</p>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -417,7 +417,7 @@ cron을 통해 작업 예약 설정을 할것임.</p>
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

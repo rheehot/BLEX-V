@@ -27,19 +27,19 @@
 <meta property="og:title" content="[JavaScript] ProtoType에 대한 이해">
 <meta property="og:description" content="객체지향 클래스는 객체지향 프로그래밍이 기반인 언어에서 필수적인 역할을 한다. 클래스는 코드의 재사용성을 높여주고, 가독성을 올려준다. 필자는 저번주 내내 BlackJack 구현에 메달렸었다. 제일 자신있는 언어인 Java로 객체지향을 상기시키면서 React의 Component, Javascript에서의 ProtoType을 통한 객체지향에 대비했다. 객체지향을 이용한 BlackJack 하나, 객체지향을 이용하지 않고 통으로 코딩한 BlackJack 하나를 구현했는데 처음에는 통으로 코딩하는것이 쉬웠지만 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/2019/10/7/yoyounn18/12_53_30.png">
+<meta property="og:image" content="https://static.blex.me/images/title/2019/10/7/yoyounn18/12_53_30.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="yoyounn18">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JavaScript] ProtoType에 대한 이해">
 <meta name="twitter:url" content="https://blex.me/@yoyounn18/javascript-prototype%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4">
 <meta name="twitter:description" content="객체지향 클래스는 객체지향 프로그래밍이 기반인 언어에서 필수적인 역할을 한다. 클래스는 코드의 재사용성을 높여주고, 가독성을 올려준다. 필자는 저번주 내내 BlackJack 구현에 메달렸었다. 제일 자신있는 언어인 Java로 객체지향을 상기시키면서 React의 Component, Javascript에서의 ProtoType을 통한 객체지향에 대비했다. 객체지향을 이용한 BlackJack 하나, 객체지향을 이용하지 않고 통으로 코딩한 BlackJack 하나를 구현했는데 처음에는 통으로 코딩하는것이 쉬웠지만 …">
-<meta name="twitter:image" content="https://static.blex.me/title/2019/10/7/yoyounn18/12_53_30.png">
+<meta name="twitter:image" content="https://static.blex.me/images/title/2019/10/7/yoyounn18/12_53_30.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>[JavaScript] ProtoType에 대한 이해 – yoyounn18</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/2019/10/7/yoyounn18/12_53_30.png" alt="[JavaScript] ProtoType에 대한 이해">
+        <img src="https://static.blex.me/images/title/2019/10/7/yoyounn18/12_53_30.png" alt="[JavaScript] ProtoType에 대한 이해">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in">[JavaScript] ProtoType에 대한 이해</h1>
             <p class="post-date fade-in">2019-10-07 12:53<span>(Last Update: 2019-10-07 17:45)<span></span></span></p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@yoyounn18">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/yoyounn18/BL4W.png)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/yoyounn18/BL4W.png)"></div>
         
     </a>
     <div class="author-info">
@@ -217,10 +217,10 @@ Apple.prototype.getInfo = function() {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -240,7 +240,7 @@ Apple.prototype.getInfo = function() {
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

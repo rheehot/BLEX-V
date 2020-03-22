@@ -27,19 +27,19 @@
 <meta property="og:title" content="한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)">
 <meta property="og:description" content="Intro 이번 챕터에서는 telegram bot을 활용해서 공지가 생기면 알람이 오도록 구현해보겠다. 지금까지 만든 코드를 실행하면 위 같은 결과가 나온다. 공지를 제외한 1page에 있는 게시글을 전부 크롤링한 모습이다. telegram bot 텔레그램 봇 정리본 위 정리본에 링크 되어 있는 문서를 참고하자. 봇 만들기 BotFather 텔레그램 봇은 BotFather을 통해 만들 수 있다. 만드는 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/mildsalmon/2020/2/25/13lyKV.jpg">
+<meta property="og:image" content="https://static.blex.me/images/title/mildsalmon/2020/2/25/13lyKV.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="mildsalmon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)">
 <meta name="twitter:url" content="https://blex.me/@mildsalmon/%ED%95%9C%EB%9D%BC%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%B5%EC%A7%80-%EC%95%8C%EB%A6%BC-%EB%B4%87-%EC%A0%9C%EC%9E%91%EA%B8%B0-3-%EC%BD%94%EB%93%9C%EB%B6%84%EC%84%9D-telegrambot">
 <meta name="twitter:description" content="Intro 이번 챕터에서는 telegram bot을 활용해서 공지가 생기면 알람이 오도록 구현해보겠다. 지금까지 만든 코드를 실행하면 위 같은 결과가 나온다. 공지를 제외한 1page에 있는 게시글을 전부 크롤링한 모습이다. telegram bot 텔레그램 봇 정리본 위 정리본에 링크 되어 있는 문서를 참고하자. 봇 만들기 BotFather 텔레그램 봇은 BotFather을 통해 만들 수 있다. 만드는 …">
-<meta name="twitter:image" content="https://static.blex.me/title/mildsalmon/2020/2/25/13lyKV.jpg">
+<meta name="twitter:image" content="https://static.blex.me/images/title/mildsalmon/2020/2/25/13lyKV.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot) – mildsalmon</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/mildsalmon/2020/2/25/13lyKV.jpg" alt="한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)">
+        <img src="https://static.blex.me/images/title/mildsalmon/2020/2/25/13lyKV.jpg" alt="한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'한라대학교 공지 알림 봇 제작기' 시리즈</span>한라대학교 공지 알림 봇 제작기 (4) - 코드분석 (telegram bot)</h1>
             <p class="post-date fade-in">2020-02-24 23:19<span>(Last Update: 2020-02-25 18:36)<span></span></span></p>
@@ -126,15 +126,15 @@
         <div class="row post-top-meta">
     <a href="/@mildsalmon">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/mildsalmon/WgGq.png)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/mildsalmon/WgGq.png)"></div>
         
     </a>
     <div class="author-info">
         <h4><a class="text-decoration-none" href="/@mildsalmon">mildsalmon</a></h4>
         <ul class="author-state">
-            <li><i class="fas fa-battery-full"></i> 90%</li>
+            <li><i class="fas fa-battery-full"></i> 85%</li>
             <li class="c-pointer" onclick="User.follow('mildsalmon')">
-                <i class="fas fa-users"></i> <span id="user-follow">0</span>
+                <i class="fas fa-users"></i> <span id="user-follow">1</span>
             </li>
         </ul>
         
@@ -148,19 +148,19 @@
         <article class="article noto">
             <h1>Intro</h1>
 <p>이번 챕터에서는 telegram bot을 활용해서 공지가 생기면 알람이 오도록 구현해보겠다.</p>
-<p><img src="https://static.blex.me/image/2020/2/25/VEAPjOljAxmbdaCefQWT.png" alt="지금까지 만든 결과" title="지금까지 만든 결과"></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/VEAPjOljAxmbdaCefQWT.png" alt="지금까지 만든 결과" title="지금까지 만든 결과"></p>
 <p>지금까지 만든 코드를 실행하면 위 같은 결과가 나온다.<br>
 공지를 제외한 1page에 있는 게시글을 전부 크롤링한 모습이다.<br></p>
 <h1>telegram bot</h1>
-<p><a href="https://blex.kr/@mildsalmon/telegram">텔레그램 봇 정리본</a><br>
+<p><a href="https://blex.me/@mildsalmon/telegram">텔레그램 봇 정리본</a><br>
 위 정리본에 링크 되어 있는 문서를 참고하자.</p>
 <h3>봇 만들기</h3>
 <h5>BotFather</h5>
 <p>텔레그램 봇은 BotFather을 통해 만들 수 있다.</p>
-<p><img src="https://static.blex.me/image/2020/2/25/wlMHnbQSp4WFrtgctVVd.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/bT7krpAbHlXjIjVqY9dm.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/9LB4NGuVIAfivrr5R3jd.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/ugtZubM09fHPDwxJEda4.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/wlMHnbQSp4WFrtgctVVd.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/bT7krpAbHlXjIjVqY9dm.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/9LB4NGuVIAfivrr5R3jd.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/ugtZubM09fHPDwxJEda4.png" alt=""></p>
 <p>만드는 방법은 스크린샷을 보고 따라하면 된다.<br>
 <code>/start</code> 메세지를 보내고<br>
 <code>/newbot</code> 메세지를 보내고<br>
@@ -175,16 +175,16 @@
 그리고 채널은 <code>관리자를 제외한 일반 유저들은 채팅을 치지 못한다.</code><br>
 그래서 공지 알림만 오게 하는 용도로 적합하다고 생각했다.<br></p>
 <h5>채널 개설 방법</h5>
-<p><img src="https://static.blex.me/image/2020/2/25/hma1VDy66Uhzbx7dgF8T.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/sBOUgxo807oSq9FM26ju.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/F5U1nr8XhsOxEcEWBcG7.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/Vm4j1b4f8nYzFyUVTjDo.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/Dy8zfvz8QWTgiWf0pCtE.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/ra7TaW7hW8usEDYVKLrS.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/0iPtAJdvfvrWqtWQwbUI.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/Vd7WmdCYnrTBauTv8OfP.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/Xwbwqe41Rd00hazTry6H.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2020/2/25/HTftpfudOy6EyWpXb6OT.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/hma1VDy66Uhzbx7dgF8T.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/sBOUgxo807oSq9FM26ju.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/F5U1nr8XhsOxEcEWBcG7.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/Vm4j1b4f8nYzFyUVTjDo.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/Dy8zfvz8QWTgiWf0pCtE.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/ra7TaW7hW8usEDYVKLrS.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/0iPtAJdvfvrWqtWQwbUI.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/Vd7WmdCYnrTBauTv8OfP.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/Xwbwqe41Rd00hazTry6H.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/HTftpfudOy6EyWpXb6OT.png" alt=""></p>
 <p>스크린샷을 보고 잘 따라오면 채널을 쉽게 만들 수 있다.<br>
 중간에 채널 주소는 꼭 기억해야한다.<br></p>
 <h3>테스트 채널 만들기</h3>
@@ -195,7 +195,7 @@
 <blockquote>
 <p><a href="1" title="https://api.telegram.org/bot(봇 토큰)/sendMessage?chat_id=@(채널 링크)&amp;text=hi">https://api.telegram.org/bot(봇 토큰)/sendMessage?chat_id=@(채널 링크)&amp;text=hi</a></p>
 </blockquote>
-<p><img src="https://static.blex.me/image/2020/2/25/dhHTgQaYlmUstr2iQQAe.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/25/dhHTgQaYlmUstr2iQQAe.png" alt=""></p>
 <p>위 주소로 들어가서 <code>chat id</code>를 확인한다.<br>
 그리고 설정에 들어가서 채널을 공개 채널에서 <code>비공개 채널</code>로 바꿔주면 된다.<br></p>
 <h3>코딩</h3>
@@ -234,7 +234,7 @@ bot.sendMessage(chat_id=my_chat_id, text='일반공지 : ' + posts[0].text)</cod
 그러면 봇 구현은 완성이다.<br>
 남은 건 최신 게시글인지 확인 후 최신 게시글이면 봇을 통해 메세지를 보내서 알리고, 아니면 메세지를 보내지 말아야한다.<br></p>
 <h1>open</h1>
-<p><a href="https://blex.kr/@mildsalmon/os">os 정리본</a></p>
+<p><a href="https://blex.me/@mildsalmon/os">os 정리본</a></p>
 <p>이제 우린 어떤 글이 최신 글인지 확인하는 방법을 생각해야한다.</p>
 <ol>
 <li>공지 알림 봇은 기본적으로 텔레그램 채널에서 실행된다.</li>
@@ -407,8 +407,8 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf--8') as f_wr
 <p>다음 챕터에서는 서버에 코드를 올려서 자동으로 실행시키는 스케쥴링에 관해 다룰것이다.</p>
 <h1>참고문헌</h1>
 <blockquote>
-<p>Python Telegram Bot document, "<a href="https://blex.kr/@mildsalmon/telegram">https://blex.kr/@mildsalmon/telegram</a>", [mildsalmon]</p>
-<p>OS document, "<a href="https://blex.kr/@mildsalmon/os">https://blex.kr/@mildsalmon/os</a>", [mildsalmon]</p>
+<p>Python Telegram Bot document, "<a href="https://blex.me/@mildsalmon/telegram">https://blex.me/@mildsalmon/telegram</a>", [mildsalmon]</p>
+<p>OS document, "<a href="https://blex.me/@mildsalmon/os">https://blex.me/@mildsalmon/os</a>", [mildsalmon]</p>
 <p>notice_alarm, "<a href="https://github.com/mildsalmon/notice_alarm">https://github.com/mildsalmon/notice_alarm</a>", [mildsalmon]</p>
 </blockquote>
         </article>
@@ -479,7 +479,7 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf--8') as f_wr
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="nLOmnQzzQQ4Gd3yXbv85UucCGjEaoMxg9XAAYr1BS5GEYF5ElPiAnZZTIgHUMdtT">
+            <input type="hidden" name="csrfmiddlewaretoken" value="iSGiKRlAJnJy2lpoN5HIQt6pKBOt755otFvvTBvZmyuOXayAcPLS9yjs91OpATXR">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -499,10 +499,10 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf--8') as f_wr
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -522,7 +522,7 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+', encoding='utf--8') as f_wr
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

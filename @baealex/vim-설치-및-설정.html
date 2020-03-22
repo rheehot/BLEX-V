@@ -27,19 +27,19 @@
 <meta property="og:title" content="리눅스 VIM 설치 및 설정">
 <meta property="og:description" content="리눅스 vim은 기존의 에디터인 vi보다 향상된 편의성을 제공하는 편집기이다. 이 포스트는 레드헷 계열과 데비안 계열에서 vim을 설치하는 방법과 셋팅하는 방법에 대해서 작성될 것이다. vim의 대표적인 장점이라면 vi 에디터에서 사용할 수 없었던 →←↑↓와 backspace를 사용할 수 있어서 정말 편리하다. #Install vim in RedHat sudo yum install vim #Install vim in Debian …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/2019/10/20/baealex/20_36_27.png">
+<meta property="og:image" content="https://static.blex.me/images/title/2019/10/20/baealex/20_36_27.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="리눅스 VIM 설치 및 설정">
 <meta name="twitter:url" content="https://blex.me/@baealex/vim-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95">
 <meta name="twitter:description" content="리눅스 vim은 기존의 에디터인 vi보다 향상된 편의성을 제공하는 편집기이다. 이 포스트는 레드헷 계열과 데비안 계열에서 vim을 설치하는 방법과 셋팅하는 방법에 대해서 작성될 것이다. vim의 대표적인 장점이라면 vi 에디터에서 사용할 수 없었던 →←↑↓와 backspace를 사용할 수 있어서 정말 편리하다. #Install vim in RedHat sudo yum install vim #Install vim in Debian …">
-<meta name="twitter:image" content="https://static.blex.me/title/2019/10/20/baealex/20_36_27.png">
+<meta name="twitter:image" content="https://static.blex.me/images/title/2019/10/20/baealex/20_36_27.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>리눅스 VIM 설치 및 설정 – baealex</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/2019/10/20/baealex/20_36_27.png" alt="리눅스 VIM 설치 및 설정">
+        <img src="https://static.blex.me/images/title/2019/10/20/baealex/20_36_27.png" alt="리눅스 VIM 설치 및 설정">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in">리눅스 VIM 설치 및 설정</h1>
             <p class="post-date fade-in">2019-10-20 20:33<span>(Last Update: 2020-02-17 09:37)<span></span></span></p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/baealex/OUJM.jpg)"></div>
         
     </a>
     <div class="author-info">
@@ -156,7 +156,7 @@ sudo apt-get install vim</code></pre>
 <p>vim의 설정은 모든 사용자에게 적용하거나 현재 로그인한 사용자만 적용하게 생성할 수 있다. 이 글에선 로그인한 사용자만의 vim 설정을 완료할 것이다.</p>
 <pre><code class="language-sh">vi ~/.vimrc
 # Edit .vimrc in the home directory.</code></pre>
-<p><img src="https://static.blex.me/image/2019/10/20/1_peBKNMqPesEFgbe.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2019/10/20/1_peBKNMqPesEFgbe.png" alt=""></p>
 <ul>
 <li>sysntax on : 코드에 색상을 입혀준다.</li>
 <li>set nu | num : 코드의 행번호를 표시한다.</li>
@@ -166,7 +166,7 @@ sudo apt-get install vim</code></pre>
 <li>set cindent : C스타일의 들여쓰기를 시행한다.</li>
 <li>colo - : 터미널과 sysntax의 테마를 -로 바꾼다.</li>
 </ul>
-<p><img src="https://static.blex.me/image/2019/10/20/0_eoC7Onr16CYNQqF.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2019/10/20/0_eoC7Onr16CYNQqF.png" alt=""></p>
 <p>이쁘다... 필자는 네이티브 터미널에서 촬영했지만 원격에서도 정상적으로 작동한다.</p>
         </article>
         <ul class="tag-list noto">
@@ -197,7 +197,7 @@ sudo apt-get install vim</code></pre>
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="dqRdIlVeNn3DlET8sars73AzbtTsTAyJEjsaOE3IfrfO8oCGVkkPHJds5xUtmQeR">
+            <input type="hidden" name="csrfmiddlewaretoken" value="PWzmdVkdJruouxEi53QIRVJtQUmHoG7nV6Q91cu7AtL29rsx0vGr6VzYc7sun0uC">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -217,10 +217,10 @@ sudo apt-get install vim</code></pre>
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -240,7 +240,7 @@ sudo apt-get install vim</code></pre>
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

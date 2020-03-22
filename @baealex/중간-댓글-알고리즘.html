@@ -27,19 +27,19 @@
 <meta property="og:title" content="중간 댓글 알고리즘">
 <meta property="og:description" content="드롭박스 페이퍼나 구글 독스와 같은 문서 중간에 댓글을 다는 기능을 추가하고 싶었다. 다만 이 기능을 어떻게 구현해야 할지 감이 잡히지 않는다. 고려해 본 방법은 다음과 같은데 확신이 들지 않는다. 사용자가 댓글을 달았던 지점의 높이를 기억한다. 사용자가 댓글을 달았던 키워드를 기억한다. 일단 첫번째 방식의 문제점은 곂치는 댓글이 존재할 수 있다는 것이다. …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/baealex/2020/1/10/1XmX5.png">
+<meta property="og:image" content="https://static.blex.me/images/title/baealex/2020/1/10/1XmX5.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="중간 댓글 알고리즘">
 <meta name="twitter:url" content="https://blex.me/@baealex/%EC%A4%91%EA%B0%84-%EB%8C%93%EA%B8%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
 <meta name="twitter:description" content="드롭박스 페이퍼나 구글 독스와 같은 문서 중간에 댓글을 다는 기능을 추가하고 싶었다. 다만 이 기능을 어떻게 구현해야 할지 감이 잡히지 않는다. 고려해 본 방법은 다음과 같은데 확신이 들지 않는다. 사용자가 댓글을 달았던 지점의 높이를 기억한다. 사용자가 댓글을 달았던 키워드를 기억한다. 일단 첫번째 방식의 문제점은 곂치는 댓글이 존재할 수 있다는 것이다. …">
-<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/1/10/1XmX5.png">
+<meta name="twitter:image" content="https://static.blex.me/images/title/baealex/2020/1/10/1XmX5.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>중간 댓글 알고리즘 – baealex</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/baealex/2020/1/10/1XmX5.png" alt="중간 댓글 알고리즘">
+        <img src="https://static.blex.me/images/title/baealex/2020/1/10/1XmX5.png" alt="중간 댓글 알고리즘">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'블렉스 이야기' 시리즈</span>중간 댓글 알고리즘</h1>
             <p class="post-date fade-in">2019-12-31 09:50<span>(Last Update: 2020-01-10 01:35)<span></span></span></p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/baealex/OUJM.jpg)"></div>
         
     </a>
     <div class="author-info">
@@ -158,8 +158,8 @@
 </ul>
 <p>친구가 같이 고민해 준 방법인데 이 방법의 문제는 해당 글이 수정된다면 댓글이 전부다 삭제된다는 점이다. (해당 댓글들이 삭제된다면 일반 댓글로 전환시키는 건 어떨까? 괜찮은 방법인 것 같다.) 그렇다면 만약 해당 키워드에 댓글이 달리고 또 댓글이 달린 건 어떻게 저장하며 표한할 것인가... 하...</p>
 <p>우선 걍 높이를 기억하는 방식을 사용하여 임시로 구현하되 프리미엄 전용으로 하던 글에 방해가 되지 않도록 해야겠다.</p>
-<p><img src="https://static.blex.me/image/2019/12/28/jfBPD62SkyG9P69eKYEf.png" alt=""></p>
-<p><img src="https://static.blex.me/image/2019/12/28/ysauHilbMQ7KWf9zQPwX.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2019/12/28/jfBPD62SkyG9P69eKYEf.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2019/12/28/ysauHilbMQ7KWf9zQPwX.png" alt=""></p>
         </article>
         <ul class="tag-list noto">
             
@@ -220,7 +220,7 @@
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="9QD4J6JlJ8qdXi2BlRpP8XUNigPqbqDiPwbBczeUJp7FIj3d6TvNajMSb02BBik1">
+            <input type="hidden" name="csrfmiddlewaretoken" value="5saRSgQCjcKHMoG8FyuRywJ9iSfXnIAfgUgUyuZPhGk2dGed8Jwifa5qlYjbEfn3">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -240,10 +240,10 @@
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -263,7 +263,7 @@
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

@@ -27,19 +27,19 @@
 <meta property="og:title" content="파이썬으로 구현한 자료구조 - 연결 리스트">
 <meta property="og:description" content="이번에 코딩 테스트를 하면서 지금 내게 부족하다고 판단된건 자료구조의 대한 무지라고 생각된다. 어떤 문제를 보면 어떤 자료구조를 이용할지 떠오르지만 막상 적용하는데 어려움이 있다보니 결국 for문 부터 적게된다. 이번에 파이썬을 활용해서 연결리스트, 스택, 큐, 트리, 그래프와 같은 기본적인 자료구조를 구현해 볼 생각이다. 이번건 절대로 작심삼일로 끝나지 않을 것이다! 연결 리스트 연속된 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/baealex/2020/2/17/13GQvW.jpg">
+<meta property="og:image" content="https://static.blex.me/images/title/baealex/2020/2/17/13GQvW.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="파이썬으로 구현한 자료구조 - 연결 리스트">
 <meta name="twitter:url" content="https://blex.me/@baealex/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8">
 <meta name="twitter:description" content="이번에 코딩 테스트를 하면서 지금 내게 부족하다고 판단된건 자료구조의 대한 무지라고 생각된다. 어떤 문제를 보면 어떤 자료구조를 이용할지 떠오르지만 막상 적용하는데 어려움이 있다보니 결국 for문 부터 적게된다. 이번에 파이썬을 활용해서 연결리스트, 스택, 큐, 트리, 그래프와 같은 기본적인 자료구조를 구현해 볼 생각이다. 이번건 절대로 작심삼일로 끝나지 않을 것이다! 연결 리스트 연속된 …">
-<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/2/17/13GQvW.jpg">
+<meta name="twitter:image" content="https://static.blex.me/images/title/baealex/2020/2/17/13GQvW.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>파이썬으로 구현한 자료구조 - 연결 리스트 – baealex</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/baealex/2020/2/17/13GQvW.jpg" alt="파이썬으로 구현한 자료구조 - 연결 리스트">
+        <img src="https://static.blex.me/images/title/baealex/2020/2/17/13GQvW.jpg" alt="파이썬으로 구현한 자료구조 - 연결 리스트">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'파이썬으로 구현한 자료구조' 시리즈</span>파이썬으로 구현한 자료구조 - 연결 리스트</h1>
             <p class="post-date fade-in">2019-09-02 09:34<span>(Last Update: 2020-02-17 13:00)<span></span></span></p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/baealex/OUJM.jpg)"></div>
         
     </a>
     <div class="author-info">
@@ -385,9 +385,9 @@ LinkedList Delete Node(1) :  [ 1, 15, 6 ]</code></pre>
 <li>노드 -&gt; 테일 -&gt; <code>new_node</code> -&gt; 헤드 -&gt; 노드 -&gt;</li>
 </ul>
 <p>아래는 극단적인 결과값이다. 1부터 10000까지 마지막 노드에 삽입했을때 걸린 시간이다.</p>
-<p><img src="https://static.blex.me/image/2020/2/17/W2TiCOryCSxHxuybSzYI.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/17/W2TiCOryCSxHxuybSzYI.png" alt=""></p>
 <p>▲ 단순 연결 리스트 사용시</p>
-<p><img src="https://static.blex.me/image/2020/2/17/gHO2FPlziNPjZbS2ep0C.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/2/17/gHO2FPlziNPjZbS2ep0C.png" alt=""></p>
 <p>▲ 원형 연결 리스트 사용시</p>
 <p><br></p>
 <h5>원형 연결 리스트 전체 소스코드</h5>
@@ -653,7 +653,7 @@ class DualLinkedList:
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="Zm7dskWht0ZACZunl3TQsKkmjxGVF6Oi1wsEWGy9hURhB6bFGUmT83Gq5brnNFe2">
+            <input type="hidden" name="csrfmiddlewaretoken" value="s8BgdPiGq0xZWdt4CKnHxX5mxrExqDyFiRdSwNzuQskwdMxI3mfrDSvtEOwrpFjD">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -673,10 +673,10 @@ class DualLinkedList:
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -696,7 +696,7 @@ class DualLinkedList:
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

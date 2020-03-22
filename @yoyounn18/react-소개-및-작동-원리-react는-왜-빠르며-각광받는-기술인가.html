@@ -27,19 +27,19 @@
 <meta property="og:title" content="React 소개 및 작동 원리 (React는 왜 빠르며 각광받는 기술인가)">
 <meta property="og:description" content="React란? 사용자 인터페이스를 만들기 위한 JavaScript 라이브러리 페이스북의 소프트웨어 엔지니어 Jordan Walke가 개발 페이스북, 인스타그램 등 넓게 사용되는 중 class HelloMessage extends React.Component { render() { return ( &amp;lt;div&amp;gt; Hello {this.props.name} &amp;lt;/div&amp;gt; ); } } ReactDOM.render( &amp;lt;HelloMessage name=&quot;Taylor&quot; /&amp;gt;, document.getElementById(&#39;hello-example&#39;) ); React 컴포넌트는 render()라는 메서드를 이용하여 데이터를 입력받아 화면에 표시할 …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/2019/10/11/yoyounn18/10_54_11.png">
+<meta property="og:image" content="https://static.blex.me/images/title/2019/10/11/yoyounn18/10_54_11.png">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="yoyounn18">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 소개 및 작동 원리 (React는 왜 빠르며 각광받는 기술인가)">
 <meta name="twitter:url" content="https://blex.me/@yoyounn18/react-%EC%86%8C%EA%B0%9C-%EB%B0%8F-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC-react%EB%8A%94-%EC%99%9C-%EB%B9%A0%EB%A5%B4%EB%A9%B0-%EA%B0%81%EA%B4%91%EB%B0%9B%EB%8A%94-%EA%B8%B0%EC%88%A0%EC%9D%B8%EA%B0%80">
 <meta name="twitter:description" content="React란? 사용자 인터페이스를 만들기 위한 JavaScript 라이브러리 페이스북의 소프트웨어 엔지니어 Jordan Walke가 개발 페이스북, 인스타그램 등 넓게 사용되는 중 class HelloMessage extends React.Component { render() { return ( &amp;lt;div&amp;gt; Hello {this.props.name} &amp;lt;/div&amp;gt; ); } } ReactDOM.render( &amp;lt;HelloMessage name=&quot;Taylor&quot; /&amp;gt;, document.getElementById(&#39;hello-example&#39;) ); React 컴포넌트는 render()라는 메서드를 이용하여 데이터를 입력받아 화면에 표시할 …">
-<meta name="twitter:image" content="https://static.blex.me/title/2019/10/11/yoyounn18/10_54_11.png">
+<meta name="twitter:image" content="https://static.blex.me/images/title/2019/10/11/yoyounn18/10_54_11.png">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>React 소개 및 작동 원리 (React는 왜 빠르며 각광받는 기술인가) – yoyounn18</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/2019/10/11/yoyounn18/10_54_11.png" alt="React 소개 및 작동 원리 (React는 왜 빠르며 각광받는 기술인가)">
+        <img src="https://static.blex.me/images/title/2019/10/11/yoyounn18/10_54_11.png" alt="React 소개 및 작동 원리 (React는 왜 빠르며 각광받는 기술인가)">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in">React 소개 및 작동 원리 (React는 왜 빠르며 각광받는 기술인가)</h1>
             <p class="post-date fade-in">2019-10-11 10:54</p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@yoyounn18">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/yoyounn18/BL4W.png)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/yoyounn18/BL4W.png)"></div>
         
     </a>
     <div class="author-info">
@@ -228,7 +228,7 @@ component라는 개념도 굉장히 흥미로웠다. 보여지는 HTML코드는 
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="5UOsb4ueVnEutgMuBvmWemHX0FOyUvaIGHuMeoCHvVIecryLtAw8jhfWqr2bYSZi">
+            <input type="hidden" name="csrfmiddlewaretoken" value="79Q8WYW80J7g1hQ1TIuBCijh6biNelq7B9fhWpP019PcFtCg297eznkYre6K0WTX">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -248,10 +248,10 @@ component라는 개념도 굉장히 흥미로웠다. 보여지는 HTML코드는 
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -271,7 +271,7 @@ component라는 개념도 굉장히 흥미로웠다. 보여지는 HTML코드는 
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     

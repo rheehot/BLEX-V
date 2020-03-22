@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Rust-Lang으로 알고리즘 문제 풀기 (기초 다지기) – baealex</title>
@@ -120,7 +120,7 @@
         <div class="row post-top-meta">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/baealex/OUJM.jpg)"></div>
         
     </a>
     <div class="author-info">
@@ -141,12 +141,12 @@
     </div>
 </div>
         <article class="article noto">
-            <p><img src="https://static.blex.kr/image/2020/3/6/S7aQtmtbLZ44EofMfAg0.png" alt=""></p>
+            <p><img src="https://static.blex.me/images/content/2020/3/6/S7aQtmtbLZ44EofMfAg0.png" alt=""></p>
 <blockquote>
 <p>2019-12-10에 작성한 러스트와 관련된 첫 글인데 이번이 두번째 쓰는 글이다. 2-3일은 무슨... 3달이 훌쩍 지나버렸다.</p>
 </blockquote>
 <p><br></p>
-<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/6/2KaTZCwYBtf5aw2Yi4qK.mp4" type="video/mp4"></video>
+<video autoplay muted loop><source src="https://static.blex.me/images/content/2020/3/6/2KaTZCwYBtf5aw2Yi4qK.mp4" type="video/mp4"></video>
 <p><br></p>
 <p>맨날 '해야지 해야지' 하면서 '해야지'만 맨날 하는중이다. 정말 너란 녀석... 이제는 진짜 <em>해야지!</em> 진짜 진짜 스스로와의 약속을 하겠다. 죽이되든 밥이되는 무엇이건 러스트를 이용해서 해결할 것이다. 함수형과 러스트에 익숙해지기 위해서 2일에 하나씩 30일간 15개의 개시글을 꼭 올린다! 차후엔 러스트를 이용해서 실사용 가능한 서비스를 만들고 싶다. 기존것을 러스트로 바꿔보던지. 이유는 없다 그냥 재밌어 보이기 때문에 도전하는 것이다!</p>
 <p><br></p>
@@ -170,8 +170,8 @@ fn main() {
         .expect("Falied to read line");
 }</code></pre>
 <p>입력은 위와같이 받았던 걸로 기억하는데 스플릿은 어떻게 하는거지?</p>
-<p><img src="https://static.blex.kr/image/2020/3/6/Y6ziy8i5P8CQdH9Oihi8.png" alt=""></p>
-<p><img src="https://static.blex.kr/image/2020/3/6/Mn4ewguZRRVZpm3PgD4F.jpeg" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/6/Y6ziy8i5P8CQdH9Oihi8.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/6/Mn4ewguZRRVZpm3PgD4F.jpeg" alt=""></p>
 <pre><code class="language-rust">let split_input_number = input_number.split(' ');
 for number in split_input_number {
     println!("{}", number);
@@ -197,7 +197,7 @@ fn main() {
 <p><br><br><br><br><br></p>
 <p>잠깐...</p>
 <p><br><br><br><br><br></p>
-<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/7/fz8x9FwK7BpPY1gZ3Ysf.mp4" type="video/mp4"></video>
+<video autoplay muted loop><source src="https://static.blex.me/images/content/2020/3/7/fz8x9FwK7BpPY1gZ3Ysf.mp4" type="video/mp4"></video>
 <p><code>split_input_number</code>에 어떻게... 접근하는 거지...</p>
 <pre><code class="language-rust">use std::io;
 
@@ -270,8 +270,8 @@ fn main() {
         },
     }
 }</code></pre>
-<p><img src="https://static.blex.kr/image/2020/3/7/H5BvVqfzksZJvkpfu4OJ.png" alt=""></p>
-<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/7/E5Ag1GJN5aHD3VJy21DI.mp4" type="video/mp4"></video>
+<p><img src="https://static.blex.me/images/content/2020/3/7/H5BvVqfzksZJvkpfu4OJ.png" alt=""></p>
+<video autoplay muted loop><source src="https://static.blex.me/images/content/2020/3/7/E5Ag1GJN5aHD3VJy21DI.mp4" type="video/mp4"></video>
 <p>난생처음 러스트로 문제를 풀어보았다. 문법 적응이 너무 안된다. 한문제를 더 풀어보자.</p>
 <p><br></p>
 <h4>상근날드</h4>
@@ -363,7 +363,7 @@ fn main() {
 
     println!("{:?}", bergers[0] + drinks[0] - 50);
 }</code></pre>
-<p><img src="https://static.blex.kr/image/2020/3/7/38x2udWbe61Yq7Vj7sp2.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/7/38x2udWbe61Yq7Vj7sp2.png" alt=""></p>
 <p>파이썬이면 5줄이면 짤 코드가 이렇게 길어지니 왠지 바보가 된 느낌이다. 이 또한 문법이 익숙해 지면서 차차 나아질 것이라 생각된다. 오늘은 러스트의 기본기(?)를 다졌으니 다음에는 파이썬으로 풀었던 코드를 러스트로 바꿔보는 시도를 해봐야겠다.</p>
         </article>
         <ul class="tag-list noto">
@@ -425,7 +425,7 @@ fn main() {
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="DR5rJKsRGzqbjsPxns7DH0kZKRMhYA3kBrF3aTFjDVMhdSWKCKOJYLHIgMJucbuG">
+            <input type="hidden" name="csrfmiddlewaretoken" value="ww4T16w9wZKNDd2nSRjwdqjjqEVo162VhLJjqjVxslsNwrp1RmVm7MrnFy3M8MoE">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -445,10 +445,10 @@ fn main() {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');

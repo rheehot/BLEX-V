@@ -27,19 +27,19 @@
 <meta property="og:title" content="Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)">
 <meta property="og:description" content="저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) &quot;개발자 능력 실화?&quot; K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 이 코드를 변환하는 이유는 필자의 궁금증을 해결하기 위함이다. 파이썬이기 때문에 25점을 받은건지, …">
 <meta property="og:site_name" content="BLEX">
-<meta property="og:image" content="https://static.blex.me/title/baealex/2020/3/8/23NIvq.jpg">
+<meta property="og:image" content="https://static.blex.me/images/title/baealex/2020/3/8/23NIvq.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:author" content="baealex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)">
 <meta name="twitter:url" content="https://blex.me/@baealex/rust-lang%EC%9C%BC%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EA%B8%B0-k%EB%B2%88%EC%A7%B8-%EC%86%8C%EC%88%98">
 <meta name="twitter:description" content="저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...) &quot;개발자 능력 실화?&quot; K번째 소수라는 문제의 파이썬 코드를 러스트로 변환해 볼 것이다. 이 코드를 변환하는 이유는 필자의 궁금증을 해결하기 위함이다. 파이썬이기 때문에 25점을 받은건지, …">
-<meta name="twitter:image" content="https://static.blex.me/title/baealex/2020/3/8/23NIvq.jpg">
+<meta name="twitter:image" content="https://static.blex.me/images/title/baealex/2020/3/8/23NIvq.jpg">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
     <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
-    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=5">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
     <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
     <title>Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수) – baealex</title>
@@ -50,7 +50,7 @@
 <style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
 <div>
     <picture class="post-title-image">
-        <img src="https://static.blex.me/title/baealex/2020/3/8/23NIvq.jpg" alt="Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)">
+        <img src="https://static.blex.me/images/title/baealex/2020/3/8/23NIvq.jpg" alt="Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)">
         <div class="post-image-mask mask-off">
             <h1 class="post-headline fade-in"><span class="post-series">'러스트 박살내기(?)' 시리즈</span>Rust-Lang으로 알고리즘 문제 풀기 (K번째 소수)</h1>
             <p class="post-date fade-in">2020-03-08 23:55<span>(Last Update: 2020-03-09 23:01)<span></span></span></p>
@@ -126,7 +126,7 @@
         <div class="row post-top-meta">
     <a href="/@baealex">
         
-        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/avatar/u/baealex/J8F4.jpg)"></div>
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/baealex/OUJM.jpg)"></div>
         
     </a>
     <div class="author-info">
@@ -150,7 +150,7 @@
             <p>저번에는 기초적인 문제로 기초적인 문법을 다뤘으니 이번엔 파이썬으로 작성한 코드중에 뭔가를 러스트로 변환해 보고자 하였다. 2가지 정도를 변환해 볼 것인데 이번에는 백준에서 무려 25점을 받았던 (...)</p>
 <p><br></p>
 <div style="text-align:center">
-<video autoplay muted loop><source src="https://static.blex.kr/image/2020/3/9/d0lQ6UzibRxmqupJuLXH.mp4" type="video/mp4"></video>
+<video autoplay muted loop><source src="https://static.blex.me/images/content/2020/3/9/d0lQ6UzibRxmqupJuLXH.mp4" type="video/mp4"></video>
 <p><span class="ns shallow-dark">"개발자 능력 실화?"</span></p>
 </div>
 <p><br></p>
@@ -255,7 +255,7 @@ fn main() {
     println!("{}", prime_of_number(input_int()));
 }</code></pre>
 <p>결과값 비교해보려고 파이썬과 러스트를 교차해서 실행했는데 파이썬에 값을 넣고 엔터를 치고 이후 러스트에 값 넣고 엔터를 쳤더니 러스트에서 결과가 먼저 나오는 걸 보고 굉장히 신기했다. 이대로라면 50점은 넘게 나오지 않을까!</p>
-<p><img src="https://static.blex.kr/image/2020/3/8/12Y8PgFZjpWHwcJekCr0.png" alt=""></p>
+<p><img src="https://static.blex.me/images/content/2020/3/8/12Y8PgFZjpWHwcJekCr0.png" alt=""></p>
 <p>예상외로 100점이 나와버렸다. <del>나는 똥멍청이가 아니었다!</del></p>
         </article>
         <ul class="tag-list noto">
@@ -317,7 +317,7 @@ fn main() {
             
             
             
-            <input type="hidden" name="csrfmiddlewaretoken" value="Jo1LuRdddrEGPB09jdY8l6epgDozucQoIGtnh6jCxvbkkS89kfBUxWofzuA0U0Qx">
+            <input type="hidden" name="csrfmiddlewaretoken" value="Q7W4ea96gzkBv8r7lAneSsfkCuupEto6XysTq4QubBvGTzu5oS8LKxRYKVTNq3Ah">
             <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
             
         
@@ -337,10 +337,10 @@ fn main() {
     <div id="notify-content"></div>
     <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
     <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=5"></script>
-    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=5"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         var csrftoken = getCookie('csrftoken');
@@ -360,7 +360,7 @@ fn main() {
     autolink($('#comment'));
 </script>
 
-<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=5"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
 
 
     
