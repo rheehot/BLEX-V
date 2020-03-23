@@ -1,0 +1,546 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="기본 좀 다지면서 리프레시 하기 위해 이전의 블로그 글을 옮겨온 글임 From. 14 Aug 2018 이전에 노트에 기록했던 내용을 블로그로 옮겨놓으려고 한다. 매우 기본적인 문법만 들어있다. 1. 변수 자바스크립트에는 변수형(int, double, string)이 존재하지 않는다. var 이라는 가변형 변수만 존재하여 초기화 할때 형태에 따라서 알아서 할당된다. var i; var x = …">
+<meta property="og:url" content="https://blex.me/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8javascript-%EA%B8%B0%EB%B3%B8-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="JavaScript 기본 문법 정리">
+<meta property="og:description" content="기본 좀 다지면서 리프레시 하기 위해 이전의 블로그 글을 옮겨온 글임 From. 14 Aug 2018 이전에 노트에 기록했던 내용을 블로그로 옮겨놓으려고 한다. 매우 기본적인 문법만 들어있다. 1. 변수 자바스크립트에는 변수형(int, double, string)이 존재하지 않는다. var 이라는 가변형 변수만 존재하여 초기화 할때 형태에 따라서 알아서 할당된다. var i; var x = …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/images/title/2020/3/23/baealex/23_sMIXpudF.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="baealex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 기본 문법 정리">
+<meta name="twitter:url" content="https://blex.me/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8javascript-%EA%B8%B0%EB%B3%B8-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC">
+<meta name="twitter:description" content="기본 좀 다지면서 리프레시 하기 위해 이전의 블로그 글을 옮겨온 글임 From. 14 Aug 2018 이전에 노트에 기록했던 내용을 블로그로 옮겨놓으려고 한다. 매우 기본적인 문법만 들어있다. 1. 변수 자바스크립트에는 변수형(int, double, string)이 존재하지 않는다. var 이라는 가변형 변수만 존재하여 초기화 할때 형태에 따라서 알아서 할당된다. var i; var x = …">
+<meta name="twitter:image" content="https://static.blex.me/images/title/2020/3/23/baealex/23_sMIXpudF.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>JavaScript 기본 문법 정리 – baealex</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/images/title/2020/3/23/baealex/23_sMIXpudF.png" alt="JavaScript 기본 문법 정리">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in">JavaScript 기본 문법 정리</h1>
+            <p class="post-date fade-in">2020-03-23 23:21<span>(Last Update: 2020-03-23 23:42)<span></span></span></p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(473);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(473)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=JavaScript 기본 문법 정리&url=https://blex.me/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8javascript-%EA%B8%B0%EB%B3%B8-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@baealex/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8javascript-%EA%B8%B0%EB%B3%B8-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@baealex">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/baealex/8Xy6.jpg)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a class="text-decoration-none" href="/@baealex">baealex</a></h4>
+        <ul class="author-state">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('baealex')">
+                <i class="fas fa-users"></i> <span id="user-follow">2</span>
+            </li>
+        </ul>
+        
+        <p class="author-description">소비적인 일보단 생산적인 일을 추구하며,
+좋아하는 일을 잘하고 싶어합니다 😀</p>
+        
+        
+        <a class="author-email d-block text-decoration-none" href="/login">Sign in to view email</a>
+        
+    </div>
+</div>
+        <article class="article noto">
+            <blockquote>
+<p>기본 좀 다지면서 리프레시 하기 위해 이전의 블로그 글을 옮겨온 글임 From. 14 Aug 2018</p>
+</blockquote>
+<p>이전에 노트에 기록했던 내용을 블로그로 옮겨놓으려고 한다. 매우 기본적인 문법만 들어있다.</p>
+<p><br></p>
+<h4>1. 변수</h4>
+<p>자바스크립트에는 변수형(int, double, string)이 존재하지 않는다. var 이라는 가변형 변수만 존재하여 초기화 할때 형태에 따라서 알아서 할당된다.</p>
+<pre><code class="language-js">var i;
+var x = 123;
+var y = "123";
+var z = false;
+var w = null;</code></pre>
+<p>덧붙히자면 <code>var</code>의 유효 범위는 함수 내부로 조건문이나 반복문 안에서 초기화 된 경우라도 함수 내부 블록이라면 어디서나 호출할 수 있다. 최신 자바스크립트에선 <code>let</code>이라는 블럭 지역 변수를 제공하고 있다.</p>
+<p><br></p>
+<h4>2. 연산자</h4>
+<p>+, -, *, /, % 등의 기본 연산은 물론 ++, --와 같은 증감 연산자도 사용할 수 있다.</p>
+<pre><code class="language-js">a = a + 1 (x)
+a += 1 (o)</code></pre>
+<p>이유는 모르겠지만 자바스크립트에서 위와같은 표현은 쓰지 말라고 돼있다. 무조건 할당 연산자를 사용하라고 한다. 가독성을 위함인가? 또한 자바스크립트는 자바와 마찬가지로 스트링 컨케트네이션이 되므로 문자열을 덧셈기호로 간단히 붙힐 수 있다.</p>
+<pre><code class="language-js">var s = "String1" + "String2";
+document.write(s);</code></pre>
+<pre><code>String1String2</code></pre>
+<p><br></p>
+<h4>3. 조건문</h4>
+<pre><code class="language-js">a==b
+a!=b
+a==b &amp;&amp; a==c
+a==b || a==c
+a &gt; b</code></pre>
+<pre><code class="language-js">if(a&gt;b) {
+    document.write("a is more than b.")
+} else if(a==b) {
+    document.write("a is the same as b.")
+} else {
+    document.write("a is less than b.")
+}</code></pre>
+<p><br></p>
+<h4>4. 함수</h4>
+<p>선언과 호출은 아래와 같이 작성한다.</p>
+<pre><code class="language-js">function send() {
+    alert('send');
+}
+
+send();</code></pre>
+<p>자바스크립트의 함수는 굉장히 다채롭게 선언할 수 있다. 가령 아래와 같이 함수를 생성할 수도 있다.</p>
+<pre><code class="language-js">send = function() {
+    alert('send');
+}
+
+send();</code></pre>
+<p>최근 자바스크립트 문법에선 화살표 함수라는 개념이 도입되어 아래와 같이 생성할 수도 있다.</p>
+<pre><code class="language-js">send = () =&gt; {
+    alert('send');
+}
+
+send();</code></pre>
+<p>위처럼 여러가지 형식을 가지고 있는데 정해진 규칙은 없으므로 자신이 원하는 방식으로 일관성 있게 작성하면 된다. 다만 화살표 함수의 경우엔 구형 브라우저에선 인식되지 않을 수 있다.</p>
+<p>값을 반환하는 함수는 아래와 같이 작성</p>
+<pre><code class="language-js">var a=10;
+var b=20;
+var sum = add(a, b);
+
+function add(value1, value2) {
+    return value1 + value2;
+}
+
+document.write(sum);</code></pre>
+<pre><code>30</code></pre>
+<p><br></p>
+<h4>5. 배열</h4>
+<p>변수의 값이 연속적으로 나열된 형식</p>
+<p><br></p>
+<h6>배열의 선언</h6>
+<pre><code class="language-js">var arr = new Array;
+var arr = [];</code></pre>
+<p><br></p>
+<h6>배열에 값 삽입</h6>
+<pre><code class="language-js">var job = [];
+job[0] = "Warrior";
+job[1] = "Archer";
+job[2] = "Wizard";
+
+var job = ["Warrior", "Archer", "Wizard"];</code></pre>
+<p><br></p>
+<h6>배열과 관련된 메소드</h6>
+<pre><code class="language-js">var job = ["Warrior", "Archer", "Wizard"];
+document.write("Total Jobs : " + job.length);</code></pre>
+<pre><code>Total Jobs : 3</code></pre>
+<p>length는 메서드라 표현하기 애매하다. 자바스크립트에서 Array는 하나의 객체이며 length는 Array가 가진 멤버 변수로 보여진다. 배열의 길이가 필요할 때마다 길이를 읽어오는 것 보단 O(N) 길이를 가지고 있는게 O(1) 효율적일 테니까</p>
+<p><br></p>
+<pre><code class="language-js">var job = ["Warrior", "Archer", "Wizard"];
+document.write("Total Jobs : " + job.join(","));</code></pre>
+<pre><code>Total Jobs Name : Warrior,Archer,Wizard</code></pre>
+<p><br></p>
+<pre><code class="language-js">var job = ["Warrior", "Archer", "Wizard"];
+document.write("Total Jobs Reverse : " + job.reverse());</code></pre>
+<pre><code>Total Jobs Name : Wizard,Archer,Warrior</code></pre>
+<p><br></p>
+<pre><code class="language-js">var job = ["Warrior", "Archer", "Wizard"];
+document.write("Total Jobs Sort : " + job.sort());</code></pre>
+<pre><code>Total Jobs Sort : Archer,Warrior,Wizard</code></pre>
+<p><br></p>
+<pre><code class="language-js">var job = ["Warrior", "Archer", "Wizard"];
+var DLC_job = ["Assassin", "Samurai"]
+document.write("Total Jobs : " + job.concat(DLC_job));</code></pre>
+<pre><code>Total Jobs : Warrior,Archer,Wizard,Assassin,Samurai</code></pre>
+<p><br></p>
+<pre><code class="language-js">var job = ["Warrior", "Archer", "Wizard"];
+document.write("&lt;p&gt;" + "Total Jobs : " + job.push("Devil", "Outlaw" + "&lt;/p&gt;"));
+document.write("&lt;p&gt;" + "Total Jobs : " + job.pop( + "&lt;/p&gt;"));</code></pre>
+<pre><code>Total Jobs : 5
+Total Jobs : Outlaw</code></pre>
+<p>push와 pop은 자료구조 Stack에서 다뤄지며 javascript에도 동일한 기능을 수행한다. push는 맨 뒤에 요소를 삽입 pop은 맨 뒤 요소를 꺼내는 것이다.</p>
+<p><br></p>
+<pre><code class="language-js">var job = ["Warrior", "Archer", "Wizard"];
+job.shift();
+job.unshift("Knight")
+document.write("Total Jobs : " + job);</code></pre>
+<pre><code>Total Jobs : Knight,Archer,Wizard</code></pre>
+<p>shift, unshift는 맨 앞에 요소를 빼거나 삽입하는 기능을 한다.</p>
+<p><br></p>
+<h4>6. 오브젝트(Object)</h4>
+<p>구조체(struct) 처럼 내부에 여러 변수를 가질 수 있고 클래스(class)처럼 내부에 메소드를 포함하고 있는 형식이다. JSON이라고 많이 알려진 형식이다.</p>
+<p><br></p>
+<h6>오브젝트의 선언</h6>
+<pre><code class="language-js">var obj = new Object;
+var obj = {};</code></pre>
+<p><br></p>
+<h6>변수를 가진 오브젝트</h6>
+<p>hp와 mp를 가진 player를 생성해보자.</p>
+<pre><code class="language-json">var player = {};
+player.hp = 100;
+player.mp = 300;
+
+var player = {
+    hp : 100,
+    mp : 300
+};</code></pre>
+<p><br></p>
+<h6>메소드를 가진 오브젝트</h6>
+<p>플레이어가 후려맞은(?) 기능을 넣어보자</p>
+<pre><code class="language-js">var player = {
+    hp : 100,
+    mp : 300,
+    hit : function() {
+        this.hp -= 10;
+        document.write("HIT!!");
+    }
+};
+player.hit();
+document.write(player.hp);</code></pre>
+<pre><code>HIT!!90</code></pre>
+<p><br></p>
+<h6>오브젝트 할당</h6>
+<p>위는 플레이어가 선언됨과 동시에 사용되고 있다. 만일 클래스 혹은 구조체처럼 단지 구조만 선언하고 싶은 경우엔 어떻게 표현할 수 있을까? 오브젝트를 함수로 선언하면 된다.</p>
+<pre><code class="language-js">var player = function(name) {
+    var name = name;
+    var hp = 100;
+    var mp = 300;
+    return {
+        hit: function(damege) {
+            hp -= damege;
+            document.write("HIT!!");
+        }
+        die: function() {
+            return hp == 0 ? true : false;
+        }
+    }
+}
+
+var medic = new player('medic');
+medic.hit(50);
+document.write(medic.die());
+
+var fireBet = new player('fireBet');
+fireBet.hit(100);
+document.write(fireBet.die());</code></pre>
+<p>위가 클로져라는 개념을 응용한 방식인데 여하지간 위와같이 선언하여 하나의 구조체를 여러 변수에서 할당받아 사용할 수 있다.</p>
+<p><br></p>
+<h4>7. 반복문</h4>
+<p>반복문이 이렇게 아래에 나오는 이유는 위에서 얻은 개념으로 반복문을 더욱 효율적으로 응용할 수 있기 때문이다. 아래는 가장 기본적으로 사용되는 방식의 반복문이다.</p>
+<pre><code class="language-js">for(var i=0; i&lt;5; i++) {
+    document.write(i);
+}</code></pre>
+<pre><code class="language-js">var i = 0;
+while(i&lt;5) {
+    document.write(i);
+    i++;
+}</code></pre>
+<pre><code>01234</code></pre>
+<p><br></p>
+<h6>for (변수 in 객체 또는 배열)</h6>
+<pre><code class="language-js">arr = [10, 20, 30, 40, 50];
+
+for(var i in arr) {
+    document.write(i);
+}</code></pre>
+<pre><code>01234</code></pre>
+<p>in의 경우에는 배열이나 객체의 갯수의 인덱스가 <code>i</code>에 할당되어 반복이 진행된다.</p>
+<p><br></p>
+<h6>for (변수 of 객체 또는 배열)</h6>
+<pre><code class="language-js">arr = [10, 20, 30, 40, 50];
+
+for(var i of arr) {
+    document.write(i);
+}</code></pre>
+<pre><code>1020304050</code></pre>
+<p>of의 경우에는 배열이나 객체의 값이 <code>i</code>에 할당되어 반복이 진행된다. 혹은 forEach나 map을 이용해서 객체의 반복을 실행할 수도 있다.</p>
+<pre><code class="language-js">arr = [10, 20, 30, 40, 50];
+
+arr.forEach((value) =&gt; {
+    document.write(value);
+});
+
+arr.map((value) =&gt; {
+    document.write(value);
+});</code></pre>
+<p>둘다 똑같이 아래의 결과를 출력한다.</p>
+<pre><code>1020304050</code></pre>
+<p>속도는 forEach가 빠르다고 알려져있다. map에선 값과 동시에 인덱스를 출력 할 수도 있다.</p>
+<pre><code class="language-js">arr = [10, 20, 30, 40, 50];
+
+arr.map((value, index) =&gt; {
+    // value = 10, index = 0
+    // value = 20, index = 1
+    // value = 30, index = 2
+    // value = 40, index = 3
+    // value = 50, index = 4
+});</code></pre>
+<p><br></p>
+<h4>8. 문자열</h4>
+<p>문자열은 가장 기본적인 구조인데 이렇게 뒤에 있는 이유는 알아둬야 할 기능이 생각보다 많아서다. 그 중에도 간단하고 중요한 것만 기록할 예정이다.</p>
+<pre><code class="language-js">var Welcome = "ONDE Planet is the most peaceful space in the universe";
+
+document.write(Welcome.charAt(0));
+// charAt(n) : n번째 문자를 출력한다. 결과는 O
+
+document.write(Welcome.charCodeAt(0));
+// charCodeAt(n) : n번째 문자의 유니코드를 출력한다. 결과는 79
+
+document.write(Welcome.indexOf("x"));
+// indexOf("?") : ?라는 글자가 있다면 true(0), 없다면 false(-1)을 출력한다. 결과는 -1
+
+document.write(Welcome.replace("peaceful", "nasty"));
+// replace("a", "b") : a를 b로 교체한다. 결과는 ONDE Planet is the most nasty space in the universe.
+
+document.write(Welcome.search("universe"));
+// search("?") : ?라는 글자를 검색하여 첫 문자의 시작 지점을 알려준다. 결과는 46
+
+document.write(Welcome.slice(0,4));
+// slice(n, n') : n~n'+1 까지의 문자를 가져온다. 결과는 ONDE
+
+document.write(Welcome.split(" "));
+// split("?") : ?라는 문자를 기준으로 문자열을 분리한다. 결과는 ONDE,Planet,is,the,most,peaceful...
+
+document.write(Welcome.trim());
+// trim() : 앞, 뒤의 공백을 제거하는 역할을 한다. 이 값에서는 앞뒤에 공백이 없으므로 결과가 없다.
+
+document.write(Welcome.length);
+// length : 문자열의 길이를 반환한다. 결과는 55</code></pre>
+<p><br></p>
+<h6>더 알야할 내용들</h6>
+<p>relace의 경우에는 처음 발견된 문장만 변경하는데 만일 다수의 문장을 변경하고 싶은 경우엔 어떻게 할 수 있을까? 가령 replaceAll 처럼 말이다.</p>
+<pre><code class="language-js">document.write(Welcome.replace(/ /gi, "-"));
+// 모든 공백이 -로 바뀐다.</code></pre>
+<p>slice에는 음수를 넣을 수 있다. 음수를 선택하면 뒤에부터 가져오므로 상당히 유용한 기능이며 배열에도 사용할 수 있다.</p>
+<pre><code class="language-js">document.write(Welcome.slice(-3));
+// 맨 뒤에 3글자만 가져온다.</code></pre>
+<p><br></p>
+<h4>9. 수학연산</h4>
+<p>Math라는 기능을 이용하여 사용할 수 있는 연산들이다.</p>
+<pre><code class="language-js">Math.abs(-3);
+// Math.abs(n) : n을 절댓값으로 바꾼다.
+
+Math.ceil(3.1);
+// Math.ceil(n) : n값을 올림한다.
+
+Math.floor(3.9);
+// Math.floor(n) : n값을 내림한다.
+
+Math.round(3.5);
+// Math.round(n) : n값을 반올림한다.
+
+var a = Math.random();
+// Math.random() : 난수를 생성한다.
+
+var b = Math.random()*10+10;
+// Math.random()*x+y : y~x+y 범위에서 난수가 생성된다.
+
+var c = Math.floor(Math.random() * (max - min)) + min;
+// min 부터 max - 1 까지 범위의 난수</code></pre>
+<p><br></p>
+<h4>10. 형변환</h4>
+<pre><code class="language-js">// Num -&gt; String
+num = 2018;
+var str = string(num);
+var str = num.toString();
+
+// String -&gt; Num
+var str = "2018.08";
+var mInt = Number(str); // 2018
+var mInt = parseInt(str); // 2018
+var mFloat = parseFloat(str); // 2018.08
+
+// JSON -&gt; String
+var myInfo = {
+    name: '배진오',
+    age: 24,
+};
+console.log(myInfo);
+// 위와같이 출력하면 Object로 출력됨
+console.log(JSON.stringify(myInfo));
+// 위와같이 출력해야 문자열 JSON으로 출력됨
+
+var myInfoStr = JSON.stringify(myInfo);
+var transMyInfoToJSON = JSON.parse(myInfoStr);
+// JSON 형식의 문자열이라면 parse를 이용해서 JSON으로 변환할 수 있음</code></pre>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@baealex/topic/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+            
+            <li><a href="/@baealex/topic/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8">자바스크립트</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="xWfT1aVj3uUcnl27ZbMlIRoOQLIZ71ZjlEQl71XVf9I1Prkwfzp2Q0d9K6bN8HnU">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
+
+
+    
+</body>
+</html>

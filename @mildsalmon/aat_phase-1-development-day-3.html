@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="theme-color" content="#000">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script data-ad-client="ca-pub-1254068519466911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113864080-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113864080-4');
+    </script>
+    
+<meta name="description" content="공부를 통해 새로 알게된 부분 TrCode opw00018 - 계좌 평가 잔고 내역 요청 싱글 데이터 멀티 데이터 종목의 개수 얻어와서 활용. 한 번의 TR 요청으로 최대 20개의 보유 종목에 대한 데이터를 얻음 싱글 데이터와 멀티 데이터를 저장하기 위해 메서드 생성해야함. opw00001 - 예수금 상세 현황 요청 TR 요청 및 데이터를 …">
+<meta property="og:url" content="https://blex.me/@mildsalmon/aat_phase-1-development-day-3">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AAT_Phase 1. Development day 3">
+<meta property="og:description" content="공부를 통해 새로 알게된 부분 TrCode opw00018 - 계좌 평가 잔고 내역 요청 싱글 데이터 멀티 데이터 종목의 개수 얻어와서 활용. 한 번의 TR 요청으로 최대 20개의 보유 종목에 대한 데이터를 얻음 싱글 데이터와 멀티 데이터를 저장하기 위해 메서드 생성해야함. opw00001 - 예수금 상세 현황 요청 TR 요청 및 데이터를 …">
+<meta property="og:site_name" content="BLEX">
+<meta property="og:image" content="https://static.blex.me/images/title/2020/3/23/mildsalmon/21_iNTXCsmG.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="mildsalmon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AAT_Phase 1. Development day 3">
+<meta name="twitter:url" content="https://blex.me/@mildsalmon/aat_phase-1-development-day-3">
+<meta name="twitter:description" content="공부를 통해 새로 알게된 부분 TrCode opw00018 - 계좌 평가 잔고 내역 요청 싱글 데이터 멀티 데이터 종목의 개수 얻어와서 활용. 한 번의 TR 요청으로 최대 20개의 보유 종목에 대한 데이터를 얻음 싱글 데이터와 멀티 데이터를 저장하기 위해 메서드 생성해야함. opw00001 - 예수금 상세 현황 요청 TR 요청 및 데이터를 …">
+<meta name="twitter:image" content="https://static.blex.me/images/title/2020/3/23/mildsalmon/21_iNTXCsmG.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/bootstrap.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/library/prism.css">
+    <link rel="stylesheet" href="https://static.blex.me/assets/css/main.css?v=7">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Noto+Sans+KR">
+    <link rel="icon" href="https://static.blex.me/assets/images/logo.png">
+    <title>AAT_Phase 1. Development day 3 – mildsalmon</title>
+</head>
+<body>
+    
+
+<style>.content {margin-top: 20px;} #top-nav {background: rgba(0, 0, 0, 0); position: absolute;}</style>
+<div>
+    <picture class="post-title-image">
+        <img src="https://static.blex.me/images/title/2020/3/23/mildsalmon/21_iNTXCsmG.png" alt="AAT_Phase 1. Development day 3">
+        <div class="post-image-mask mask-off">
+            <h1 class="post-headline fade-in"><span class="post-series">'졸업작품 (AAT)' 시리즈</span>AAT_Phase 1. Development day 3</h1>
+            <p class="post-date fade-in">2020-03-23 21:12</p>
+        </div>
+    </picture>
+</div>
+
+
+    
+    <nav id="top-nav" class="navbar navbar-expand-sm navbar-dark bg-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blex.me">
+                <img src="https://static.blex.me/assets/images/logor.png" width="35" height="35" alt="">
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">로그인 <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">회원가입 <i class="fas fa-users"></i></a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+        
+<div class="row">
+    <div class="col-lg-2">
+        <div class="sticky-top sticky-top-200 sticky-margin-top-40">
+    <div class="share">
+        <ul class="px-3">
+            <li class="mx-4">
+                <a id="heart" href="javascript:void(0);" onclick="Posts.like(471);">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a id="like-count" class="mobile-disable text-decoration-none" href="javascript:void(0);" onclick="Posts.like(471)">0<a>
+            </a></a></li>
+            
+            <li class="mx-4">
+                <a href="javascript:void(0)" onclick="moveSlide('comment')">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a class="mobile-disable text-decoration-none" href="javascript:void(0)" onclick="moveSlide('comment')">0</a>
+            </li>
+            
+            <li class="mx-4">
+                <a href="https://twitter.com/intent/tweet?text=AAT_Phase 1. Development day 3&url=https://blex.me/@mildsalmon/aat_phase-1-development-day-3" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="mx-4">
+                <a href="https://facebook.com/sharer.php?u=https://blex.me/@mildsalmon/aat_phase-1-development-day-3" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="col-lg-8">
+        
+        
+        <div class="row post-top-meta">
+    <a href="/@mildsalmon">
+        
+        <div class="back-image thumb author-thumb" style="background-image:url(https://static.blex.me/images/avatar/u/mildsalmon/WgGq.png)"></div>
+        
+    </a>
+    <div class="author-info">
+        <h4><a class="text-decoration-none" href="/@mildsalmon">mildsalmon</a></h4>
+        <ul class="author-state">
+            <li><i class="fas fa-battery-full"></i> 95%</li>
+            <li class="c-pointer" onclick="User.follow('mildsalmon')">
+                <i class="fas fa-users"></i> <span id="user-follow">1</span>
+            </li>
+        </ul>
+        
+        <p class="author-description">작은 불편함을 해소하기 위해 개발하는 연구원.</p>
+        
+        
+        <a class="author-email d-block text-decoration-none" href="/login">Sign in to view email</a>
+        
+    </div>
+</div>
+        <article class="article noto">
+            <h1>공부를 통해 새로 알게된 부분</h1>
+<ul>
+<li>TrCode<ul>
+<li>opw00018 - 계좌 평가 잔고 내역 요청<ul>
+<li>싱글 데이터</li>
+<li>멀티 데이터<ul>
+<li>종목의 개수 얻어와서 활용.</li>
+<li>한 번의 TR 요청으로 최대 20개의 보유 종목에 대한 데이터를 얻음</li>
+</ul>
+</li>
+<li>싱글 데이터와 멀티 데이터를 저장하기 위해 메서드 생성해야함.</li>
+</ul>
+</li>
+<li>opw00001 - 예수금 상세 현황 요청</li>
+</ul>
+</li>
+<li>TR 요청 및 데이터를 가져오는 과정<ul>
+<li>SetInputValue 메서드를 호출해서 입력 데이터 설정. → pytrader.py에서 처리</li>
+<li>CommRqData 메서드를 호출해서 TR을 서버로 전송 → pytrader.py에서 처리</li>
+<li>TR이 서버로 전송된 후 서버로부터 이벤트가 발생할 때까지 대기.<ul>
+<li>OnReceiveTrData 이벤트 (시그널) → _receive_tr_data 슬롯 연결</li>
+<li>_receive_tr_data 메서드는 TR별로 처리 (TR에 맞는 메서드 호출)</li>
+</ul>
+</li>
+<li>서버로부터 이벤트가 발생하면 CommGetData 메서드를 통해 수신 데이터 가져오기<ul>
+<li>TR별로 처리하는 메서드에서 CommGetData 메서드 호출</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://static.blex.me/images/content/2020/3/23/mildsalmon/21_EBtRZQY9CqrIPGhJ8bNQ.png" alt=""></p>
+<ul>
+<li>static method</li>
+<li>format 함수</li>
+<li>.startswith 함수</li>
+<li>QTimer</li>
+</ul>
+<h1>좀 더 공부해야하는 부분</h1>
+<ul>
+<li>QTimer</li>
+<li>static method</li>
+<li>format 함수<ul>
+<li>.startswith 함수</li>
+</ul>
+</li>
+</ul>
+<h1>한줄평</h1>
+<p>오늘 개발한 부분은 특히 중요하다고 생각한다. 거래와 잔고를 파악하는 기초를 만들었으니까.</p>
+<h1>오늘 작성한 코드</h1>
+<p><a href="https://github.com/mildsalmon/AAT/commit/3688c04738ee73d6611e956d874843acca8d7a63">Development day 3 · mildsalmon/AAT@3688c04</a></p>
+        </article>
+        <ul class="tag-list noto">
+            
+            <li><a href="/@mildsalmon/topic/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88">졸업작품</a></li>
+            
+            <li><a href="/@mildsalmon/topic/aat">aat</a></li>
+            
+        </ul>
+        
+            <div class="my-4 noto text-center">
+    <hr class="gradient-hr">
+    <h5 class="serif py-4">
+        <a href="/@mildsalmon/series/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-aat" class="text-decoration-none deep-dark">
+            '졸업작품 (AAT)' 시리즈
+        </a>
+    </h5>
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+        
+            <a class="text-decoration-none deep-dark" href="/@mildsalmon/aat_phase-1-development-day-2?series=졸업작품-aat">
+                <div class="col-md-12 rounded p-3 mt-3 bg-light">
+                    <i class="fas fa-arrow-circle-left vivid-purple"></i><br>AAT_Phase 1. Development Day 2
+                </div>
+            </a>
+        
+        </div>
+        <div class="col-md-6">
+        
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="col-lg-2 mobile-disable">
+        <div id="article-nav" class="sticky-top sticky-top-100"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="py-5 bg-comment">
+    <div class="container">
+        <div class="col-lg-8 mx-auto px-0">
+            
+            <div id="comment">
+                
+                <div id="comment-empty" class="comment-list noto s-shadow">
+                    작성된 댓글이 없습니다!
+                </div>
+                
+            </div>
+            
+            
+            
+            <input type="hidden" name="csrfmiddlewaretoken" value="nMDMMk3irkBZOvYl75liZfNUvrML8X5eHtRO4jvt37CUG9kw7s4yDSEflAhlNqeU">
+            <div class="alert alert-warning s-shadow">로그인된 사용자만 댓글을 작성할 수 있습니다.</div>
+            
+        
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+    <footer class="page-footer font-small bg-theme">
+    
+        <div class="footer-copyright text-center py-3">Copyright 2019 &copy; <a style="color:#fff" href="https://im.baejino.com">BaeJino</a>.
+    </div>
+</footer>
+
+    <div id="notify-content"></div>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/jquery.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/library/bootstrap.js"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/common.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/render.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/action.js?v=7"></script>
+    <script type="text/javascript" src="https://static.blex.me/assets/js/event.js?v=7"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    });
+    </script>
+    
+<script type="text/javascript" src="https://static.blex.me/assets/library/prism.js"></script>
+<script type="text/javascript" src="https://static.blex.me/assets/library/autolink.js"></script>
+<script>
+    autolink($('#comment'));
+</script>
+
+<script type="text/javascript" src="https://static.blex.me/assets/js/navigation.js?v=7"></script>
+
+
+    
+</body>
+</html>
